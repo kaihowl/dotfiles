@@ -37,28 +37,6 @@ set-option -g history-limit 10000
 
 set-option -g renumber-windows on
 
-
-# Original tmuxline snapshot
-set -g status-justify "left"
-set -g status "on"
-set -g status-left-style "none"
-# set -g message-command-style "fg=colour7,bg=colour14"
-set -g status-right-style "none"
-# set -g pane-active-border-style "fg=colour11"
-set -g status-style "none,bg=colour14"
-# set -g message-style "fg=colour7,bg=colour14"
-# set -g pane-border-style "fg=colour14"
-set -g status-right-length "100"
-set -g status-left-length "100"
-setw -g window-status-activity-style "none"
-setw -g window-status-separator ""
-# setw -g window-status-style "none,fg=colour1,bg=colour2"
-# set -g status-left "#[fg=colour7,bg=colour11,bold] #S #[fg=colour11,bg=colour7,nobold,nounderscore,noitalics]"
-# set -g status-right "#[fg=colour14,bg=colour7,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour14] %Y-%m-%d | %H:%M #[fg=colour11,bg=colour14,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour11] #h "
-# setw -g window-status-format "#[fg=colour7,bg=colour14] #I |#[fg=colour7,bg=colour14] #W "
-
-# setw -g window-status-current-format "#[fg=colour14,bg=colour7,nobold,nounderscore,noitalics]#[fg=colour14,bg=colour7] #I | #{?window_zoomed_flag,#[fg=red](,#[fg=colour14]}#[bg=colour7] #W #{?window_zoomed_flag,#[fg=red]),} #[fg=colour14,bg=colour7,nobold,nounderscore,noitalics]"
-
 if-shell "test -f $DOTS/tmux/tmuxline-snapshot.conf" "source-file $DOTS/tmux/tmuxline-snapshot.conf"
 
 bind c new-window -c "#{pane_current_path}"

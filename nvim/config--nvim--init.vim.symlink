@@ -76,8 +76,17 @@ syntax enable
 
 set background=dark
 
-" " configure tmuxline
-" let g:tmuxline_powerline_separators = 0
+" configure tmuxline
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = {
+    \'a'       : '#S',
+    \'y'       : ['%Y-%m-%d', '%H:%M'],
+    \'z'       : '#h',
+    \'win'     : ['#I', '#W'],
+    \'cwin'    : ['#I', '#{?window_zoomed_flag,(,} #W #{?window_zoomed_flag,),}'],
+    \'x'       : '%a',
+    \'options' : {'status-justify' : 'left'}}
+
 
 " The configuration options should be placed before `colorscheme edge`.
 let g:edge_enable_italic = 1
