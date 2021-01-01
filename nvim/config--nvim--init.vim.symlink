@@ -65,7 +65,8 @@ Plug 'jremmen/vim-ripgrep'
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
-Plug 'sainnhe/edge'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
@@ -88,11 +89,8 @@ let g:tmuxline_preset = {
     \'options' : {'status-justify' : 'left'}}
 
 
-" The configuration options should be placed before `colorscheme edge`.
-let g:edge_enable_italic = 1
-let g:edge_disable_italic_comment = 0
-let g:edge_diagnostic_line_highlight = 1
-colorscheme edge
+let g:airline_theme='onehalfdark'
+colorscheme onehalfdark
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
