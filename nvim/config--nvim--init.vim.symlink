@@ -59,13 +59,13 @@ Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
-" Plug 'reedes/vim-colors-pencil'
-Plug 'altercation/vim-colors-solarized'
+Plug 'reedes/vim-colors-pencil'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'jremmen/vim-ripgrep'
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
-Plug 'sainnhe/edge'
+" Plug 'sainnhe/edge'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
@@ -89,10 +89,14 @@ let g:tmuxline_preset = {
 
 
 " The configuration options should be placed before `colorscheme edge`.
-let g:edge_enable_italic = 1
-let g:edge_disable_italic_comment = 0
-let g:edge_diagnostic_line_highlight = 1
-colorscheme edge
+let g:pencil_neutral_headings = 0   " 0=blue (def), 1=normal
+let g:pencil_neutral_code_bg = 0   " 0=gray (def), 1=normal
+let g:pencil_gutter_color = 1      " 0=mono (def), 1=color
+let g:pencil_spell_undercurl = 1       " 0=underline, 1=undercurl (def)
+let g:pencil_terminal_italics = 1
+let g:airline_theme = 'pencil'
+
+colorscheme pencil
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
