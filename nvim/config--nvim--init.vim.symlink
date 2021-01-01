@@ -66,6 +66,9 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
 Plug 'sainnhe/edge'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
