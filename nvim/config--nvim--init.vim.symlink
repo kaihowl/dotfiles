@@ -88,6 +88,8 @@ Plug 'jaxbot/semantic-highlight.vim'
 
 Plug 'tommcdo/vim-fubitive'
 
+Plug 'drmikehenry/vim-headerguard'
+
 call plug#end()
 
 syntax enable
