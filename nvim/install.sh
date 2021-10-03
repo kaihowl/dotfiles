@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 # Installing vim because the apple-supplied vim is outdated
 # Furthermore has('macunix') does not work in apple vim
