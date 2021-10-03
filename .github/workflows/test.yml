@@ -22,6 +22,7 @@ jobs:
         shell: bash
         run: |
           export HOME=$(pwd)
+          rm -rvf ${HOME}/.local/share/nvim/shada/main.shada
           cd .dotfiles/
           if [[ "${{ matrix.os }}" == macos* ]]; then
             # Remove a download bandwidth hog often installed on GitHub runners
