@@ -22,6 +22,8 @@ jobs:
         shell: bash
         run: |
           export HOME=$(pwd)
+          env
+          export XDG_CONFIG_HOME=$(pwd)/.config
           rm -rvf ${HOME}/.local/share/nvim/shada/main.shada
           cd .dotfiles/
           if [[ "${{ matrix.os }}" == macos* ]]; then
