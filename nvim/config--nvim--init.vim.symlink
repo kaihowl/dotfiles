@@ -96,6 +96,8 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'tommcdo/vim-fubitive'
 
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 syntax enable
@@ -673,7 +675,13 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
-    { name = 'buffer' },
+    { name = 'buffer',
+      opts = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end
+      }
+    },
   },
   sorting = {
     comparators = {
