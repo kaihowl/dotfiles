@@ -18,7 +18,7 @@ if [ -d "$checkout_path" ]; then
     # Older zsh templates did not export ZSH var
     export ZSH=$checkout_path
   fi
-  zsh -i -c "source ${checkout_path}/lib/functions.zsh && upgrade_oh_my_zsh"
+  zsh -i -c "omz update"
 else
   ../git/install.sh
   git clone git://github.com/robbyrussell/oh-my-zsh.git $checkout_path
