@@ -373,6 +373,7 @@ let g:tagbar_show_linenumbers=-1
 " Set smart case for rg
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden
+  let &grepformat="%f:%l:%c:%m"
 endif
 
 augroup myvimrc
