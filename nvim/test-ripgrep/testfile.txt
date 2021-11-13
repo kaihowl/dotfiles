@@ -1,0 +1,4 @@
+we expected the cursor to be on the second line
+at exactly this position >> . <<
+and not here
+and not on the start of the line
