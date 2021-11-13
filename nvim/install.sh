@@ -15,7 +15,10 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # Stable clipboard support
   apt_install --no-install-recommends xclip
 fi
-sudo pip3 install --upgrade pynvim
+
+source $DOTS/common/pip.sh
+ensure_pip_installed
+sudo python3 -m pip install --upgrade pynvim
 
 # update packages in Plug
 # install plug if not already installed

@@ -1,9 +1,7 @@
 #!/bin/bash -e
 
-if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source $DOTS/common/apt.sh
-  apt_install --no-install-recommends python3-pip
-fi
+source $DOTS/common/pip.sh
+ensure_pip_installed
 
 # Install autopep8 to activate optional source formatting in pyls
-sudo pip3 install --upgrade python-language-server[all] autopep8
+sudo python3 -m pip install --upgrade python-language-server[all] autopep8
