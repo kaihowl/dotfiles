@@ -14,8 +14,10 @@ git clone https://github.com/kaihowl/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 # Actual sourcing/linking of dotfiles
 script/bootstrap
-# Optionally install packages (if need be)
+# Optionally, install packages
 script/install
+# Optionally, run the tests
+script/test
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
