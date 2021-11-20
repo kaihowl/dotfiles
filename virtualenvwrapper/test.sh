@@ -3,6 +3,8 @@
 # I could not get the test to pass with it activated. If the actual expectations
 # of this test are not met, the test will still reliably fail, though.
 
+echo "Check: VIRTUALENVWRAPPER_PYTHON: ${VIRTUALENVWRAPPER_PYTHON}"
+
 echo "Check if 'mkvirtualenv' is available"
 which mkvirtualenv
 if [ $? != 0 ]; then
