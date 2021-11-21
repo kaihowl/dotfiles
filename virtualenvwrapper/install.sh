@@ -9,6 +9,9 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   apt_install python3-virtualenvwrapper
 fi
 
+# Not using in place editing as macOS and GNU sed
+# have incompatible -i options. 
 touch ~/.zprofile
-sed -i ".backup" "/^export VIRTUALENVWRAPPER_PYTHON.*$/d" ~/.zprofile
-echo "export VIRTUALENVWRAPPER_PYTHON=$(which python3)" >> ~/.zprofile
+sed "/^export VIRTUALENVWRAPPER_PYTHON.*$/d" ~/.zprofile > ~/.zprofilenew
+echo "export VIRTUALENVWRAPPER_PYTHON=$(which python3)" >> ~/.zprofilenew
+mv ~/.zprofilenew ~/.zprofile 
