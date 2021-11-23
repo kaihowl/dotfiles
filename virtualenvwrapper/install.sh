@@ -10,8 +10,9 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
 fi
 
 # Not using in place editing as macOS and GNU sed
-# have incompatible -i options. 
+# have incompatible -i options.
 touch ~/.zprofile
 sed "/^export VIRTUALENVWRAPPER_PYTHON.*$/d" ~/.zprofile > ~/.zprofilenew
-echo "export VIRTUALENVWRAPPER_PYTHON=$(which python3)" >> ~/.zprofilenew
-mv ~/.zprofilenew ~/.zprofile 
+# Using "sudo which" to bypass any user PATH prefixed python versions
+echo "export VIRTUALENVWRAPPER_PYTHON=$(sudo which python3)" >> ~/.zprofilenew
+mv ~/.zprofilenew ~/.zprofile
