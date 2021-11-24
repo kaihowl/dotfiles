@@ -625,7 +625,7 @@ configs.clangd.setup{root_dir=function(fname)
   end
 }
 
-configs.pylsp.setup{cmd={'pyls'}, on_attach=on_attach, capabilities=capabilities}
+configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
 configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
 
