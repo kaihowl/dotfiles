@@ -1,2 +1,3 @@
-export PATH="$DOTS/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+# This can be used to do a final fudging on the PATH
+# This file is loaded _after_ the initial loop over the path.zsh files.
+export PATH="$DOTS/bin:$PATH"
