@@ -6,6 +6,15 @@ which nvim
 echo "Check if vim alias is set"
 which vim
 
+echo "Check if nvim is user-installed one"
+local actual_path
+actual_path=$(realpath $(which nvim))
+if [[ "${actual_path}" != $(realpath ~/.nvim/bin)* ]]; then
+  echo Actual Path: $actual_path
+  echo Expected to be in ~/.nvim/bin instead
+  exit 1
+fi
+
 echo "Check that plugins are installed"
 nvim --headless -s $DOTS/nvim/tagbar.test.vim
 nvim --headless -s $DOTS/nvim/lsp-clangd.test.vim
