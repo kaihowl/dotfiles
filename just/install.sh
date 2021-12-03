@@ -18,6 +18,6 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
     exit 1
   fi
   mkdir -p ~/bin
-  echo "just" | tar -C ~/bin --extract -z -f "${tmpfile}" --files-from=- -C ~/bin
+  echo "just" | tar -C ~/bin --extract -z -f "${tmpfile}" --files-from=-
 fi
 
