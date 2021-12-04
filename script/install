@@ -11,7 +11,7 @@ fi
 
 if [ "$(uname -s)" == "Darwin" ]; then
   # We only want our explicit cleanup when multiple installers run
-  export HOMEBREW_NO_INSTALL_CLEANUP
+  export HOMEBREW_NO_INSTALL_CLEANUP=1
 
   source $DOTS/common/brew.sh
 
