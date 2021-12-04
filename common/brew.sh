@@ -14,8 +14,6 @@ function brew_head_install() {
 
 function brew_install() {
   ensure_brew_installed
-  # Install and upgrade if already installed
-  # This saves us from one gigantic brew upgrade that also updates stuff we did not install from dotfiles
+  # Install and upgrade if already installed (this is done by `install` if HOMEBREW_NO_INSTALL_UPGRADE is not set)
   brew install "$@"
-  brew upgrade "$@"
 }
