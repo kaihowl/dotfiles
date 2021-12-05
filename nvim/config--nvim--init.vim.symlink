@@ -405,13 +405,13 @@ augroup END
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
-	if a:opt == -1 || (a:opt == 0 && &diffopt =~ 'iwhite')
-		echo ':set diffopt-=iwhite'
-		set diffopt-=iwhite
-	elseif a:opt == 1 || (a:opt == 0 && &diffopt !~ 'iwhite')
-		echo ':set diffopt+=iwhite'
-		set diffopt+=iwhite
-	endif
+  if a:opt == -1 || (a:opt == 0 && &diffopt =~ 'iwhite')
+    echo ':set diffopt-=iwhite'
+    set diffopt-=iwhite
+  elseif a:opt == 1 || (a:opt == 0 && &diffopt !~ 'iwhite')
+    echo ':set diffopt+=iwhite'
+    set diffopt+=iwhite
+  endif
 endfunction
 
 " Add mappings for toggling and setting iwhite (in the style of unimpaired.vim)
