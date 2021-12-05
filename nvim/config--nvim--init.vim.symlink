@@ -386,7 +386,7 @@ fun! s:Grep(txt)
   else
     let needle =  a:txt
   endif
-  silent! execute "grep! " . needle
+  silent! execute "grep! " . shellescape(needle)
 endfun
 
 command! -nargs=* -complete=file Rg :call s:Grep(<q-args>)
