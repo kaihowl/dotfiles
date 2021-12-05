@@ -13,16 +13,9 @@ fi
 
 source "$DOTS/common/brew.sh"
 
-ensure_brew_installed
-
-brew cleanup
-brew update
-
 # Install homebrew packages
-brew_install coreutils spark
+brew_install coreutils
 
 # Install reattach-to-user-namespace
 # This makes sure that tmux + vim is able to use the system clipboard
 brew_install reattach-to-user-namespace
-
-exit 0

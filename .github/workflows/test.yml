@@ -35,6 +35,10 @@ jobs:
           export HOME=$(pwd)
           env
           export XDG_CONFIG_HOME=$(pwd)/.config
+          # Don't care about outdated, broken linkages on CI
+          # Otherwise, this might update node or php if for example sqlite3 is
+          # updated for autojump.
+          export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
           cd .dotfiles/
           if [[ "${{ matrix.os }}" == macos* ]]; then
             # Remove a download bandwidth hog often installed on GitHub runners
