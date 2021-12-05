@@ -386,7 +386,9 @@ fun! s:Grep(txt)
   else
     let needle =  a:txt
   endif
-  silent! execute "grep! " . shellescape(needle)
+  " Escape full string AND escape vim command mode special chars
+  " Borrowed from mileszs/ack.vim
+  silent! execute "grep! " . shellescape(escape(needle, '|#%'))
 endfun
 
 command! -nargs=* -complete=file Rg :call s:Grep(<q-args>)
