@@ -1,10 +1,8 @@
-#!/bin/zsh
-set -e
-set -i
+#!/bin/zsh -ie
 
 # Run all test scripts
 
-cd "$(dirname $0)"/..
+cd "$(dirname "$0")"/..
 
 # find all test scripts and run them
 tests=("${(@f)$(find . -name "test.sh")}")

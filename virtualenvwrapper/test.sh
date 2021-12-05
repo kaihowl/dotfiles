@@ -1,11 +1,10 @@
-#!/bin/zsh
+#!/bin/zsh -lix
 # shellcheck shell=bash
 # Deliberately not set -e as the virtualenvwrapper functions inherit this.
 # I could not get the test to pass with it activated. If the actual expectations
 # of this test are not met, the test will still reliably fail, though.
 # This has to be a login shell to read .zprofile.
 # This has to be an interactive shell to read workon.zsh.
-set -lix
 
 echo "Check: VIRTUALENVWRAPPER_PYTHON: ${VIRTUALENVWRAPPER_PYTHON}"
 
