@@ -176,12 +176,12 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " Silent command
 command! -nargs=1 Silent
-      \ | execute ':silent '.<q-args>
+      \ execute ':silent '.<q-args>
       \ | execute ':redraw!'
 
 " Restore position command
 command! -nargs=1 RestoreCurPos
-      \ | let save_cursor = getpos('.')
+      \ let save_cursor = getpos('.')
       \ | execute <q-args>
       \ | call setpos('.', save_cursor)
 
