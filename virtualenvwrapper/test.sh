@@ -1,29 +1,30 @@
-#!/bin/zsh -lix
+#!/bin/zsh
+# shellcheck shell=bash
 # Deliberately not set -e as the virtualenvwrapper functions inherit this.
 # I could not get the test to pass with it activated. If the actual expectations
 # of this test are not met, the test will still reliably fail, though.
 # This has to be a login shell to read .zprofile.
 # This has to be an interactive shell to read workon.zsh.
+set -lix
 
 echo "Check: VIRTUALENVWRAPPER_PYTHON: ${VIRTUALENVWRAPPER_PYTHON}"
 
 echo "Check if 'mkvirtualenv' is available"
 which mkvirtualenv
-if [ $? != 0 ]; then
+if ! which mkvirtualenv; then
   echo "Failed to find mkvirtualenv"
   exit 1
 fi
 
 echo "Check if 'workon' is available"
-which workon
-if [ $? != 0 ]; then
+
+if ! which workon; then
   echo "Failed to find workon";
   exit 1
 fi
 
 echo "Test create virtualenv, activate it"
-mktmpenv
-if [ $? != 0 ]; then
+if ! mktmpenv; then
   echo "Failed to execute mktmpenv"
   exit 1
 fi
@@ -33,8 +34,7 @@ if [[ -z ${VIRTUAL_ENV} ]]; then
   exit 1
 fi
 
-deactivate
-if [ $? != 0 ]; then
+if ! deactivate; then
   echo "Failed to execute deactivate"
   exit 1
 fi

@@ -1,4 +1,5 @@
-#!/bin/sh -ex
+#!/bin/bash
+set -ex
 #
 # Homebrew
 #
@@ -10,7 +11,7 @@ if [ "$(uname -s)" != "Darwin" ]; then
   exit 0
 fi
 
-source $DOTS/common/brew.sh
+source "$DOTS/common/brew.sh"
 
 ensure_brew_installed
 

@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Load and configure zsh move function for easier renaming of files with
 # patterns
 autoload zmv

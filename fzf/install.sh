@@ -1,4 +1,5 @@
-#!/bin/bash -ex
+#!/bin/bash
+set -ex
 
 cd "$(dirname "$0")"
 
@@ -6,10 +7,10 @@ cd "$(dirname "$0")"
 ../zsh/install.sh
 
 if [ "$(uname)" == "Darwin" ]; then
-  source $DOTS/common/brew.sh
+  source "$DOTS/common/brew.sh"
   brew_install curl wget
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source $DOTS/common/apt.sh
+  source "$DOTS/common/apt.sh"
   apt_install wget curl git
 fi
 

@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 function ensure_brew_installed() {
   if test ! "$(which brew)"
   then
@@ -8,8 +11,8 @@ function ensure_brew_installed() {
 
 function brew_head_install() {
   ensure_brew_installed
-  brew install --head $1
-  brew upgrade $1
+  brew install --head "$1"
+  brew upgrade "$1"
 }
 
 function brew_install() {
