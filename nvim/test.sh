@@ -22,6 +22,7 @@ nvim --headless -s $DOTS/nvim/lsp-pyls.test.vim
 nvim --headless -s $DOTS/nvim/completion.test.vim
 nvim --headless -s $DOTS/nvim/sneak.test.vim
 nvim --headless -s $DOTS/nvim/restorecurpos.test.vim
+nvim --headless -s $DOTS/nvim/nvim-cmp-select-enter.test.vim
 cd $DOTS/test-editorconfig/ && nvim --headless -s $DOTS/nvim/editorconfig.test.vim
 cd $DOTS/nvim/test-ripgrep/ && nvim --headless -s $DOTS/nvim/ripgrep.test.vim
 
