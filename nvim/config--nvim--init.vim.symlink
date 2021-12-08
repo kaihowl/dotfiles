@@ -380,18 +380,24 @@ augroup myvimrc
     autocmd QuickFixCmdPost l*    lwindow
 augroup END
 
-fun! s:Grep(txt)
+fun! s:Grep(txt, bang)
   if empty(a:txt)
     let needle = expand("<cword>")
   else
     let needle =  a:txt
   endif
-  " Escape full string AND escape vim command mode special chars
-  " Borrowed from mileszs/ack.vim
-  silent! execute "grep! " . shellescape(escape(needle, '|#%'))
+  " Escape vim command mode special chars.
+  " Borrowed from mileszs/ack.vim.
+  let needle = escape(needle, '|#%')
+  " And escape full search string for shell usage.
+  " Unless passing <bang>, then allow for passing arguments.
+  if a:bang != "!"
+    let needle = shellescape(needle)
+  endif
+  silent! execute "grep! " . needle
 endfun
 
-command! -nargs=* -complete=file Rg :call s:Grep(<q-args>)
+command! -bang -nargs=* -complete=file Rg :call s:Grep(<q-args>, '<bang>')
 
 noremap <leader>rr :Rg<cr>
 noremap <leader>r<space> :Rg<space>
