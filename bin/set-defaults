@@ -2,4 +2,4 @@
 #
 # Sets OS X defaults by running $DOTS/osx/set-defaults.sh.
 
-exec $DOTS/osx/set-defaults.sh
+exec "$DOTS/osx/set-defaults.sh"

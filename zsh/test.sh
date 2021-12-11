@@ -1,4 +1,5 @@
 #!/bin/zsh
+# shellcheck shell=bash
 set -ex
 
 echo "Check if startup is sufficiently fast"
