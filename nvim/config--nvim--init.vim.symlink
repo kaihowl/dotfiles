@@ -178,12 +178,12 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " Silent command
 command! -nargs=1 Silent
-      \ | execute ':silent '.<q-args>
+      \ execute ':silent '.<q-args>
       \ | execute ':redraw!'
 
 " Restore position command
 command! -nargs=1 RestoreCurPos
-      \ | let save_cursor = getpos('.')
+      \ let save_cursor = getpos('.')
       \ | execute <q-args>
       \ | call setpos('.', save_cursor)
 
@@ -382,16 +382,24 @@ augroup myvimrc
     autocmd QuickFixCmdPost l*    lwindow
 augroup END
 
-fun! s:Grep(txt)
+fun! s:Grep(txt, bang)
   if empty(a:txt)
     let needle = expand("<cword>")
   else
     let needle =  a:txt
   endif
+  " Escape vim command mode special chars.
+  " Borrowed from mileszs/ack.vim.
+  let needle = escape(needle, '|#%')
+  " And escape full search string for shell usage.
+  " Unless passing <bang>, then allow for passing arguments.
+  if a:bang != "!"
+    let needle = shellescape(needle)
+  endif
   silent! execute "grep! " . needle
 endfun
 
-command! -nargs=* -complete=file Rg :call s:Grep(<q-args>)
+command! -bang -nargs=* -complete=file Rg :call s:Grep(<q-args>, '<bang>')
 
 noremap <leader>rr :Rg<cr>
 noremap <leader>r<space> :Rg<space>
@@ -407,13 +415,13 @@ augroup END
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
-	if a:opt == -1 || (a:opt == 0 && &diffopt =~ 'iwhite')
-		echo ':set diffopt-=iwhite'
-		set diffopt-=iwhite
-	elseif a:opt == 1 || (a:opt == 0 && &diffopt !~ 'iwhite')
-		echo ':set diffopt+=iwhite'
-		set diffopt+=iwhite
-	endif
+  if a:opt == -1 || (a:opt == 0 && &diffopt =~ 'iwhite')
+    echo ':set diffopt-=iwhite'
+    set diffopt-=iwhite
+  elseif a:opt == 1 || (a:opt == 0 && &diffopt !~ 'iwhite')
+    echo ':set diffopt+=iwhite'
+    set diffopt+=iwhite
+  endif
 endfunction
 
 " Add mappings for toggling and setting iwhite (in the style of unimpaired.vim)
@@ -657,7 +665,9 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    -- Accept currently selected item. If none selected, `select` first item.
+    -- Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<Tab>'] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()

@@ -10,10 +10,10 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # shellcheck disable=SC2064
   trap "rm -rf ${tmpfile}" EXIT
   curl -Lo "${tmpfile}" https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-  expect_hash="95e37f20c20cae79338cc040697a7dc4113891e8"
-  actual_hash="$(sha1sum "${tmpfile}" | cut -d' ' -f 1)"
+  expect_hash="6d78bed13722019cb4f9d0cf366715e2dcd589f4cf91897efb28216a6bb319f1"
+  actual_hash="$(shasum -a 256 "${tmpfile}" | cut -d' ' -f 1)"
   if [[ "$expect_hash" != "$actual_hash" ]]; then
-    echo "sha1sum mismatch for ripgrep. Aborting."
+    echo "shasum mismatch for ripgrep. Aborting."
     exit 1
   fi
   sudo dpkg -i "${tmpfile}"

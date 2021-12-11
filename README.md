@@ -31,6 +31,17 @@ defaults, and so on. Tweak this script, and occasionally run `dots` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
+## guidelines
+
+- No node.js dependencies.
+
+Reasoning: Indiscriminate dependencies and not part of my day-to-day tech stack.
+
+- CI run in at most 5 minutes.
+
+Reasoning: I am impatient and like my pull requests small and focussed. A longer CI
+runtime is counter-productive.
+
 ## topical
 
 Everything's built around topic areas. If you're adding a new area to your

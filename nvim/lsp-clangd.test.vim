@@ -1,3 +1,4 @@
+:" Test completion with omni-complete and LSP
 :let g:test_success = 0
 
 :function Check()
