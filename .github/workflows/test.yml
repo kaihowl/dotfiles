@@ -13,9 +13,8 @@ jobs:
       - name: Run Shellcheck
         uses: azohra/shell-linter@latest
         with:
-          path: "**/*.sh,**/*.zsh,script/*"
-          exclude-paths: "bin/mustacheme"
-
+          path: "**/*.sh,**/*.zsh,script/*,bin/*"
+          exclude-paths: ""
 
   build:
     timeout-minutes: 20
