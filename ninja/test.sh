@@ -1,4 +1,5 @@
-#!/bin/zsh -e
+#!/bin/zsh
+set -e
 
 echo "Check if ninja is available"
 which ninja

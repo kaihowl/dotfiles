@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 if [ "$(uname)" == "Darwin" ]; then
   source $DOTS/common/brew.sh
   brew_install ninja

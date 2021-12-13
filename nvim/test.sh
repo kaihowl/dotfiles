@@ -1,4 +1,5 @@
-#!/bin/zsh -ex
+#!/bin/zsh
+set -ex
 
 echo "Check if nvim is available"
 which nvim

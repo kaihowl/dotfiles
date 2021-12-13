@@ -1,5 +1,5 @@
-#!/bin/bash -ex
-set -e
+#!/bin/bash
+set -ex
 
 checkout_path=~/.oh-my-zsh
 

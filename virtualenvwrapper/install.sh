@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 set -e
 
 if [ "$(uname -s)" = "Darwin" ]; then
