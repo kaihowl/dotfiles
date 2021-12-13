@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 old_pwd=`pwd`
-cd "$DOTS" || exit 1
+cd "$DOTS"
 git format-patch "@{u}"
 tar cz *.patch > patches.tar.gz
 rm -rf *.patch
