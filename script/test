@@ -1,5 +1,4 @@
-#!/bin/zsh -i
-setopt -e
+#!/bin/zsh -ie
 
 # Run all test scripts
 

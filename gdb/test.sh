@@ -1,4 +1,5 @@
-#!/bin/bash -ex
+#!/bin/bash
+set -ex
 
 if [ "$(uname)" == "Darwin" ]; then
   # Not needed on macOS with default lldb as the debugger

@@ -1,4 +1,5 @@
-#!/bin/sh -ex
+#!/bin/bash
+set -ex
 #
 # Homebrew
 #

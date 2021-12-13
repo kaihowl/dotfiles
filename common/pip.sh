@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 function ensure_pip_installed() {
   if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
     if test ! "$(python3 -m pip &> /dev/null)"

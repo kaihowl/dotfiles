@@ -1,4 +1,5 @@
 #!/bin/zsh -e
+set -e
 
 echo "Check if ccache is available"
 which ccache
