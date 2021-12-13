@@ -8,5 +8,5 @@ if [ "$(uname)" == "Darwin" ]; then
   brew_install mosh
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "$DOTS/common/apt.sh"
-  sudo apt-get install -y mosh
+  apt_install mosh
 fi
