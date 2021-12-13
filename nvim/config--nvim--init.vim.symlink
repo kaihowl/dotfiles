@@ -374,12 +374,6 @@ if executable("rg")
   let &grepformat="%f:%l:%c:%m"
 endif
 
-augroup myvimrc
-    autocmd!
-    autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost l*    lwindow
-augroup END
-
 fun! s:Grep(txt, bang)
   if empty(a:txt)
     let needle = expand("<cword>")
@@ -395,6 +389,7 @@ fun! s:Grep(txt, bang)
     let needle = shellescape(needle)
   endif
   silent! execute "grep! " . needle
+  copen
 endfun
 
 command! -bang -nargs=* -complete=file Rg :call s:Grep(<q-args>, '<bang>')
