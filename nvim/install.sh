@@ -12,7 +12,7 @@ fi
 tmpfile=$(mktemp)
 trap "rm -rf ${tmpfile}" EXIT
 curl -Lo "${tmpfile}" "${download_url}"
-actual_hash="$(shasum -a 256 ${tmpfile} | cut -d' ' -f 1)"
+actual_hash="$(shasum -a 256 "${tmpfile}" | cut -d' ' -f 1)"
 if [[ "$expect_hash" != "$actual_hash" ]]; then
   echo "shasum mismatch for nvim. Aborting."
   exit 1
@@ -21,10 +21,10 @@ mkdir -p ~/.nvim
 tar -C ~/.nvim --extract -z -f "${tmpfile}" --strip-components 1
 
 # Make freshly installed nvim available in path
-script_dir=$(dirname $0)
-. ${script_dir}/path.zsh
+script_dir=$(dirname "$0")
+. "${script_dir}/path.zsh"
 
-source $DOTS/common/pip.sh
+source "$DOTS/common/pip.sh"
 ensure_pip_installed
 sudo python3 -m pip install --upgrade pynvim
 

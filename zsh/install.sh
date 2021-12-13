@@ -6,10 +6,10 @@ checkout_path=~/.oh-my-zsh
 cd "$(dirname "$0")"
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  source $DOTS/common/brew.sh
+  source "$DOTS/common/brew.sh"
   brew_install zsh
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source $DOTS/common/apt.sh
+  source "$DOTS/common/apt.sh"
   apt_install zsh
 fi
 
