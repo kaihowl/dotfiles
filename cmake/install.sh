@@ -2,7 +2,7 @@
 set -e
 
 if [ "$(uname)" == "Darwin" ]; then
-  source $DOTS/common/brew.sh
+  source "$DOTS/common/brew.sh"
   brew_install cmake
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # install latest
@@ -10,7 +10,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   echo "deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
   sudo apt-get update
   sudo rm /usr/share/keyrings/kitware-archive-keyring.gpg
-  source $DOTS/common/apt.sh
+  source "$DOTS/common/apt.sh"
   apt_install kitware-archive-keyring cmake
 fi
 
