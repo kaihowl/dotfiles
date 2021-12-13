@@ -94,7 +94,9 @@ Plug 'sainnhe/edge'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
-Plug 'tommcdo/vim-fubitive'
+" Fugitive browse handlers
+Plug 'tommcdo/vim-fubitive' " Bitbucket
+Plug 'tpope/vim-rhubarb' " Github
 
 Plug 'editorconfig/editorconfig-vim'
 
