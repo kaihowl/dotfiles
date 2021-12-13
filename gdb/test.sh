@@ -6,8 +6,8 @@ if [ "$(uname)" == "Darwin" ]; then
   exit 0
 fi
 
-cd $(mktemp -d)
+cd "$(mktemp -d)"
 
-clang++ -std=c++17 -O0 -g3 -o mytest ${DOTS}/gdb/mytest.cpp
-gdb -x ${DOTS}/gdb/test.gdb mytest &> test.log
+clang++ -std=c++17 -O0 -g3 -o mytest "${DOTS}/gdb/mytest.cpp"
+gdb -x "${DOTS}/gdb/test.gdb" mytest &> test.log
 grep -F 'std::unordered_map with 1 element = {[2] = "mystuff"}' test.log
