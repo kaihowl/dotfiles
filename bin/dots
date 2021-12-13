@@ -5,7 +5,7 @@ set -ex
 #
 # `dots` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
-export DOTS=$HOME/.dotfiles
+export DOTS="$HOME/.dotfiles"
 
 # Set OS X defaults
-$DOTS/osx/set-defaults.sh
+"$DOTS/osx/set-defaults.sh"

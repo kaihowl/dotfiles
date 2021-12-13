@@ -3,10 +3,10 @@
 fbr() {
   local branches branch
   pattern="**/${1:-refs/heads}/**"
-  branches=$(git for-each-ref --sort=-committerdate ${pattern} --format="%(refname:short)") &&
+  branches=$(git for-each-ref --sort=-committerdate "${pattern}" --format="%(refname:short)") &&
   branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  git checkout "$(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")"
 }
 
 # Source: https://gist.github.com/junegunn/8b572b8d4b5eddd8b85e5f4d40f17236
@@ -80,7 +80,7 @@ join-lines() {
 
 bind-git-helper() {
   local c
-  for c in $@; do
+  for c in "$@"; do
     eval "fzf-g$c-widget() { local result=\$(fzf-key-g$c | join-lines); zle reset-prompt; LBUFFER+=\$result }"
     eval "zle -N fzf-g$c-widget"
     eval "bindkey '^g^$c' fzf-g$c-widget"

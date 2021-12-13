@@ -2,9 +2,9 @@
 set -e
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  source $DOTS/common/brew.sh
+  source "$DOTS/common/brew.sh"
   brew_install ncdu
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source $DOTS/common/apt.sh
+  source "$DOTS/common/apt.sh"
   apt_install ncdu
 fi

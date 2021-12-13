@@ -7,7 +7,7 @@ oldcommit=$(git rev-parse master)
 if git fetch origin && git rebase origin/master master
 then
   newcommit=$(git rev-parse master)
-  if [[ $oldcommit != $newcommit ]]; then
+  if [[ $oldcommit != "$newcommit" ]]; then
     printf '\033[0;34m%s\033[0m\n' 'Dotfiles updated to current version.'
     printf '\033[0;34m%s\033[0m\n' "Please run $DOTS/script/bootstrap"
     printf '\033[0;34m%s\033[0m\n' 'You might also have to run script/install.'

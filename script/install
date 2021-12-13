@@ -4,7 +4,7 @@ set -e
 # Run all dotfiles installers.
 export DOTS=$HOME/.dotfiles
 
-cd "$(dirname $0)"/..
+cd "$(dirname "$0")"/..
 
 if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get update
@@ -14,7 +14,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
   # We only want our explicit cleanup when multiple installers run
   export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-  source $DOTS/common/brew.sh
+  source "$DOTS/common/brew.sh"
 
   ensure_brew_installed
 
