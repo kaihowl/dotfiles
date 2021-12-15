@@ -30,10 +30,6 @@ jobs:
           # updated for autojump.
           export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
           cd .dotfiles/
-          if [[ "${{ matrix.os }}" == macos* ]]; then
-            # Remove a download bandwidth hog often installed on GitHub runners
-            brew remove azure-cli || true;
-          fi
           ./script/bootstrap
           ./script/install
           ./script/test
