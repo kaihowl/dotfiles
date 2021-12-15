@@ -394,7 +394,7 @@ fun! s:Grep(txt, bang)
   copen
 endfun
 
-command! -bang -nargs=* -complete=file Rg :call s:Grep(<q-args>, '<bang>')
+command! -bang -nargs=* Rg :call s:Grep(<q-args>, '<bang>')
 
 noremap <leader>rr :Rg<cr>
 noremap <leader>r<space> :Rg<space>
