@@ -4,3 +4,5 @@ and not here
 and not on the start of the line
 a very foolish example
 for a fool
+this is a # test
+another line
