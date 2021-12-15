@@ -1,4 +1,5 @@
-#!/bin/zsh -e
+#!/bin/zsh
+# shellcheck shell=bash
 set -e
 
 echo "Check if cmake is available"

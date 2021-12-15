@@ -1,4 +1,5 @@
 #!/bin/zsh
+# shellcheck shell=bash
 set -ex
 
 echo "Check if nvim is available"
@@ -8,7 +9,6 @@ echo "Check if vim alias is set"
 which vim
 
 echo "Check if nvim is user-installed one"
-local actual_path
 actual_path=$(realpath "$(which nvim)")
 if [[ "${actual_path}" != $(realpath ~/.nvim/bin)* ]]; then
   echo "Actual Path: $actual_path"

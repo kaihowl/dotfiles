@@ -1,11 +1,12 @@
 #!/bin/zsh
+# shellcheck shell=bash
 
 # Shamelessly copied from oh-my-zsh
 
 function _current_epoch() {
   local current_time
   current_time=$(print -P '%D{%s}')
-  echo $(($current_time / 60 / 60 / 24))
+  echo $((current_time / 60 / 60 / 24))
 }
 
 function _update_dots_update() {
@@ -34,7 +35,7 @@ then
     _update_dots_update && return 0;
   fi
 
-  epoch_diff=$(($(_current_epoch) - $LAST_EPOCH))
+  epoch_diff=$(($(_current_epoch) - LAST_EPOCH))
   if [ $epoch_diff -ge $epoch_target ]
   then
     _upgrade_dots

@@ -10,6 +10,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
 fi
 
 tmpfile=$(mktemp)
+# shellcheck disable=SC2064
 trap "rm -rf ${tmpfile}" EXIT
 curl -Lo "${tmpfile}" "${download_url}"
 actual_hash="$(shasum -a 256 "${tmpfile}" | cut -d' ' -f 1)"

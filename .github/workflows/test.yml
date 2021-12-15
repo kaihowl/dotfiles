@@ -4,10 +4,19 @@ on:
   pull_request:
     branches:
     - master
-
 jobs:
-  build:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Run Shellcheck
+        uses: azohra/shell-linter@latest
+        with:
+          path: "**/*.sh,**/*.zsh,script/*,bin/*"
+          exclude-paths: ""
 
+  build:
     timeout-minutes: 20
     strategy:
       matrix:

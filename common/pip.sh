@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
 
 function ensure_pip_installed() {

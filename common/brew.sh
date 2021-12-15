@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 function ensure_brew_installed() {
   if test ! "$(which brew)"
   then

@@ -1,8 +1,9 @@
 #!/bin/zsh
+# shellcheck shell=bash
 # Shamelessly copied from oh my zsh
 
 printf '\033[0;34m%s\033[0m\n' "Upgrading Dotfiles"
-cd "$DOTS"
+cd "$DOTS" || exit 1
 oldcommit=$(git rev-parse master)
 if git fetch origin && git rebase origin/master master
 then

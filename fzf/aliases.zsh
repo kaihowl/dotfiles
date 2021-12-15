@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Source: https://github.com/junegunn/fzf/wiki/examples#git
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
 fbr() {
@@ -31,6 +32,7 @@ fzf-key-gf() {
 
 fzf-key-gb() {
   is_in_git_repo || return
+  # shellcheck disable=SC2016
   git branch -a --sort=committerdate --color=always | grep -v '/HEAD\s' |
   fzf-down --ansi --multi --tac --preview-window right:70% \
     --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |

@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
 source "$DOTS/common/pip.sh"
 ensure_pip_installed

@@ -11,7 +11,7 @@ if [ "$(uname -s)" != "Darwin" ]; then
   exit 0
 fi
 
-source $DOTS/common/brew.sh
+source "$DOTS/common/brew.sh"
 
 # Install homebrew packages
 brew_install coreutils
