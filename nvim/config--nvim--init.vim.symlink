@@ -100,8 +100,6 @@ Plug 'tpope/vim-rhubarb' " Github
 
 Plug 'editorconfig/editorconfig-vim'
 
-Plug 'mfussenegger/nvim-lint'
-
 call plug#end()
 
 syntax enable
@@ -573,11 +571,6 @@ set completeopt=menu,menuone,noselect
 set shortmess+=c
 
 lua <<EOF
-require('lint').linters_by_ft = {
-  sh = {'shellcheck',},
-  zsh = {'shellcheck',},
-  }
-
 local configs = require('lspconfig')
 -- This is grabbing into internals of lspconfig. If this breaks, this is on me.
 local util = require 'lspconfig/util'
@@ -726,6 +719,5 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 
 " Auto-format files when possible prior to saving
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
-autocmd BufWritePost * lua require('lint').try_lint()
 
 " vi: ft=vim :
