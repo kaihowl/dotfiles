@@ -3,6 +3,7 @@
 # complete words from tmux pane(s) {{{1
 # Source: http://blog.plenz.com/2012-01/zsh-complete-words-from-tmux-pane.html
 _tmux_pane_words() {
+  # shellcheck disable=SC2034
   local expl
   local -a w
   if [[ -z "$TMUX_PANE" ]]; then
@@ -10,12 +11,12 @@ _tmux_pane_words() {
     return 1
   fi
   # capture current pane first
-  # shellcheck disable=SC2296
+  # shellcheck disable=SC2296,SC2206
   w=( ${(u)=$(tmux capture-pane -J -p)} )
   for i in $(tmux list-panes -F '#P'); do
     # skip current pane (handled above)
     [[ "$TMUX_PANE" = "$i" ]] && continue
-    # shellcheck disable=SC2296
+    # shellcheck disable=SC2296,SC2206
     w+=( ${(u)=$(tmux capture-pane -J -p -t $i)} )
   done
   _wanted values expl 'words from current tmux pane' compadd -a w
