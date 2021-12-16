@@ -11,17 +11,8 @@ if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get update
 fi
 
-if [ "$(uname -s)" == "Darwin" ]; then
-  # We only want our explicit cleanup when multiple installers run
-  export HOMEBREW_NO_INSTALL_CLEANUP=1
-
-  source "$DOTS/common/brew.sh"
-
-  ensure_brew_installed
-
-  brew cleanup
-  brew update
-fi
+# No explicit update for homebrew, there are enough update and cleanup
+# invocations automatically after a certain time has passed.
 
 # find the installers and run them iteratively
 installers=$(find . -name install.sh)

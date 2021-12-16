@@ -38,6 +38,7 @@ jobs:
           # Otherwise, this might update node or php if for example sqlite3 is
           # updated for autojump.
           export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+          export HOMEBREW_NO_INSTALL_CLEANUP=1
           cd .dotfiles/
           ./script/bootstrap
           ./script/install
