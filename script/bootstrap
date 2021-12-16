@@ -150,6 +150,7 @@ then
     success "mac specifics installed"
   else
     fail "error installing mac specifics"
+    exit 1
   fi
 fi
 

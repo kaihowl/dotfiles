@@ -20,7 +20,7 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Show the ~/Library folder.
-chflags nohidden ~/Library
+chflags nohidden ~/Library || true
 
 # Set a really fast key repeat.
 defaults write NSGlobalDomain KeyRepeat -int 0
