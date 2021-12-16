@@ -1,4 +1,3 @@
-# shellcheck shell=bash
 function get_host_from_ssh() {
   ssh -G &> /dev/null
   if [ $? -eq 0 ]; then
