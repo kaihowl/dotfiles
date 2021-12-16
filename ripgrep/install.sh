@@ -7,7 +7,6 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "$DOTS/common/apt.sh"
   apt_install curl
   tmpfile=$(mktemp)
-  # shellcheck disable=SC2064
   trap "rm -rf ${tmpfile}" EXIT
   curl -Lo "${tmpfile}" https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
   expect_hash="6d78bed13722019cb4f9d0cf366715e2dcd589f4cf91897efb28216a6bb319f1"
