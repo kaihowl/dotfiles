@@ -10,10 +10,12 @@ _tmux_pane_words() {
     return 1
   fi
   # capture current pane first
+  # shellcheck disable=SC2296
   w=( ${(u)=$(tmux capture-pane -J -p)} )
   for i in $(tmux list-panes -F '#P'); do
     # skip current pane (handled above)
     [[ "$TMUX_PANE" = "$i" ]] && continue
+    # shellcheck disable=SC2296
     w+=( ${(u)=$(tmux capture-pane -J -p -t $i)} )
   done
   _wanted values expl 'words from current tmux pane' compadd -a w
