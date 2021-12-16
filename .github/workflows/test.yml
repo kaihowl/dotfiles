@@ -6,15 +6,12 @@ on:
     - master
 jobs:
   lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v1
-      - name: Run Shellcheck
-        uses: azohra/shell-linter@latest
-        with:
-          path: "**/*.sh,**/*.zsh,script/*,bin/*"
-          exclude-paths: ""
+      name: Shellcheck
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
 
   build:
     timeout-minutes: 20
