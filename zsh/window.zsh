@@ -22,7 +22,7 @@ function get_host_from_ssh_config() {
   head=$(echo "$command" | cut -d " " -f1)
   tail=$(echo "$command" | cut -d " " -f2-)
 
-  hostname="$(echo $(echo "$head -G $tail") | awk '/^hostname/ { print $2 }')"
+  hostname=$(echo "$(echo "$head -G $tail")" | awk '/^hostname/ { print $2 }')
   echo "$hostname"
 }
 
