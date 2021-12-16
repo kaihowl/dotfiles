@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 # Sets reasonable OS X defaults.
 #
 # Or, in other words, set shit how I like in OS X.
