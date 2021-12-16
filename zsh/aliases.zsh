@@ -27,7 +27,7 @@ function disas_impl() {
 }
 
 # Source http://wiki.bash-hackers.org/snipplets/print_horizontal_line
-func horizontal_divider() {
+function horizontal_divider() {
   printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 

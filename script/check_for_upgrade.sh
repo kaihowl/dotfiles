@@ -29,6 +29,7 @@ fi
 
 if [ -f ~/.dots-update ]
 then
+  # shellcheck disable=SC1090
   . ~/.dots-update
 
   if [[ -z "$LAST_EPOCH" ]]; then

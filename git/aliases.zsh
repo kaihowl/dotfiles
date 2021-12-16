@@ -36,7 +36,7 @@ function git_rebase_interactive() {
   if [[ -n $1 ]]; then
     git rebase -i $1
   else
-    git rebase -i @{u}
+    git rebase -i "@{u}"
   fi
 }
 alias gri="git_rebase_interactive"
