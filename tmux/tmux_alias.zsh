@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Add an alias to open a session if exists or create it
 
 function to() {

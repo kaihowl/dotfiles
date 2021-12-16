@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 set -e
 if [ "$(uname)" == "Darwin" ]; then
   source "$DOTS/common/brew.sh"

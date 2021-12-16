@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 alias reload!='exec $SHELL'
 
 # Inspired by https://xebia.com/blog/profiling-zsh-shell-scripts/
