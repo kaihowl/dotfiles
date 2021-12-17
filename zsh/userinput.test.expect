@@ -3,6 +3,11 @@
 
 spawn zsh "-ie";
 expect "➜";
+
+# Clear up input with ctrl-c
+send "\x03";
+expect "➜";
+
 send "echo test\r";
 
 # End the program with ctrl-d
