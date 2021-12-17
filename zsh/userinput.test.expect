@@ -1,0 +1,24 @@
+#!/usr/bin/expect
+#set timeout 1
+
+spawn zsh "-ie";
+expect "➜";
+send "echo test\r";
+
+# End the program with ctrl-d
+send "\x04";
+
+expect eof;
+
+foreach {pid spawnid os_error_flag value} [wait] break;
+if {$os_error_flag == 0} {
+    puts "exit status: $value"
+    exit $value
+} else {
+    puts "errno: $value"
+    exit $value
+}
+EOF
+echo "spawned process status" $?
+rm -f $tmp_script_file
+echo "done"
