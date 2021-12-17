@@ -10,7 +10,8 @@ if [ "$(uname -s)" = "Darwin" ]; then
   brew_install zsh
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "$DOTS/common/apt.sh"
-  apt_install zsh
+  # Install 'expect' for testing
+  apt_install zsh expect
 fi
 
 if [ -d "$checkout_path" ]; then
