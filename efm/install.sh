@@ -19,5 +19,5 @@ if [[ "$expect_hash" != "$actual_hash" ]]; then
   exit 1
 fi
 mkdir -p ~/.efm
-echo "efm-langserver" | tar -C ~/.efm --extract -z -f "${tmpfile}" --strip-components 1 --files-from=-
+tar -C ~/.efm --extract -z -f "${tmpfile}" --strip-components 1
 
