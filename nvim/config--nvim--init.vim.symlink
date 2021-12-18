@@ -643,7 +643,6 @@ configs.efm.setup {
     -- specify filetypes in your call to setup{}. Otherwise lspconfig will launch EFM on the BufEnter instead
     -- of the FileType autocommand, and the filetype variable used to populate the languageId will not yet be set.
     filetypes = {'sh'},
-    single_file_support=true,
 }
 
 -- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
