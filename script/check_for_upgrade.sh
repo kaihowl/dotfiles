@@ -1,5 +1,4 @@
 #!/bin/zsh
-# shellcheck shell=bash
 
 # Shamelessly copied from oh-my-zsh
 

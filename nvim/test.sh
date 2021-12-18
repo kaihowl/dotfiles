@@ -1,5 +1,4 @@
 #!/bin/zsh
-# shellcheck shell=bash
 set -ex
 
 echo "Check if nvim is available"
