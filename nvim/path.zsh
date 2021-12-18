@@ -1,1 +1,1 @@
-export PATH=~/.nvim/bin:/snap/bin:$PATH
+export PATH=~/.nvim/bin:$PATH
