@@ -631,17 +631,16 @@ configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
 configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
 
---configs.efm.setup {
---    init_options = {documentFormatting = true},
---    settings = {
---        rootMarkers = {".git/"},
---    }
---}
-
-configs.efm.setup{
+configs.efm.setup {
+    settings = {
+      rootMarkers = {".git"},
+      filetypes = {},
+    },
     on_attach=on_attach,
-    init_options = {documentFormatting = true},
     capabilities=capabilities,
+    init_options = {documentFormatting = true},
+    filetypes = {'sh'},
+    single_file_support=true,
 }
 
 -- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
