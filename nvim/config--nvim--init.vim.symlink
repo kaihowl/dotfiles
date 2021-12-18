@@ -631,6 +631,19 @@ configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
 configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
 
+configs.efm.setup {
+    settings = {
+      rootMarkers = {".git"},
+    },
+    on_attach=on_attach,
+    capabilities=capabilities,
+    init_options = {documentFormatting = true},
+    -- In order for neovim's built-in language server client to send the appropriate languageId to EFM, you must
+    -- specify filetypes in your call to setup{}. Otherwise lspconfig will launch EFM on the BufEnter instead
+    -- of the FileType autocommand, and the filetype variable used to populate the languageId will not yet be set.
+    filetypes = {'sh'},
+}
+
 -- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
