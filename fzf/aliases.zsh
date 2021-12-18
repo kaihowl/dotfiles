@@ -1,4 +1,3 @@
-# shellcheck shell=bash
 # Source: https://github.com/junegunn/fzf/wiki/examples#git
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
 fbr() {

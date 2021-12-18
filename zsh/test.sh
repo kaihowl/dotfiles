@@ -1,5 +1,4 @@
 #!/bin/zsh
-# shellcheck shell=bash
 set -ex
 
 echo "Test that start up and basic user input to shell work without errors"
