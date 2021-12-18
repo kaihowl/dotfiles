@@ -631,6 +631,19 @@ configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
 configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
 
+--configs.efm.setup {
+--    init_options = {documentFormatting = true},
+--    settings = {
+--        rootMarkers = {".git/"},
+--    }
+--}
+
+configs.efm.setup{
+    on_attach=on_attach,
+    init_options = {documentFormatting = true},
+    capabilities=capabilities,
+}
+
 -- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
