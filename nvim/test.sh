@@ -25,6 +25,7 @@ nvim --headless -s "$DOTS/nvim/restorecurpos.test.vim"
 nvim --headless -s "$DOTS/nvim/nvim-cmp-select-enter.test.vim"
 cd "$DOTS/test-editorconfig/" && nvim --headless -s "$DOTS/nvim/editorconfig.test.vim"
 cd "$DOTS/nvim/test-ripgrep/" && nvim --headless -s "$DOTS/nvim/ripgrep.test.vim"
+cd "$DOTS/nvim/test-efm/" && nvim --headless -s "$DOTS/nvim/lsp-efm.test.vim"
 
 echo "Check if startup is sufficiently fast"
 measure-runtime.py --repeat=10 --expected-ms 250 nvim +qall
