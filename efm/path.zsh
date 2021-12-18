@@ -1,0 +1,2 @@
+export PATH=~/.efm:$PATH
+
