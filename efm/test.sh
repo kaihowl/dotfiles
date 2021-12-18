@@ -13,3 +13,11 @@ if [[ "${actual_path}" != $(realpath ~/.efm/)* ]]; then
   exit 1
 fi
 
+echo "Check if efm-langserver has shellcheck config"
+config=$(efm-langserver -d)
+if [[ "${config}" != *"shellcheck"* ]]; then
+  echo "Expected the following config to contain 'shellcheck'"
+  echo "${config}"
+  exit 1
+fi
+
