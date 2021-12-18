@@ -634,7 +634,6 @@ configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
 configs.efm.setup {
     settings = {
       rootMarkers = {".git"},
-      filetypes = {},
     },
     on_attach=on_attach,
     capabilities=capabilities,
