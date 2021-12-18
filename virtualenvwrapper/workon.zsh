@@ -8,10 +8,8 @@ macos_virtualenv_scripts=/usr/local/bin
 ubuntu_virtualenv_scripts=/usr/share/virtualenvwrapper
 lazy_wrapper=virtualenvwrapper_lazy.sh
 if [ -f "${macos_virtualenv_scripts}/${lazy_wrapper}" ]; then
-  # shellcheck disable=SC1090
   source "${macos_virtualenv_scripts}/${lazy_wrapper}"
 elif [ -f "${ubuntu_virtualenv_scripts}/${lazy_wrapper}" ]; then
-  # shellcheck disable=SC1090
   source "${ubuntu_virtualenv_scripts}/${lazy_wrapper}"
 else
   echo -e "Could not find virtualenvwrapper_lazy"
