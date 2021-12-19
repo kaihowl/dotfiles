@@ -29,12 +29,12 @@ alias gdt="git difftool"
 alias gmb="git merge-base"
 function delete_gone_local_branches() {
   git branch --format '%(refname:short) %(if) %(upstream) %(then) %(if) %(upstream:trackshort) %(then) KEEP %(else) [[[TRASH]]] %(end) %(else) KEEP %(end)' \
-    | fgrep ' [[[TRASH]]] ' | awk '{print $1}' | xargs git branch -D
+    | grep -F ' [[[TRASH]]] ' | awk '{print $1}' | xargs git branch -D
 }
 alias gbprune!="delete_gone_local_branches"
 function git_rebase_interactive() {
   if [[ -n $1 ]]; then
-    git rebase -i $1
+    git rebase -i "$1"
   else
     git rebase -i "@{u}"
   fi

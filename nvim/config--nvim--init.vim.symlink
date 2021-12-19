@@ -647,7 +647,7 @@ configs.efm.setup {
     -- In order for neovim's built-in language server client to send the appropriate languageId to EFM, you must
     -- specify filetypes in your call to setup{}. Otherwise lspconfig will launch EFM on the BufEnter instead
     -- of the FileType autocommand, and the filetype variable used to populate the languageId will not yet be set.
-    filetypes = {'sh'},
+    filetypes = {'sh', 'zsh'},
 }
 
 -- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings

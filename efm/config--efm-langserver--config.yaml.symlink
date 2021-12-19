@@ -15,3 +15,5 @@ tools:
 languages:
   sh:
     - <<: *sh-shellcheck
+  zsh:
+    - <<: *sh-shellcheck

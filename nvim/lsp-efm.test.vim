@@ -1,5 +1,7 @@
 :let g:test_success = 0
 
+:echom "Checking bash support"
+
 :e testscript.sh
 
 :" Wait until the LSP server / client has established connection.
@@ -22,3 +24,4 @@
 :  cquit!
 :endif
 
+:quit!

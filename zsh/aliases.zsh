@@ -8,7 +8,7 @@ function benchmark_reload! {
   exec 3>&2 2>$out_file
   setopt xtrace prompt_subst
   for i in {1..10}; do
-    echo Run $i...
+    echo "Run $i..."
     reload!
   done
   unsetopt xtrace
@@ -23,7 +23,7 @@ if which xdg-open &> /dev/null; then
 fi
 
 function disas_impl() {
-  objdump -dlrwCS -Mintel $1 || gobjdump -dlrwCS -Mintel $1;
+  objdump -dlrwCS -Mintel "$1" || gobjdump -dlrwCS -Mintel "$1";
 }
 
 # Source http://wiki.bash-hackers.org/snipplets/print_horizontal_line
