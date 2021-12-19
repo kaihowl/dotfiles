@@ -14,6 +14,8 @@ expect "*"
 send "source ~/.zshrc\r";
 
 expect {
+  # Accept compinit issues present on CI
+  "compinit: insecure directories" {}
   ":*:*\r" {puts "Found possible error output"; exit 1}
 }
 
