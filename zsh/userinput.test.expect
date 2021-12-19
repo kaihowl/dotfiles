@@ -1,5 +1,4 @@
 #!/usr/bin/expect
-#set timeout 10
 
 spawn zsh "-ie";
 expect "➜";
