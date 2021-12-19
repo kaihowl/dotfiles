@@ -32,6 +32,3 @@ if (grep -q '/bin/zsh' /etc/shells) && [[ -x /bin/zsh ]]; then
     chsh -s /bin/zsh
   fi
 fi
-
-# Fix up permissions for auto completion
-zsh -ic "compaudit | xargs chmod g-w"
