@@ -9,8 +9,9 @@ send "\x17";
 # Flush buffer
 expect "*"
 
-# Load script start up
-send "source ~/.zshrc\r";
+# Load script start up and ignore potentially insecure directories on GitHub
+# actions runner.
+send "compinit -u\rsource ~/.zshrc\r";
 
 expect {
   ":*:*\r" {puts "Found possible error output"; exit 1}
