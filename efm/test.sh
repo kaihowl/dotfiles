@@ -20,3 +20,11 @@ if [[ "${config}" != *"shellcheck"* ]]; then
   exit 1
 fi
 
+echo "Check if efm-langserver has zsh config"
+config=$(efm-langserver -d)
+if [[ "${config}" != *"zsh"* ]]; then
+  echo "Expected the following config to contain 'zsh'"
+  echo "${config}"
+  exit 1
+fi
+
