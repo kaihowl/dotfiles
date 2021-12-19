@@ -638,6 +638,10 @@ configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
 
 configs.efm.setup {
+    -- Fallback to cwd in case of hitting a fugitive buffer
+    root_dir=function(fname)
+      return util.find_git_ancestor(fname) or vim.loop.cwd()
+    end,
     settings = {
       rootMarkers = {".git"},
     },
