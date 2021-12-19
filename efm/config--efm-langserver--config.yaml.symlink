@@ -2,7 +2,6 @@ version: 2
 root-markers:
   - .git/
 lint-debounce: 1s
-log-level: 10
 tools:
   sh-shellcheck: &sh-shellcheck
     lint-command: 'shellcheck -f gcc -x'
