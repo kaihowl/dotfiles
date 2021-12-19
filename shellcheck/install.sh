@@ -19,5 +19,5 @@ if [[ "$expect_hash" != "$actual_hash" ]]; then
   exit 1
 fi
 mkdir -p ~/.shellcheck
-tar -C ~/.shellcheck --extract -z -f "${tmpfile}" --strip-components 1
+tar -C ~/.shellcheck --extract -J -f "${tmpfile}" --strip-components 1
 
