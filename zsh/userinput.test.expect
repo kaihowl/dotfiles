@@ -14,8 +14,8 @@ expect "*"
 send "source ~/.zshrc\r";
 
 expect {
-  "compinit: initialization aborted"
   ":*:*\r" {puts "Found possible error output"; exit 1}
+  "compinit: initialization aborted"
 }
 
 # End the program with ctrl-d
