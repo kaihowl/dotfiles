@@ -166,7 +166,7 @@ kibble()
 
 
 # Oh my THOR!
-if [ -z $1 ]
+if [ -z "$1" ]
 then
   echo "Specify a theme as the first argument: "
   echo "--------------------------------------"

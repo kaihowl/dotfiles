@@ -75,7 +75,7 @@ fzf-key-gl() {
 join-lines() {
   local item
   # shellcheck disable=SC2034
-  while read item; do
+  while read -r item; do
     # shellcheck disable=SC2296
     echo -n "${(q)item} "
   done
