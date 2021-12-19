@@ -53,4 +53,3 @@ unset config_files
 # We don't want this and oh-my-zsh has no way to turn it off
 # Hence, we brute-force this back
 unsetopt autocd
-setopt +o errexit
