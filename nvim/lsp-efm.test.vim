@@ -10,10 +10,13 @@
 
 :echomsg "wait_for_diagnostic: " . wait_for_diagnostic
 
-:if luaeval("vim.lsp.diagnostic.get_count()") != 0
+:if luaeval("vim.lsp.diagnostic.get_count()") == 0
 :  quit!
 :else
 :  for line in readfile(luaeval("vim.lsp.get_log_path()"))[-20:]
+:    echomsg line
+:  endfor
+:  for line in readfile("/tmp/efm.log")[-20:]
 :    echomsg line
 :  endfor
 :  cquit!
