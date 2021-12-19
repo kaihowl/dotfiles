@@ -15,7 +15,7 @@ send "source ~/.zshrc\r";
 
 expect {
   # Accept compinit issues present on CI
-  "compinit: insecure directories" {}
+  "compinit: initialization aborted" {}
   ":*:*\r" {puts "Found possible error output"; exit 1}
 }
 
