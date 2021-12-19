@@ -6,6 +6,8 @@ else
 	export DOTS=$ALT_HOME/.dotfiles
 fi
 
+compinit -u
+
 DISABLE_UPDATE_PROMPT="true"
 
 # Cache the brew prefix for other tools (like autojump) to pick up
