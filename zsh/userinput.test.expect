@@ -1,12 +1,20 @@
 #!/usr/bin/expect
 
-spawn zsh "-ie";
+spawn zsh "-i";
 expect "➜";
 
 # Clear up input with ctrl-w
 send "\x17";
 
-send "echo test\r";
+# Flush buffer
+expect "*"
+
+# Load script start up
+send "source ~/.zshrc\r";
+
+expect {
+  ":*:*\r" {puts "Found possible error output"; exit 1}
+}
 
 # End the program with ctrl-d
 send "\x04";
