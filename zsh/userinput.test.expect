@@ -1,12 +1,10 @@
 #!/usr/bin/expect
-#set timeout 1
 
 spawn zsh "-ie";
 expect "➜";
 
-# Clear up input with ctrl-c
-send "\x03";
-expect "➜";
+# Clear up input with ctrl-w
+send "\x17";
 
 send "echo test\r";
 
