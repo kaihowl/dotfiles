@@ -18,7 +18,7 @@
 :  for line in readfile(luaeval("vim.lsp.get_log_path()"))[-20:]
 :    echomsg line
 :  endfor
-:  for line in readfile("/tmp/efm.log")[-20:]
+:  for line in readfile("/Users/runner/work/dotfiles/dotfiles/efm.log")[-20:]
 :    echomsg line
 :  endfor
 :  cquit!
