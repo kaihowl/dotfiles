@@ -638,7 +638,6 @@ configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
 
 configs.efm.setup {
-    cmd={os.getenv("HOME").."/.efm/efm-langserver"},
     settings = {
       rootMarkers = {".git"},
     },
