@@ -1,6 +1,5 @@
 function get_host_from_ssh() {
-  ssh -G &> /dev/null
-  if [ $? -eq 0 ]; then
+  if ssh -G &> /dev/null; then
     get_host_from_ssh_config "$@"
   else
     get_host_from_ssh_legacy "$@"
@@ -13,15 +12,15 @@ function get_host_from_ssh_legacy() {
 
 function get_host_from_ssh_config() {
   local command
-  local head
-  local tail
+  local binary
+  local args
   local hostname
 
   command=$*
-  head=$(echo "$command" | cut -d " " -f1)
-  tail=$(echo "$command" | cut -d " " -f2-)
+  binary=$(echo "$command" | cut -d " " -f1)
+  args=$(echo "$command" | cut -d " " -f2-)
 
-  hostname=$(echo "$(echo "$head -G $tail")" | awk '/^hostname/ { print $2 }')
+  hostname=$("$binary" -G "$args" | awk '/^hostname/ { print $2 }')
   echo "$hostname"
 }
 

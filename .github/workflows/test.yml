@@ -12,7 +12,7 @@ jobs:
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
-          severity: info
+          severity: style
           # Prevent SC1090/SC1091. Will fail if we have too many scripts.
           # Check usage of "-x" or "external-sources=true" then.
           check_together: 'yes'
