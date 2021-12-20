@@ -71,7 +71,6 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
@@ -99,6 +98,8 @@ Plug 'tommcdo/vim-fubitive' " Bitbucket
 Plug 'tpope/vim-rhubarb' " Github
 
 Plug 'editorconfig/editorconfig-vim'
+
+Plug 'tomtom/tcomment_vim'
 
 call plug#end()
 
