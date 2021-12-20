@@ -32,3 +32,4 @@ if (grep -q '/bin/zsh' /etc/shells) && [[ -x /bin/zsh ]]; then
     chsh -s /bin/zsh
   fi
 fi
+
