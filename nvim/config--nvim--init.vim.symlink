@@ -266,10 +266,8 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 " Make
 " We explicitly use a separate makefile to drive make to be able to switch make
 " commands by editing the makefile without having to reload vimrc
-let &makeprg = 'just -f .VimMakefile'
-nnoremap <leader>mm :Make<cr>
-nnoremap <leader>mM :Make!<cr>
-nnoremap <leader>mc :Make clean<cr>
+nnoremap <leader>mm :Dispatch just -f .VimMakefile<cr>
+nnoremap <leader>mM :Make! just -f .VimMakefile<cr>
 nnoremap <leader>M :edit .VimMakefile<cr>
 " For latex file run latex instead of makefile
 au FileType tex nnoremap <buffer> <leader>mm :silent! call Tex_RunLaTeX()<CR>
