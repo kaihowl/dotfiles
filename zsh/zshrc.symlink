@@ -25,6 +25,8 @@ export PROJECTS=~/Documents/repos/
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTS/**/*.zsh)
+# Remove test scripts
+config_files=(${config_files:#*/nvim/test-*/*})
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
