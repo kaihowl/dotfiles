@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # shortcut to this dotfiles path is $DOTS
 # if not using ALT_HOME use normal HOME
 if [ -z "$ALT_HOME" ]; then
