@@ -20,6 +20,7 @@ fi
 source "$DOTS/script/check_for_upgrade.sh"
 
 # First, load oh-my-zsh
+# shellcheck disable=SC1091
 source "$DOTS/zsh/oh-my.zsh.preamble"
 
 # your project folder that we can `c [tab]` to
