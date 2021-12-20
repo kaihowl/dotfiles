@@ -8,48 +8,57 @@ else
 	export DOTS=$ALT_HOME/.dotfiles
 fi
 
-DISABLE_UPDATE_PROMPT="true"
+export DISABLE_UPDATE_PROMPT="true"
 
 # Cache the brew prefix for other tools (like autojump) to pick up
 if which brew &> /dev/null; then
-  export BREW_PREFIX=$(brew --prefix)
+  BREW_PREFIX=$(brew --prefix)
+  export BREW_PREFIX
 fi
 
 # Periodically (typically once a day), update from github
-source $DOTS/script/check_for_upgrade.sh
+source "$DOTS/script/check_for_upgrade.sh"
 
 # First, load oh-my-zsh
-source $DOTS/zsh/oh-my.zsh.preamble
+source "$DOTS/zsh/oh-my.zsh.preamble"
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Documents/repos/
 
 # all of our zsh files
 typeset -U config_files
-config_files=($DOTS/**/*.zsh)
+config_files=("$DOTS"/**/*.zsh)
 # Remove test scripts
+# shellcheck disable=SC2206
 config_files=(${config_files:#*/nvim/test-*/*})
 
 # load the path files
+# shellcheck disable=SC2296
 for file in ${(M)config_files:#*/path.zsh}
 do
-  source $file
+  # shellcheck disable=SC1090
+  source "$file"
 done
 
 # load everything but the path and completion files
+# shellcheck disable=SC2299
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
+  # shellcheck disable=SC1090
   source $file
 done
 
 # load every completion after autocomplete loads
+# shellcheck disable=SC2296
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  source $file
+  # shellcheck disable=SC1090
+  source "$file"
 done
 
 unset config_files
 
+# shellcheck disable=SC1090
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # We don't want this and oh-my-zsh has no way to turn it off
