@@ -1,12 +1,27 @@
 #!/usr/bin/expect
+set timeout 10
 
-spawn zsh "-ie";
+spawn zsh "-i";
 expect "➜";
 
 # Clear up input with ctrl-w
 send "\x17";
 
-send "echo test\r";
+# Flush buffer
+expect "*"
+
+# Load script start up and ignore potentially insecure directories on GitHub
+# actions runner.
+send "export ZSH_DISABLE_COMPFIX=true; source ~/.zshrc\r";
+
+expect {
+  ":*:*\r" {puts "Found possible error output"; exit 1}
+  "compinit: initialization aborted";
+  expect "➜";
+}
+
+# Clear up input with ctrl-w
+send "\x17";
 
 # End the program with ctrl-d
 send "\x04";
