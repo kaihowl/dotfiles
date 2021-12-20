@@ -11,7 +11,7 @@ expect "*"
 
 # Load script start up and ignore potentially insecure directories on GitHub
 # actions runner.
-send "source ~/.zshrc\r";
+send "export ZSH_DISABLE_COMPFIX=true; source ~/.zshrc\r";
 
 expect {
   ":*:*\r" {puts "Found possible error output"; exit 1}
