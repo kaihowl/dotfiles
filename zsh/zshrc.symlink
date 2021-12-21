@@ -1,3 +1,11 @@
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
 # shortcut to this dotfiles path is $DOTS
 # if not using ALT_HOME use normal HOME
 if [ -z "$ALT_HOME" ]; then
@@ -9,7 +17,7 @@ fi
 DISABLE_UPDATE_PROMPT="true"
 
 # Cache the brew prefix for other tools (like autojump) to pick up
-if which brew &> /dev/null; then
+if [[ -z $BREW_PREFIX ]] && which brew &> /dev/null; then
   export BREW_PREFIX=$(brew --prefix)
 fi
 
@@ -53,3 +61,8 @@ unset config_files
 # We don't want this and oh-my-zsh has no way to turn it off
 # Hence, we brute-force this back
 unsetopt autocd
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi
