@@ -8,4 +8,4 @@ expect -c "strace 4" "$DOTS/zsh/userinput.test.expect"
 
 
 echo "Check if startup is sufficiently fast"
-measure-runtime.py --repeat=10 --expected-ms 275 zsh -i -c 'exit'
+measure-runtime.py --repeat=10 --expected-ms 300 zsh -i -c 'exit'
