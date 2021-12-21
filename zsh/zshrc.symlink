@@ -9,7 +9,7 @@ fi
 DISABLE_UPDATE_PROMPT="true"
 
 # Cache the brew prefix for other tools (like autojump) to pick up
-if which brew &> /dev/null; then
+if [[ -z $BREW_PREFIX ]] && which brew &> /dev/null; then
   export BREW_PREFIX=$(brew --prefix)
 fi
 
