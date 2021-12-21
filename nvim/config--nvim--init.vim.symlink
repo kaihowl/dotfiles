@@ -21,6 +21,9 @@ set noshowmode
 " Allow switching to other buffer without saving
 set hidden
 
+" Do not wrap on search in order to not miss reaching the end of matches
+set nowrapscan
+
 filetype off
 
 " Specify a directory for plugins

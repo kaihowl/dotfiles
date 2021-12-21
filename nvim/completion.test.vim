@@ -12,6 +12,7 @@
 :  redraw
 :  echomsg "Sending <esc> to finalize selection"
 :  call feedkeys("\<esc>")
+:  call cursor(1,1)
 :  let inline_keyword_found = search('inline')
 :  if inline_keyword_found != 0
 :    echomsg "Found expected completion in text"
@@ -36,4 +37,4 @@
 :endfunction
 
 :call timer_start(500, funcref("SelectIt"))
-:call feedkeys("iin", 'tx!')
+:call feedkeys("i in", 'tx!')
