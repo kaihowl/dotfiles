@@ -3,6 +3,10 @@ set -g pane-base-index 1
 
 set-window-option -g mode-keys vi
 
+unbind-key C-b
+set-option -g prefix C-Space
+bind-key C-Space send-prefix
+
 unbind-key j
 bind-key j select-pane -D
 
