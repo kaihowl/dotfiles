@@ -34,7 +34,7 @@ cd ..
 out=$(j stuff)
 if [[ $out != *'stuff'* ]]; then
   echo "Expected jumped-to directory in output"
-  echo "Instead only have output='$output'"
+  echo "Instead only have output='$out'"
   exit 1
 fi
 
