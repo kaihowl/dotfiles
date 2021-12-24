@@ -30,15 +30,23 @@ mkdir -p "${my_dir}/stuff"
 cd "${my_dir}/stuff"
 cd ..
 
+# Jump in subshell to capture output
+out=$(j stuff)
+if [[ $out != *'stuff'* ]]; then
+  echo "Expected jumped-to directory in output"
+  echo "Instead only have output='$out'"
+  exit 1
+fi
+
+# Actually jump
 j stuff
 if [[ $(pwd) != "${my_dir}/stuff" ]]; then
   echo "Expected to have jumped to ${my_dir}/stuff"
   echo "But actually pwd = $(pwd)"
   exit 1
-else
-  cd "${my_dir}"
 fi
 
+cd "${my_dir}"
 j StuFF
 newdir="$(pwd)"
 expected_dir="${my_dir}/stuff"
@@ -46,10 +54,9 @@ if [[ ${newdir:u} != "${expected_dir:u}" ]]; then
   echo "Expected to have jumped to ${my_dir}/stuff with query 'StuFF'"
   echo "But actually pwd = $(pwd)"
   exit 1
-else
-  cd "${my_dir}"
 fi
 
+cd "${my_dir}"
 rm -rf "${my_dir}/stuff"
 j stuff
 if [[ $(pwd) != "${my_dir}" ]]; then
