@@ -2,11 +2,11 @@
 set -ex
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.7.9/zoxide-v0.7.9-x86_64-apple-darwin.tar.gz"
-  expect_hash="f120c034c3a70c0de304ebcbbdc0419aa4b54370891a4626aefb5396e2115dbf"
+  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.0/zoxide-v0.8.0-x86_64-apple-darwin.tar.gz"
+  expect_hash="296f5b95db461ae8c081ab43b337362a4389bdbc289d1107753baf5676466b77"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.7.9/zoxide-v0.7.9-x86_64-unknown-linux-musl.tar.gz"
-  expect_hash="94dd29ca9bee0fed3a5d045b02d699b3c3415d6f40d2303b2d71fe0746e6be30"
+  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.0/zoxide-v0.8.0-x86_64-unknown-linux-musl.tar.gz"
+  expect_hash="cbf4044be68c901f0fb29b7511fd8c645f466afba0e98a6ca6d9d21ab932f41b"
 fi
 
 tmpfile=$(mktemp)
