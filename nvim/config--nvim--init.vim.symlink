@@ -421,6 +421,11 @@ augroup groovy_filetype
   autocmd FileType groovy set sw=4 ts=4 sta et fo=croql
 augroup END
 
+augroup markdown
+  autocmd!
+  autocmd FileType markdown nmap <leader>p <Plug>MarkdownPreview
+augroup END
+
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
