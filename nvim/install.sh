@@ -35,6 +35,6 @@ plug_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
 if [ ! -d "$plug_dir" ]; then
   curl -fLo "${plug_dir}" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-nvim --headless +PlugUpgrade +PlugUpdate +qall
+nvim +PlugUpgrade +PlugUpdate +qall
 nvim +PlugStatus +qall
 exit 1
