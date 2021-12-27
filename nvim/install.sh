@@ -36,4 +36,5 @@ if [ ! -d "$plug_dir" ]; then
   curl -fLo "${plug_dir}" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 nvim --headless +PlugUpgrade +PlugUpdate +qall
-
+nvim +PlugStatus +qall
+exit 1
