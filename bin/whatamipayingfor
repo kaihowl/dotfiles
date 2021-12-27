@@ -6,6 +6,9 @@ info () {
   printf " --> \033[00;34m%s\033[0m\n" "$1"
 }
 
+info "Overall balance"
+doctl balance get
+
 info "Clusters"
 doctl kubernetes cluster ls
 
