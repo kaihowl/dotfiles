@@ -19,8 +19,12 @@ for i in range(0, args.repeat):
     timings.append((end - start)/10**6)
 
 min_measurements = min(timings)
+median_measurements = sorted(timings)[len(timings) // 2]
+max_measurements = max(timings)
 
 print("min in {} runs was: {} ms".format(args.repeat, min_measurements))
+print("median in {} runs was: {} ms".format(args.repeat, median_measurements))
+print("max in {} runs was: {} ms".format(args.repeat, max_measurements))
 
 if args.expected_ms and min_measurements > args.expected_ms:
     print("Expected was: {} ms".format(args.expected_ms))
