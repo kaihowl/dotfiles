@@ -41,7 +41,10 @@ augroup nerd_loader
         \| endif
 augroup END
 
-autocmd! User nerdtree call AddNerdTreeMapping()
+augroup nerdtree_group
+  autocmd!
+  autocmd! User nerdtree call AddNerdTreeMapping()
+augroup END
 
 function! AddNerdTreeMapping()
   call NERDTreeAddKeyMap({
@@ -231,7 +234,11 @@ nnoremap <leader>gp :Git! push<cr>
 nnoremap <leader>gP :Git! pub<cr>
 nnoremap <leader>gf :Git! fetch<cr>
 
-au FileType qf set nolist
+augroup quickfix_list
+  autocmd!
+  autocmd! FileType qf set nolist
+augroup END
+
 
 " Git mapping for finding conflict markers
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
@@ -272,7 +279,10 @@ inoremap jj <ESC>
 inoremap JJ <esc>Ji
 
 " python pep8 compliance
-au BufEnter *.py set sw=4 ts=4 sta et fo=croql
+augroup python_ft
+  autocmd!
+  autocmd BufEnter *.py set sw=4 ts=4 sta et fo=croql
+augroup END
 
 " Make
 " We explicitly use a separate makefile to drive make to be able to switch make
@@ -280,8 +290,12 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 nnoremap <leader>mm :Dispatch just -f .VimMakefile<cr>
 nnoremap <leader>mM :Make! just -f .VimMakefile<cr>
 nnoremap <leader>M :edit .VimMakefile<cr>
+
 " For latex file run latex instead of makefile
-au FileType tex nnoremap <buffer> <leader>mm :silent! call Tex_RunLaTeX()<CR>
+augroup latex_ft
+  autocmd!
+  autocmd FileType tex nnoremap <buffer> <leader>mm :silent! call Tex_RunLaTeX()<CR>
+augroup END
 
 " Sudo after the fact
 cmap w!! w !sudo tee % >/dev/null
@@ -362,13 +376,16 @@ command! -range LineBreakTexSource :silent! <line1>,<line2>s/\. /.\r/g | :<line1
 set backspace=2
 
 " enable spellchecking for git commits
-au FileType gitcommit setlocal spell
-au FileType gitcommit setlocal textwidth=71 colorcolumn=+1
-" and for markdown files
-au FileType markdown setlocal spell
-" and for tex files
-au FileType tex setlocal spell
-au FileType tex syntax spell toplevel
+augroup spellchecking
+  autocmd!
+  autocmd FileType gitcommit setlocal spell
+  autocmd FileType gitcommit setlocal textwidth=71 colorcolumn=+1
+  " and for markdown files
+  autocmd FileType markdown setlocal spell
+  " and for tex files
+  autocmd FileType tex setlocal spell
+  autocmd FileType tex syntax spell toplevel
+augroup END
 
 " Indent-sentence mapping
 " For paragraph, restore position using register T
@@ -415,7 +432,10 @@ noremap <leader>rr :Rg<cr>
 noremap <leader>r<space> :Rg<space>
 
 " Add yaml file type for salt sls files
-au BufEnter *.sls set ft=yaml
+augroup salt_ft
+  autocmd!
+  autocmd BufEnter *.sls set ft=yaml
+augroup END
 
 augroup groovy_filetype
   autocmd!
@@ -501,7 +521,10 @@ endif
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 setglobal commentstring=//\ %s
-autocmd FileType cpp setlocal commentstring=//\ %s
+augroup cpp_comments
+  autocmd!
+  autocmd FileType cpp setlocal commentstring=//\ %s
+augroup END
 
 nnoremap <leader>gD :call <SID>view_merge_request()<cr>
 command! DiffHistory call s:view_merge_request()
@@ -565,8 +588,12 @@ set statusline+=\
 let g:NERDTreeMapJumpParent = '-'
 " Root dir
 nmap - :NERDTreeCWD<cr>
+
 " Current file when buffer open
-autocmd BufRead * nmap - :NERDTreeFind<CR>
+augroup nerdtree_find
+  autocmd!
+  autocmd BufRead * nmap - :NERDTreeFind<CR>
+augroup END
 
 " ------ TODOS mappings
 function! s:GetUser()
@@ -757,6 +784,9 @@ imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 " Auto-format files when possible prior to saving
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
+augroup autoformat
+  autocmd!
+  autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
+augroup END
 
 " vi: ft=vim :
