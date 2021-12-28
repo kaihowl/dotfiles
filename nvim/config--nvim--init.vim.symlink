@@ -135,6 +135,7 @@ let g:tmuxline_preset = {
 let g:edge_enable_italic = 1
 let g:edge_disable_italic_comment = 0
 let g:edge_diagnostic_line_highlight = 1
+let g:edge_better_performance = 1
 set cursorline
 colorscheme edge
 
@@ -478,17 +479,19 @@ endfunction
 
 command! -nargs=1 DiffRev call s:get_diff_files(<q-args>)
 
-"" Source: https://stackoverflow.com/a/22676189/522251
-" Put plugins and dictionaries in this dir (also on Windows)
-let vimDir = '$HOME/.vim'
+"" Original Source: https://stackoverflow.com/a/22676189/522251
+let vimDir = expand('$HOME/.vim')
 let &runtimepath.=','.vimDir
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undodir')
+    let myUndoDir = vimDir . '/undodir'
+
     " Create dirs
-    call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
+    if !isdirectory(myUndoDir)
+      call mkdir(myUndoDir, 'p')
+    endif
+
     let &undodir = myUndoDir
     set undofile
 endif
