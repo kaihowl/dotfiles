@@ -418,7 +418,7 @@ fun! s:Grep(txt, bang)
   let needle = escape(needle, '|#%')
   " And escape full search string for shell usage.
   " Unless passing <bang>, then allow for passing arguments.
-  if a:bang != "!"
+  if a:bang !=# '!'
     let needle = shellescape(needle)
   endif
   silent! execute 'grep! ' . needle
@@ -449,10 +449,10 @@ augroup END
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
-  if a:opt == -1 || (a:opt == 0 && &diffopt =~ 'iwhite')
+  if a:opt == -1 || (a:opt == 0 && &diffopt =~# 'iwhite')
     echo ':set diffopt-=iwhite'
     set diffopt-=iwhite
-  elseif a:opt == 1 || (a:opt == 0 && &diffopt !~ 'iwhite')
+  elseif a:opt == 1 || (a:opt == 0 && &diffopt !~# 'iwhite')
     echo ':set diffopt+=iwhite'
     set diffopt+=iwhite
   endif
@@ -481,7 +481,7 @@ function! s:get_default_branch() abort
   " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
   " let defaultbranch = execute("Git symbolic-ref refs/remotes/origin/HEAD")
   let defaultbranch = split(execute('Git rev-parse --abbrev-ref origin/HEAD'), "\n")[0]
-  if defaultbranch =~ 'fatal: .*'
+  if defaultbranch =~? 'fatal: .*'
     echohl WarningMsg
     echom 'Using default origin/master, no symbolic-ref for refs/remotes/origin/HEAD found.'
     echohl None
