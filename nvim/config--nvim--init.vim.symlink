@@ -169,7 +169,7 @@ set relativenumber
 set undofile
 set noautochdir
 
-let mapleader = ","
+let mapleader = ','
 
 " fix vim's default regex handling / search behavior
 set ignorecase
@@ -331,7 +331,7 @@ function! ScreenLines(fold_level)
   let screen_lines = 0
   let prev_fold_level = 0
   let cur_fold_level = 0
-  let buf_length = line("$")
+  let buf_length = line('$')
   while line_num <= buf_length
     let fold_expr = foldlevel(line_num)
     let prev_fold_level = cur_fold_level
@@ -403,14 +403,14 @@ nnoremap <leader>o :TagbarOpen fj<cr>
 let g:tagbar_show_linenumbers=-1
 
 " Set smart case for rg
-if executable("rg")
+if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden
-  let &grepformat="%f:%l:%c:%m"
+  let &grepformat='%f:%l:%c:%m'
 endif
 
 fun! s:Grep(txt, bang)
   if empty(a:txt)
-    let needle = expand("<cword>")
+    let needle = expand('<cword>')
   else
     let needle =  a:txt
   endif
@@ -422,7 +422,7 @@ fun! s:Grep(txt, bang)
   if a:bang != "!"
     let needle = shellescape(needle)
   endif
-  silent! execute "grep! " . needle
+  silent! execute 'grep! ' . needle
   copen
 endfun
 
@@ -481,10 +481,10 @@ let g:dispatch_handlers = [
 function! s:get_default_branch() abort
   " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
   " let defaultbranch = execute("Git symbolic-ref refs/remotes/origin/HEAD")
-  let defaultbranch = split(execute("Git rev-parse --abbrev-ref origin/HEAD"), "\n")[0]
+  let defaultbranch = split(execute('Git rev-parse --abbrev-ref origin/HEAD'), "\n")[0]
   if defaultbranch =~ 'fatal: .*'
     echohl WarningMsg
-    echom "Using default origin/master, no symbolic-ref for refs/remotes/origin/HEAD found."
+    echom 'Using default origin/master, no symbolic-ref for refs/remotes/origin/HEAD found.'
     echohl None
   endif
   let defaultbranch = 'origin/master'
@@ -607,7 +607,7 @@ endfunction
 
 function! s:GenerateToDo()
   let user = <sid>GetUser()
-  return "TODO(" . user . ")"
+  return 'TODO(' . user . ')'
 endfunction
 
 inoremap <expr> <leader>t <sid>GenerateToDo()
