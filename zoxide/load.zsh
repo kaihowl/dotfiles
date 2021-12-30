@@ -6,6 +6,9 @@ eval "$(zoxide init --cmd j zsh)"
 # TODO(kaihowl) Depends on fzf completions internals
 # Enable fzf completion on "j <prefix>**"
 function _fzf_complete_j() {
+  local result
   # shellcheck disable=SC2154
-  zoxide query -i "${prefix}"
+  result=$(zoxide query -i "${prefix}")
+  zle backward-delete-word
+  LBUFFER+=$result
 }
