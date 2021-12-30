@@ -1,0 +1,32 @@
+#!/usr/bin/expect
+set timeout 10
+
+spawn zsh "-i";
+expect "➜";
+
+# Clear up input with ctrl-w
+send "\x17";
+
+# Flush buffer
+expect "*"
+
+# Clear up input with ctrl-w
+send "\x17";
+
+send "cdtmp\r"
+
+expect "➜";
+
+send "mkdir test; cd test; cd ..\r"
+
+expect "➜";
+
+send "j t**\r"
+
+expect "/"
+
+send "test\r"
+
+send "pwd\r"
+
+expect "test"
