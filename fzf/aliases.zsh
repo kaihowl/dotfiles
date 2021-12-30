@@ -72,14 +72,6 @@ fzf-key-gl() {
   grep -o "[a-f0-9]\{7,\}"
 }
 
-# TODO(kaihowl) gs is weird?
-fzf-key-gs() {
-  if [[ -z "$TMUX_PANE" ]]; then
-    return
-  fi
-  tmux list-panes -F '#P' | xargs -n 1 tmux capture-pane -J -p -t | grep -v '^$' | fzf-down
-}
-
 join-lines() {
   local item
   # shellcheck disable=SC2034
@@ -100,3 +92,20 @@ bind-git-helper() {
 bind-git-helper f b t r h l s
 unset -f bind-git-helper
 # ----------
+
+fzf-key-xo() {
+  if [[ -z "$TMUX_PANE" ]]; then
+    return
+  fi
+  tmux list-panes -F '#P' | xargs -n 1 tmux capture-pane -J -p -t | tr -s ' 	' '\n' | grep -v '^$' | fzf-down
+}
+
+fzf-xo-widget() {
+  local result;
+  result=$(fzf-key-xo)
+  zle reset-prompt
+  LBUFFER+=$result
+}
+
+zle -N fzf-xo-widget
+bindkey '^x^o' fzf-xo-widget
