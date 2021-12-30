@@ -20,3 +20,6 @@ doctl compute volume ls
 
 info "Load Balancers"
 doctl compute load-balancer ls
+
+info "Images"
+doctl compute image ls
