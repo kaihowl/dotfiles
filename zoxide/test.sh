@@ -22,7 +22,7 @@ if [[ "${man_page}" != $(realpath ~/.zoxide/man)* ]]; then
 fi
 
 echo "Check zoxide fzf shell completion"
-if ! expect -f "$DOTS/zoxide/autojump.test.expect"; then
+if ! expect -f "$DOTS/zoxide/autojump.test.expect" -c 'strace 4'; then
   echo "fzf shell completion for zoxide failed"
   exit 1
 fi
