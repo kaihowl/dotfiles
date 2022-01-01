@@ -1,7 +1,12 @@
 #!/usr/bin/expect
-set timeout 10
+# TODO(kaihowl) increase
+set timeout 2
 
 spawn zsh "-i";
+expect "➜";
+
+send "export _ZO_DATA_DIR=\$(pwd)\r"
+
 expect "➜";
 
 # Clear up input with ctrl-w
@@ -17,16 +22,35 @@ send "cdtmp\r"
 
 expect "➜";
 
-send "mkdir test; cd test; cd ..\r"
+send "mkdir test; cd test; cd ..; mkdir other; cd other\r"
 
 expect "➜";
 
-send "j t**\r"
+send "j t**\t"
 
 expect "/"
 
-send "test\r"
+send "test"
+
+expect "> test"
+
+send "\r"
+#
+# expect "test"
+#
+# send "\r"
+#
+expect "➜";
+
+send "\r";
+
+expect "➜";
 
 send "pwd\r"
 
-expect "test"
+expect "➜";
+
+expect {
+  "test" {}
+  "*" { exit 1 }
+}
