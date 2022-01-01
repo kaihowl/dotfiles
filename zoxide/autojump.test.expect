@@ -22,19 +22,20 @@ expect "➜";
 
 # Start fzf completion, expect a single match that immediately shows up,
 # and it selected automatically.
-send "j veryuniquestring**\t"
-expect "cd"
+send "j veryuniquestring**\x09"
+expect {
+  "cd " {}
+  timeout { exit 1 }
+}
 
 # Execute "cd" command that was ZLE' edited on screen.
 send "\r";
 expect "➜";
 
 # Check correct directory.
-send "pwd\r"
-expect "➜";
-
-# We should now be in "test" and not "other"
+# "end.*end" matches the input "echo ... end" and the output of it
+send "echo current dir is: \$(pwd) end\r"
 expect {
-  "veryuniquestring" {}
-  "*" { exit 1 }
+  -re "current dir is: .*veryuniquestring end" {}
+  -re "end.*end" { exit 1 }
 }
