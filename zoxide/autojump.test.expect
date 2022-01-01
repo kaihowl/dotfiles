@@ -16,17 +16,14 @@ expect "➜";
 send "export _ZO_DATA_DIR=\$(pwd)\r"
 expect "➜";
 
+# Set up test folders.
 send "mkdir veryuniquestring; cd veryuniquestring; cd ..; mkdir other; cd other\r"
 expect "➜";
 
-# Start fzf completion.
+# Start fzf completion, expect a single match that immediately shows up,
+# and it selected automatically.
 send "j veryuniquestring**\t"
-
 expect "cd"
-
-# Confirm selection
-send "\r"
-expect "➜";
 
 # Execute "cd" command that was ZLE' edited on screen.
 send "\r";
