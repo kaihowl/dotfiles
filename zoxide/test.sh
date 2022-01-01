@@ -21,6 +21,12 @@ if [[ "${man_page}" != $(realpath ~/.zoxide/man)* ]]; then
   exit 1
 fi
 
+echo "Check zoxide fzf shell completion"
+if ! expect -f "$DOTS/zoxide/autojump.test.expect"; then
+  echo "fzf shell completion for zoxide failed"
+  exit 1
+fi
+
 echo "Check zoxide behavior"
 my_dir=$(mktemp -d)
 export _ZO_DATA_DIR=$my_dir
