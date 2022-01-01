@@ -9,6 +9,8 @@ function _fzf_complete_j() {
   local result
   # shellcheck disable=SC2154
   result=$(zoxide query -i "${prefix}")
+  # Delete both "j" and "<prefix>**"
   zle backward-delete-word
-  LBUFFER+=$result
+  zle backward-delete-word
+  LBUFFER+="cd $result"
 }
