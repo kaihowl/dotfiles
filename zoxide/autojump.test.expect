@@ -16,18 +16,13 @@ expect "➜";
 send "export _ZO_DATA_DIR=\$(pwd)\r"
 expect "➜";
 
-send "mkdir test; cd test; cd ..; mkdir other; cd other\r"
+send "mkdir veryuniquestring; cd veryuniquestring; cd ..; mkdir other; cd other\r"
 expect "➜";
 
 # Start fzf completion.
-send "j t**\t"
-# Wait till second last row of completion window is visible with count of results.
-expect -re {[1-9]+/[1-9]+}
+send "j veryuniquestring**\t"
 
-# Enter search string.
-send "test"
-# Wait till entered string is drawn on screen and last result selected.
-expect "1/3"
+expect "cd"
 
 # Confirm selection
 send "\r"
@@ -43,6 +38,6 @@ expect "➜";
 
 # We should now be in "test" and not "other"
 expect {
-  "test" {}
+  "veryuniquestring" {}
   "*" { exit 1 }
 }
