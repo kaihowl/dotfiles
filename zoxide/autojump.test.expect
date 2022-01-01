@@ -22,7 +22,7 @@ expect "➜";
 
 # Start fzf completion, expect a single match that immediately shows up,
 # and it selected automatically.
-send "j veryuniquestring**\x09"
+send "j veryuniquestring**\t"
 expect {
   "cd " {}
   timeout { exit 1 }
