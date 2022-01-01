@@ -1,0 +1,48 @@
+#!/usr/bin/expect
+set timeout 10
+
+spawn zsh "-i";
+expect "➜";
+
+# Clear up input with ctrl-w.
+send "\x17";
+# Flush buffer.
+expect "*"
+
+send "cdtmp\r"
+expect "➜";
+
+# Make the test hermetic.
+send "export _ZO_DATA_DIR=\$(pwd)\r"
+expect "➜";
+
+send "mkdir test; cd test; cd ..; mkdir other; cd other\r"
+expect "➜";
+
+# Start fzf completion.
+send "j t**\t"
+# Wait till second last row of completion window is visible with count of results.
+expect -re {[1-9]+/[1-9]+}
+
+# Enter search string.
+send "test"
+# Wait till entered string is drawn on screen and last result selected.
+expect "1/3"
+
+# Confirm selection
+send "\r"
+expect "➜";
+
+# Execute "cd" command that was ZLE' edited on screen.
+send "\r";
+expect "➜";
+
+# Check correct directory.
+send "pwd\r"
+expect "➜";
+
+# We should now be in "test" and not "other"
+expect {
+  "test" {}
+  "*" { exit 1 }
+}
