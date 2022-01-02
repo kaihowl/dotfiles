@@ -20,3 +20,8 @@ function brew_install() {
   # Install and upgrade if already installed (this is done by `install` if HOMEBREW_NO_INSTALL_UPGRADE is not set)
   brew install "$@"
 }
+
+function brew_remove() {
+  ensure_brew_installed
+  brew remove "$@"
+}

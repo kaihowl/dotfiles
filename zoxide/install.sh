@@ -1,5 +1,16 @@
 #!/bin/bash
+#!/bin/bash
 set -ex
+
+# Remove old autojump installation.
+# Otherwise old "j" compdef might still be sourced and conflicts with the zoxide definition.
+if [ "$(uname -s)" = "Darwin" ]; then
+  source "$DOTS/common/brew.sh"
+  brew_remove autojump
+elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+  source "$DOTS/common/apt.sh"
+  apt_remove autojump
+fi
 
 if [ "$(uname -s)" = "Darwin" ]; then
   download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.0/zoxide-v0.8.0-x86_64-apple-darwin.tar.gz"
