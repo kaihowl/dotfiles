@@ -23,5 +23,5 @@ function brew_install() {
 
 function brew_remove() {
   ensure_brew_installed
-  brew remove "$@"
+  brew remove -f "$@"
 }
