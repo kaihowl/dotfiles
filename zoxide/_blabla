@@ -1,0 +1,7 @@
+#compdef blabla
+cur=${words[2, -1]}
+(( $+compstate )) && compstate[insert]=menu
+
+zoxide query --list "${=cur[*]}" | while read match; do
+    compadd -P "${cur}" "${match}";
+done
