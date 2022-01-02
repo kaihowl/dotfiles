@@ -97,7 +97,16 @@ fzf-key-xo() {
   if [[ -z "$TMUX_PANE" ]]; then
     return
   fi
-  tmux list-panes -F '#P' | xargs -n 1 tmux capture-pane -J -p -t | tr -s ' 	' '\n' | grep -v '^$' | fzf-down
+  tmux list-panes -F '#P' | xargs -n 1 tmux capture-pane -J -p -t | tr -s ' 	' '\n' | grep -v '^$' | awk '
+  {
+    if (data[$0]++ == 0)
+      lines[++count] = $0
+  }
+
+  END {
+  for (i = 1; i <= count; i++)
+    print lines[i]
+  }' | fzf-down
 }
 
 fzf-xo-widget() {
