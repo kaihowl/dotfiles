@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/zsh -i
 set -ex
 
 echo "Test that start up and basic user input to shell work without errors"

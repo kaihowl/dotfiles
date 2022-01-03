@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/zsh -i
 set -e
 
 echo "Check if efm-langserver is on path"
