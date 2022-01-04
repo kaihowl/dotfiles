@@ -1,7 +1,7 @@
 #!/bin/zsh -i
 set -e
-
-source ~/.zshrc
+set -x
+echo $PATH
 
 echo "Checking whether fzf is on path"
 which fzf
