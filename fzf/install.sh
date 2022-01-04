@@ -3,6 +3,9 @@ set -ex
 
 cd "$(dirname "$0")"
 
+# Depends on an installed zsh, otherwise the zsh configuration is not generated
+../zsh/install.sh
+
 if [ "$(uname)" == "Darwin" ]; then
   source "$DOTS/common/brew.sh"
   brew_install curl wget
