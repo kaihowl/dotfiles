@@ -233,9 +233,9 @@ nnoremap <leader>gp :Git! push<cr>
 nnoremap <leader>gP :Git! pub<cr>
 nnoremap <leader>gf :Git! fetch<cr>
 
-augroup quickfix_list
+augroup nolist_filtypes
   autocmd!
-  autocmd! FileType qf set nolist
+  autocmd! FileType qf,git set nolist
 augroup END
 
 
