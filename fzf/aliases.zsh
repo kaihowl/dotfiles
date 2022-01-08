@@ -21,6 +21,10 @@ fzf-down() {
   fzf --height 50% "$@" --border
 }
 
+fzf-down-no-sort() {
+  fzf-down "$@" --no-sort
+}
+
 fzf-key-gf() {
   is_in_git_repo || return
   git -c color.status=always status --short |
@@ -33,7 +37,7 @@ fzf-key-gb() {
   is_in_git_repo || return
   # shellcheck disable=SC2016
   git branch -a --sort=committerdate --color=always | grep -v '/HEAD\s' |
-  fzf-down --ansi --multi --tac --preview-window right:70% \
+  fzf-down-no-sort --ansi --multi --tac --preview-window right:70% \
     --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
   sed 's/^..//' | cut -d' ' -f1 |
   sed 's#^remotes/##'
@@ -42,14 +46,14 @@ fzf-key-gb() {
 fzf-key-gt() {
   is_in_git_repo || return
   git tag --sort -version:refname |
-  fzf-down --multi --preview-window right:70% \
+  fzf-down-no-sort --multi --preview-window right:70% \
     --preview 'git show --color=always {} | head -'$LINES
 }
 
 fzf-key-gh() {
   is_in_git_repo || return
   git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
-  fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+  fzf-down-no-sort --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
     --header 'Press CTRL-S to toggle sort' \
     --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
   grep -o "[a-f0-9]\{7,\}"
@@ -58,7 +62,7 @@ fzf-key-gh() {
 fzf-key-gr() {
   is_in_git_repo || return
   git reflog --color=always "$@" |
-  fzf-down --no-multi --ansi --no-sort \
+  fzf-down-no-sort --no-multi --ansi --no-sort \
     --preview 'git show --color=always {1}' |
   cut -d' ' -f1
 }
@@ -66,7 +70,7 @@ fzf-key-gr() {
 fzf-key-gl() {
   is_in_git_repo || return
   git reflog --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --color=always |
-  fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+  fzf-down-no-sort --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
     --header 'Press CTRL-S to toggle sort' \
     --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
   grep -o "[a-f0-9]\{7,\}"
