@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function decorate() {
-  sed \
+  sed -l \
     -e 's/^.*deprecat.*$/::warning:: &/' \
     -e 's/^.*warning.*$/::warning:: &/' \
     -e 's/^.*error.*$/::error:: &/'
