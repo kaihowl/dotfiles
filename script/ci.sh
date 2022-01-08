@@ -1,12 +1,17 @@
 #!/bin/bash
 
+if [[ $(uname) == *Darwin* ]]; then
+  word_end="[[:>:]]"
+  # Use line buffering
+  less_buffering="-l"
+else
+  word_end="\b"
+  # Do not buffer
+  less_buffering="-u"
+fi
+
 function decorate() {
-  if [[ $(uname) == *Darwin* ]]; then
-    word_end="[[:>:]]"
-  else
-    word_end="\b"
-  fi
-  sed -l \
+  sed "${less_buffering}" \
     -e "s/^.*deprecat.*$/::info:: &/" \
     -e "s/^.*warning${word_end}.*$/::warning:: &/" \
     -e "s/^.*error${word_end}.*$/::error:: &/"
