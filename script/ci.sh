@@ -1,10 +1,15 @@
 #!/bin/bash
 
 function decorate() {
+  if [[ $(uname) == *Darwin* ]]; then
+    word_end="[[:>:]]"
+  else
+    word_end="\b"
+  fi
   sed -l \
-    -e 's/^.*deprecat.*$/::warning:: &/' \
-    -e 's/^.*warning.*$/::warning:: &/' \
-    -e 's/^.*error.*$/::error:: &/'
+    -e "s/^.*deprecat.*$/::info:: &/" \
+    -e "s/^.*warning${word_end}.*$/::warning:: &/" \
+    -e "s/^.*error${word_end}.*$/::error:: &/"
 }
 
 ./script/bootstrap 2>&1 | decorate
