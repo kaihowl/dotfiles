@@ -1,4 +1,4 @@
-#!/bin/zsh -ie
+#!/bin/zsh -ex
 
 # Run all test scripts
 
