@@ -24,7 +24,7 @@ jobs:
           SHELLCHECK_OPTS: -s bash
 
   build:
-    timeout-minutes: 5
+    timeout-minutes: 20
     strategy:
       matrix:
         os: [ubuntu-20.04, macos-11]
