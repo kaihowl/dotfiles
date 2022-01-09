@@ -17,7 +17,7 @@ fi
 
 function decorate() {
   sed "${less_buffering}" \
-    -e "s/^.*${word_begin}deprecat.*$/::info:: &/" \
+    -e "s/^.*${word_begin}deprecat.*$/::notice:: &/" \
     -e "s/^.*${word_begin}warning${word_end}.*$/::warning:: &/" \
     -e "s/^.*${word_begin}error${word_end}.*$/::error:: &/"
 }
