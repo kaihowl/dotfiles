@@ -19,8 +19,6 @@ function decorate() {
     -e "s/^.*${word_begin}error${word_end}.*$/::error:: &/"
 }
 
-./script/bootstrap 2>&1 | decorate
-./script/install 2>&1 | decorate
-# There is no actual error to silence. This is a parsing error due to the file name "test".
-# shellcheck disable=SC2266
-./script/test | decorate
+stdbuf -oL -eL ./script/bootstrap > >(decorate) 2>&1
+stdbuf -oL -eL ./script/install > >(decorate) 2>&1
+stdbuf -oL -eL ./script/test > >(decorate) 2>&1
