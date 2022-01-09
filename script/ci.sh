@@ -17,9 +17,9 @@ fi
 
 function decorate() {
   sed "${less_buffering}" \
-    -e "s/^.*${word_begin}deprecat.*$/::notice:: &/" \
-    -e "s/^.*${word_begin}warning${word_end}.*$/::warning:: &/" \
-    -e "s/^.*${word_begin}error${word_end}.*$/::error:: &/"
+    -e "s/^.*${word_begin}[dD]eprecat.*$/::notice:: &/" \
+    -e "s/^.*${word_begin}[wW]arning${word_end}.*$/::warning:: &/" \
+    -e "s/^.*${word_begin}[eE]rror${word_end}.*$/::error:: &/"
 }
 
 "${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
