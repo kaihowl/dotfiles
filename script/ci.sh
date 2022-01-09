@@ -5,11 +5,14 @@ if [[ $(uname) == *Darwin* ]]; then
   word_end="[[:>:]]"
   # Use line buffering
   less_buffering="-l"
+  # Do not use stdbuf (not available by default, not needed so far.)
+  stdbuf=()
 else
   word_begin="\b"
   word_end="\b"
   # Do not buffer
   less_buffering="-u"
+  stdbuf=(stdbuf -oL -eL)
 fi
 
 function decorate() {
@@ -19,6 +22,6 @@ function decorate() {
     -e "s/^.*${word_begin}error${word_end}.*$/::error:: &/"
 }
 
-stdbuf -oL -eL ./script/bootstrap > >(decorate) 2>&1
-stdbuf -oL -eL ./script/install > >(decorate) 2>&1
-stdbuf -oL -eL ./script/test > >(decorate) 2>&1
+"${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
+"${stdbuf[@]}" ./script/install > >(decorate) 2>&1
+"${stdbuf[@]}" ./script/test > >(decorate) 2>&1
