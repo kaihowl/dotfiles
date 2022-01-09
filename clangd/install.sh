@@ -10,7 +10,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # install latest
   clangd_version=11
   codename=$(lsb_release -c | cut -f2)
-  wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+  wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE="${CI}" apt-key add -
   sudo apt-add-repository "deb https://apt.llvm.org/${codename}/ llvm-toolchain-${codename}-${clangd_version} main"
   source "$DOTS/common/apt.sh"
   apt_install clangd-${clangd_version}
