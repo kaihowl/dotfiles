@@ -287,7 +287,7 @@ augroup END
 " We explicitly use a separate makefile to drive make to be able to switch make
 " commands by editing the makefile without having to reload vimrc
 nnoremap <leader>mm :Dispatch just -f .VimMakefile<cr>
-nnoremap <leader>mM :Make! just -f .VimMakefile<cr>
+nnoremap <leader>mM :Start! just -f .VimMakefile<cr>
 nnoremap <leader>M :edit .VimMakefile<cr>
 
 " For latex file run latex instead of makefile
