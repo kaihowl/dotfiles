@@ -51,10 +51,10 @@ cdtmp
 mkdir "source"
 cd "source"
 git init
-git branch -M specialdefault
 touch a
 git add a
 git commit -m 'test'
+git branch -M specialdefault
 cd ..
 git clone "source" "target"
 cd target
@@ -70,10 +70,10 @@ cdtmp
 mkdir "source"
 cd "source"
 git init
-git branch -M specialdefault
 touch a
 git add a
 git commit -m 'test'
+git branch -M specialdefault
 cd ..
 mkdir modules
 cd modules
