@@ -81,9 +81,7 @@ git init
 git submodule add ../source
 git commit -m 'test'
 # pwd == main repo but open file in submodule
-# TODO(kaihowl) remove
-stat source/a
-output=$(nvim "source/a" --headless -c "echo Get_default_branch()" -c 'quit' 2>&1)
+output=$(nvim --headless -c "edit source/a" -c "echo Get_default_branch()" -c 'quit' 2>&1)
 if [[ "$output" != *"origin/specialdefault" ]]; then
   echo "Detected wrong default branch, should have been origin/specialdefault but was"
   echo "$output"
