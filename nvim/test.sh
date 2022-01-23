@@ -17,7 +17,7 @@ fi
 
 echo "Check that all test scripts are called afterwards in this script"
 found_tests=$(find "$(realpath "$(dirname "$0")")" -name '*.test.vim' | wc -l)
-registered_tests=$(($(grep -c 'nvim --headless' "$0") - 1))
+registered_tests=$(grep -c '\-s .*\.test\.vim' "$0")
 if [[ found_tests -ne registered_tests ]]; then
   echo "Expected number of tests: ${found_tests}"
   echo "Actual number of tests: ${registered_tests}"
@@ -36,6 +36,57 @@ nvim --headless -s "$DOTS/nvim/nvim-cmp-select-enter.test.vim"
 cd "$DOTS/test-editorconfig/" && nvim --headless -s "$DOTS/nvim/editorconfig.test.vim"
 cd "$DOTS/nvim/test-ripgrep/" && nvim --headless -s "$DOTS/nvim/ripgrep.test.vim"
 cd "$DOTS/nvim/test-efm/" && nvim --headless -s "$DOTS/nvim/lsp-efm.test.vim"
+
+echo "Check that git default folder detection works with a default"
+cd "$DOTS/"
+output=$(nvim --headless -c "echo Get_default_branch()" -c 'quit' 2>&1)
+if [[ "$output" != *"origin/master" ]]; then
+  echo "Detected wrong default branch, should have been origin/master but was"
+  echo "$output"
+  exit 1
+fi
+
+echo "Check that git default folder detection works"
+cdtmp
+mkdir "source"
+cd "source"
+git init
+touch a
+git add a
+git commit -m 'test'
+git branch -M specialdefault
+cd ..
+git clone "source" "target"
+cd target
+output=$(nvim --headless -c "echo Get_default_branch()" -c 'quit' 2>&1)
+if [[ "$output" != *"origin/specialdefault" ]]; then
+  echo "Detected wrong default branch, should have been origin/specialdefault but was"
+  echo "$output"
+  exit 1
+fi
+
+echo "Check that git default folder detection works with submodules"
+cdtmp
+mkdir "source"
+cd "source"
+git init
+touch a
+git add a
+git commit -m 'test'
+git branch -M specialdefault
+cd ..
+mkdir modules
+cd modules
+git init
+git submodule add ../source
+git commit -m 'test'
+# pwd == main repo but open file in submodule
+output=$(nvim --headless -c "edit source/a" -c "echo Get_default_branch()" -c 'quit' 2>&1)
+if [[ "$output" != *"origin/specialdefault" ]]; then
+  echo "Detected wrong default branch, should have been origin/specialdefault but was"
+  echo "$output"
+  exit 1
+fi
 
 echo "Check if startup is sufficiently fast"
 measure-runtime.py --repeat=10 --expected-ms 250 nvim +qall
