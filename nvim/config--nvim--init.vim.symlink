@@ -81,7 +81,6 @@ Plug 'FelikZ/ctrlp-py-matcher'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
@@ -111,6 +110,9 @@ Plug 'tpope/vim-rhubarb' " Github
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tomtom/tcomment_vim'
+
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
@@ -283,12 +285,14 @@ augroup python_ft
   autocmd BufEnter *.py set sw=4 ts=4 sta et fo=croql
 augroup END
 
-" Make
-" We explicitly use a separate makefile to drive make to be able to switch make
-" commands by editing the makefile without having to reload vimrc
-nnoremap <leader>mm :Dispatch just -f .VimMakefile<cr>
-nnoremap <leader>mM :Start! just -f .VimMakefile<cr>
-nnoremap <leader>M :edit .VimMakefile<cr>
+" AsyncTask
+nnoremap <leader>mm :AsyncTaskLast<cr>
+nnoremap <leader>M :AsyncTaskEdit<cr>
+nnoremap <leader>m<space> :AsyncTask<space>
+
+let g:asyncrun_open = 6 " Open quickfix window after starting command with given height
+let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
+let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
 
 " For latex file run latex instead of makefile
 augroup latex_ft
@@ -465,17 +469,6 @@ nnoremap ]oD :call <SID>toggle_iwhite(-1)<CR>
 
 " Netrw settings to show linenumbers abs/rel by default
 let g:netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
-
-" Explicitly set preferred order of handlers for dispatch to exclude the JOB
-" handler
-let g:dispatch_handlers = [
-      \ 'tmux',
-      \ 'screen',
-      \ 'windows',
-      \ 'iterm',
-      \ 'x11',
-      \ 'headless',
-      \ ]
 
 function! Get_default_branch() abort
   " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
