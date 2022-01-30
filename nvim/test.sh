@@ -39,7 +39,7 @@ cd "$DOTS/nvim/test-efm/" && nvim --headless -s "$DOTS/nvim/lsp-efm.test.vim"
 
 echo "Check that git default folder detection works with a default"
 cd "$DOTS/"
-output=$(nvim --headless -c "echo Get_default_branch()" -c 'quit' 2>&1)
+output=$(nvim --headless -c 'call stdioopen({})' -c 'call chansend(1, Get_default_branch())' -c 'quit')
 if [[ "$output" != *"origin/master" ]]; then
   echo "Detected wrong default branch, should have been origin/master but was"
   echo "$output"
@@ -58,7 +58,7 @@ git branch -M specialdefault
 cd ..
 git clone "source" "target"
 cd target
-output=$(nvim --headless -c "echo Get_default_branch()" -c 'quit' 2>&1)
+output=$(nvim --headless -c 'call stdioopen({})' -c 'call chansend(1, Get_default_branch())' -c 'quit')
 if [[ "$output" != *"origin/specialdefault" ]]; then
   echo "Detected wrong default branch, should have been origin/specialdefault but was"
   echo "$output"
@@ -81,7 +81,7 @@ git init
 git submodule add ../source
 git commit -m 'test'
 # pwd == main repo but open file in submodule
-output=$(nvim --headless -c "edit source/a" -c "echo Get_default_branch()" -c 'quit' 2>&1)
+output=$(nvim --headless -c 'call stdioopen({})' -c "edit source/a" -c 'call chansend(1, Get_default_branch())' -c 'quit')
 if [[ "$output" != *"origin/specialdefault" ]]; then
   echo "Detected wrong default branch, should have been origin/specialdefault but was"
   echo "$output"
