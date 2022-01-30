@@ -231,7 +231,7 @@ nnoremap <leader>g3 :RestoreCurPos Gedit :3<cr>:Gdiff :1<cr>
 " Fugitive git push / fetch mappings
 nnoremap <leader>gp :Git! push<cr>
 nnoremap <leader>gP :Git! pub<cr>
-nnoremap <leader>gf :Git! fetch<cr>
+nnoremap <leader>gf :Git! fetch --verbose<cr>
 
 augroup nolist_filtypes
   autocmd!
