@@ -135,13 +135,15 @@ let g:tmuxline_preset = {
     \'options' : {'status-justify' : 'left'}}
 
 
-" The configuration options should be placed before `colorscheme edge`.
-let g:edge_enable_italic = 1
-let g:edge_disable_italic_comment = 0
-let g:edge_diagnostic_line_highlight = 1
-let g:edge_better_performance = 1
-set cursorline
-colorscheme edge
+if !exists('g:first_time_startup')
+  " The configuration options should be placed before `colorscheme edge`.
+  let g:edge_enable_italic = 1
+  let g:edge_disable_italic_comment = 0
+  let g:edge_diagnostic_line_highlight = 1
+  let g:edge_better_performance = 1
+  set cursorline
+  colorscheme edge
+end
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround
 
@@ -618,6 +620,7 @@ let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
 set completeopt=menu,menuone,noselect
 set shortmess+=c
 
+if !exists('g:first_time_startup')
 lua <<EOF
 local configs = require('lspconfig')
 -- This is grabbing into internals of lspconfig. If this breaks, this is on me.
@@ -767,8 +770,8 @@ cmp.setup {
     }
   }
 }
-
 EOF
+endif
 
 " NOTE: You can use other key to expand snippet.
 
