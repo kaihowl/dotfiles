@@ -287,6 +287,7 @@ augroup END
 
 " AsyncTask
 nnoremap <leader>mm :AsyncTaskLast<cr>
+nnoremap <leader>mx :AsyncStop<cr>
 nnoremap <leader>M :AsyncTaskEdit<cr>
 nnoremap <leader>m<space> :AsyncTask<space>
 
