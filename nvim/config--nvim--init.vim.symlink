@@ -280,6 +280,8 @@ nnoremap <c-l> :CtrlPLine<cr>
 inoremap jj <ESC>
 " join two lines
 inoremap JJ <esc>Ji
+" Exit terminal mode with the same shortcut as normal mode
+tnoremap jj <C-\><C-n>
 
 " python pep8 compliance
 augroup python_ft
