@@ -15,7 +15,7 @@ expect "*"
 send "export ZSH_DISABLE_COMPFIX=true; source ~/.zshrc\r";
 
 expect {
-  ":*:*\r" {puts "Found possible error output"; exit 1}
+  ":*:*\r" {puts "Found possible errors in output"; exit 1}
   "compinit: initialization aborted";
   expect "➜";
 }
