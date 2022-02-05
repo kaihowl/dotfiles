@@ -600,6 +600,7 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
+set statusline+=\ %{g:asyncrun_status[0:0]}
 " -----
 
 " Make nerdtree work like vim-vinegar
