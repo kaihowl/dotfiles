@@ -1,3 +1,4 @@
+"{{{ misc options, sane defaults
 set modelines=1
 
 let g:loaded_python_provider = 0
@@ -25,39 +26,86 @@ set nowrapscan
 
 filetype off
 
+syntax enable
+
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround
+
+" Wrap gitcommit file types at the appropriate length
+filetype indent plugin on
+
+set wildignore+=*/node_modules/*,*.aux,*.d,*.o,*.pyc
+set wildignorecase
+
+" Shamelessly copied from Steve Losh's vimrc
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+
+" First off, some standard settings, making vim more 'sane'
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set wildmenu
+set ttyfast
+" Set both number and relativenumber for hybrid number
+" If version is before 7.4, the last setting, i.e. relativenumber persists
+set number
+set relativenumber
+set undofile
+set noautochdir
+
+let mapleader = ','
+
+" fix vim's default regex handling / search behavior
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+
+" handle lines intelligently
+set wrap
+" set textwidth=79
+set formatoptions+=qrn1
+set colorcolumn=81
+
+" set default chars for whitespace in list chars
+set list
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
+set pastetoggle=<leader>p
+
+" Allow to delete old characters in insert mode
+" Also needed that latex-suite will be able to delete placeholders
+set backspace=2
+
+"" Original Source: https://stackoverflow.com/a/22676189/522251
+let vimDir = expand('$HOME/.vim')
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = vimDir . '/undodir'
+
+    " Create dirs
+    if !isdirectory(myUndoDir)
+      call mkdir(myUndoDir, 'p')
+    endif
+
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+set completeopt=menu,menuone,noselect
+set shortmess+=c
+"}}}
+
+"{{{ plugins
+"
 " Specify a directory for plugins
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTreeCWD'] }
-" Source: https://github.com/junegunn/vim-plug/issues/424#issuecomment-189343357
-augroup nerd_loader
-  autocmd!
-  autocmd VimEnter * silent! autocmd! FileExplorer
-  autocmd BufEnter,BufNew *
-        \  if isdirectory(expand('<amatch>'))
-        \|   call plug#load('nerdtree')
-        \|   execute 'autocmd! nerd_loader'
-        \| endif
-augroup END
-
-augroup nerdtree_group
-  autocmd!
-  autocmd! User nerdtree call AddNerdTreeMapping()
-augroup END
-
-function! AddNerdTreeMapping()
-  call NERDTreeAddKeyMap({
-          \ 'key': 'yy',
-          \ 'callback': 'NERDTreeYankCurrentNode',
-          \ 'quickhelpText': 'put full path of current node into the default register' })
-endfunction
-
-function! NERDTreeYankCurrentNode()
-    let n = g:NERDTreeFileNode.GetSelected()
-    if n != {}
-        call setreg('"', n.path.str())
-    endif
-endfunction
 
 Plug 'neovim/nvim-lspconfig'
 "
@@ -115,15 +163,9 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf'
 
 call plug#end()
+" }}}
 
-syntax enable
-
-set background=dark
-
-" configure vim-fubitive GBrowse handler for bitbucket
-let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
-
-" configure tmuxline
+"{{{ tmuxline
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
     \'a'       : '#S',
@@ -133,8 +175,9 @@ let g:tmuxline_preset = {
     \'cwin'    : ['#I', '#{?window_zoomed_flag,(,} #W #{?window_zoomed_flag,),}'],
     \'x'       : '%a',
     \'options' : {'status-justify' : 'left'}}
+"}}}
 
-
+"{{{ color
 if !exists('g:first_time_startup')
   " The configuration options should be placed before `colorscheme edge`.
   let g:edge_enable_italic = 1
@@ -143,55 +186,22 @@ if !exists('g:first_time_startup')
   let g:edge_better_performance = 1
   set cursorline
   colorscheme edge
+  set background=dark
 end
+"}}}
 
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround
-
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
-
-set wildignore+=*/node_modules/*,*.aux,*.d,*.o,*.pyc
-set wildignorecase
-
+"{{{ vim-indent-guides
 " Enable indent guides per default
 let g:indent_guides_enable_on_vim_startup = 1
+"}}}
 
-" Shamelessly copied from Steve Losh's vimrc
-" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+"{{{ helper functions
 
-" First off, some standard settings, making vim more 'sane'
-set encoding=utf-8
-set scrolloff=3
-set autoindent
-set wildmenu
-set ttyfast
-" Set both number and relativenumber for hybrid number
-" If version is before 7.4, the last setting, i.e. relativenumber persists
-set number
-set relativenumber
-set undofile
-set noautochdir
+" Sudo after the fact
+cmap w!! w !sudo tee % >/dev/null
 
-let mapleader = ','
-
-" fix vim's default regex handling / search behavior
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-nnoremap <leader><space> :noh<cr>
-
-" handle lines intelligently
-set wrap
-" set textwidth=79
-set formatoptions+=qrn1
-set colorcolumn=81
-
-" set default chars for whitespace in list chars
-set list
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" Source https://vim.fandom.com/wiki/Search_for_visually_selected_text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Silent command
 command! -nargs=1 Silent
@@ -203,7 +213,9 @@ command! -nargs=1 RestoreCurPos
       \ let save_cursor = getpos('.')
       \ | execute <q-args>
       \ | call setpos('.', save_cursor)
+"}}}
 
+"{{{ fugitive
 function s:diff_to_default_branch()
   let defaultbranch = Get_default_branch()
   exe 'Gdiffsplit ' . defaultbranch
@@ -246,7 +258,11 @@ augroup END
 " Git mapping for finding conflict markers
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 
-"----- FZF
+" configure vim-fubitive GBrowse handler for bitbucket
+let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
+"}}}
+
+"{{{ fzf
 " Use 1.618 golden ratio and use the minor scaled to 0.0..1.0
 let g:fzf_layout={'window': {'width': 0.3819, 'height': 0.3819, 'border': 'rounded'}}
 " Enable per-command history
@@ -281,8 +297,9 @@ command! BUFFERS call fzf#run(
   \ 'sink': 'b'
   \}))
 nnoremap <leader>d :BUFFERS<cr>
-"------
+"}}}
 
+"{{{ mode escaping
 " Normal mode commands
 " easier escaping
 inoremap jj <ESC>
@@ -290,14 +307,17 @@ inoremap jj <ESC>
 inoremap JJ <esc>Ji
 " Exit terminal mode with the same shortcut as normal mode
 tnoremap jj <C-\><C-n>
+"}}}
 
+"{{{ python
 " python pep8 compliance
 augroup python_ft
   autocmd!
   autocmd BufEnter *.py set sw=4 ts=4 sta et fo=croql
 augroup END
+"}}}
 
-" AsyncTask
+"{{{ asynctasks / asyncrun
 nnoremap <leader>mm :AsyncTaskLast<cr>
 nnoremap <leader>mx :AsyncStop<cr>
 nnoremap <leader>M :AsyncTaskEdit<cr>
@@ -306,17 +326,14 @@ nnoremap <leader>m<space> :AsyncTask<space>
 let g:asyncrun_open = 10 " Open quickfix window after starting command with given height
 let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
 let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
+"}}}
 
+"{{{ latex
 " For latex file run latex instead of makefile
 augroup latex_ft
   autocmd!
   autocmd FileType tex nnoremap <buffer> <leader>mm :silent! call Tex_RunLaTeX()<CR>
 augroup END
-
-" Sudo after the fact
-cmap w!! w !sudo tee % >/dev/null
-
-set pastetoggle=<leader>p
 
 " Make sure latex-suite is invoked for plaintex files
 let g:tex_flavor='latex'
@@ -386,11 +403,9 @@ command! -range LineBreakTexSource :silent! <line1>,<line2>s/\. /.\r/g | :<line1
 " Comment out, if you need to debug latex-suite
 "let g:Tex_Debug=1
 "let g:Tex_DebugLog="texdebug.log"
+"}}}
 
-" Allow to delete old characters in insert mode
-" Also needed that latex-suite will be able to delete placeholders
-set backspace=2
-
+"{{{ spellchecking
 " enable spellchecking for git commits
 augroup spellchecking
   autocmd!
@@ -402,22 +417,29 @@ augroup spellchecking
   autocmd FileType tex setlocal spell
   autocmd FileType tex syntax spell toplevel
 augroup END
+"}}}
 
-" Indent-sentence mapping
+"{{{ vim-indent-sentence
 " For paragraph, restore position using register T
 nnoremap <leader>ip i//CURSOR//<esc>vip :call g:IndentSentence()<cr>:%s/\/\/CURSOR\/\///<cr>
 vnoremap <leader>is :call g:IndentSentence()<cr>
+"}}}
 
+"{{{ gitgutter
 " gitgutter configuration
 " explicitly set hunk navigation commands
 nmap [h <Plug>(GitGutterPrevHunk)
 nmap ]h <Plug>(GitGutterNextHunk)
+"}}}
 
+"{{{ tagbar
 " open tagbar (and focus) (or jump to if open)
 nnoremap <leader>o :TagbarOpen fj<cr>
 " show line numbers in tagbar
 let g:tagbar_show_linenumbers=-1
+"}}}
 
+"{{{ rg
 " Set smart case for rg
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden
@@ -446,7 +468,9 @@ command! -bang -nargs=* Rg :call s:Grep(<q-args>, '<bang>')
 
 noremap <leader>rr :Rg<cr>
 noremap <leader>r<space> :Rg<space>
+"}}}
 
+"{{{ filetypes
 " Add yaml file type for salt sls files
 augroup salt_ft
   autocmd!
@@ -463,7 +487,14 @@ augroup markdown
   autocmd FileType markdown nmap <leader>p <Plug>MarkdownPreview
 augroup END
 
-"-----
+setglobal commentstring=//\ %s
+augroup cpp_comments
+  autocmd!
+  autocmd FileType cpp setlocal commentstring=//\ %s
+augroup END
+"}}}
+
+"{{{ conventional-commits
 " https://www.reddit.com/r/vim/comments/dj37wt/plugin_for_conventional_commits/
 augroup commit
   autocmd!
@@ -476,8 +507,9 @@ fun! s:commit_type()
   nunmap <buffer> i
   return ''
 endfun
-"-----
+"}}}
 
+"{{{ diffopt
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
@@ -494,7 +526,9 @@ endfunction
 nnoremap coD :call <SID>toggle_iwhite(0)<CR>
 nnoremap [oD :call <SID>toggle_iwhite(1)<CR>
 nnoremap ]oD :call <SID>toggle_iwhite(-1)<CR>
+"}}}
 
+"{{{ pull request handling
 function! Get_default_branch() abort
   " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
   " let defaultbranch = execute("Git symbolic-ref refs/remotes/origin/HEAD")
@@ -521,33 +555,6 @@ function! s:get_diff_file_master_merge() abort
 endfunction
 
 command! -nargs=1 DiffRev call s:get_diff_files(<q-args>)
-
-"" Original Source: https://stackoverflow.com/a/22676189/522251
-let vimDir = expand('$HOME/.vim')
-let &runtimepath.=','.vimDir
-
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    let myUndoDir = vimDir . '/undodir'
-
-    " Create dirs
-    if !isdirectory(myUndoDir)
-      call mkdir(myUndoDir, 'p')
-    endif
-
-    let &undodir = myUndoDir
-    set undofile
-endif
-"" End
-
-" Source https://vim.fandom.com/wiki/Search_for_visually_selected_text
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
-setglobal commentstring=//\ %s
-augroup cpp_comments
-  autocmd!
-  autocmd FileType cpp setlocal commentstring=//\ %s
-augroup END
 
 nnoremap <leader>gD :call <SID>view_merge_request()<cr>
 command! DiffHistory call s:view_merge_request()
@@ -591,8 +598,10 @@ function! s:add_mappings()
   11copen
   wincmd p
 endfunction
+"}}}
 
-" ------ Status line (source: https://shapeshed.com/vim-statuslines) ------
+"{{{status line
+" source: https://shapeshed.com/vim-statuslines
 set statusline=
 set statusline+=%#Search#
 set statusline+=\ %f
@@ -606,7 +615,38 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
 set statusline+=\ %{g:asyncrun_status[0:0]}
-" -----
+"}}}
+
+"{{{ NerdTree
+" Source: https://github.com/junegunn/vim-plug/issues/424#issuecomment-189343357
+augroup nerd_loader
+  autocmd!
+  autocmd VimEnter * silent! autocmd! FileExplorer
+  autocmd BufEnter,BufNew *
+        \  if isdirectory(expand('<amatch>'))
+        \|   call plug#load('nerdtree')
+        \|   execute 'autocmd! nerd_loader'
+        \| endif
+augroup END
+
+augroup nerdtree_group
+  autocmd!
+  autocmd! User nerdtree call AddNerdTreeMapping()
+augroup END
+
+function! AddNerdTreeMapping()
+  call NERDTreeAddKeyMap({
+          \ 'key': 'yy',
+          \ 'callback': 'NERDTreeYankCurrentNode',
+          \ 'quickhelpText': 'put full path of current node into the default register' })
+endfunction
+
+function! NERDTreeYankCurrentNode()
+    let n = g:NERDTreeFileNode.GetSelected()
+    if n != {}
+        call setreg('"', n.path.str())
+    endif
+endfunction
 
 " Make nerdtree work like vim-vinegar
 let g:NERDTreeMapJumpParent = '-'
@@ -618,8 +658,9 @@ augroup nerdtree_find
   autocmd!
   autocmd BufRead * nmap - :NERDTreeFind<CR>
 augroup END
+"}}}
 
-" ------ TODOS mappings
+"{{{ Todo functionality
 function! s:GetUser()
   return trim(system('id -un'))
 endfunction
@@ -636,13 +677,13 @@ endfunction
 
 inoremap <expr> <leader>t <sid>GenerateToDo()
 nnoremap <leader>t :call <sid>SearchForToDo()<cr>
+"}}}
 
-" Configure vim-addon-local-vimrc
+"{{{vim-addon-local-vimrc
 let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
+"}}}
 
-set completeopt=menu,menuone,noselect
-set shortmess+=c
-
+"{{{ lsp + vsnip config
 if !exists('g:first_time_startup')
 lua <<EOF
 local configs = require('lspconfig')
@@ -795,9 +836,9 @@ cmp.setup {
 }
 EOF
 endif
+"}}}
 
-" NOTE: You can use other key to expand snippet.
-
+"{{{ vsnip
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
@@ -807,11 +848,14 @@ imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+"}}}
 
+"{{{ format on save
 " Auto-format files when possible prior to saving
 augroup autoformat
   autocmd!
   autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
 augroup END
+" }}}
 
-" vi: ft=vim :
+" vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
