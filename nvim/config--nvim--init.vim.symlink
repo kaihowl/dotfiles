@@ -270,7 +270,7 @@ let g:fzf_layout={'window': {'width': 0.3819, 'height': 0.3819, 'border': 'round
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-nnoremap <leader>s :FZF<cr>
+nnoremap <silent> <leader>s :FZF<cr>
 
 function! s:CompBufferLastUsed(i1, i2)
   let l:last1 = getbufinfo(a:i1)[0].lastused
@@ -296,7 +296,7 @@ command! BUFFERS call fzf#run(
   \ 'options': '--no-sort',
   \ 'sink': 'b'
   \}))
-nnoremap <leader>d :BUFFERS<cr>
+nnoremap <silent> <leader>d :BUFFERS<cr>
 "}}}
 
 "{{{ mode escaping
