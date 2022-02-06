@@ -269,7 +269,7 @@ endfunction
 
 function! s:FilterBuffer(buf)
   let is_named = strlen(bufname(a:buf)) > 0
-  let is_qf = getbufvar(a:buf, '&filetype') == 'qf'
+  let is_qf = getbufvar(a:buf, '&filetype') ==# 'qf'
   let is_listed = buflisted(a:buf)
   return is_listed && is_named && !is_qf
 endfunction
