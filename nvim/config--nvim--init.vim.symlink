@@ -131,6 +131,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 " Plug 'kaihowl/vim-latex'
@@ -857,5 +859,15 @@ augroup autoformat
   autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
 augroup END
 " }}}
+
+"{{{ vim-tmux-navigator
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <M-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+"}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
