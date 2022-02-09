@@ -439,7 +439,7 @@ function main {
     body="${raw_fields[4]}"
 
     # If we find a new release (exact tag)
-    if [[ "$refs" = *tag:\ * ]]; then
+    if [[ -z "$since" ]] && [[ "$refs" = *tag:\ * ]]; then
       # Parse tag name (needs: setopt extendedglob)
       tag="${${refs##*tag: }%%,# *}"
       # Output previous release
