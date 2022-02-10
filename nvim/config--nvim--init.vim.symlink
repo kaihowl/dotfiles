@@ -295,7 +295,7 @@ endfunction
 command! BUFFERS call fzf#run(
   \ fzf#wrap({
   \ 'source': map(sort(filter(range(1, bufnr('$')),{pos,val -> s:FilterBuffer(val)}), 's:CompBufferLastUsed'), {pos,val -> s:FormatBuffer(val)}),
-  \ 'options': '--no-sort',
+  \ 'options': '--no-sort --keep-right',
   \ 'sink': 'b'
   \}))
 nnoremap <silent> <leader>d :BUFFERS<cr>
