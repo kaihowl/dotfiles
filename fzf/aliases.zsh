@@ -110,7 +110,7 @@ fzf-key-xo() {
   END {
   for (i = 1; i <= count; i++)
     print lines[i]
-  }' | fzf-down
+  }' | tac | fzf-down-no-sort
 }
 
 fzf-xo-widget() {
