@@ -265,14 +265,19 @@ let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 "}}}
 
 "{{{ fzf
-" Use 1.618 golden ratio and use the minor scaled to 0.0..1.0
-let g:fzf_layout={'window': {'width': 0.3819, 'height': 0.3819, 'border': 'rounded'}}
+let g:fzf_layout={'down': '40%'}
 " Enable per-command history
 " - History files will be stored in the specified directory
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-nnoremap <silent> <leader>s :FZF<cr>
+
+" Use `rg` as source such that gitignored files and binaries don't show up
+command! FZFRG call fzf#run(
+  \ fzf#wrap({
+  \ 'source': 'rg --hidden --files --color=never --glob ""'
+  \ }))
+nnoremap <silent> <leader>s :FZFRG<cr>
 
 function! s:CompBufferLastUsed(i1, i2)
   let l:last1 = getbufinfo(a:i1)[0].lastused
