@@ -293,6 +293,7 @@ EOF
 
 nnoremap <leader>s :FzfLua files<cr>
 nnoremap <leader>d :FzfLua buffers<cr>
+nnoremap <leader>f<space> :FzfLua<space>
 nnoremap <leader>fc :FzfLua changes<cr>
 nnoremap <leader>fj :FzfLua jumps<cr>
 nnoremap <leader>R :FzfLua live_grep<cr>
