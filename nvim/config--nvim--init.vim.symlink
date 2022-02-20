@@ -114,7 +114,6 @@ Plug 'neovim/nvim-lspconfig'
 " see: https://github.com/iamcco/markdown-preview.nvim/issues/50
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown'}
 
-
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -135,20 +134,16 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
-" Plug 'kaihowl/vim-latex'
 
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
-" Plug 'reedes/vim-colors-pencil'
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
 Plug 'sainnhe/edge'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " Fugitive browse handlers
