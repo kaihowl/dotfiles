@@ -162,7 +162,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 
-Plug 'junegunn/fzf'
+Plug 'ibhagwan/fzf-lua'
 
 call plug#end()
 " }}}
@@ -264,46 +264,31 @@ nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 "}}}
 
-"{{{ fzf
-let g:fzf_layout={'down': '40%'}
-" Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
+"{{{ fzf-lua
+lua <<EOF
+require('fzf-lua').setup{
+  winopts = {
+    split = 'botright new'
+  },
+  fzf_opts = {
+    -- Remove default reverse layout to get prompt at bottom
+     ['--layout']      = false,
+  },
+  files = {
+    winopts = {
+      preview = {
+        hidden = 'hidden',
+      },
+    },
+  },
+}
+EOF
 
-" Use `rg` as source such that gitignored files and binaries don't show up
-command! FZFRG call fzf#run(
-  \ fzf#wrap({
-  \ 'source': 'rg --hidden --files --color=never --glob ""'
-  \ }))
-nnoremap <silent> <leader>s :FZFRG<cr>
-
-function! s:CompBufferLastUsed(i1, i2)
-  let l:last1 = getbufinfo(a:i1)[0].lastused
-  let l:last2 = getbufinfo(a:i2)[0].lastused
-  return l:last1 == l:last2 ? 0 : (l:last1 > l:last2) ? -1 : 1
-endfunction
-
-function! s:FormatBuffer(buf)
-  let bufname = bufname(a:buf)
-  return strlen(bufname) != 0 ? bufname : 'unbennant'
-endfunction
-
-function! s:FilterBuffer(buf)
-  let is_named = strlen(bufname(a:buf)) > 0
-  let is_qf = getbufvar(a:buf, '&filetype') ==# 'qf'
-  let is_listed = buflisted(a:buf)
-  return is_listed && is_named && !is_qf
-endfunction
-
-command! BUFFERS call fzf#run(
-  \ fzf#wrap({
-  \ 'source': map(sort(filter(range(1, bufnr('$')),{pos,val -> s:FilterBuffer(val)}), 's:CompBufferLastUsed'), {pos,val -> s:FormatBuffer(val)}),
-  \ 'options': '--no-sort --keep-right',
-  \ 'sink': 'b'
-  \}))
-nnoremap <silent> <leader>d :BUFFERS<cr>
+nnoremap <leader>s :FzfLua files<cr>
+nnoremap <leader>d :FzfLua buffers<cr>
+nnoremap <leader>fc :FzfLua changes<cr>
+nnoremap <leader>fj :FzfLua jumps<cr>
+nnoremap <leader>R :FzfLua live_grep<cr>
 "}}}
 
 "{{{ mode escaping
