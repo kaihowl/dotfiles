@@ -281,6 +281,13 @@ require('fzf-lua').setup{
       },
     },
   },
+  buffers = {
+    winopts = {
+      preview = {
+        hidden = 'hidden',
+      },
+    },
+  },
 }
 EOF
 
