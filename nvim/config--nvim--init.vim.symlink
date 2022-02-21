@@ -265,6 +265,13 @@ let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 "}}}
 
 "{{{ fzf-lua
+let g:fzf_history_dir = expand('~/.local/share/fzf-history')
+
+" Create dirs
+if !isdirectory(g:fzf_history_dir)
+  call mkdir(g:fzf_history_dir, 'p')
+endif
+
 lua <<EOF
 require('fzf-lua').setup{
   winopts = {
@@ -273,6 +280,7 @@ require('fzf-lua').setup{
   fzf_opts = {
     -- Remove default reverse layout to get prompt at bottom
      ['--layout']      = false,
+     ['--history']     = vim.g.fzf_history_dir .. '/' .. 'history'
   },
   files = {
     winopts = {
