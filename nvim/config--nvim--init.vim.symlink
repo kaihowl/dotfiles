@@ -24,14 +24,7 @@ set hidden
 " Do not wrap on search in order to not miss reaching the end of matches
 set nowrapscan
 
-filetype off
-
-syntax enable
-
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround
-
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
 
 set wildignore+=*/node_modules/*,*.aux,*.d,*.o,*.pyc
 set wildignorecase
@@ -159,6 +152,7 @@ Plug 'kaihowl/asyncrun.vim', { 'branch': 'use-qf-id' }
 
 Plug 'ibhagwan/fzf-lua'
 
+" the plug#end automatically calls "filetype plugin indent on" and "syntax enable"
 call plug#end()
 " }}}
 
