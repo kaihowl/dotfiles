@@ -132,7 +132,6 @@ Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
-Plug 'altercation/vim-colors-solarized'
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
