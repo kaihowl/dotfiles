@@ -271,6 +271,7 @@ require('fzf-lua').setup{
      ['--history']     = vim.g.fzf_history_dir .. '/' .. 'history'
   },
   files = {
+    rg_opts = '--hidden --files --color=never --glob ""',
     winopts = {
       preview = {
         hidden = 'hidden',
