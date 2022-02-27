@@ -260,6 +260,7 @@ if !isdirectory(g:fzf_history_dir)
   call mkdir(g:fzf_history_dir, 'p')
 endif
 
+if !exists('g:first_time_startup')
 lua <<EOF
 require('fzf-lua').setup{
   winopts = {
@@ -292,6 +293,7 @@ require('fzf-lua').setup{
   }
 }
 EOF
+endif
 
 nnoremap <leader>s :FzfLua files<cr>
 nnoremap <leader>d :FzfLua buffers<cr>
@@ -617,7 +619,9 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
-set statusline+=\ %{g:asyncrun_status[0:0]}
+if !exists('g:first_time_startup')
+  set statusline+=\ %{g:asyncrun_status[0:0]}
+endif
 "}}}
 
 "{{{ NerdTree
