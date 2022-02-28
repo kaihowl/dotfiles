@@ -215,6 +215,11 @@ endfunction
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gl :RestoreCurPos Silent 0Gclog --after='6 months ago'<cr>
 nnoremap <leader>gL :RestoreCurPos Silent 0Gclog<cr>
+" Gclog with a range already restores the cursor position on the expected
+" chunk. This is superior to just retaining the current cursor position.
+vnoremap <leader>gl :Gclog --after='6 months ago'<cr>
+vnoremap <leader>gL :Gclog<cr>
+
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gm :call <sid>diff_to_default_branch()<cr>
 nnoremap <leader>ge :RestoreCurPos Gedit<cr>
