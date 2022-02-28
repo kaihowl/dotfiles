@@ -213,8 +213,8 @@ endfunction
 
 " Fugitive mappings
 nnoremap <leader>gs :G<cr>
-nnoremap <leader>gl :RestoreCurPos Silent %Gclog --after='6 months ago'<cr>
-nnoremap <leader>gL :RestoreCurPos Silent %Gclog<cr>
+nnoremap <leader>gl :RestoreCurPos Silent 0Gclog --after='6 months ago'<cr>
+nnoremap <leader>gL :RestoreCurPos Silent 0Gclog<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gm :call <sid>diff_to_default_branch()<cr>
 nnoremap <leader>ge :RestoreCurPos Gedit<cr>
