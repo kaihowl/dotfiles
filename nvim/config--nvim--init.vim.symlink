@@ -513,7 +513,7 @@ augroup commit
 augroup END
 
 fun! s:commit_type()
-  call complete(1, ['fix: ', 'feat: ', 'refactor: ', 'docs: ', 'test: ', 'ci: ', 'chore: '])
+  call complete(1, ['fix: ', 'feat: ', 'refactor: ', 'docs: ', 'test: ', 'ci: ', 'chore: ', 'perf: '])
   nunmap <buffer> i
   return ''
 endfun
