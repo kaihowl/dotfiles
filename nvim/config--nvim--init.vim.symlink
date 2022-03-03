@@ -575,7 +575,9 @@ command! DiffHistory call s:view_merge_request()
 function! s:view_merge_request() abort
   let revision = <sid>get_diff_file_master_merge()
   execute 'Git difftool ' . revision . '..HEAD --find-renames=50\%'
-  call s:diff_current_quickfix_entry()
+  if len(getqflist()) > 0
+    call s:diff_current_quickfix_entry()
+  endif
   " Bind <CR> for current quickfix window to properly set up diff split layout after selecting an item
   " There's probably a better way to map this without changing the window
   copen
