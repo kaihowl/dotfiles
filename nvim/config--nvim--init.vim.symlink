@@ -147,7 +147,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'skywind3000/asynctasks.vim'
-Plug 'kaihowl/asyncrun.vim', { 'branch': 'use-qf-id' }
+Plug 'skywind3000/asyncrun.vim'
 
 Plug 'ibhagwan/fzf-lua'
 
