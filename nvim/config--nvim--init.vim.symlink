@@ -136,6 +136,9 @@ Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
 Plug 'sainnhe/edge'
+Plug 'morhetz/gruvbox'
+
+
 Plug 'edkolev/tmuxline.vim'
 
 " Fugitive browse handlers
@@ -169,13 +172,8 @@ let g:tmuxline_preset = {
 
 "{{{ color
 if !exists('g:first_time_startup')
-  " The configuration options should be placed before `colorscheme edge`.
-  let g:edge_enable_italic = 1
-  let g:edge_disable_italic_comment = 0
-  let g:edge_diagnostic_line_highlight = 1
-  let g:edge_better_performance = 1
   set cursorline
-  colorscheme edge
+  colorscheme gruvbox
   set background=dark
 end
 "}}}
