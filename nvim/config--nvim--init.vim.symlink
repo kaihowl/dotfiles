@@ -614,11 +614,9 @@ endfunction
 "{{{status line
 " source: https://shapeshed.com/vim-statuslines
 set statusline=
-set statusline+=%#StatusLine#
 set statusline+=\ %f
 set statusline+=%m
 set statusline+=%=
-set statusline+=%#StatusLineNC#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
