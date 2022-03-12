@@ -19,7 +19,7 @@ if [ -d "$checkout_path" ]; then
     # Older zsh templates did not export ZSH var
     export ZSH=$checkout_path
   fi
-  zsh -i -c "omz update"
+  zsh -i -e -c "omz update --unattended"
 else
   ../git/install.sh
   git clone git://github.com/robbyrussell/oh-my-zsh.git $checkout_path
