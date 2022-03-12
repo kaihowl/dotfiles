@@ -136,7 +136,6 @@ Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
 Plug 'sainnhe/edge'
-Plug 'edkolev/tmuxline.vim'
 
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket
@@ -154,18 +153,6 @@ Plug 'ibhagwan/fzf-lua'
 " the plug#end automatically calls "filetype plugin indent on" and "syntax enable"
 call plug#end()
 " }}}
-
-"{{{ tmuxline
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = {
-    \'a'       : '#S',
-    \'y'       : ['%Y-%m-%d', '%H:%M'],
-    \'z'       : '#h',
-    \'win'     : ['#I', '#W'],
-    \'cwin'    : ['#I', '#{?window_zoomed_flag,(,} #W #{?window_zoomed_flag,),}'],
-    \'x'       : '%a',
-    \'options' : {'status-justify' : 'left'}}
-"}}}
 
 "{{{ color
 if !exists('g:first_time_startup')
