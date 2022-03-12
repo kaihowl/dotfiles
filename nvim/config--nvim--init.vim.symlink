@@ -158,9 +158,13 @@ call plug#end()
 "{{{ color
 if !exists('g:first_time_startup')
   set cursorline
-  colorscheme gruvbox
-  set background=dark
+  exe 'source ' . expand('~/.color/') . 'color.vim'
 end
+
+augroup color
+  autocmd!
+  autocmd FocusGained * exe 'source ' . expand('~/.color/') .  'color.vim'
+augroup END
 "}}}
 
 "{{{ vim-indent-guides
