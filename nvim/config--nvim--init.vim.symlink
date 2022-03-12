@@ -599,11 +599,10 @@ endfunction
 "{{{status line
 " source: https://shapeshed.com/vim-statuslines
 set statusline=
-set statusline+=%#PmenuSel#
 set statusline+=\ %f
 set statusline+=%m
 set statusline+=%=
-set statusline+=%#CursorColumn#
+set statusline+=%#PmenuSel#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
