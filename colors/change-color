@@ -4,8 +4,19 @@ set -e
 
 mkdir -p ~/.color
 
-color=edge
 background=dark
+color=edge
+
+if [[ $# -ge 1 ]]; then
+  background=$1
+fi
+
+if [[ $# -ge 2 ]]; then
+  color=$2
+fi
+
+echo $background
+echo $color
 
 cat - > ~/.color/alacritty.yml <<EOF
 schemes:
