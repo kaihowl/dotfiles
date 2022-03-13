@@ -1,3 +1,3 @@
 #!/bin/bash
 set -e
-change-color
+$DOTS/colors/change-color
