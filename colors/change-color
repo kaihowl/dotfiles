@@ -215,5 +215,3 @@ cat - > ~/.color/color.vim <<EOF
 colorscheme ${color[-1]}
 set background=${background[-1]}
 EOF
-
-
