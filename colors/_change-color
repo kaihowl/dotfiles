@@ -1,0 +1,26 @@
+#compdef _change_color change-color
+
+_change_color() {
+  local state line cmds ret=1
+  _arguments '-b[background]:flag:->background' '-c[colorscheme]:flag:->colorscheme'
+  case "$state" in
+      background)
+           _values "background color" \
+                    "dark[dark background]" \
+                    "light[light background]"
+          ;;
+      colorscheme)
+          _values "colorschemes" \
+            "edge[material color scheme]" \
+            "gruvbox[retro color scheme]"
+          ;;
+  esac
+  # _arguments -C '1: :->cmds' '*: :->args'
+  # case $state in
+  # cmds)
+  #             _values "change-color command" \
+  #                     "dark[dark background]" \
+  #                     "light[light background]"
+  #             ;;
+  # esac
+}

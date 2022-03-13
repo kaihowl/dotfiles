@@ -1,22 +1,16 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -e
 
 mkdir -p ~/.color
 
-background=dark
-color=edge
+background=(dark)
+color=(edge)
 
-if [[ $# -ge 1 ]]; then
-  background=$1
-fi
+zparseopts -K -- c:=color b:=background
 
-if [[ $# -ge 2 ]]; then
-  color=$2
-fi
-
-echo $background
-echo $color
+echo $background[-1]
+echo $color[-1]
 
 cat - > ~/.color/alacritty.yml <<EOF
 schemes:
@@ -214,12 +208,12 @@ schemes:
       cyan:    '0x93a1a1' # base1
       white:   '0xfdf6e3' # base3
 
-colors: *${color}_${background}
+colors: *${color[-1]}_${background[-1]}
 EOF
 
 cat - > ~/.color/color.vim <<EOF
-colorscheme $color
-set background=$background
+colorscheme ${color[-1]}
+set background=${background[-1]}
 EOF
 
 
