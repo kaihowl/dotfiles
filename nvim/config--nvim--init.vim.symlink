@@ -605,7 +605,7 @@ endfunction
 set statusline=
 set statusline+=\ %f
 set statusline+=%m
-set statusline+=%=
+set statusline+=%=\ 
 set statusline+=%#PmenuSel#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
