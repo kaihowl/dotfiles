@@ -7,10 +7,18 @@ mkdir -p ~/.color
 background=(dark)
 color=(edge)
 
+if [[ -f ~/.color/current ]]; then
+  IFS=":" read -r color background  < ~/.color/current
+  color=($color)
+  background=($background)
+fi
+
+echo ${color[-1]}
+echo ${background[-1]}
+
 zparseopts -K -- c:=color b:=background
 
-echo $background[-1]
-echo $color[-1]
+echo "${color[-1]}:${background[-1]}" > ~/.color/current
 
 cat - > ~/.color/alacritty.yml <<EOF
 schemes:
