@@ -159,12 +159,13 @@ call plug#end()
 if !exists('g:first_time_startup')
   set cursorline
   exe 'source ' . expand('~/.color/') . 'color.vim'
+
+  augroup color
+    autocmd!
+    autocmd FocusGained * exe 'source ' . expand('~/.color/') .  'color.vim'
+  augroup END
 end
 
-augroup color
-  autocmd!
-  autocmd FocusGained * exe 'source ' . expand('~/.color/') .  'color.vim'
-augroup END
 "}}}
 
 "{{{ vim-indent-guides
