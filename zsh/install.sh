@@ -22,7 +22,7 @@ if [ -d "$checkout_path" ]; then
   zsh -i -e -c "omz update --unattended"
 else
   ../git/install.sh
-  git clone git://github.com/robbyrussell/oh-my-zsh.git $checkout_path
+  git clone https://github.com/ohmyzsh/ohmyzsh.git $checkout_path
 fi
 
 if (grep -q '/bin/zsh' /etc/shells) && [[ -x /bin/zsh ]]; then
