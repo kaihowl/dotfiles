@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 if [[ $(uname) == *Darwin* ]]; then
   word_begin="[[:<:]]"
   word_end="[[:>:]]"
