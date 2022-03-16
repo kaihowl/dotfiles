@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
+
+if ! tmux -D -c 'exit' &> /dev/null; then
+  echo "No support for supervised/non-daemonized tmux"
+  echo "Skipping test"
+  exit 0
+fi
+
 set -e
 
 echo "Starting tmux background session"
