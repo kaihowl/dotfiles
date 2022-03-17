@@ -54,6 +54,10 @@ do
   source $file
 done
 
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
 unset config_files
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
