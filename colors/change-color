@@ -13,12 +13,12 @@ if [[ -f ~/.color/current ]]; then
   background=($background)
 fi
 
-echo ${color[-1]}
-echo ${background[-1]}
-
 zparseopts -K -- c:=color b:=background
 
 echo "${color[-1]}:${background[-1]}" > ~/.color/current
+
+echo ${color[-1]}
+echo ${background[-1]}
 
 cat - > ~/.color/alacritty.yml <<EOF
 schemes:
