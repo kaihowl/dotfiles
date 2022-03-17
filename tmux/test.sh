@@ -9,7 +9,7 @@ fi
 set -e
 
 echo "Starting tmux background session"
-tmux &
+tmux -D &
 tmux_pid=$!
 
 function kill_tmux {
