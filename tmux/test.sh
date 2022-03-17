@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-if ! tmux -D -c 'exit' &> /dev/null; then
+if ! tmux -D -c 'exit'; then
   echo "No support for supervised/non-daemonized tmux"
   echo "Skipping test"
   exit 0
