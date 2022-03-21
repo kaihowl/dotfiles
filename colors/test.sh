@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/zsh -i
 
 set -e
 
