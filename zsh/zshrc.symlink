@@ -24,14 +24,23 @@ fi
 # Periodically (typically once a day), update from github
 source $DOTS/script/check_for_upgrade.sh
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Documents/repos/
-
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTS/**/*.zsh)
 # Remove test scripts
 config_files=(${config_files:#*/nvim/test-*/*})
+
+# load every completion before compinit to set up the fpath
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+# load oh-my-zsh (which does compinit)
+source $DOTS/zsh/oh-my.zsh.preamble
+
+# your project folder that we can `c [tab]` to
+export PROJECTS=~/Documents/repos/
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -45,18 +54,9 @@ do
   source $file
 done
 
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
-
 unset config_files
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Last, load oh-my-zsh (which does compinit)
-source $DOTS/zsh/oh-my.zsh.preamble
 
 # We don't want this and oh-my-zsh has no way to turn it off
 # Hence, we brute-force this back
