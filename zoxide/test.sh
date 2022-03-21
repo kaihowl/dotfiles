@@ -21,6 +21,12 @@ if [[ "${man_page}" != $(realpath ~/.zoxide/man)* ]]; then
   exit 1
 fi
 
+echo "Check if zoxide completion is available"
+if ! ((${+_comps[zoxide]})); then
+  echo "Missing zoxide zsh completion, fpath set up?"
+  exit 1
+fi
+
 echo "Check zoxide behavior"
 my_dir=$(mktemp -d)
 export _ZO_DATA_DIR=$my_dir
