@@ -601,6 +601,22 @@ endfunction
 "}}}
 
 "{{{status line
+function! FormattedAsyncRun()
+  let colors = { 'running': 'WarningLine',
+    \'success': 'InfoLine',
+    \'failure': 'ErrorLine'}
+
+  if g:asyncrun_status ==? ''
+    return ''
+  endif
+
+  if g:asynctasks_last ==? ''
+    return ''
+  endif
+
+  return '%#' . colors[g:asyncrun_status] . '# %1.15{g:asynctasks_last} %*'
+
+endfunction
 " source: https://shapeshed.com/vim-statuslines
 set statusline=
 set statusline+=\ %f
@@ -614,7 +630,7 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
 if !exists('g:first_time_startup')
-  set statusline+=\ %{g:asyncrun_status[0:0]}
+  set statusline+=\ %{%FormattedAsyncRun()%}
 endif
 "}}}
 
