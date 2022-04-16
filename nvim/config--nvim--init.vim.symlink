@@ -161,7 +161,6 @@ if !exists('g:first_time_startup')
   let g:edge_disable_italic_comment = 0
   let g:edge_diagnostic_line_highlight = 1
   let g:edge_better_performance = 1
-  set cursorline
   colorscheme edge
   set background=dark
 end
