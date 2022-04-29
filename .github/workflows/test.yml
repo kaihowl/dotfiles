@@ -39,12 +39,6 @@ jobs:
         with:
           path: '.dotfiles'
           fetch-depth: 40
-      - name: Unlink git
-        shell: bash
-        if: ${{ matrix.os == 'macos-11' }}
-        run: |
-          # Make the brew link stage of git install succeed
-          brew unlink git@2.35.1 || true
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
