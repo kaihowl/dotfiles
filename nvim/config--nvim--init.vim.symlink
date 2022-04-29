@@ -481,7 +481,7 @@ augroup END
 
 augroup markdown
   autocmd!
-  autocmd FileType markdown nmap <leader>p <Plug>MarkdownPreview
+  autocmd FileType markdown nmap <leader>P <Plug>MarkdownPreview
 augroup END
 
 setglobal commentstring=//\ %s
