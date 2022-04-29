@@ -9,12 +9,6 @@ function ensure_brew_installed() {
   fi
 }
 
-function brew_head_install() {
-  ensure_brew_installed
-  brew install --head "$1"
-  brew upgrade "$1"
-}
-
 function brew_install() {
   ensure_brew_installed
   # Install and upgrade if already installed (this is done by `install` if HOMEBREW_NO_INSTALL_UPGRADE is not set)
