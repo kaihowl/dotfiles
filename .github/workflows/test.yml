@@ -46,6 +46,7 @@ jobs:
       - name: Install and test
         shell: bash
         run: |
+          START=$(date +%s)
           export HOME=$(pwd)
           env
           export XDG_CONFIG_HOME=$(pwd)/.config
@@ -55,6 +56,9 @@ jobs:
           export HOMEBREW_NO_INSTALL_CLEANUP=1
           cd .dotfiles/
           ./script/ci.sh
+          END=$(date +%s)
+          CI_DURATION=$(($END - $START))
+          export CI_DURATION
           zsh -i ./script/perf.sh
   report:
     needs: build
