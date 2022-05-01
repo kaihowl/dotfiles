@@ -2,10 +2,9 @@
 
 set -e
 set -x
-# TODO(kaihowl) no subst from script available
-PATH=$(pwd)/bin:$PATH
-export PATH
-python3 -m pip install -r bin/git-perf-requirements.txt
+export PATH=~/.local/bin:$PATH
+python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
+
 git perf measure -n 10 -kv "os=${RUNNER_OS}" -m nvim -- nvim +qall
 git perf measure -n 10 -kv "os=${RUNNER_OS}" -m zsh -- zsh -i -c 'exit'
 git perf push
