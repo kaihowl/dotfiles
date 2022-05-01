@@ -78,8 +78,8 @@ jobs:
       - name: report
         shell: bash
         run: |
-          export PATH=$(pwd)/bin:$PATH
-          python3 -m pip install -r bin/git-perf-requirements.txt
+          export PATH=~/.local/bin:$PATH
+          python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
           git perf pull
           mkdir reports/
           git perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
