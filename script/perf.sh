@@ -2,10 +2,10 @@
 
 set -e
 set -x
-# TODO(kaihowl) no subst from script available
-PATH=$(pwd)/bin:$PATH
-export PATH
-python3 -m pip install -r bin/git-perf-requirements.txt
+export PATH=~/.local/bin:$PATH
+python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
+
+git perf add -m ci -kv "os=${RUNNER_OS}" "$CI_DURATION"
 git perf measure -n 10 -kv "os=${RUNNER_OS}" -m nvim -- nvim +qall
 git perf measure -n 10 -kv "os=${RUNNER_OS}" -m zsh -- zsh -i -c 'exit'
 git perf push
@@ -15,9 +15,12 @@ git perf audit -n 40 -m nvim -s "os=${RUNNER_OS}"
 nvim_exit=$?
 git perf audit -n 40 -m zsh -s "os=${RUNNER_OS}"
 zsh_exit=$?
+git perf audit -n 40 -m ci -s "os=${RUNNER_OS}"
+ci_exit=$?
 
-if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]]; then
+if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]]; then
   echo $zsh_exit
   echo $nvim_exit
+  echo $ci_exit
   exit 1
 fi
