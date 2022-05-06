@@ -60,6 +60,12 @@ jobs:
           CI_DURATION=$(($END - $START))
           export CI_DURATION
           zsh -i ./script/perf.sh
+          ./script/versions.sh versions.txt
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: versions-report
+          path: versions.txt
   report:
     needs: build
     concurrency: gh-pages-concurrency # keep_files==True uses last writer wins
