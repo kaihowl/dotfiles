@@ -136,6 +136,7 @@ Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
 Plug 'sainnhe/edge'
+Plug 'morhetz/gruvbox'
 
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket
@@ -156,14 +157,14 @@ call plug#end()
 
 "{{{ color
 if !exists('g:first_time_startup')
-  " The configuration options should be placed before `colorscheme edge`.
-  let g:edge_enable_italic = 1
-  let g:edge_disable_italic_comment = 0
-  let g:edge_diagnostic_line_highlight = 1
-  let g:edge_better_performance = 1
-  colorscheme edge
-  set background=dark
+  exe 'source ' . expand('~/.color/') . 'color.vim'
+
+  augroup color
+    autocmd!
+    autocmd FocusGained * exe 'source ' . expand('~/.color/') .  'color.vim'
+  augroup END
 end
+
 "}}}
 
 "{{{ vim-indent-guides
