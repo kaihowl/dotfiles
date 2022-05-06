@@ -89,6 +89,3 @@ if [[ "$output" != *"origin/specialdefault" ]]; then
   echo "$output"
   exit 1
 fi
-
-echo "Check if startup is sufficiently fast"
-measure-runtime.py --repeat=10 --expected-ms 250 nvim +qall
