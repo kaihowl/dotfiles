@@ -61,11 +61,11 @@ jobs:
           export CI_DURATION
           zsh -i ./script/perf.sh
           ./script/versions.sh versions.txt
-      - name: Archive code coverage results
+      - name: Archive version report
         uses: actions/upload-artifact@v3
         with:
           name: versions-report
-          path: versions.txt
+          path: .dotfiles/versions.txt
   report:
     needs: build
     concurrency: gh-pages-concurrency # keep_files==True uses last writer wins
