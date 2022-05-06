@@ -13,7 +13,7 @@ git perf push
 set +e
 git perf audit -n 40 -m nvim -s "os=${RUNNER_OS}"
 nvim_exit=$?
-git perf audit -n 40 -m zsh -s "os=${RUNNER_OS}"
+git perf audit -n 40 -d 6 -m zsh -s "os=${RUNNER_OS}"
 zsh_exit=$?
 git perf audit -n 40 -m ci -s "os=${RUNNER_OS}"
 ci_exit=$?
