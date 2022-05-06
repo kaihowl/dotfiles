@@ -39,14 +39,7 @@ function TriggerIt(id)
   call timer_start(500, funcref('WaitIt'))
 endfunction
 
-" TODO(kaihowl) move to general helpers
-function Timeout(id)
-  echoerr 'Test timed out'
-  cquit!
-endfunction
-
 function Test()
-  call timer_start(20000, funcref('Timeout'))
   edit mytest.txt
   call timer_start(500, funcref('TriggerIt'))
   call feedkeys('ithis is example text ', 'tx!')
