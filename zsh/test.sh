@@ -8,6 +8,3 @@ expect -c "strace 4" "$DOTS/zsh/userinput.test.expect"
 
 echo "Check that ctrl-z is registered"
 bindkey | grep -i '\^Z'
-
-echo "Check if startup is sufficiently fast"
-measure-runtime.py --repeat=10 --expected-ms 300 zsh -i -c 'exit'

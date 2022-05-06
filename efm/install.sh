@@ -2,11 +2,11 @@
 set -ex
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://github.com/mattn/efm-langserver/releases/download/v0.0.41/efm-langserver_v0.0.41_darwin_amd64.zip"
-  expect_hash="438c619c8ed279ebdc8839d37982317eb23aebf384b1fcafcb8c20d7cf24bf34"
+  download_url="https://github.com/mattn/efm-langserver/releases/download/v0.0.44/efm-langserver_v0.0.44_darwin_amd64.zip"
+  expect_hash="a94f4410d59d299cf73b3709e63f6ee9d86c1aff397c14b44275927a8312cc7a"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/mattn/efm-langserver/releases/download/v0.0.41/efm-langserver_v0.0.41_linux_amd64.tar.gz"
-  expect_hash="9a36444544bb079bc3ca17cacca70f309a6b786bbd1dcadf674c395d821caf8e"
+  download_url="https://github.com/mattn/efm-langserver/releases/download/v0.0.44/efm-langserver_v0.0.44_linux_amd64.tar.gz"
+  expect_hash="ec426dd75cd3afa1f921a25c9cd635958091a1f2d4d7f747181eef8d355cb432"
 fi
 
 tmpfile=$(mktemp)
