@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/zsh -i 
 set -e
 set -x
 
@@ -17,7 +17,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   brew info --installed --json | jq '.[] | .name + "@" + .installed[0].version' | tee -a "$output_file"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   echo "apt installed:" >> "$output_file"
-  sudo apt list --installed | tee -a "$output_file"
+  sudo apt-get list --installed | tee -a "$output_file"
 fi
 
 tmp_file=$(mktemp)
