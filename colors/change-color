@@ -298,6 +298,11 @@ schemes:
 colors: *${color[-1]}_${background[-1]}
 EOF
 
+# TODO(kaihowl) remove when #326 is fixed
+# Force Reload for older alacritty versions that do not file watch imports
+echo "###ForceReload" >> ~/.config/alacritty/alacritty.yml
+sed -i.backup "/###ForceReload/d" ~/.config/alacritty/alacritty.yml
+
 cat - > ~/.color/color.vim <<EOF
 colorscheme ${color[-1]}
 set background=${background[-1]}
