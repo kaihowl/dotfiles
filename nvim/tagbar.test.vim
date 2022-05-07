@@ -1,4 +1,6 @@
-:if !exists(':Tagbar')
-  :cq
-:endif
-:qall
+function Test()
+  if !exists(':Tagbar')
+  cquit!
+  endif
+  qall!
+endfunction
