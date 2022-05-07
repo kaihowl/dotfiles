@@ -17,7 +17,7 @@ fi
 
 echo "Check that all test scripts are called afterwards in this script"
 found_tests=$(find "$(realpath "$(dirname "$0")")" -name '*.test.vim' | wc -l)
-registered_tests=$(grep -c -E 's(ource)? .*\.test\.vim|run_vim_test .*test\.vim' "$0")
+registered_tests=$(grep -c 'run_vim_test .*test\.vim' "$0")
 if [[ found_tests -ne registered_tests ]]; then
   echo "Expected number of tests: ${found_tests}"
   echo "Actual number of tests: ${registered_tests}"
@@ -26,21 +26,20 @@ fi
 
 function run_vim_test {
   echo "Running $1"
-  nvim --headless -c "source $DOTS/nvim/test-support.vim" -c "source $DOTS/nvim/$1" -c "call RunTest()"
+  (cd "$DOTS/nvim" && nvim --headless -c "source $DOTS/nvim/test-support.vim" -c "source $DOTS/nvim/$1" -c "call RunTest()")
 }
 
 echo "Check that plugins are installed"
-nvim --headless -s "$DOTS/nvim/tagbar.test.vim"
-nvim --headless -s "$DOTS/nvim/lsp-clangd.test.vim"
-nvim --headless -s "$DOTS/nvim/lsp-pyls.test.vim"
 run_vim_test completion.test.vim
+run_vim_test editorconfig.test.vim
+run_vim_test lsp-completion.test.vim
+run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
-nvim --headless -s "$DOTS/nvim/sneak.test.vim"
-nvim --headless -s "$DOTS/nvim/t_comment.test.vim"
-nvim --headless -s "$DOTS/nvim/restorecurpos.test.vim"
-cd "$DOTS/test-editorconfig/" && nvim --headless -s "$DOTS/nvim/editorconfig.test.vim"
-cd "$DOTS/nvim/test-ripgrep/" && nvim --headless -s "$DOTS/nvim/ripgrep.test.vim"
-cd "$DOTS/nvim/test-efm/" && nvim --headless -s "$DOTS/nvim/lsp-efm.test.vim"
+run_vim_test restorecurpos.test.vim
+run_vim_test ripgrep.test.vim
+run_vim_test sneak.test.vim
+run_vim_test tagbar.test.vim
+run_vim_test t_comment.test.vim
 
 echo "Check that git default folder detection works with a default"
 cd "$DOTS/"

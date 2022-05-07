@@ -46,7 +46,7 @@ endfunction
 
 function Test()
   " Test completion with nvim-cmp and clangd
-  edit test12.cpp
+  noswap edit! test12.cpp
 
   " Wait until the LSP server / client has established connection.
   let lsp_init =  wait(10000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')

@@ -40,7 +40,7 @@ function TriggerIt(id)
 endfunction
 
 function Test()
-  edit mytest.txt
+  noswap edit! mytest.txt
   call timer_start(500, funcref('TriggerIt'))
   call feedkeys('ithis is example text ', 'tx!')
 endfunction
