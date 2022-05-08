@@ -40,6 +40,7 @@ run_vim_test ripgrep.test.vim
 run_vim_test sneak.test.vim
 run_vim_test tagbar.test.vim
 run_vim_test t_comment.test.vim
+run_vim_test asyncrun-errorformat.test.vim
 
 echo "Check that git default folder detection works with a default"
 cd "$DOTS/"
