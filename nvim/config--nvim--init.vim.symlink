@@ -602,10 +602,9 @@ endfunction
 
 "{{{status line
 function! FormattedAsyncRun()
-  let colors = { 'running': 'WarningLine',
-    \'success': 'InfoLine',
-    \'failure': 'ErrorLine'}
-
+  let colors = { 'running': 'Substitute',
+    \'success': 'Title',
+    \'failure': 'ErrorMsg'}
   if g:asyncrun_status ==? ''
     return ''
   endif
