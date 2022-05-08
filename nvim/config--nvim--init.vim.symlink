@@ -889,7 +889,7 @@ augroup CleanUpMatchAll
   autocmd!
   " We do not want the local errorformat to drop all non matched lines
   " Otherwise, asyncrun will not show the output.
-  " Fixes 367
+  " Fixes #367
   autocmd FileType * setlocal errorformat-=%-G%.%#
 augroup END
 
