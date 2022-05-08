@@ -884,5 +884,13 @@ nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <M-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 "}}}
+"
+augroup CleanUpMatchAll
+  autocmd!
+  " We do not want the local errorformat to drop all non matched lines
+  " Otherwise, asyncrun will not show the output.
+  " Fixes 367
+  autocmd FileType * setlocal errorformat-=%-G%.%#
+augroup END
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
