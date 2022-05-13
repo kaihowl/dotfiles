@@ -137,6 +137,7 @@ Plug 'MarcWeber/vim-addon-local-vimrc'
 
 Plug 'sainnhe/edge'
 Plug 'morhetz/gruvbox'
+Plug 'folke/tokyonight.nvim'
 
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket
