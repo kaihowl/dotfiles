@@ -264,6 +264,9 @@ require('fzf-lua').setup{
      ['--layout']      = false,
      ['--history']     = vim.g.fzf_history_dir .. '/' .. 'history'
   },
+  grep= {
+    rg_opts = '--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512',
+  },
   files = {
     rg_opts = '--hidden --files --color=never --glob ""',
     winopts = {
