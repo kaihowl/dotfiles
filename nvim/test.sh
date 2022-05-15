@@ -26,7 +26,7 @@ fi
 
 function run_vim_test {
   echo "Running $1"
-  (cd "$DOTS/nvim" && nvim --headless -c "source $DOTS/nvim/test-support.vim" -c "source $DOTS/nvim/$1" -c "call RunTest()")
+  (set -ex && cd "$DOTS/nvim" && nvim --headless -c "source $DOTS/nvim/test-support.vim" -c "source $DOTS/nvim/$1" -c "call RunTest()")
 }
 
 echo "Check that plugins are installed"

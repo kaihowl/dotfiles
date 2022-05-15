@@ -3,6 +3,7 @@
 " The timer_start + feedkeys with '!' to stay in insert mode was copied from YCM integration test suite
 
 function EscapeIt(id)
+  echomsg 'running EscapeIt'
   redraw
   echomsg 'Sending <esc> to finalize selection'
   call feedkeys("\<esc>")
@@ -38,20 +39,24 @@ function WaitIt(id)
 endfunction
 
 function TriggerIt(id)
+  echomsg 'running TriggerIt'
   redraw
+  echomsg 'feeding tab'
   " TODO(kaihowl) why is this tab needed?
   call feedkeys("\<tab>")
   call timer_start(500, funcref('WaitIt'))
 endfunction
 
 function Test()
+  echomsg 'Starting test'
   " Test completion with nvim-cmp and clangd
   noswap edit! test12.cpp
 
   " Wait until the LSP server / client has established connection.
   let lsp_init =  wait(10000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
-  " echomsg "lsp_init: " . lsp_init
+  echomsg 'lsp_init: ' . lsp_init
   call timer_start(500, funcref('TriggerIt'))
+  echomsg 'feeding keys'
   call feedkeys('i i', 'tx')
   call feedkeys('An', 'tx!')
 endfunction
