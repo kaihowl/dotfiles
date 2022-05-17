@@ -138,6 +138,7 @@ Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'sainnhe/edge'
 Plug 'morhetz/gruvbox'
 Plug 'folke/tokyonight.nvim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket
