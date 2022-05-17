@@ -13,6 +13,7 @@ _change_color() {
           _values "colorschemes" \
             "edge[material color scheme]" \
             "tokyonight[clean, dark color scheme]" \
+            "onehalf[clean, vibrant color scheme]" \
             "gruvbox[retro color scheme]"
           ;;
   esac
