@@ -139,6 +139,7 @@ Plug 'sainnhe/edge'
 Plug 'morhetz/gruvbox'
 Plug 'folke/tokyonight.nvim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'NLKNguyen/papercolor-theme'
 
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket

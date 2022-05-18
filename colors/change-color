@@ -410,6 +410,70 @@ schemes:
       cyan: '0x56b6c2'
       white: '0xdcdfe4'
 
+  papercolor_light: &papercolor_light
+    # Default colors
+    primary:
+      background: '0xeeeeee'
+      foreground: '0x878787'
+
+    cursor:
+      text: '0xeeeeee'
+      cursor: '0x878787'
+
+    # Normal colors
+    normal:
+      black:   '0xeeeeee'
+      red:     '0xaf0000'
+      green:   '0x008700'
+      yellow:  '0x5f8700'
+      blue:    '0x0087af'
+      magenta: '0x878787'
+      cyan:    '0x005f87'
+      white:   '0x444444'
+
+    # Bright colors
+    bright:
+      black:   '0xbcbcbc'
+      red:     '0xd70000'
+      green:   '0xd70087'
+      yellow:  '0x8700af'
+      blue:    '0xd75f00'
+      magenta: '0xd75f00'
+      cyan:    '0x005faf'
+      white:   '0x005f87'
+
+  papercolor_dark: &papercolor_dark
+    # Default colors
+    primary:
+      background: '0x1c1c1c'
+      foreground: '0x808080'
+
+    cursor:
+      text: '0x1c1c1c'
+      cursor: '0x808080'
+
+    # Normal colors
+    normal:
+      black:   '0x1c1c1c'
+      red:     '0xaf005f'
+      green:   '0x5faf00'
+      yellow:  '0xd7af5f'
+      blue:    '0x5fafd7'
+      magenta: '0x808080'
+      cyan:    '0xd7875f'
+      white:   '0xd0d0d0'
+
+    # Bright colors
+    bright:
+      black:   '0x585858'
+      red:     '0x5faf5f'
+      green:   '0xafd700'
+      yellow:  '0xaf87d7'
+      blue:    '0xffaf00'
+      magenta: '0xffaf00'
+      cyan:    '0x00afaf'
+      white:   '0x5f8787'
+
 colors: *${color[-1]}_${background[-1]}
 EOF
 
