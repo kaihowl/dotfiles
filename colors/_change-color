@@ -14,6 +14,7 @@ _change_color() {
             "edge[material color scheme]" \
             "tokyonight[clean, dark color scheme]" \
             "onehalf[clean, vibrant color scheme]" \
+            "papercolor[colors inspired by google's material colorscheme]" \
             "gruvbox[retro color scheme]"
           ;;
   esac
