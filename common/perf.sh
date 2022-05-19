@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-set -u
 
 export PATH=~/.local/bin:$PATH
 python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
