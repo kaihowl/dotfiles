@@ -4,9 +4,24 @@
 
 function EscapeIt(id)
   echomsg 'running EscapeIt'
-  redraw
-  echomsg 'Sending <esc> to finalize selection'
-  call feedkeys("\<esc>")
+  lua vim.notify(vim.inspect(#require"cmp".get_entries()), vim.log.levels.ERROR)
+  let cmp_filled =  wait(10000, "luaeval('#require\"cmp\".get_entries()') != 0")
+  echomsg 'cmp_filled: ' . cmp_filled
+  echomsg 'Sending tab key for selection'
+  call feedkeys("\<tab>")
+  echomsg 'Sending <enter> to finalize selection'
+  call feedkeys("\<enter>")
+  call timer_start(500, funcref('WaitForSelectionDone'))
+endfunction
+
+function WaitForSelectionDone(id)
+  echomsg 'Waiting for nvim-cmp menu to vanish'
+  if luaeval("require\"cmp\".visible()")
+    echomsg 'Menu still shown, waiting'
+    call feedkeys("\<enter>")
+    call timer_start(500, funcref('WaitForSelectionDone'))
+    return
+  endif
   call timer_start(500, funcref('ValidateIt'))
 endfunction
 
@@ -22,12 +37,6 @@ function ValidateIt(id)
   endif
 endfunction
 
-function TabIt(id)
-  call timer_start(500, funcref('EscapeIt'))
-  echomsg 'Sending tab key for selection'
-  call feedkeys("\<tab>")
-endfunction
-
 function WaitIt(id)
   echomsg 'Waiting for nvim-cmp menu to be visible'
   if !luaeval("require\"cmp\".visible()")
@@ -35,16 +44,16 @@ function WaitIt(id)
     call timer_start(500, funcref('WaitIt'))
     return
   endif
-  call timer_start(500, funcref('TabIt'))
+  call timer_start(500, funcref('EscapeIt'))
 endfunction
 
 function TriggerIt(id)
   echomsg 'running TriggerIt'
   redraw
   echomsg 'feeding tab'
+  call timer_start(500, funcref('WaitIt'))
   " TODO(kaihowl) why is this tab needed?
   call feedkeys("\<tab>")
-  call timer_start(500, funcref('WaitIt'))
 endfunction
 
 function Test()
@@ -58,5 +67,5 @@ function Test()
   call timer_start(500, funcref('TriggerIt'))
   echomsg 'feeding keys'
   call feedkeys('i i', 'tx')
-  call feedkeys('An', 'tx!')
+  call feedkeys('Anl', 'tx!')
 endfunction
