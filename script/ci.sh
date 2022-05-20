@@ -33,7 +33,7 @@ START=$(date +%s)
 "${stdbuf[@]}" ./script/test > >(decorate) 2>&1
 
 source nvim/path.zsh 
-run_measurement nvim /unvim +qall
+run_measurement nvim nvim +qall
 run_measurement zsh zsh -i -c 'exit'
 
 END=$(date +%s)
