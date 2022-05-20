@@ -26,4 +26,5 @@ function decorate() {
 
 "${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
 "${stdbuf[@]}" ./script/install > >(decorate) 2>&1
+./script/versions.sh versions.txt
 "${stdbuf[@]}" ./script/test > >(decorate) 2>&1
