@@ -55,9 +55,14 @@ jobs:
           export HOMEBREW_NO_INSTALL_CLEANUP=1
           cd .dotfiles/
           ./script/ci.sh
-          ./script/versions.sh versions-${{matrix.os}}.txt
+      - name: Rename versions report
+        if: always()
+        run: |
+          cd .dotfiles/
+          mv versions.txt versions-${{matrix.os}}.txt
       - name: Archive version report
         uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: versions-report-${{matrix.os}}
           path: .dotfiles/versions-*.txt
