@@ -32,7 +32,8 @@ START=$(date +%s)
 "${stdbuf[@]}" ./script/install > >(decorate) 2>&1
 "${stdbuf[@]}" ./script/test > >(decorate) 2>&1
 
-run_measurement nvim nvim +qall
+source nvim/path.zsh 
+run_measurement nvim /unvim +qall
 run_measurement zsh zsh -i -c 'exit'
 
 END=$(date +%s)
