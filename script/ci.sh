@@ -26,19 +26,26 @@ function decorate() {
 }
 
 source common/perf.sh
-START=$(date +%s)
+CI_START=$(date +%s)
 
 "${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
+
+INSTALL_START=$(date +%s)
 "${stdbuf[@]}" ./script/install > >(decorate) 2>&1
+INSTALL_END=$(date +%s)
+INSTALL_DURATION=$((INSTALL_END - INSTALL_START))
+add_measurement install $INSTALL_DURATION
+
 ./script/versions.sh versions.txt
+
 "${stdbuf[@]}" ./script/test > >(decorate) 2>&1
 
 source nvim/path.zsh 
 run_measurement nvim nvim +qall
 run_measurement zsh zsh -i -c 'exit'
 
-END=$(date +%s)
-CI_DURATION=$((END - START))
+CI_END=$(date +%s)
+CI_DURATION=$((CI_END - CI_START))
 
 add_measurement ci $CI_DURATION
 
