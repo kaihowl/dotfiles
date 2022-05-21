@@ -15,3 +15,5 @@
 ./tmux/install.sh 1653172327.2111769 1 os=Linux
 
 ./gdb/install.sh 1653172336.1377935 9 os=Linux
+
+./ripgrep/install.sh 1653172338.5538573 2 os=Linux
