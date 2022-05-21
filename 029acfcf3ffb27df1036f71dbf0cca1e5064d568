@@ -7,3 +7,5 @@
 ./git/install.sh 1653172410.883338 0 os=Linux
 
 ./shellcheck/install.sh 1653172411.4428694 1 os=Linux
+
+./pyls/install.sh 1653172418.8017662 7 os=Linux
