@@ -4,6 +4,6 @@ function Timeout(id)
 endfunction
 
 function RunTest()
-  call timer_start(20000, funcref('Timeout'))
+  call timer_start(40000, funcref('Timeout'))
   call Test()
 endfunction
