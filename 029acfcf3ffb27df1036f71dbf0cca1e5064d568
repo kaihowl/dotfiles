@@ -29,3 +29,5 @@
 ./homebrew/install.sh 1653172476.2183554 0 os=Linux
 
 ./ccache/install.sh 1653172480.7035549 4 os=Linux
+
+./vint/install.sh 1653172483.914759 3 os=Linux
