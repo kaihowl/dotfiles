@@ -24,7 +24,6 @@ tmp_file=$(mktemp)
 trap 'rm -rf $tmp_file' EXIT
 nvim --headless "+PlugSnapshot! $tmp_file" +qall
 
-echo "nvim plugins installed:" >> "$output_file"
-cat "$tmp_file" >> "$output_file"
+{ echo "nvim plugins installed:"; cat "$tmp_file"; } >> "$output_file"
 
 { echo "pip packages installed:"; python3 -m pip list; } >> "$output_file"
