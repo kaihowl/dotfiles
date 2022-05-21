@@ -13,3 +13,5 @@
 ./system/install.sh 1653172326.5647054 4 os=Linux
 
 ./tmux/install.sh 1653172327.2111769 1 os=Linux
+
+./gdb/install.sh 1653172336.1377935 9 os=Linux
