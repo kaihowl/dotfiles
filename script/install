@@ -22,6 +22,6 @@ for installer in ${installers}; do
   sh -c "${installer}"
   END=$(date +%s)
   DURATION=$((END - START))
-  add_measurement "${installer}" $DURATION
+  add_measurement "${installer}" $DURATION || true
 
 done
