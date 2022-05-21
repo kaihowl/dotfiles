@@ -39,3 +39,5 @@
 ./cmake/install.sh 1653172504.227268 10 os=Linux
 
 ./colors/install.sh 1653172505.597446 1 os=Linux
+
+./efm/install.sh 1653172505.961884 0 os=Linux
