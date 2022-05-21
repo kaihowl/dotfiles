@@ -37,14 +37,15 @@ function ProtoTest(filename, complete_chars)
   exec 'noswap edit! '. a:filename
 
   " Wait until the LSP server / client has established connection.
-  let lsp_init =  wait(10000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
+  let lsp_init =  wait(20000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
   echomsg 'lsp_init: ' . lsp_init
 
   " Make sure the function returns and does not wait for the end of the insert
   " mode instead
   call timer_start(50, {-> execute('call FeedIt("'.a:complete_chars.'")')})
   echomsg 'Starting to wait'
-  call wait(10000, 'g:test_done')
+  let test_wait = wait(20000, 'g:test_done')
+  echomsg 'test_wait: ' . test_wait
   return g:test_result
 endfunction
 
