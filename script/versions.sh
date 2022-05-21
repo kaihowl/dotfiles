@@ -27,5 +27,4 @@ nvim --headless "+PlugSnapshot! $tmp_file" +qall
 echo "nvim plugins installed:" >> "$output_file"
 cat "$tmp_file" >> "$output_file"
 
-echo "pip packages installed:" >> "$output_file"
-python3 -m pip list >> "$output_file"
+{echo "pip packages installed:"; python3 -m pip list} >> "$output_file"
