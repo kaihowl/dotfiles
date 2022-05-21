@@ -41,3 +41,5 @@
 ./colors/install.sh 1653172414.6486588 1 os=Linux
 
 ./efm/install.sh 1653172415.522754 1 os=Linux
+
+install 1653172415.6184723 126 os=Linux
