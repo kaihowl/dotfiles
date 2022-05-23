@@ -37,3 +37,5 @@
 ./virtualenvwrapper/install.sh 1653285345.3536234 10 os=Linux
 
 ./cmake/install.sh 1653285359.3554888 14 os=Linux
+
+./colors/install.sh 1653285361.4165342 2 os=Linux
