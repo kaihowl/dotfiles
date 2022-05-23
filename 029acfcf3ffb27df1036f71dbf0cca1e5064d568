@@ -19,3 +19,5 @@
 ./ripgrep/install.sh 1653285258.1199212 4 os=Linux
 
 ./alacritty/install.sh 1653285270.2221563 12 os=Linux
+
+./nvim/install.sh 1653285283.612547 13 os=Linux
