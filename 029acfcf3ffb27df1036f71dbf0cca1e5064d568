@@ -5,3 +5,5 @@
 ./zoxide/install.sh 1653285218.0113704 1 os=Linux
 
 ./git/install.sh 1653285218.9813464 0 os=Linux
+
+./shellcheck/install.sh 1653285219.694777 0 os=Linux
