@@ -25,3 +25,5 @@
 ./clangd/install.sh 1653285313.6537201 30 os=Linux
 
 ./fzf/install.sh 1653285318.248938 5 os=Linux
+
+./homebrew/install.sh 1653285318.401303 0 os=Linux
