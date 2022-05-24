@@ -17,3 +17,5 @@
 ./gdb/install.sh 1653371928.028981 8 os=Linux
 
 ./ripgrep/install.sh 1653371930.5474517 2 os=Linux
+
+./alacritty/install.sh 1653371938.9131448 8 os=Linux
