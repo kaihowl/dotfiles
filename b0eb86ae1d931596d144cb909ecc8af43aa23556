@@ -27,3 +27,5 @@
 ./fzf/install.sh 1653459966.4748108 2 os=Linux
 
 ./homebrew/install.sh 1653459966.5792737 0 os=Linux
+
+./ccache/install.sh 1653459971.2727456 5 os=Linux
