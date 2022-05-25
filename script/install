@@ -18,5 +18,10 @@ fi
 installers=$(find . -name install.sh)
 for installer in ${installers}; do
   echo -e "Running \e[32m${installer}\e[0m"
+  START=$(date +%s)
   sh -c "${installer}"
+  END=$(date +%s)
+  DURATION=$((END - START))
+  add_measurement "${installer}" $DURATION || true
+
 done
