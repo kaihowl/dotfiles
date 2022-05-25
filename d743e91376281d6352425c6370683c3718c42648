@@ -43,3 +43,5 @@
 ./efm/install.sh 1653460460.6844494 0 os=Linux
 
 install 1653460460.7856503 126 os=Linux
+
+test 1653460524.9203045 62 os=Linux
