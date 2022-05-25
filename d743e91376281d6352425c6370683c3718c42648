@@ -23,3 +23,5 @@
 ./nvim/install.sh 1653460404.9602954 9 os=Linux
 
 ./clangd/install.sh 1653460427.2688344 23 os=Linux
+
+./fzf/install.sh 1653460430.6934495 3 os=Linux
