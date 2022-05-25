@@ -1,3 +1,5 @@
 ./zsh/install.sh 1653460356.0814486 13 os=Linux
 
 ./ctags/install.sh 1653460360.7452736 4 os=Linux
+
+./zoxide/install.sh 1653460361.8932192 1 os=Linux
