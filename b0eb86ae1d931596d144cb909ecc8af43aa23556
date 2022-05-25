@@ -33,3 +33,5 @@
 ./vint/install.sh 1653459974.4351866 3 os=Linux
 
 ./ninja/install.sh 1653459979.0940876 5 os=Linux
+
+./virtualenvwrapper/install.sh 1653459986.5293543 7 os=Linux
