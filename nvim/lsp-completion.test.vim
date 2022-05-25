@@ -39,6 +39,13 @@ function ProtoTest(filename, complete_chars)
   " Wait until the LSP server / client has established connection.
   let lsp_init =  wait(20000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
   echomsg 'lsp_init: ' . lsp_init
+  if lsp_init != 0
+    echomsg 'Failed to establish LSP connection'
+    for line in readfile(luaeval('vim.lsp.get_log_path()'))[-20:]
+      echomsg line
+    endfor
+    return v:false
+  endif
 
   " Make sure the function returns and does not wait for the end of the insert
   " mode instead

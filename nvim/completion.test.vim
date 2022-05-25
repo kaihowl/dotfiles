@@ -64,6 +64,14 @@ function Test()
   " Wait until the LSP server / client has established connection.
   let lsp_init =  wait(10000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
   echomsg 'lsp_init: ' . lsp_init
+  if lsp_init != 0
+    echomsg 'Failed to establish LSP connection'
+    for line in readfile(luaeval('vim.lsp.get_log_path()'))[-20:]
+      echomsg line
+    endfor
+    return v:false
+  endif
+
   call timer_start(500, funcref('TriggerIt'))
   echomsg 'feeding keys'
   call feedkeys('i i', 'tx')
