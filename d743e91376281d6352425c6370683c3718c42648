@@ -21,3 +21,5 @@
 ./alacritty/install.sh 1653460395.2635512 9 os=Linux
 
 ./nvim/install.sh 1653460404.9602954 9 os=Linux
+
+./clangd/install.sh 1653460427.2688344 23 os=Linux
