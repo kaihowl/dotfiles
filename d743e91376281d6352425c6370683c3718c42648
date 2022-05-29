@@ -1,1 +1,3 @@
 ./zsh/install.sh 1653824648.4125202 22 os=Linux
+
+./ctags/install.sh 1653824654.1912498 6 os=Linux
