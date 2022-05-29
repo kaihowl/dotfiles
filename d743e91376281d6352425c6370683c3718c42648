@@ -11,3 +11,5 @@
 ./pyls/install.sh 1653824666.3377016 9 os=Linux
 
 ./system/install.sh 1653824671.7064648 5 os=Linux
+
+./tmux/install.sh 1653824672.5431156 1 os=Linux
