@@ -35,3 +35,5 @@
 ./ninja/install.sh 1653824753.1680768 6 os=Linux
 
 ./virtualenvwrapper/install.sh 1653824761.5797443 8 os=Linux
+
+./cmake/install.sh 1653824773.7969718 12 os=Linux
