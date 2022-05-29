@@ -9,3 +9,5 @@
 ./shellcheck/install.sh 1653824657.0490842 0 os=Linux
 
 ./pyls/install.sh 1653824666.3377016 9 os=Linux
+
+./system/install.sh 1653824671.7064648 5 os=Linux
