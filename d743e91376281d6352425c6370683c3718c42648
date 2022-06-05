@@ -13,3 +13,5 @@
 ./shellcheck/install.sh 1654429470.1260285 1 os=Linux
 
 ./colors/install.sh 1654429478.2707202 8 os=Linux
+
+./homebrew/install.sh 1654429478.3722389 0 os=Linux
