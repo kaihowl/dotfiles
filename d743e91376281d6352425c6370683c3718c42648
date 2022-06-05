@@ -33,3 +33,5 @@
 ./fzf/install.sh 1654429512.5738208 3 os=Linux
 
 ./zsh/install.sh 1654429513.9046335 1 os=Linux
+
+./gdb/install.sh 1654429522.1049259 9 os=Linux
