@@ -1,3 +1,5 @@
 ./git/install.sh 1654429422.1563642 0 os=Linux
 
 ./clangd/install.sh 1654429452.3498363 30 os=Linux
+
+./vint/install.sh 1654429455.4038272 3 os=Linux
