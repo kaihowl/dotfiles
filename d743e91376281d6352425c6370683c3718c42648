@@ -31,3 +31,5 @@
 ./virtualenvwrapper/install.sh 1654429509.8801296 6 os=Linux
 
 ./fzf/install.sh 1654429512.5738208 3 os=Linux
+
+./zsh/install.sh 1654429513.9046335 1 os=Linux
