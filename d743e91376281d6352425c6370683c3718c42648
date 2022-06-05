@@ -23,3 +23,5 @@
 ./cmake/install.sh 1654429491.4997852 9 os=Linux
 
 ./ninja/install.sh 1654429495.5891068 4 os=Linux
+
+./system/install.sh 1654429499.5823393 4 os=Linux
