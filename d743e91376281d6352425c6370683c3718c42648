@@ -9,3 +9,5 @@
 ./alacritty/install.sh 1654429462.0082679 5 os=Linux
 
 ./pyls/install.sh 1654429469.61483 7 os=Linux
+
+./shellcheck/install.sh 1654429470.1260285 1 os=Linux
