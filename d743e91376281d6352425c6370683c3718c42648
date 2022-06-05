@@ -17,3 +17,5 @@
 ./homebrew/install.sh 1654429478.3722389 0 os=Linux
 
 ./efm/install.sh 1654429478.8380609 0 os=Linux
+
+./ccache/install.sh 1654429482.8795702 4 os=Linux
