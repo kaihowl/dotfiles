@@ -39,3 +39,5 @@
 ./nvim/install.sh 1654429530.1750715 8 os=Linux
 
 ./tmux/install.sh 1654429530.8516266 0 os=Linux
+
+./ripgrep/install.sh 1654429533.0370536 2 os=Linux
