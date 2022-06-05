@@ -27,3 +27,5 @@
 ./system/install.sh 1654429499.5823393 4 os=Linux
 
 ./ctags/install.sh 1654429503.8521771 4 os=Linux
+
+./virtualenvwrapper/install.sh 1654429509.8801296 6 os=Linux
