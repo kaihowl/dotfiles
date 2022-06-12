@@ -15,3 +15,5 @@
 ./colors/install.sh 1655034267.6690614 10 os=Linux
 
 ./homebrew/install.sh 1655034267.7733757 0 os=Linux
+
+./efm/install.sh 1655034268.19498 1 os=Linux
