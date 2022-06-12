@@ -37,3 +37,5 @@
 ./gdb/install.sh 1655034311.1190777 8 os=Linux
 
 ./nvim/install.sh 1655034319.315761 8 os=Linux
+
+./tmux/install.sh 1655034319.996975 0 os=Linux
