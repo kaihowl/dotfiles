@@ -11,3 +11,5 @@
 ./pyls/install.sh 1655034257.1802328 8 os=Linux
 
 ./shellcheck/install.sh 1655034257.6549833 0 os=Linux
+
+./colors/install.sh 1655034267.6690614 10 os=Linux
