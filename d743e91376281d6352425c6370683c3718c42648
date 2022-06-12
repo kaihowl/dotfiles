@@ -35,3 +35,5 @@
 ./zsh/install.sh 1655034302.9907138 1 os=Linux
 
 ./gdb/install.sh 1655034311.1190777 8 os=Linux
+
+./nvim/install.sh 1655034319.315761 8 os=Linux
