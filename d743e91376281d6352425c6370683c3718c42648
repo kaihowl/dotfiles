@@ -41,3 +41,5 @@
 ./tmux/install.sh 1655034319.996975 0 os=Linux
 
 ./ripgrep/install.sh 1655034322.2445526 2 os=Linux
+
+install 1655034322.3432918 114 os=Linux
