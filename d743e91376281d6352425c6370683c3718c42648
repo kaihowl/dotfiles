@@ -7,3 +7,5 @@
 ./zoxide/install.sh 1655034242.959463 1 os=Linux
 
 ./alacritty/install.sh 1655034249.4321036 7 os=Linux
+
+./pyls/install.sh 1655034257.1802328 8 os=Linux
