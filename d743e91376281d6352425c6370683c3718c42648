@@ -37,3 +37,5 @@
 ./virtualenvwrapper/install.sh 1655639153.290168 8 os=Linux
 
 ./zoxide/install.sh 1655639154.5944295 1 os=Linux
+
+./efm/install.sh 1655639155.226708 1 os=Linux
