@@ -33,3 +33,5 @@
 ./ripgrep/install.sh 1655639143.868046 2 os=Linux
 
 ./colors/install.sh 1655639145.650798 2 os=Linux
+
+./virtualenvwrapper/install.sh 1655639153.290168 8 os=Linux
