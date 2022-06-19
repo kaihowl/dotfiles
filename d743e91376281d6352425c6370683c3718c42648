@@ -21,3 +21,5 @@
 ./pyls/install.sh 1655639097.6243703 9 os=Linux
 
 ./clangd/install.sh 1655639124.867142 27 os=Linux
+
+./ctags/install.sh 1655639129.9902582 5 os=Linux
