@@ -39,3 +39,5 @@
 ./zoxide/install.sh 1655639154.5944295 1 os=Linux
 
 ./efm/install.sh 1655639155.226708 1 os=Linux
+
+./shellcheck/install.sh 1655639155.9639175 0 os=Linux
