@@ -23,3 +23,5 @@
 ./clangd/install.sh 1655639124.867142 27 os=Linux
 
 ./ctags/install.sh 1655639129.9902582 5 os=Linux
+
+./system/install.sh 1655639135.0620172 4 os=Linux
