@@ -19,3 +19,5 @@
 ./alacritty/install.sh 1655639088.4132013 10 os=Linux
 
 ./pyls/install.sh 1655639097.6243703 9 os=Linux
+
+./clangd/install.sh 1655639124.867142 27 os=Linux
