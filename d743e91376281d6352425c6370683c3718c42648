@@ -25,3 +25,5 @@
 ./ctags/install.sh 1655639129.9902582 5 os=Linux
 
 ./system/install.sh 1655639135.0620172 4 os=Linux
+
+./ninja/install.sh 1655639140.2504659 5 os=Linux
