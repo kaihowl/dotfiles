@@ -1,1 +1,3 @@
 ./homebrew/install.sh 1655639024.162056 0 os=Linux
+
+./zsh/install.sh 1655639034.9263022 10 os=Linux
