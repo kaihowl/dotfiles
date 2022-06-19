@@ -11,3 +11,5 @@
 ./tmux/install.sh 1655639055.390319 1 os=Linux
 
 ./fzf/install.sh 1655639058.9759536 3 os=Linux
+
+./gdb/install.sh 1655639068.7997074 10 os=Linux
