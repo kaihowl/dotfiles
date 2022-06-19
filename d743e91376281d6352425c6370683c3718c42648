@@ -27,3 +27,5 @@
 ./system/install.sh 1655639135.0620172 4 os=Linux
 
 ./ninja/install.sh 1655639140.2504659 5 os=Linux
+
+./git/install.sh 1655639141.05128 0 os=Linux
