@@ -7,3 +7,5 @@
 ./vint/install.sh 1655639043.6889334 3 os=Linux
 
 ./cmake/install.sh 1655639054.5862782 11 os=Linux
+
+./tmux/install.sh 1655639055.390319 1 os=Linux
