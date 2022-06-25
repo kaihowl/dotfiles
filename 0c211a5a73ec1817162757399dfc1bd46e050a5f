@@ -37,3 +37,5 @@
 ./nvim/install.sh 1656142946.7924135 10 os=Linux
 
 ./clangd/install.sh 1656142969.1401033 23 os=Linux
+
+./ripgrep/install.sh 1656142971.6097465 2 os=Linux
