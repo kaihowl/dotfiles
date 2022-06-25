@@ -1,1 +1,3 @@
 ./efm/install.sh 1656142858.7904296 0 os=Linux
+
+./zoxide/install.sh 1656142860.0036314 1 os=Linux
