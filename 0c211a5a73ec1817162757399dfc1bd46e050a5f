@@ -11,3 +11,5 @@
 ./gdb/install.sh 1656142892.5448751 9 os=Linux
 
 ./ninja/install.sh 1656142896.462685 4 os=Linux
+
+./tmux/install.sh 1656142897.0842373 1 os=Linux
