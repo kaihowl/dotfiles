@@ -27,3 +27,5 @@
 ./homebrew/install.sh 1656142597.3657682 0 os=Linux
 
 ./alacritty/install.sh 1656142602.8865705 5 os=Linux
+
+./virtualenvwrapper/install.sh 1656142608.719096 6 os=Linux
