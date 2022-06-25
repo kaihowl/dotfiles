@@ -21,3 +21,5 @@
 ./ctags/install.sh 1656142593.5486617 4 os=Linux
 
 ./git/install.sh 1656142594.1644335 1 os=Linux
+
+./vint/install.sh 1656142597.2645416 3 os=Linux
