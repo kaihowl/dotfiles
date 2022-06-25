@@ -7,3 +7,5 @@
 ./ccache/install.sh 1656142872.609515 5 os=Linux
 
 ./fzf/install.sh 1656142883.4766872 11 os=Linux
+
+./gdb/install.sh 1656142892.5448751 9 os=Linux
