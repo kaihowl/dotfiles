@@ -3,3 +3,5 @@
 ./zoxide/install.sh 1656142545.7261221 1 os=Linux
 
 ./pyls/install.sh 1656142553.511926 8 os=Linux
+
+./ccache/install.sh 1656142557.8285832 4 os=Linux
