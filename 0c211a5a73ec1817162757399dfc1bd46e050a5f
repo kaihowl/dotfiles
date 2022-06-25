@@ -41,3 +41,5 @@
 ./ripgrep/install.sh 1656142971.6097465 2 os=Linux
 
 ./zsh/install.sh 1656142973.215265 2 os=Linux
+
+install 1656142973.3107655 123 os=Linux
