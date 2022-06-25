@@ -33,3 +33,5 @@
 ./shellcheck/install.sh 1656142932.3937526 1 os=Linux
 
 ./system/install.sh 1656142936.57855 4 os=Linux
+
+./nvim/install.sh 1656142946.7924135 10 os=Linux
