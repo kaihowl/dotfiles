@@ -35,3 +35,5 @@
 ./system/install.sh 1656243894.7093494 4 os=Linux
 
 ./nvim/install.sh 1656243903.5453362 9 os=Linux
+
+./clangd/install.sh 1656243927.1471124 24 os=Linux
