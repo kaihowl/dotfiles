@@ -19,3 +19,5 @@
 ./colors/install.sh 1656243867.3081365 2 os=Linux
 
 ./ctags/install.sh 1656243871.6802728 4 os=Linux
+
+./git/install.sh 1656243872.3723564 1 os=Linux
