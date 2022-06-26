@@ -31,3 +31,5 @@
 ./virtualenvwrapper/install.sh 1656243889.6570346 6 os=Linux
 
 ./shellcheck/install.sh 1656243890.2697084 1 os=Linux
+
+./system/install.sh 1656243894.7093494 4 os=Linux
