@@ -15,3 +15,5 @@
 ./tmux/install.sh 1656243856.126342 1 os=Linux
 
 ./cmake/install.sh 1656243865.7594755 9 os=Linux
+
+./colors/install.sh 1656243867.3081365 2 os=Linux
