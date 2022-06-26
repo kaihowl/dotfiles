@@ -39,3 +39,5 @@
 ./clangd/install.sh 1656243927.1471124 24 os=Linux
 
 ./ripgrep/install.sh 1656243929.5454154 2 os=Linux
+
+./zsh/install.sh 1656243931.127652 2 os=Linux
