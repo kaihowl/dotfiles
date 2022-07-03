@@ -25,3 +25,5 @@
 ./vint/install.sh 1656848709.1126416 4 os=Linux
 
 ./homebrew/install.sh 1656848709.2543054 0 os=Linux
+
+./alacritty/install.sh 1656848720.761284 11 os=Linux
