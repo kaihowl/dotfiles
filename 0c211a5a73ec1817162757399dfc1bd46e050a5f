@@ -9,3 +9,5 @@
 ./fzf/install.sh 1656848668.6397831 19 os=Linux
 
 ./gdb/install.sh 1656848679.033803 10 os=Linux
+
+./ninja/install.sh 1656848684.187802 5 os=Linux
