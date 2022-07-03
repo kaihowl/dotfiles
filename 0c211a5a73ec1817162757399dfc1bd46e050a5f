@@ -43,3 +43,5 @@
 ./zsh/install.sh 1656848783.0740707 1 os=Linux
 
 install 1656848783.1976895 161 os=Linux
+
+test 1656848850.2416594 65 os=Linux
