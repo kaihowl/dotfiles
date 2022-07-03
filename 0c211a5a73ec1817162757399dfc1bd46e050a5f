@@ -5,3 +5,5 @@
 ./pyls/install.sh 1656848644.0780075 9 os=Linux
 
 ./ccache/install.sh 1656848649.6454344 5 os=Linux
+
+./fzf/install.sh 1656848668.6397831 19 os=Linux
