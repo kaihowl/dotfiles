@@ -17,3 +17,5 @@
 ./cmake/install.sh 1657453471.3599722 10 os=Linux
 
 ./colors/install.sh 1657453472.917127 1 os=Linux
+
+./ctags/install.sh 1657453477.3307421 5 os=Linux
