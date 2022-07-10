@@ -13,3 +13,5 @@
 ./ninja/install.sh 1657453460.9165616 4 os=Linux
 
 ./tmux/install.sh 1657453461.5393991 1 os=Linux
+
+./cmake/install.sh 1657453471.3599722 10 os=Linux
