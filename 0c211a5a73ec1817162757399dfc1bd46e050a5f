@@ -23,3 +23,5 @@
 ./git/install.sh 1657453477.9414604 0 os=Linux
 
 ./vint/install.sh 1657453481.169448 4 os=Linux
+
+./homebrew/install.sh 1657453481.2808754 0 os=Linux
