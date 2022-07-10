@@ -29,3 +29,5 @@
 ./alacritty/install.sh 1657453488.6782799 7 os=Linux
 
 ./virtualenvwrapper/install.sh 1657453495.1855483 7 os=Linux
+
+./shellcheck/install.sh 1657453496.034045 0 os=Linux
