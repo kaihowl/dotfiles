@@ -39,3 +39,5 @@
 ./cmake/install.sh 1657920607.1602511 13 os=Linux
 
 ./clangd/install.sh 1657920637.6993937 30 os=Linux
+
+./system/install.sh 1657920643.8774016 6 os=Linux
