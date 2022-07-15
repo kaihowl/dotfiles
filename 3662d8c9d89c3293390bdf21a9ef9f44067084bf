@@ -31,3 +31,5 @@
 ./zoxide/install.sh 1657920585.2749987 1 os=Linux
 
 ./homebrew/install.sh 1657920585.4178457 0 os=Linux
+
+./fzf/install.sh 1657920588.6608438 3 os=Linux
