@@ -35,3 +35,5 @@
 ./fzf/install.sh 1657920588.6608438 3 os=Linux
 
 ./ctags/install.sh 1657920594.9269414 6 os=Linux
+
+./cmake/install.sh 1657920607.1602511 13 os=Linux
