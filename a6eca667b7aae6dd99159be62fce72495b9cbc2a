@@ -25,3 +25,5 @@
 ./nvim/install.sh 1657955338.4727209 8 os=Linux
 
 ./ninja/install.sh 1657955343.0655239 4 os=Linux
+
+./vint/install.sh 1657955346.356138 3 os=Linux
