@@ -23,3 +23,5 @@
 ./alacritty/install.sh 1657955573.1542792 7 os=Linux
 
 ./nvim/install.sh 1657955581.1854267 8 os=Linux
+
+./ninja/install.sh 1657955585.4741845 4 os=Linux
