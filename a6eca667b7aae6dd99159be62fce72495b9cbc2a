@@ -13,3 +13,5 @@
 ./colors/install.sh 1657955304.345281 2 os=Linux
 
 ./ripgrep/install.sh 1657955306.7277913 2 os=Linux
+
+./efm/install.sh 1657955307.2082295 1 os=Linux
