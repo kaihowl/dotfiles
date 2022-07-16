@@ -33,3 +33,5 @@
 ./homebrew/install.sh 1657955589.582815 0 os=Linux
 
 ./fzf/install.sh 1657955591.9141088 2 os=Linux
+
+./ctags/install.sh 1657955596.1633766 5 os=Linux
