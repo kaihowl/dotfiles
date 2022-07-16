@@ -1,3 +1,5 @@
 ./shellcheck/install.sh 1657955526.4803474 1 os=Linux
 
 ./tmux/install.sh 1657955527.1056159 1 os=Linux
+
+./ccache/install.sh 1657955531.5858736 4 os=Linux
