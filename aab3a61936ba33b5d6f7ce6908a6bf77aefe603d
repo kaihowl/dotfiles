@@ -21,3 +21,5 @@
 ./gdb/install.sh 1657955566.6326761 8 os=Linux
 
 ./alacritty/install.sh 1657955573.1542792 7 os=Linux
+
+./nvim/install.sh 1657955581.1854267 8 os=Linux
