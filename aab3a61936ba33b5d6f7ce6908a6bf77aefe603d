@@ -17,3 +17,5 @@
 ./efm/install.sh 1657955552.3144593 1 os=Linux
 
 ./virtualenvwrapper/install.sh 1657955558.3731408 6 os=Linux
+
+./gdb/install.sh 1657955566.6326761 8 os=Linux
