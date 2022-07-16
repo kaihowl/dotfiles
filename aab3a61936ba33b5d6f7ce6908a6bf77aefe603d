@@ -19,3 +19,5 @@
 ./virtualenvwrapper/install.sh 1657955558.3731408 6 os=Linux
 
 ./gdb/install.sh 1657955566.6326761 8 os=Linux
+
+./alacritty/install.sh 1657955573.1542792 7 os=Linux
