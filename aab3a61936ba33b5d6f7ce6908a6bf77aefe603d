@@ -27,3 +27,5 @@
 ./ninja/install.sh 1657955585.4741845 4 os=Linux
 
 ./vint/install.sh 1657955588.607481 3 os=Linux
+
+./zoxide/install.sh 1657955589.4823322 1 os=Linux
