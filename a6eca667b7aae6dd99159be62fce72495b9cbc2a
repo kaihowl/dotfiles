@@ -43,3 +43,5 @@
 ./system/install.sh 1657955392.9201014 4 os=Linux
 
 install 1657955393.0198116 127 os=Linux
+
+test 1657955459.0411148 64 os=Linux
