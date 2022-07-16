@@ -5,3 +5,5 @@
 ./ccache/install.sh 1657955281.2449746 5 os=Linux
 
 ./zsh/install.sh 1657955294.1048 13 os=Linux
+
+./git/install.sh 1657955294.825783 0 os=Linux
