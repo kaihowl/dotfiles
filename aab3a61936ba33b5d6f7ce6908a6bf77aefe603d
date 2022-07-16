@@ -11,3 +11,5 @@
 ./pyls/install.sh 1657955548.4318976 8 os=Linux
 
 ./colors/install.sh 1657955549.780964 1 os=Linux
+
+./ripgrep/install.sh 1657955551.9407065 2 os=Linux
