@@ -37,3 +37,5 @@
 ./ctags/install.sh 1658058308.4212346 6 os=Linux
 
 ./cmake/install.sh 1658058318.8435674 10 os=Linux
+
+./clangd/install.sh 1658058346.4426486 28 os=Linux
