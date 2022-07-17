@@ -1,1 +1,3 @@
 ./shellcheck/install.sh 1658058222.7994103 0 os=Linux
+
+./tmux/install.sh 1658058223.6069078 1 os=Linux
