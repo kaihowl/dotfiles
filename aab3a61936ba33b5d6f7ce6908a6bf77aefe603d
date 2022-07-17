@@ -15,3 +15,5 @@
 ./ripgrep/install.sh 1658058254.9457223 2 os=Linux
 
 ./efm/install.sh 1658058255.364974 1 os=Linux
+
+./virtualenvwrapper/install.sh 1658058263.107069 8 os=Linux
