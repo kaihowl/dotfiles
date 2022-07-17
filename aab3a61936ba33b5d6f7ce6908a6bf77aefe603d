@@ -7,3 +7,5 @@
 ./zsh/install.sh 1658058240.3453443 11 os=Linux
 
 ./git/install.sh 1658058241.1294563 1 os=Linux
+
+./pyls/install.sh 1658058250.6315358 9 os=Linux
