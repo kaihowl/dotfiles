@@ -3,3 +3,5 @@
 ./tmux/install.sh 1658058223.6069078 1 os=Linux
 
 ./ccache/install.sh 1658058229.6601741 6 os=Linux
+
+./zsh/install.sh 1658058240.3453443 11 os=Linux
