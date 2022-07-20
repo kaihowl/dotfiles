@@ -23,3 +23,5 @@
 ./zsh/install.sh 1658299312.7568834 16 os=Linux
 
 ./fzf/install.sh 1658299318.426302 6 os=Linux
+
+./clangd/install.sh 1658299348.4208615 30 os=Linux
