@@ -43,3 +43,5 @@
 ./pyls/install.sh 1658299393.2012982 12 os=Linux
 
 install 1658299393.3434842 172 os=Linux
+
+test 1658299467.4539154 72 os=Linux
