@@ -14,8 +14,6 @@ function _update_dots_update() {
 
 function _upgrade_dots() {
   /usr/bin/env DOTS="$DOTS" /bin/zsh "$DOTS/script/upgrade.sh"
-  # update the dots file
-  _update_dots_update
 }
 
 epoch_target=$UPDATE_DOTS_DAYS
