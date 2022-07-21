@@ -198,7 +198,7 @@ command! -nargs=1 RestoreCurPos
 "{{{ fugitive
 function s:diff_to_default_branch()
   let defaultbranch = Get_default_branch()
-  exe 'Gdiffsplit ' . defaultbranch
+  exe 'Gvdiffsplit ' . defaultbranch
 endfunction
 
 " Fugitive mappings
