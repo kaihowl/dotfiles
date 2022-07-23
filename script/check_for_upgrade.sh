@@ -13,7 +13,13 @@ function _update_dots_update() {
 }
 
 function _upgrade_dots() {
-  /usr/bin/env DOTS="$DOTS" /bin/zsh "$DOTS/script/upgrade.sh"
+  /usr/bin/env DOTS="$DOTS" /bin/zsh -c "flock -E 250 -n '$DOTS/script/upgrade.sh.lock' -c '$DOTS/script/upgrade.sh'"
+  if [ $? -eq 250 ]; then
+    printf '\033[0;93m%s\033[0m\n' 'Upgrade already running. Skipping this invocation.'
+    return 1
+  fi
+  # Treat all other returns as successful to prevent a fail-cycle.
+  return 0
 }
 
 epoch_target=$UPDATE_DOTS_DAYS
@@ -36,9 +42,7 @@ then
   epoch_diff=$(($(_current_epoch) - LAST_EPOCH))
   if [ $epoch_diff -ge $epoch_target ]
   then
-    _upgrade_dots
-    # update the dots file
-    _update_dots_update
+    _upgrade_dots && _update_dots_update
   fi
 else
   # create the zsh file

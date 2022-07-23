@@ -16,6 +16,8 @@ source "$DOTS/common/brew.sh"
 # Install homebrew packages
 brew_install coreutils
 
+brew_install flock
+
 # Install reattach-to-user-namespace
 # This makes sure that tmux + vim is able to use the system clipboard
 brew_install reattach-to-user-namespace
