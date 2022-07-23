@@ -144,12 +144,12 @@ install_dotfiles
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "installing mac specifics\n"
+  info "setting mac-specific settings\n"
   if bash bin/dots;
   then
-    success "mac specifics installed"
+    success "mac settings configured"
   else
-    fail "error installing mac specifics"
+    fail "error setting mac-specific settings"
     exit 1
   fi
 fi
