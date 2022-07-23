@@ -35,3 +35,5 @@ function publish_measurements {
 export -f add_measurement
 export -f run_measurement
 export -f publish_measurements
+
+export DOTS_PERF_EXPORTED=true

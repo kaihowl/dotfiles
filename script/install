@@ -2,6 +2,8 @@
 set -e
 set -x
 
+source common/perf_stubs.sh
+
 # Run all dotfiles installers.
 export DOTS=$HOME/.dotfiles
 
@@ -23,5 +25,4 @@ for installer in ${installers}; do
   END=$(date +%s)
   DURATION=$((END - START))
   add_measurement "${installer}" $DURATION || true
-
 done
