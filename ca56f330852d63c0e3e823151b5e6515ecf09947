@@ -3,3 +3,5 @@
 ./system/install.sh 1658573192.509823 5 os=Linux
 
 ./vint/install.sh 1658573195.9370975 3 os=Linux
+
+./zoxide/install.sh 1658573197.046456 1 os=Linux
