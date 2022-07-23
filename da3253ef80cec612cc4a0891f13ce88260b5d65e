@@ -41,3 +41,5 @@
 ./tmux/install.sh 1658575110.6834722 1 os=Linux
 
 ./pyls/install.sh 1658575122.1281369 12 os=Linux
+
+install 1658575122.2600706 161 os=Linux
