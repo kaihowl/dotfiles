@@ -19,3 +19,5 @@
 ./shellcheck/install.sh 1658663052.5822046 0 os=Linux
 
 ./cmake/install.sh 1658663062.2277734 10 os=Linux
+
+./zsh/install.sh 1658663070.781446 8 os=Linux
