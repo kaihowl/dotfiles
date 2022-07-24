@@ -33,3 +33,5 @@
 ./vint/install.sh 1658663209.034385 2 os=macOS
 
 ./zsh/install.sh 1658663214.7326589 5 os=macOS
+
+./virtualenvwrapper/install.sh 1658663227.224834 13 os=macOS
