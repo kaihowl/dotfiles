@@ -7,3 +7,5 @@
 ./zoxide/install.sh 1658988687.987705 1 os=Linux
 
 ./ripgrep/install.sh 1658988690.3627243 2 os=Linux
+
+./alacritty/install.sh 1658988694.1527593 4 os=Linux
