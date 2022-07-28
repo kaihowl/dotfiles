@@ -31,3 +31,5 @@
 ./colors/install.sh 1658988700.590827 1 os=Linux
 
 ./gdb/install.sh 1658988709.2991967 9 os=Linux
+
+./ninja/install.sh 1658988713.2527688 4 os=Linux
