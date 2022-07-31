@@ -43,3 +43,5 @@
 ./git/install.sh 1659287347.2953768 4 os=macOS
 
 install 1659287347.562688 255 os=macOS
+
+test 1659287413.710253 56 os=macOS
