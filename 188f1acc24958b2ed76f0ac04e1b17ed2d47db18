@@ -35,3 +35,5 @@
 ./ninja/install.sh 1659267979.1906228 6 os=Linux
 
 ./ccache/install.sh 1659267984.6134555 5 os=Linux
+
+./ctags/install.sh 1659267990.2571874 6 os=Linux
