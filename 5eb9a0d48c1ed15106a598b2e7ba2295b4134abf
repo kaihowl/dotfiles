@@ -13,3 +13,5 @@
 ./git/install.sh 1659270881.1931949 1 os=Linux
 
 ./virtualenvwrapper/install.sh 1659270886.9413269 5 os=Linux
+
+./nvim/install.sh 1659270895.0346944 8 os=Linux
