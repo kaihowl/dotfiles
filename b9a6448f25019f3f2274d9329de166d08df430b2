@@ -27,3 +27,5 @@
 ./clangd/install.sh 1659271054.1695604 22 os=Linux
 
 ./homebrew/install.sh 1659271054.27449 0 os=Linux
+
+./colors/install.sh 1659271055.6195025 1 os=Linux
