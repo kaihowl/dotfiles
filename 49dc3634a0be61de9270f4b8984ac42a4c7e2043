@@ -17,3 +17,5 @@
 ./nvim/install.sh 1659271551.1057968 8 os=Linux
 
 ./shellcheck/install.sh 1659271551.534252 0 os=Linux
+
+./cmake/install.sh 1659271559.9067192 8 os=Linux
