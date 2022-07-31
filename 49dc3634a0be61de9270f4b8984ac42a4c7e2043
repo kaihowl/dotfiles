@@ -21,3 +21,5 @@
 ./cmake/install.sh 1659271559.9067192 8 os=Linux
 
 ./zsh/install.sh 1659271567.8263998 8 os=Linux
+
+./fzf/install.sh 1659271570.3922179 3 os=Linux
