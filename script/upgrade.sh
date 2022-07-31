@@ -10,7 +10,7 @@ then
   if [[ $oldcommit != "$newcommit" ]]; then
     printf '\033[0;34m%s\033[0m\n' 'Dotfiles updated to current version.'
     printf '\033[0;34m%s\033[0m\n' 'Requesting sudo for bootstrap/install.'
-    sudo /bin/true
+    sudo /usr/bin/true
     printf '\033[0;34m%s\033[0m\n' "Running bootstrap..."
     ./script/bootstrap
     printf '\033[0;34m%s\033[0m\n' 'Running install...'
