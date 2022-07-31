@@ -3,8 +3,10 @@ set -ex
 
 cd "$(dirname "$0")"
 
-# Depends on an installed zsh, otherwise the zsh configuration is not generated
-../zsh/install.sh
+if ! which zsh; then
+  printf '\033[0;31m%s\033[0m\n' 'Please install zsh first.'
+  exit 1
+fi
 
 if [ "$(uname)" == "Darwin" ]; then
   source "$DOTS/common/brew.sh"
