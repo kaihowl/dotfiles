@@ -1,1 +1,3 @@
 ./efm/install.sh 1659787449.2239254 1 os=Linux
+
+./system/install.sh 1659787461.175173 12 os=Linux
