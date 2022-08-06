@@ -29,3 +29,5 @@
 ./homebrew/install.sh 1659778882.1796703 0 os=Linux
 
 ./colors/install.sh 1659778883.6661112 1 os=Linux
+
+./gdb/install.sh 1659778892.409235 9 os=Linux
