@@ -477,11 +477,6 @@ schemes:
 colors: *${color[-1]}_${background[-1]}
 EOF
 
-# TODO(kaihowl) remove when #326 is fixed
-# Force Reload for older alacritty versions that do not file watch imports
-echo "###ForceReload" >> "$DOTS/alacritty/config--alacritty--alacritty.yml.symlink"
-sed -i.backup "/###ForceReload/d" "$DOTS/alacritty/config--alacritty--alacritty.yml.symlink"
-
 vim_colorscheme=${color[-1]}
 
 if [[ $vim_colorscheme = onehalf ]]; then
