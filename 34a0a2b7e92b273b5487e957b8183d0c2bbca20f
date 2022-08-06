@@ -11,3 +11,5 @@
 ./alacritty/install.sh 1659784666.7172372 12 os=Linux
 
 ./git/install.sh 1659784667.467217 1 os=Linux
+
+./virtualenvwrapper/install.sh 1659784673.8923917 6 os=Linux
