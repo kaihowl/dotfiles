@@ -9,5 +9,8 @@ fi
 cd "$(mktemp -d)"
 
 clang++ -std=c++17 -O0 -g3 -o mytest "${DOTS}/gdb/mytest.cpp"
-gdb -x "${DOTS}/gdb/test.gdb" mytest &> test.log
-grep -F 'std::unordered_map with 1 element = {[2] = "mystuff"}' test.log
+gdb -x "${DOTS}/gdb/test.gdb" -ex=quit mytest &> test.log
+if ! grep -F 'std::unordered_map with 1 element = {[2] = "mystuff"}' test.log; then
+        echo Failed
+        cat test.log
+fi
