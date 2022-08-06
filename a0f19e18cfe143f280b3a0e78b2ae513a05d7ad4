@@ -39,3 +39,5 @@
 ./ctags/install.sh 1659785739.920775 4 os=Linux
 
 ./tmux/install.sh 1659785740.6182513 1 os=Linux
+
+./pyls/install.sh 1659785748.7507987 8 os=Linux
