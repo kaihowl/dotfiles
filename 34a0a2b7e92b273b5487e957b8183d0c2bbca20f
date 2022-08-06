@@ -15,3 +15,5 @@
 ./virtualenvwrapper/install.sh 1659784673.8923917 6 os=Linux
 
 ./nvim/install.sh 1659784682.2121708 9 os=Linux
+
+./shellcheck/install.sh 1659784682.6799629 0 os=Linux
