@@ -35,3 +35,5 @@
 ./zsh/install.sh 1659779761.620233 6 os=macOS
 
 ./virtualenvwrapper/install.sh 1659779774.256901 13 os=macOS
+
+./ripgrep/install.sh 1659779782.449687 8 os=macOS
