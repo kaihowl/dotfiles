@@ -9,3 +9,5 @@
 ./ripgrep/install.sh 1659778809.880211 2 os=Linux
 
 ./alacritty/install.sh 1659778821.615247 12 os=Linux
+
+./git/install.sh 1659778822.257488 1 os=Linux
