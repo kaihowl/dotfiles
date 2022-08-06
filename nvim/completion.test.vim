@@ -52,7 +52,7 @@ function TriggerIt(id)
   redraw
   echomsg 'feeding tab'
   call timer_start(500, funcref('WaitIt'))
-  " TODO(kaihowl) why is this tab needed?
+  " Unclear why this tab is needed, this is not worth investigating.
   call feedkeys("\<tab>")
 endfunction
 
