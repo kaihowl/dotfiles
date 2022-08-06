@@ -5,3 +5,5 @@
 ./vint/install.sh 1659784650.916099 3 os=Linux
 
 ./zoxide/install.sh 1659784651.9428067 1 os=Linux
+
+./ripgrep/install.sh 1659784654.2717614 3 os=Linux
