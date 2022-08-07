@@ -1,3 +1,5 @@
 ./efm/install.sh 1659872617.3349626 1 os=Linux
 
 ./system/install.sh 1659872621.9353318 4 os=Linux
+
+./vint/install.sh 1659872625.1984446 4 os=Linux
