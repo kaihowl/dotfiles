@@ -37,3 +37,5 @@
 ./ccache/install.sh 1660637767.9903197 4 os=Linux
 
 ./ctags/install.sh 1660637772.441815 4 os=Linux
+
+./tmux/install.sh 1660637773.0842998 1 os=Linux
