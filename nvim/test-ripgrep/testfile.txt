@@ -6,3 +6,4 @@ a very foolish example
 for a fool
 this is a # test
 another line
+a still a very foolish example
