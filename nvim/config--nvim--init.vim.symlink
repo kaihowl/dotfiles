@@ -474,9 +474,14 @@ fun! s:Grep(txt, bang)
   copen
 endfun
 
-command! -bang -nargs=* Rg :call s:Grep(<q-args>, '<bang>')
+fun! s:GrepCurrentWord()
+  call s:Grep('-w ' . expand('<cword>'), '!')
+endfun
 
-noremap <leader>rr :Rg<cr>
+command! -bang -nargs=* Rg :call s:Grep(<q-args>, '<bang>')
+command! RgCurrentWord :call s:GrepCurrentWord()
+
+noremap <leader>rr :RgCurrentWord<cr>
 noremap <leader>r<space> :Rg<space>
 "}}}
 
