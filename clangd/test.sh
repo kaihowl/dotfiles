@@ -6,5 +6,6 @@ which clangd
 
 echo "Check that clangd is installed from llvm apt repo (Ubuntu-only)"
 if [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+  apt policy clangd
   apt policy clangd | grep -F '**' -A1 | grep -F apt.llvm.org
 fi
