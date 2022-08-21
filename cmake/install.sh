@@ -6,11 +6,10 @@ if [ "$(uname)" == "Darwin" ]; then
   brew_install cmake
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # install latest
-  wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null
-  echo "deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
-  sudo apt-get update
-  sudo rm /usr/share/keyrings/kitware-archive-keyring.gpg
+  # NOTE This explicitly forgoes using the kitware-archive-keyring for automatic key rotation.
+  # For uniformity with other packages, we will manually rotate the key.
   source "$DOTS/common/apt.sh"
-  apt_install kitware-archive-keyring cmake
+  apt_add_repo kitware https://apt.kitware.com/ubuntu ::codename:: 0bb2bbf7862c3fb082da7887e2d464b33738bd19
+  apt_install cmake
 fi
 
