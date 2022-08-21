@@ -32,7 +32,8 @@ function run_vim_test {
 echo "Check that plugins are installed"
 run_vim_test completion.test.vim
 run_vim_test editorconfig.test.vim
-run_vim_test lsp-completion.test.vim
+# Disabled #427
+# run_vim_test lsp-completion.test.vim
 run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
 run_vim_test restorecurpos.test.vim
