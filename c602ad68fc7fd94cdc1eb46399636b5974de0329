@@ -3,3 +3,5 @@
 ./shellcheck/install.sh 1661243092.893448 1 os=Linux
 
 ./clangd/install.sh 1661243128.324697 36 os=Linux
+
+./vint/install.sh 1661243132.2366529 4 os=Linux
