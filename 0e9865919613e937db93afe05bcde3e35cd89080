@@ -25,3 +25,5 @@
 ./tmux/install.sh 1661238694.6858554 0 os=Linux
 
 ./git/install.sh 1661238695.304869 1 os=Linux
+
+./nvim/install.sh 1661238705.1684 10 os=Linux
