@@ -288,7 +288,7 @@ require('fzf-lua').setup{
   },
   git = {
     branches = {
-      cmd = "git branch --all --color --sort=-committerdate",
+      cmd = "git branch --color --sort=-committerdate",
     }
   }
 }
