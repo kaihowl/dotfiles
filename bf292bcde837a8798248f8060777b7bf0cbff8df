@@ -29,3 +29,5 @@
 ./nvim/install.sh 1661249379.2804573 13 os=Linux
 
 ./ctags/install.sh 1661249384.714864 5 os=Linux
+
+./zsh/install.sh 1661249395.9340415 11 os=Linux
