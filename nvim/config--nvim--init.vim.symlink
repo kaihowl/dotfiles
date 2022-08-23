@@ -2,7 +2,7 @@
 set modelines=1
 
 " Test regression
-sleep 100m
+sleep 50m
 
 let g:loaded_python_provider = 0
 " let g:loaded_python3_provider = 1
