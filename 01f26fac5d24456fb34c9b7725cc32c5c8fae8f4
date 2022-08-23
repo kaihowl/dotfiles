@@ -39,3 +39,5 @@
 ./system/install.sh 1661244113.6932569 4 os=Linux
 
 ./ripgrep/install.sh 1661244116.8907819 3 os=Linux
+
+./colors/install.sh 1661244118.494472 2 os=Linux
