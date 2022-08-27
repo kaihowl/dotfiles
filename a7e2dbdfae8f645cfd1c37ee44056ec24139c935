@@ -7,3 +7,5 @@
 ./vint/install.sh 1661585121.9441292 3 os=Linux
 
 ./alacritty/install.sh 1661585130.0244513 8 os=Linux
+
+./zoxide/install.sh 1661585130.9508982 0 os=Linux
