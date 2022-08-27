@@ -7,3 +7,5 @@
 ./system/install.sh 1661609547.3791237 5 os=Linux
 
 ./cmake/install.sh 1661609557.4986851 10 os=Linux
+
+./ctags/install.sh 1661609562.439536 5 os=Linux
