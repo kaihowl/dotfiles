@@ -31,3 +31,5 @@
 ./ctags/install.sh 1661615051.60559 5 os=Linux
 
 ./zsh/install.sh 1661615060.619174 9 os=Linux
+
+./fzf/install.sh 1661615061.8529177 1 os=Linux
