@@ -1,0 +1,89 @@
+./ctags/install.sh 1659286403.229079 15 os=macOS
+
+./alacritty/install.sh 1659286418.0750668 14 os=macOS
+
+./ccache/install.sh 1659286431.625121 13 os=macOS
+
+./gdb/install.sh 1659286431.942917 0 os=macOS
+
+./clangd/install.sh 1659286438.816255 7 os=macOS
+
+./cmake/install.sh 1659286441.458706 3 os=macOS
+
+./nvim/install.sh 1659286455.0857532 13 os=macOS
+
+./pyls/install.sh 1659286463.060807 7 os=macOS
+
+./zoxide/install.sh 1659286467.163807 3 os=macOS
+
+./efm/install.sh 1659286467.79102 0 os=macOS
+
+./homebrew/install.sh 1659286490.915149 23 os=macOS
+
+./ninja/install.sh 1659286497.745683 7 os=macOS
+
+./system/install.sh 1659286521.896616 24 os=macOS
+
+./colors/install.sh 1659286561.6389902 40 os=macOS
+
+./shellcheck/install.sh 1659286564.123708 2 os=macOS
+
+./tmux/install.sh 1659286571.274299 7 os=macOS
+
+./vint/install.sh 1659286576.3249621 5 os=macOS
+
+./zsh/install.sh 1659286583.501119 7 os=macOS
+
+./virtualenvwrapper/install.sh 1659286638.8009531 55 os=macOS
+
+./ripgrep/install.sh 1659286648.826884 9 os=macOS
+
+./fzf/install.sh 1659286661.408162 12 os=macOS
+
+./git/install.sh 1659286664.394055 3 os=macOS
+
+install 1659286664.892662 277 os=macOS
+
+test 1659286817.728222 58 os=macOS
+
+nvim 1659286818.294178 337473000 os=macOS
+
+nvim 1659286818.562371 223808000 os=macOS
+
+nvim 1659286818.823781 214930000 os=macOS
+
+nvim 1659286819.1718998 287786000 os=macOS
+
+nvim 1659286819.456458 223685000 os=macOS
+
+nvim 1659286819.746208 232663000 os=macOS
+
+nvim 1659286820.015475 209740000 os=macOS
+
+nvim 1659286820.308112 233705000 os=macOS
+
+nvim 1659286820.579603 215114000 os=macOS
+
+nvim 1659286820.844702 208298000 os=macOS
+
+zsh 1659286821.421006 283180000 os=macOS
+
+zsh 1659286821.727604 290949000 os=macOS
+
+zsh 1659286822.037042 290820000 os=macOS
+
+zsh 1659286822.308954 254821000 os=macOS
+
+zsh 1659286822.6061802 281955000 os=macOS
+
+zsh 1659286822.8765728 253749000 os=macOS
+
+zsh 1659286823.1576378 264017000 os=macOS
+
+zsh 1659286823.460496 287647000 os=macOS
+
+zsh 1659286823.753084 276543000 os=macOS
+
+zsh 1659286824.0572429 288756000 os=macOS
+
+ci 1659286824.2822 439 os=macOS
