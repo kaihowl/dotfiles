@@ -19,3 +19,5 @@
 ./gdb/install.sh 1661615044.4413013 18 os=Linux
 
 ./ninja/install.sh 1661615049.454009 5 os=Linux
+
+./virtualenvwrapper/install.sh 1661615057.1891823 8 os=Linux
