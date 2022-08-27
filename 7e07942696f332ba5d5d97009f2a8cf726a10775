@@ -27,3 +27,5 @@
 ./git/install.sh 1661597793.6848357 1 os=Linux
 
 ./nvim/install.sh 1661597806.389175 13 os=Linux
+
+./ctags/install.sh 1661597811.9109972 5 os=Linux
