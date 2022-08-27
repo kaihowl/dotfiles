@@ -1,4 +1,5 @@
-set environment LD_PRELOAD /usr/lib/x86_64-linux-gnu/debug/libstdc++.so.6
+set environment LD_PRELOAD /usr/lib/x86_64-linux-gnu/debug/libstdc++.so
+add-auto-load-safe-path /usr/lib/x86_64-linux-gnu/debug
 python
 import sys
 sys.path.insert(0, '/usr/share/gcc/python')
