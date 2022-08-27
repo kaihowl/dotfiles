@@ -17,3 +17,5 @@
 ./clangd/install.sh 1661609573.784599 10 os=Linux
 
 ./ninja/install.sh 1661609578.482291 5 os=Linux
+
+./homebrew/install.sh 1661609578.6211002 0 os=Linux
