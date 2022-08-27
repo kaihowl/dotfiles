@@ -23,3 +23,5 @@
 ./gdb/install.sh 1661609590.2799323 12 os=Linux
 
 ./zoxide/install.sh 1661609591.869147 1 os=Linux
+
+./virtualenvwrapper/install.sh 1661609599.3406417 8 os=Linux
