@@ -19,10 +19,13 @@ else
 fi
 
 function decorate() {
+  # Since BSD sed has no case-insensitive matching, spell it out. Perl was not
+  # a proper replacement for cross-platform handling, as it was not immediately
+  # obvious how to turn the buffering off.
   sed "${less_buffering}" \
-    -e "s/^.*${word_begin}[dD]eprecat.*$/::notice:: &/" \
-    -e "s/^.*${word_begin}[wW]arning${word_end}.*$/::warning:: &/" \
-    -e "s/^.*${word_begin}[eE]rror${word_end}.*$/::error:: &/"
+    -e "s/^.*${word_begin}[dD][eE][pP][rR][eE][cC][aA][tT].*$/::notice:: &/" \
+    -e "s/^.*${word_begin}[wW][aA][rR][nN][iI][nN][gG]${word_end}.*$/::warning:: &/" \
+    -e "s/^.*${word_begin}[eE][rR][rR][oO][rR]${word_end}.*$/::error:: &/"
 }
 
 source common/perf.sh
