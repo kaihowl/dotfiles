@@ -35,3 +35,5 @@
 ./pyls/install.sh 1661609622.1026983 6 os=Linux
 
 ./vint/install.sh 1661609624.7756093 2 os=Linux
+
+./colors/install.sh 1661609626.901326 2 os=Linux
