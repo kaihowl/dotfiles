@@ -25,3 +25,5 @@
 ./zoxide/install.sh 1661609591.869147 1 os=Linux
 
 ./virtualenvwrapper/install.sh 1661609599.3406417 8 os=Linux
+
+./ccache/install.sh 1661609604.0396864 4 os=Linux
