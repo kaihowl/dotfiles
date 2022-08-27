@@ -76,7 +76,7 @@ There are a few special files in the hierarchy.
 
 ## performance
 
-Performance Results on [master branch](https://kaihowl.github.io/dotfiles/master.html). 
+Performance results on [master branch](https://kaihowl.github.io/dotfiles/master.html). 
 
 ## thanks
 
