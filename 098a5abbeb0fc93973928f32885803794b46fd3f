@@ -13,3 +13,5 @@
 ./homebrew/install.sh 1661595046.3841145 0 os=Linux
 
 ./cmake/install.sh 1661595057.7609427 11 os=Linux
+
+./ccache/install.sh 1661595062.1720033 5 os=Linux
