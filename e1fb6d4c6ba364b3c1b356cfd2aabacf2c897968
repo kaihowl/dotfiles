@@ -43,3 +43,5 @@
 ./colors/install.sh 1661609628.1200957 2 os=Linux
 
 install 1661609628.2218707 126 os=Linux
+
+test 1661609685.897232 55 os=Linux
