@@ -31,3 +31,5 @@
 ./tmux/install.sh 1661595187.16326 10 os=macOS
 
 ./vint/install.sh 1661595189.914722 2 os=macOS
+
+./zsh/install.sh 1661595195.748972 6 os=macOS
