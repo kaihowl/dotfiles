@@ -14,7 +14,7 @@ function kill_tmux {
 trap kill_tmux EXIT
 
 echo "Waiting for tmux to be started..."
-while ! tmux list-sessions; do
+while ! tmux list-sessions > /dev/null 2>&1 ; do
   if ! ps -p $tmux_pid; then
     echo "No support for supervised/non-daemonized tmux"
     echo "Skipping test"
