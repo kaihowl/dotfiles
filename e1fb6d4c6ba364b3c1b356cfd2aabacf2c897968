@@ -1,3 +1,5 @@
 ./zsh/install.sh 1661609523.5160375 9 os=Linux
 
 ./pyls/install.sh 1661609531.7683706 8 os=Linux
+
+./shellcheck/install.sh 1661609532.2191715 1 os=Linux
