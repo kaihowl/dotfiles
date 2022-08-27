@@ -25,3 +25,5 @@
 ./system/install.sh 1661615043.866105 25 os=macOS
 
 ./colors/install.sh 1661615061.14355 17 os=macOS
+
+./shellcheck/install.sh 1661615062.440369 1 os=macOS
