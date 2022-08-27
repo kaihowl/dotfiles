@@ -7,3 +7,5 @@
 ./gdb/install.sh 1661614637.76081 0 os=macOS
 
 ./clangd/install.sh 1661614645.579762 8 os=macOS
+
+./cmake/install.sh 1661614648.476546 3 os=macOS
