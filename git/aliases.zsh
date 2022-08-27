@@ -27,11 +27,7 @@ alias grbu="git rebase @{u}"
 alias gru!="git reset --hard @{u} && gsmu"
 alias gdt="git difftool"
 alias gmb="git merge-base"
-function delete_gone_local_branches() {
-  git branch --format '%(refname:short) %(if) %(upstream) %(then) %(if) %(upstream:trackshort) %(then) KEEP %(else) [[[TRASH]]] %(end) %(else) KEEP %(end)' \
-    | grep -F ' [[[TRASH]]] ' | awk '{print $1}' | xargs git branch -D
-}
-alias gbprune!="delete_gone_local_branches"
+alias gbprune!="git prune-branch"
 function git_rebase_interactive() {
   if [[ -n $1 ]]; then
     git rebase -i "$1"
