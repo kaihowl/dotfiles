@@ -74,6 +74,9 @@ There are a few special files in the hierarchy.
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
 
+## performance
+
+Performance Results on [master branch](https://kaihowl.github.io/dotfiles/master.html). 
 
 ## thanks
 
