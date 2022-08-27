@@ -1,0 +1,89 @@
+./pyls/install.sh 1661614975.785781 10 os=Linux
+
+./shellcheck/install.sh 1661614976.5235116 1 os=Linux
+
+./clangd/install.sh 1661614995.316334 19 os=Linux
+
+./vint/install.sh 1661614999.0511243 3 os=Linux
+
+./alacritty/install.sh 1661615009.0268846 9 os=Linux
+
+./zoxide/install.sh 1661615010.2907917 1 os=Linux
+
+./homebrew/install.sh 1661615010.420851 0 os=Linux
+
+./cmake/install.sh 1661615021.7674325 11 os=Linux
+
+./ccache/install.sh 1661615026.6402707 5 os=Linux
+
+./gdb/install.sh 1661615044.4413013 18 os=Linux
+
+./ninja/install.sh 1661615049.454009 5 os=Linux
+
+./virtualenvwrapper/install.sh 1661615057.1891823 8 os=Linux
+
+./tmux/install.sh 1661615057.9964213 0 os=Linux
+
+./git/install.sh 1661615058.7888825 0 os=Linux
+
+./nvim/install.sh 1661615069.2834213 11 os=Linux
+
+./ctags/install.sh 1661615074.4459412 5 os=Linux
+
+./zsh/install.sh 1661615085.0487282 10 os=Linux
+
+./fzf/install.sh 1661615086.9883537 1 os=Linux
+
+./efm/install.sh 1661615087.534855 0 os=Linux
+
+./system/install.sh 1661615092.739989 5 os=Linux
+
+./ripgrep/install.sh 1661615095.8308544 3 os=Linux
+
+./colors/install.sh 1661615097.6594563 2 os=Linux
+
+install 1661615097.7779021 144 os=Linux
+
+test 1661615161.246547 61 os=Linux
+
+nvim 1661615161.5014102 131520792 os=Linux
+
+nvim 1661615161.6355088 129577370 os=Linux
+
+nvim 1661615161.7650683 125288099 os=Linux
+
+nvim 1661615161.899299 129707478 os=Linux
+
+nvim 1661615162.03451 130979558 os=Linux
+
+nvim 1661615162.163316 124596756 os=Linux
+
+nvim 1661615162.2956674 128149780 os=Linux
+
+nvim 1661615162.4378147 138013202 os=Linux
+
+nvim 1661615162.5705643 128656212 os=Linux
+
+nvim 1661615162.7031887 128282289 os=Linux
+
+zsh 1661615163.3706942 543418763 os=Linux
+
+zsh 1661615163.9013994 525903158 os=Linux
+
+zsh 1661615164.444338 538710466 os=Linux
+
+zsh 1661615164.974235 525665505 os=Linux
+
+zsh 1661615165.4894822 511108900 os=Linux
+
+zsh 1661615166.0046828 511174805 os=Linux
+
+zsh 1661615166.5454626 536790064 os=Linux
+
+zsh 1661615167.0789096 529855987 os=Linux
+
+zsh 1661615167.6062238 523657062 os=Linux
+
+zsh 1661615168.1722367 561425755 os=Linux
+
+ci 1661615168.2952886 215 os=Linux
