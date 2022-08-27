@@ -1,0 +1,89 @@
+./pyls/install.sh 1661614913.5300868 11 os=Linux
+
+./shellcheck/install.sh 1661614914.5589705 1 os=Linux
+
+./clangd/install.sh 1661614932.474278 18 os=Linux
+
+./vint/install.sh 1661614936.6208286 4 os=Linux
+
+./alacritty/install.sh 1661614948.3397176 12 os=Linux
+
+./zoxide/install.sh 1661614950.044088 1 os=Linux
+
+./homebrew/install.sh 1661614950.2144537 0 os=Linux
+
+./cmake/install.sh 1661614963.5429308 13 os=Linux
+
+./ccache/install.sh 1661614969.5228543 6 os=Linux
+
+./gdb/install.sh 1661614989.5669444 20 os=Linux
+
+./ninja/install.sh 1661614994.9870336 5 os=Linux
+
+./virtualenvwrapper/install.sh 1661615003.9129574 8 os=Linux
+
+./tmux/install.sh 1661615004.8089705 1 os=Linux
+
+./git/install.sh 1661615005.709494 1 os=Linux
+
+./nvim/install.sh 1661615019.4379413 14 os=Linux
+
+./ctags/install.sh 1661615025.2652385 6 os=Linux
+
+./zsh/install.sh 1661615040.166788 15 os=Linux
+
+./fzf/install.sh 1661615043.5581515 3 os=Linux
+
+./efm/install.sh 1661615044.433971 1 os=Linux
+
+./system/install.sh 1661615050.6203103 6 os=Linux
+
+./ripgrep/install.sh 1661615053.9286754 3 os=Linux
+
+./colors/install.sh 1661615056.140891 3 os=Linux
+
+install 1661615056.2768903 166 os=Linux
+
+test 1661615120.2906947 62 os=Linux
+
+nvim 1661615120.5481813 136276003 os=Linux
+
+nvim 1661615120.7072277 154768203 os=Linux
+
+nvim 1661615120.8439775 131482126 os=Linux
+
+nvim 1661615120.97822 130126804 os=Linux
+
+nvim 1661615121.1292782 146825874 os=Linux
+
+nvim 1661615121.2938118 160334393 os=Linux
+
+nvim 1661615121.4586196 159404878 os=Linux
+
+nvim 1661615121.6008174 137907930 os=Linux
+
+nvim 1661615121.7694664 160895301 os=Linux
+
+nvim 1661615121.9254549 151110644 os=Linux
+
+zsh 1661615122.6438072 591503564 os=Linux
+
+zsh 1661615123.2044978 556241394 os=Linux
+
+zsh 1661615123.7824726 573229400 os=Linux
+
+zsh 1661615124.3453333 558167873 os=Linux
+
+zsh 1661615124.920505 570687476 os=Linux
+
+zsh 1661615125.4768538 552297878 os=Linux
+
+zsh 1661615126.045478 564096270 os=Linux
+
+zsh 1661615126.6450286 595254276 os=Linux
+
+zsh 1661615127.22847 578074297 os=Linux
+
+zsh 1661615127.8088055 575725158 os=Linux
+
+ci 1661615127.9318345 237 os=Linux
