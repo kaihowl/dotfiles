@@ -27,7 +27,7 @@ fi
 
 if (grep -q '/bin/zsh' /etc/shells) && [[ -x /bin/zsh ]]; then
   if [[ "${CI}" == "true" ]]; then
-    echo "Running on CI, not changing log in shell"
+    echo "Running on CI, not changing login shell"
   else
     # Allow for unattended upgrade
     sudo chsh -s "$(which zsh)" "$(whoami)"
