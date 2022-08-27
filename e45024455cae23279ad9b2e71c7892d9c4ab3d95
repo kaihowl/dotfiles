@@ -37,3 +37,5 @@
 ./vint/install.sh 1661611767.1749732 2 os=ubuntu-22.04
 
 ./colors/install.sh 1661611768.4273996 1 os=ubuntu-22.04
+
+./efm/install.sh 1661611769.0350683 0 os=ubuntu-22.04
