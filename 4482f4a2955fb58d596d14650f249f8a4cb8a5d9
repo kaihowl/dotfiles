@@ -35,3 +35,5 @@
 ./fzf/install.sh 1661584851.276649 1 os=Linux
 
 ./efm/install.sh 1661584851.664383 0 os=Linux
+
+./system/install.sh 1661584855.883312 4 os=Linux
