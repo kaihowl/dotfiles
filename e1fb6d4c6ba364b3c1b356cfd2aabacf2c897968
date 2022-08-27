@@ -1,3 +1,5 @@
 ./zsh/install.sh 1661609527.7496393 9 os=Linux
 
 ./nvim/install.sh 1661609539.4954827 12 os=Linux
+
+./fzf/install.sh 1661609542.7430835 3 os=Linux
