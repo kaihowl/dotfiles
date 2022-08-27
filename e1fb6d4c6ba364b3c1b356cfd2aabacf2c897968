@@ -31,3 +31,5 @@
 ./shellcheck/install.sh 1661609605.6769226 1 os=Linux
 
 ./alacritty/install.sh 1661609615.74424 10 os=Linux
+
+./pyls/install.sh 1661609622.1026983 6 os=Linux
