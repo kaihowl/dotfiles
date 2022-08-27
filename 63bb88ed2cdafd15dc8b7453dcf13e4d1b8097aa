@@ -17,3 +17,5 @@
 ./ccache/install.sh 1661598203.906942 5 os=Linux
 
 ./gdb/install.sh 1661598221.8185036 18 os=Linux
+
+./ninja/install.sh 1661598227.0772922 5 os=Linux
