@@ -23,3 +23,5 @@
 ./virtualenvwrapper/install.sh 1661615037.6106906 6 os=Linux
 
 ./tmux/install.sh 1661615038.3447804 1 os=Linux
+
+./git/install.sh 1661615039.068846 0 os=Linux
