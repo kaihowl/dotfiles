@@ -4,7 +4,6 @@
 
 function EscapeIt(id)
   echomsg 'running EscapeIt'
-  lua vim.notify(vim.inspect(#require"cmp".get_entries()), vim.log.levels.ERROR)
   let cmp_filled =  wait(10000, "luaeval('#require\"cmp\".get_entries()') != 0")
   echomsg 'cmp_filled: ' . cmp_filled
   echomsg 'Sending tab key for selection'
