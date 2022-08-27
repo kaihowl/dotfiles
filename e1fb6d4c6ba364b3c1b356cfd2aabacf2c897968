@@ -5,3 +5,5 @@
 ./fzf/install.sh 1661609542.7430835 3 os=Linux
 
 ./system/install.sh 1661609547.3791237 5 os=Linux
+
+./cmake/install.sh 1661609557.4986851 10 os=Linux
