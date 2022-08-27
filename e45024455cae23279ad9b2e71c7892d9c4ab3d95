@@ -31,3 +31,5 @@
 ./nvim/install.sh 1661611791.238892 8 os=ubuntu-20.04
 
 ./ctags/install.sh 1661611795.8740919 4 os=ubuntu-20.04
+
+./fzf/install.sh 1661611797.2095468 2 os=ubuntu-20.04
