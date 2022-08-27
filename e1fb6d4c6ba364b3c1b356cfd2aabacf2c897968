@@ -7,3 +7,5 @@
 ./clangd/install.sh 1661609546.1345809 14 os=Linux
 
 ./vint/install.sh 1661609549.566141 3 os=Linux
+
+./alacritty/install.sh 1661609558.3003068 9 os=Linux
