@@ -13,3 +13,5 @@
 ./git/install.sh 1661609563.0856647 0 os=Linux
 
 ./tmux/install.sh 1661609563.8034744 0 os=Linux
+
+./clangd/install.sh 1661609573.784599 10 os=Linux
