@@ -21,3 +21,5 @@
 ./gdb/install.sh 1661611770.8322575 15 os=ubuntu-20.04
 
 ./ninja/install.sh 1661611775.1417565 5 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1661611781.6746435 6 os=ubuntu-20.04
