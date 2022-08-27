@@ -21,3 +21,5 @@
 ./ninja/install.sh 1661585164.3730595 4 os=Linux
 
 ./virtualenvwrapper/install.sh 1661585170.4486377 6 os=Linux
+
+./tmux/install.sh 1661585171.1453774 1 os=Linux
