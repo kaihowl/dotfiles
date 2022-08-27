@@ -43,3 +43,5 @@
 ./ripgrep/install.sh 1661609630.0231974 2 os=Linux
 
 install 1661609630.1570609 119 os=Linux
+
+test 1661609690.8475368 59 os=Linux
