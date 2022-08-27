@@ -9,3 +9,5 @@
 ./alacritty/install.sh 1661614606.185675 9 os=Linux
 
 ./zoxide/install.sh 1661614607.7495296 1 os=Linux
+
+./homebrew/install.sh 1661614607.848574 0 os=Linux
