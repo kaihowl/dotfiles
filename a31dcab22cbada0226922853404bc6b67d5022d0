@@ -39,3 +39,5 @@
 ./ripgrep/install.sh 1661590120.562434 10 os=macOS
 
 ./fzf/install.sh 1661590124.209491 4 os=macOS
+
+./git/install.sh 1661590127.5903392 3 os=macOS
