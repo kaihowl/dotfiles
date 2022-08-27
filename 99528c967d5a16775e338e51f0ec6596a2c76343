@@ -37,3 +37,5 @@
 ./efm/install.sh 1661615044.433971 1 os=Linux
 
 ./system/install.sh 1661615050.6203103 6 os=Linux
+
+./ripgrep/install.sh 1661615053.9286754 3 os=Linux
