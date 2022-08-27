@@ -1,1 +1,3 @@
 ./pyls/install.sh 1661614969.4533837 8 os=Linux
+
+./shellcheck/install.sh 1661614969.9086592 0 os=Linux
