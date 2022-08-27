@@ -6,6 +6,6 @@ which cmake
 
 echo "Check that cmake is installed from llvm apt repo (Ubuntu-only)"
 if [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  apt policy cmake
-  apt policy cmake | grep -F '**' -A1 | grep -F apt.kitware.com
+  apt-cache policy cmake
+  apt-cache policy cmake | grep -F '**' -A1 | grep -F apt.kitware.com
 fi
