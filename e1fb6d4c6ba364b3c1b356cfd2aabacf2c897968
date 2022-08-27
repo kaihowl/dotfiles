@@ -15,3 +15,5 @@
 ./tmux/install.sh 1661609563.8034744 0 os=Linux
 
 ./clangd/install.sh 1661609573.784599 10 os=Linux
+
+./ninja/install.sh 1661609578.482291 5 os=Linux
