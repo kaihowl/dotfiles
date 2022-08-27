@@ -37,3 +37,5 @@
 ./efm/install.sh 1661611797.5114481 0 os=ubuntu-20.04
 
 ./system/install.sh 1661611801.8796954 4 os=ubuntu-20.04
+
+./ripgrep/install.sh 1661611804.1439397 3 os=ubuntu-20.04
