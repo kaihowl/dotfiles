@@ -1,7 +1,6 @@
 " Test completion with omni-complete and LSP
 function Check(id)
   " Wait until the completion menu is visible.
-  redraw
   echomsg 'Waiting for completion to show'
   let complete_visible = wait(10000, "complete_info()['pum_visible']")
   echomsg 'complete_visible: ' . complete_visible
@@ -16,17 +15,11 @@ function Check(id)
   call feedkeys("\<esc>")
 endfunction
 
-
-function Trigger(id)
-  call timer_start(500, funcref('Check'))
-  call feedkeys("\<c-x>\<c-o>")
-endfunction
-
 function FeedIt(complete_chars)
-  call timer_start(500, funcref('Trigger'))
+  call timer_start(500, funcref('Check'))
   echomsg 'Feeding keys'
   " Get completion for 'inline' keyword
-  call feedkeys('i'.a:complete_chars, 'tx!')
+  call feedkeys('i'.a:complete_chars."\<c-x>\<c-o>", 'tx!')
 endfunction
 
 function ProtoTest(filename, complete_chars)
