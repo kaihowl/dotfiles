@@ -1,3 +1,5 @@
 ./zsh/install.sh 1661668549.6138628 14 os=ubuntu-20.04
 
 ./pyls/install.sh 1661668558.9051905 9 os=ubuntu-20.04
+
+./shellcheck/install.sh 1661668559.7721353 1 os=ubuntu-20.04
