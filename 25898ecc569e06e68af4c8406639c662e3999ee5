@@ -33,3 +33,5 @@
 ./ctags/install.sh 1661935109.3566308 5 os=Linux
 
 ./fzf/install.sh 1661935112.4357855 3 os=Linux
+
+./efm/install.sh 1661935113.3076231 1 os=Linux
