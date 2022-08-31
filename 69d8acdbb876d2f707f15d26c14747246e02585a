@@ -17,3 +17,5 @@
 ./cmake/install.sh 1661974948.876962 13 os=Linux
 
 ./ccache/install.sh 1661974954.6493218 6 os=Linux
+
+./gdb/install.sh 1661974974.3103673 20 os=Linux
