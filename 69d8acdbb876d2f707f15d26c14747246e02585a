@@ -31,3 +31,5 @@
 ./nvim/install.sh 1661975004.2975109 14 os=Linux
 
 ./ctags/install.sh 1661975010.969852 6 os=Linux
+
+./fzf/install.sh 1661975013.9597497 3 os=Linux
