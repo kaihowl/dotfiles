@@ -13,3 +13,5 @@
 ./zoxide/install.sh 1661935045.4682019 2 os=Linux
 
 ./homebrew/install.sh 1661935045.585789 0 os=Linux
+
+./cmake/install.sh 1661935057.2325969 12 os=Linux
