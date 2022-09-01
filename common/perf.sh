@@ -13,7 +13,7 @@ function add_measurement {
   name=$1
   value=$2
 
-  git perf add -m "$name" -kv "os=${RUNNER_OS}" "$value"
+  git perf add -m "$name" -kv "os=${VERSION_RUNNER_OS}" "$value"
 }
 
 function run_measurement {
@@ -24,7 +24,7 @@ function run_measurement {
   fi
 
   name=$1
-  git perf measure -n 10 -m "$name" -kv "os=${RUNNER_OS}" -- "${@:2}"
+  git perf measure -n 10 -m "$name" -kv "os=${VERSION_RUNNER_OS}" -- "${@:2}"
 }
 
 function publish_measurements {
