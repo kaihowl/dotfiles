@@ -15,3 +15,5 @@
 ./homebrew/install.sh 1662007339.8992417 0 os=ubuntu-20.04
 
 ./cmake/install.sh 1662007349.9452865 10 os=ubuntu-20.04
+
+./ccache/install.sh 1662007353.9135554 4 os=ubuntu-20.04
