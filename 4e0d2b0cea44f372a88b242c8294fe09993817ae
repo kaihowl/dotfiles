@@ -17,3 +17,5 @@
 ./cmake/install.sh 1662291872.9874802 9 os=ubuntu-20.04
 
 ./ccache/install.sh 1662291877.131176 4 os=ubuntu-20.04
+
+./gdb/install.sh 1662291893.5880735 16 os=ubuntu-20.04
