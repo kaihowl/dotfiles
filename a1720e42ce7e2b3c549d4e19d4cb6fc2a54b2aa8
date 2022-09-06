@@ -19,3 +19,5 @@
 ./ninja/install.sh 1662453982.4548686 3 os=ubuntu-22.04
 
 ./homebrew/install.sh 1662453982.5669882 0 os=ubuntu-22.04
+
+./gdb/install.sh 1662453990.817849 8 os=ubuntu-22.04
