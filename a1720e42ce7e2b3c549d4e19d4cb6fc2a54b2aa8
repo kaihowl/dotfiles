@@ -39,3 +39,5 @@
 ./colors/install.sh 1662454018.1740792 2 os=ubuntu-22.04
 
 ./efm/install.sh 1662454019.0475686 0 os=ubuntu-22.04
+
+./ripgrep/install.sh 1662454020.8033729 1 os=ubuntu-22.04
