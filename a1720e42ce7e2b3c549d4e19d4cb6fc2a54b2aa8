@@ -23,3 +23,5 @@
 ./ninja/install.sh 1662454038.1209025 5 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1662454044.3962252 6 os=ubuntu-20.04
+
+./tmux/install.sh 1662454045.118591 1 os=ubuntu-20.04
