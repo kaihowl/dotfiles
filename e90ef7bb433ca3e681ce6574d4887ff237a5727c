@@ -41,3 +41,5 @@
 ./efm/install.sh 1662550174.4752796 1 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1662550176.6307676 2 os=ubuntu-22.04
+
+install 1662550176.766575 137 os=ubuntu-22.04
