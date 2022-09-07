@@ -2,5 +2,5 @@
 set -e
 
 echo "Check if vim-vint is on path"
-which vint
+PATH=~/.virtualenvs/dotfiles-run/bin:$PATH which vint
 
