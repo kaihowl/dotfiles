@@ -27,3 +27,5 @@
 ./system/install.sh 1662539824.5672882 18 os=macos-11
 
 ./colors/install.sh 1662539831.5538108 7 os=macos-11
+
+./shellcheck/install.sh 1662539832.818718 1 os=macos-11
