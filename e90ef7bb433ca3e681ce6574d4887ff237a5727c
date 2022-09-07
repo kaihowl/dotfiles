@@ -39,3 +39,5 @@
 ./system/install.sh 1662550202.3846889 5 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1662550205.3675797 3 os=ubuntu-20.04
+
+./colors/install.sh 1662550207.476904 2 os=ubuntu-20.04
