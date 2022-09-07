@@ -779,7 +779,7 @@ configs.clangd.setup{root_dir=function(fname)
 
 configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
-local pylsp_binary = vim.api.nvim_eval("g:virtualenv").."/pylsp"
+local pylsp_binary = vim.api.nvim_eval("expand(g:virtualenv)").."/pylsp"
 configs.pylsp.setup{cmd={pylsp_binary}, on_attach=on_attach, capabilities=capabilities}
 
 configs.efm.setup {
