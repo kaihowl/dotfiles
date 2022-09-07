@@ -25,9 +25,8 @@ tar -C ~/.nvim --extract -z -f "${tmpfile}" --strip-components 1
 script_dir=$(dirname "$0")
 . "${script_dir}/path.zsh"
 
-source "$DOTS/common/pip.sh"
-ensure_pip_installed
-sudo python3 -m pip install --upgrade pynvim
+source "$DOTS/common/python.sh"
+install_in_virtualenv pynvim
 
 # update packages in Plug
 # install plug if not already installed
