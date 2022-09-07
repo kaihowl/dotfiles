@@ -27,3 +27,5 @@
 ./tmux/install.sh 1662539500.1115322 1 os=ubuntu-20.04
 
 ./git/install.sh 1662539500.7375047 0 os=ubuntu-20.04
+
+./nvim/install.sh 1662539510.0957348 10 os=ubuntu-20.04
