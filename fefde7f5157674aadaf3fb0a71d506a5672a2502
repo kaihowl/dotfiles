@@ -31,3 +31,5 @@
 ./shellcheck/install.sh 1662540391.4826167 1 os=ubuntu-22.04
 
 ./alacritty/install.sh 1662540398.49821 7 os=ubuntu-22.04
+
+./pyls/install.sh 1662540403.9041011 5 os=ubuntu-22.04
