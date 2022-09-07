@@ -5,3 +5,5 @@
 ./fzf/install.sh 1662549152.1343696 2 os=ubuntu-22.04
 
 ./system/install.sh 1662549155.7805061 3 os=ubuntu-22.04
+
+./cmake/install.sh 1662549164.1078386 9 os=ubuntu-22.04
