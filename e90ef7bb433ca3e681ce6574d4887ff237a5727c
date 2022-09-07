@@ -13,3 +13,5 @@
 ./git/install.sh 1662550102.4581954 1 os=ubuntu-22.04
 
 ./tmux/install.sh 1662550103.215577 1 os=ubuntu-22.04
+
+./clangd/install.sh 1662550114.2197392 11 os=ubuntu-22.04
