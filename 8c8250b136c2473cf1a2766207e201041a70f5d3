@@ -21,3 +21,5 @@
 ./homebrew/install.sh 1662549181.4294784 0 os=ubuntu-22.04
 
 ./gdb/install.sh 1662549190.7231534 9 os=ubuntu-22.04
+
+./zoxide/install.sh 1662549191.996317 1 os=ubuntu-22.04
