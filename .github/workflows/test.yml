@@ -43,8 +43,6 @@ jobs:
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
           git config --global user.name "git-perf"
-          ls -ltr /usr/local/lib/python3.10/site-packages/six.py
-          exit 1
       - name: Install and test
         env:
           VERSION_RUNNER_OS: ${{ matrix.os }}
@@ -62,6 +60,7 @@ jobs:
       - name: Rename versions report
         if: always()
         run: |
+          ls -ltr /usr/local/lib/python3.10/site-packages/six.py
           cd .dotfiles/
           mv versions.txt versions-${{matrix.os}}.txt
       - name: Archive version report
