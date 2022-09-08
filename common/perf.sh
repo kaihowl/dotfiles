@@ -3,7 +3,6 @@ set -e
 
 python3 -m venv ~/.git-perf
 ~/.git-perf/bin/python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
-PATH=~/.git-perf/bin:$PATH
 
 
 function add_measurement {
@@ -26,11 +25,11 @@ function run_measurement {
   fi
 
   name=$1
-  git perf measure -n 10 -m "$name" -kv "os=${VERSION_RUNNER_OS}" -- "${@:2}"
+  ~/.git-perf/bin/git-perf measure -n 10 -m "$name" -kv "os=${VERSION_RUNNER_OS}" -- "${@:2}"
 }
 
 function publish_measurements {
-  git perf push
+  ~/.git-perf/bin/git-perf push
 }
 
 # Make functions available in called bash scripts as well
