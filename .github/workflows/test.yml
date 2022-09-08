@@ -48,7 +48,6 @@ jobs:
           VERSION_RUNNER_OS: ${{ matrix.os }}
         shell: bash
         run: |
-          ls -ltr /usr/local/lib/python3.10/site-packages/six.py || true
           export HOME=$(pwd)
           env
           export XDG_CONFIG_HOME=$(pwd)/.config
@@ -61,7 +60,6 @@ jobs:
       - name: Rename versions report
         if: always()
         run: |
-          ls -ltr /usr/local/lib/python3.10/site-packages/six.py
           cd .dotfiles/
           mv versions.txt versions-${{matrix.os}}.txt
       - name: Archive version report
