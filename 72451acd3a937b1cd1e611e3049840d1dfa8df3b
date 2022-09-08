@@ -9,3 +9,5 @@
 ./vint/install.sh 1662660651.5963056 21 os=ubuntu-20.04
 
 ./alacritty/install.sh 1662660661.938499 10 os=ubuntu-20.04
+
+./zoxide/install.sh 1662660663.5991745 2 os=ubuntu-20.04
