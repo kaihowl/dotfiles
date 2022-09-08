@@ -1,3 +1,5 @@
 ./zsh/install.sh 1662617823.7534761 7 os=ubuntu-22.04
 
 ./nvim/install.sh 1662617839.4435987 16 os=ubuntu-22.04
+
+./fzf/install.sh 1662617841.4142811 2 os=ubuntu-22.04
