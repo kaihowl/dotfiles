@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
 
-export PATH=~/.local/bin:$PATH
-python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
+python3 -m venv ~/.git-perf
+~/.git-perf/bin/python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
+export PATH=~/.git-perf/bin:$PATH
 
 function add_measurement {
   if [[ $# -ne 2 ]]; then
