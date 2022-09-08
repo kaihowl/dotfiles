@@ -4,7 +4,6 @@ set -e
 python3 -m venv ~/.git-perf
 ~/.git-perf/bin/python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
 PATH=~/.git-perf/bin:$PATH
-git perf --help
 
 
 function add_measurement {
