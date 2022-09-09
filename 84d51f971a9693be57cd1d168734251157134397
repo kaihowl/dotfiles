@@ -5,3 +5,5 @@
 ./shellcheck/install.sh 1662703539.6220326 0 os=ubuntu-20.04
 
 ./clangd/install.sh 1662703552.1682928 13 os=ubuntu-20.04
+
+./vint/install.sh 1662703556.8672895 4 os=ubuntu-20.04
