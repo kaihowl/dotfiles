@@ -13,11 +13,11 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
 fi
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.0/zoxide-v0.8.0-x86_64-apple-darwin.tar.gz"
-  expect_hash="296f5b95db461ae8c081ab43b337362a4389bdbc289d1107753baf5676466b77"
+  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.3/zoxide-0.8.3-x86_64-apple-darwin.tar.gz"
+  expect_hash="c9000934d28d8c7de0130a1eade8152e37ae4bf521ed1b2df90d362cb1ed1611"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.0/zoxide-v0.8.0-x86_64-unknown-linux-musl.tar.gz"
-  expect_hash="cbf4044be68c901f0fb29b7511fd8c645f466afba0e98a6ca6d9d21ab932f41b"
+  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.3/zoxide-0.8.3-x86_64-unknown-linux-musl.tar.gz"
+  expect_hash="a3fea067a719b921881bdcde81b52c5ad1017bd39f835b3684f91ddfbb596d8f"
 fi
 
 tmpfile=$(mktemp)
@@ -31,8 +31,3 @@ if [[ "$expect_hash" != "$actual_hash" ]]; then
 fi
 mkdir -p ~/.zoxide
 tar -C ~/.zoxide --extract -z -f "${tmpfile}"
-
-# Fix up man page structure for man AUTOPATH
-# See https://github.com/ajeetdsouza/zoxide/issues/319
-mkdir -p ~/.zoxide/man/man1
-mv ~/.zoxide/man/*.1 ~/.zoxide/man/man1

@@ -580,7 +580,7 @@ command! DiffHistory call s:view_merge_request()
 " https://github.com/tpope/vim-fugitive/issues/132#issuecomment-649516204
 function! s:view_merge_request() abort
   let revision = <sid>get_diff_file_master_merge()
-  execute 'Git difftool --stat ' . revision . '..HEAD --find-renames=50\%'
+  execute 'Git difftool --numstat ' . revision . '..HEAD --find-renames=50\%'
   if len(getqflist()) > 0
     call s:diff_current_quickfix_entry()
   endif
