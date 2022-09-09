@@ -25,3 +25,5 @@
 ./virtualenvwrapper/install.sh 1662703604.7770622 6 os=ubuntu-20.04
 
 ./tmux/install.sh 1662703605.4821417 1 os=ubuntu-20.04
+
+./git/install.sh 1662703606.1893709 1 os=ubuntu-20.04
