@@ -17,3 +17,5 @@
 ./clangd/install.sh 1662803822.5055478 11 os=ubuntu-22.04
 
 ./ninja/install.sh 1662803827.1119232 4 os=ubuntu-22.04
+
+./homebrew/install.sh 1662803827.249357 0 os=ubuntu-22.04
