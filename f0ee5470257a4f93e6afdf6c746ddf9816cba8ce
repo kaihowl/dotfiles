@@ -35,3 +35,5 @@
 ./pyls/install.sh 1662813077.940336 7 os=ubuntu-22.04
 
 ./vint/install.sh 1662813082.6763663 5 os=ubuntu-22.04
+
+./colors/install.sh 1662813083.9641566 1 os=ubuntu-22.04
