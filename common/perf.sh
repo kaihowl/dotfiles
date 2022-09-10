@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
 
-export PATH=~/.local/bin:$PATH
-python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
+python3 -m venv ~/.git-perf
+~/.git-perf/bin/python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
+
 
 function add_measurement {
   if [[ $# -ne 2 ]]; then
@@ -13,7 +14,7 @@ function add_measurement {
   name=$1
   value=$2
 
-  git perf add -m "$name" -kv "os=${VERSION_RUNNER_OS}" "$value"
+  ~/.git-perf/bin/git-perf add -m "$name" -kv "os=${VERSION_RUNNER_OS}" "$value"
 }
 
 function run_measurement {
@@ -24,11 +25,11 @@ function run_measurement {
   fi
 
   name=$1
-  git perf measure -n 10 -m "$name" -kv "os=${VERSION_RUNNER_OS}" -- "${@:2}"
+  ~/.git-perf/bin/git-perf measure -n 10 -m "$name" -kv "os=${VERSION_RUNNER_OS}" -- "${@:2}"
 }
 
 function publish_measurements {
-  git perf push
+  ~/.git-perf/bin/git-perf push
 }
 
 # Make functions available in called bash scripts as well

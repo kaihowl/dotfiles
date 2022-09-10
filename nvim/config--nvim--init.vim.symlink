@@ -3,6 +3,8 @@ set modelines=1
 
 let g:loaded_python_provider = 0
 " let g:loaded_python3_provider = 1
+let g:virtualenv = '~/.virtualenvs/dotfiles-run/bin'
+let g:python3_host_prog = g:virtualenv.'/python3'
 
 set lazyredraw
 
@@ -777,7 +779,8 @@ configs.clangd.setup{root_dir=function(fname)
 
 configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
-configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
+local pylsp_binary = vim.api.nvim_eval("expand(g:virtualenv)").."/pylsp"
+configs.pylsp.setup{cmd={pylsp_binary}, on_attach=on_attach, capabilities=capabilities}
 
 configs.efm.setup {
     -- Fallback to cwd in case of hitting a fugitive buffer
