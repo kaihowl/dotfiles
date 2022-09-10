@@ -6,14 +6,22 @@ function ensure_python_installed() {
   if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
     source "$DOTS/common/apt.sh"
     # venv is needed as Ubuntu 22.04 otherwise has no ensurepip and venv fails.
-    # wheel is sometimes needed by python packages, e.g., pynvim.
     # Install all of these packages as a sane baseline.
-    apt_install --no-install-recommends python3-pip python3-dev python3-wheel python3-venv
+    apt_install --no-install-recommends python3-pip python3-dev python3-venv
   fi
 }
 
 function install_in_virtualenv() {
   ensure_python_installed
+  # Using venv instead of virtualenv as homebrews virtualenv is completely
+  # separate from its python. I.e., it is not installed as a site package.
+  # Installing virtualenv globally defeats the purpose of having venvs in the
+  # first place. venv seems to have the most support throughout macOS / Ubuntu.
+  # Major difference, it does not seed wheel (needed by pynvim) into the
+  # virtualenv. This is done manually including an upgrade of pip and
+  # setuptools.
   python3 -m venv ~/.virtualenvs/dotfiles-run
+  # Must run independently as wheel is a non-declared dependency of some packages.
+  ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade pip setuptools wheel
   ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade "$*"
 }
