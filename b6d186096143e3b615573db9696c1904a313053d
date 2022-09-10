@@ -3,3 +3,5 @@
 ./nvim/install.sh 1662805038.0245774 13 os=ubuntu-22.04
 
 ./fzf/install.sh 1662805039.4369357 1 os=ubuntu-22.04
+
+./system/install.sh 1662805043.0490842 3 os=ubuntu-22.04
