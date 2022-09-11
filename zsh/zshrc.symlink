@@ -28,7 +28,7 @@ source $DOTS/script/check_for_upgrade.sh
 typeset -U config_files
 config_files=($DOTS/**/*.zsh)
 # Remove test scripts
-config_files=(${config_files:#*/nvim/test-*/*})
+config_files=(${config_files:#*/nvim/tests/test-*/*})
 
 # load every completion before compinit to set up the fpath
 for file in ${(M)config_files:#*/completion.zsh}
