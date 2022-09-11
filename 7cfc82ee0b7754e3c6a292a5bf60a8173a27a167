@@ -7,3 +7,5 @@
 ./clangd/install.sh 1662886756.7749696 15 os=ubuntu-20.04
 
 ./vint/install.sh 1662886761.899321 5 os=ubuntu-20.04
+
+./alacritty/install.sh 1662886771.5166194 10 os=ubuntu-20.04
