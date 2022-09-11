@@ -23,3 +23,5 @@
 ./gdb/install.sh 1662886784.959357 10 os=ubuntu-22.04
 
 ./zoxide/install.sh 1662886786.3409941 2 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1662886793.661332 7 os=ubuntu-22.04
