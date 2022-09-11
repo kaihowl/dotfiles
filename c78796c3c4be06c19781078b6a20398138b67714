@@ -7,3 +7,5 @@
 ./system/install.sh 1662886563.726913 5 os=ubuntu-22.04
 
 ./cmake/install.sh 1662886573.7559726 10 os=ubuntu-22.04
+
+./ctags/install.sh 1662886579.062706 5 os=ubuntu-22.04
