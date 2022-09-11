@@ -15,6 +15,17 @@ if [[ "${actual_path}" != $(realpath ~/.nvim/bin)* ]]; then
   exit 1
 fi
 
+echo "Check health for errors"
+health_file=$(mktemp)
+trap 'rm -rf $health_file' EXIT
+nvim --headless +checkhealth "+write $health_file" +qa
+cat "$health_file"
+# Find all errors but exclude the optional node provider failure
+if grep -ie 'error' "$health_file" | grep -vie 'node -v'; then
+  echo "Found errors in health file"
+  exit 1
+fi
+
 echo "Check that all test scripts are called afterwards in this script"
 found_tests=$(find "$(realpath "$(dirname "$0")")" -name '*.test.vim' | wc -l)
 registered_tests=$(grep -c 'run_vim_test .*test\.vim' "$0")
