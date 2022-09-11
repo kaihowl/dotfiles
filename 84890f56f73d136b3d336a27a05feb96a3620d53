@@ -29,3 +29,5 @@
 ./ccache/install.sh 1662897333.6152184 4 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1662897334.6437364 1 os=ubuntu-22.04
+
+./alacritty/install.sh 1662897343.9380162 9 os=ubuntu-22.04
