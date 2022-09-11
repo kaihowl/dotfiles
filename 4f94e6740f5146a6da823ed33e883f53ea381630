@@ -29,3 +29,5 @@
 ./git/install.sh 1662886924.056011 0 os=ubuntu-20.04
 
 ./nvim/install.sh 1662886936.5391974 12 os=ubuntu-20.04
+
+./ctags/install.sh 1662886942.0073204 5 os=ubuntu-20.04
