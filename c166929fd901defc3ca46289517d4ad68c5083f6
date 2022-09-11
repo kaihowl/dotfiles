@@ -33,3 +33,5 @@
 ./alacritty/install.sh 1662896725.8232763 8 os=ubuntu-22.04
 
 ./pyls/install.sh 1662896734.615392 9 os=ubuntu-22.04
+
+./vint/install.sh 1662896740.1790414 6 os=ubuntu-22.04
