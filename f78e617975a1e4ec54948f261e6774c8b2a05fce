@@ -13,3 +13,5 @@
 ./zoxide/install.sh 1662886670.4086704 1 os=ubuntu-20.04
 
 ./homebrew/install.sh 1662886670.5190191 0 os=ubuntu-20.04
+
+./cmake/install.sh 1662886680.40427 10 os=ubuntu-20.04
