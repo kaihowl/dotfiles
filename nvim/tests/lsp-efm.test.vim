@@ -20,7 +20,7 @@ function Check(filename)
 endfunction
 
 function Test()
-  let tests = ['testscript.sh', 'testscript.zsh']
+  let tests = ['testscript.sh', 'testscript.zsh', 'testscript.vim']
   for t in tests
     if ! Check(t)
       echoerr 'Failed test ' . t
