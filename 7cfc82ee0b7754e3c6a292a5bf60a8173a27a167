@@ -43,3 +43,5 @@
 ./colors/install.sh 1662886849.8249273 1 os=ubuntu-20.04
 
 install 1662886849.9466226 147 os=ubuntu-20.04
+
+test 1662886911.8548813 59 os=ubuntu-20.04
