@@ -15,3 +15,5 @@
 ./tmux/install.sh 1662886667.1464665 1 os=ubuntu-22.04
 
 ./clangd/install.sh 1662886677.8604727 10 os=ubuntu-22.04
+
+./ninja/install.sh 1662886682.4106512 5 os=ubuntu-22.04
