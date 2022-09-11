@@ -43,3 +43,5 @@
 ./ripgrep/install.sh 1662886657.0020478 2 os=ubuntu-22.04
 
 install 1662886657.1364758 133 os=ubuntu-22.04
+
+test 1662886719.8143766 60 os=ubuntu-22.04
