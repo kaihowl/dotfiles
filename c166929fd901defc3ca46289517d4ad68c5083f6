@@ -3,3 +3,5 @@
 ./pyls/install.sh 1662887352.8724568 10 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1662887353.5376112 1 os=ubuntu-20.04
+
+./clangd/install.sh 1662887367.3107295 14 os=ubuntu-20.04
