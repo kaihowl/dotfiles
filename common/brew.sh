@@ -2,6 +2,7 @@
 set -e
 
 function ensure_brew_installed() {
+  eval "$(/opt/homebrew/bin/brew shellenv)" || true
   if test ! "$(which brew)"
   then
     echo "  Installing Homebrew for you."
