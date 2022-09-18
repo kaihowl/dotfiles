@@ -11,3 +11,5 @@
 ./alacritty/install.sh 1663501533.0504258 11 os=ubuntu-20.04
 
 ./zoxide/install.sh 1663501534.4082062 1 os=ubuntu-20.04
+
+./homebrew/install.sh 1663501534.539697 0 os=ubuntu-20.04
