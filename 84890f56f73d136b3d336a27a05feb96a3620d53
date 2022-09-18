@@ -37,3 +37,5 @@
 ./clangd/install.sh 1663501567.3893518 11 os=ubuntu-22.04
 
 ./gdb/install.sh 1663501581.8084772 14 os=ubuntu-22.04
+
+./shellcheck/install.sh 1663501582.7367008 1 os=ubuntu-22.04
