@@ -1,1 +1,3 @@
 ./zsh/install.sh 1663501473.0538235 8 os=ubuntu-22.04
+
+./ninja/install.sh 1663501477.0827386 3 os=ubuntu-22.04
