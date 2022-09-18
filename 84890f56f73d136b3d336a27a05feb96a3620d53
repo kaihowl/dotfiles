@@ -19,3 +19,5 @@
 ./ccache/install.sh 1663501554.2281797 6 os=ubuntu-20.04
 
 ./gdb/install.sh 1663501574.764567 20 os=ubuntu-20.04
+
+./ninja/install.sh 1663501580.92555 6 os=ubuntu-20.04
