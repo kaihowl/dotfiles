@@ -39,3 +39,5 @@
 ./gdb/install.sh 1663501581.8084772 14 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1663501582.7367008 1 os=ubuntu-22.04
+
+./system/install.sh 1663501586.5686421 4 os=ubuntu-22.04
