@@ -35,3 +35,5 @@
 ./cmake/install.sh 1664106365.7841473 8 os=ubuntu-22.04
 
 ./clangd/install.sh 1664106374.050052 8 os=ubuntu-22.04
+
+./gdb/install.sh 1664106384.1032352 10 os=ubuntu-22.04
