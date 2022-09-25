@@ -13,3 +13,5 @@
 ./homebrew/install.sh 1664106294.1923776 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1664106307.007259 12 os=ubuntu-22.04
+
+./pyls/install.sh 1664106326.5529094 19 os=ubuntu-22.04
