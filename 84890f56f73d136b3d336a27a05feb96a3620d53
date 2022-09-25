@@ -5,3 +5,5 @@
 ./ripgrep/install.sh 1664106287.7838387 1 os=ubuntu-22.04
 
 ./ctags/install.sh 1664106292.26721 5 os=ubuntu-22.04
+
+./zoxide/install.sh 1664106293.567684 1 os=ubuntu-22.04
