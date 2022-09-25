@@ -3,3 +3,5 @@
 ./ninja/install.sh 1664106286.1500006 4 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1664106287.7838387 1 os=ubuntu-22.04
+
+./ctags/install.sh 1664106292.26721 5 os=ubuntu-22.04
