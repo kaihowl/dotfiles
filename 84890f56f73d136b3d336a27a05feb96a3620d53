@@ -25,3 +25,5 @@
 ./tmux/install.sh 1664106336.0566096 0 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1664106341.7414293 5 os=ubuntu-22.04
+
+./nvim/install.sh 1664106353.564917 12 os=ubuntu-22.04
