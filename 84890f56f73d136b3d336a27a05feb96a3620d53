@@ -13,3 +13,5 @@
 ./cmake/install.sh 1664711188.778472 11 os=ubuntu-22.04
 
 ./pyls/install.sh 1664711203.253333 15 os=ubuntu-22.04
+
+./ccache/install.sh 1664711207.2867985 4 os=ubuntu-22.04
