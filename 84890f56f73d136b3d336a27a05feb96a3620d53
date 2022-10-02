@@ -21,3 +21,5 @@
 ./git/install.sh 1664711208.7578378 0 os=ubuntu-22.04
 
 ./gdb/install.sh 1664711220.7052877 12 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1664711228.6463706 8 os=ubuntu-22.04
