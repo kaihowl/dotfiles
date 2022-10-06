@@ -29,3 +29,5 @@
 ./ccache/install.sh 1665090423.29645 6 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1665090431.1989622 8 os=ubuntu-20.04
+
+./clangd/install.sh 1665090447.0942779 15 os=ubuntu-20.04
