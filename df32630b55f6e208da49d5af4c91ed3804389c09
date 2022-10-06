@@ -3,3 +3,5 @@
 ./colors/install.sh 1665090356.0329714 1 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1665090356.4874296 0 os=ubuntu-20.04
+
+./vint/install.sh 1665090366.58019 10 os=ubuntu-20.04
