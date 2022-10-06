@@ -17,3 +17,5 @@
 ./pyls/install.sh 1665088555.573761 17 os=macos-11
 
 ./zoxide/install.sh 1665088559.5044842 4 os=macos-11
+
+./efm/install.sh 1665088560.909068 1 os=macos-11
