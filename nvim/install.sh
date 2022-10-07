@@ -2,11 +2,11 @@
 set -ex
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-macos.tar.gz"
-  expect_hash="6260a2edb2da35af02b986c8a6506138afcb3f78f81a80734214b2cadf390a42"
+  download_url="https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-macos.tar.gz"
+  expect_hash="abe0b0c1ca46b7d05e689d4791055a6dbbf2394cb53a6a8d8274813e6762c1f1"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz"
-  expect_hash="5b3fced3f185ae1e1497cb5f949597c4065585fc26e7cd25a31f5f791dbd9b59"
+  download_url="https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz"
+  expect_hash="1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7"
 fi
 
 tmpfile=$(mktemp)
