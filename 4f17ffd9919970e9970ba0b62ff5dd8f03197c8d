@@ -1,3 +1,5 @@
 ./zsh/install.sh 1665131734.6967998 10 os=ubuntu-20.04
 
 ./colors/install.sh 1665131736.0000029 1 os=ubuntu-20.04
+
+./shellcheck/install.sh 1665131736.4959745 0 os=ubuntu-20.04
