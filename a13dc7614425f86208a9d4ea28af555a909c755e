@@ -11,3 +11,5 @@
 ./ripgrep/install.sh 1665134175.2777786 4 os=ubuntu-20.04
 
 ./system/install.sh 1665134180.5031023 5 os=ubuntu-20.04
+
+./cmake/install.sh 1665134198.2111132 18 os=ubuntu-20.04
