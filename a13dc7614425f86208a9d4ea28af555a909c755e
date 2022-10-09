@@ -19,3 +19,5 @@
 ./zoxide/install.sh 1665316111.503222 3 os=macos-11
 
 ./efm/install.sh 1665316113.7018409 2 os=macos-11
+
+./homebrew/install.sh 1665316141.5264761 28 os=macos-11
