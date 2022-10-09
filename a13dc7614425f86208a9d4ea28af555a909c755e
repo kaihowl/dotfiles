@@ -1,3 +1,5 @@
 ./zsh/install.sh 1665315917.9778755 7 os=ubuntu-22.04
 
 ./alacritty/install.sh 1665315926.2131815 9 os=ubuntu-22.04
+
+./colors/install.sh 1665315927.9640703 1 os=ubuntu-22.04
