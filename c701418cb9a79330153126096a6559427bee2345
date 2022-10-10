@@ -9,3 +9,5 @@
 ./alacritty/install.sh 1665398083.8558257 11 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1665398086.4890788 3 os=ubuntu-20.04
+
+./system/install.sh 1665398092.1034813 5 os=ubuntu-20.04
