@@ -3,3 +3,5 @@
 ./alacritty/install.sh 1665398054.7409406 10 os=ubuntu-22.04
 
 ./colors/install.sh 1665398056.8203745 2 os=ubuntu-22.04
+
+./clangd/install.sh 1665398067.8275235 11 os=ubuntu-22.04
