@@ -17,3 +17,5 @@
 ./ccache/install.sh 1665398104.7809086 5 os=ubuntu-22.04
 
 ./tmux/install.sh 1665398105.605866 1 os=ubuntu-22.04
+
+./git/install.sh 1665398106.4334302 1 os=ubuntu-22.04
