@@ -29,3 +29,5 @@
 ./fzf/install.sh 1665582805.3445866 2 os=ubuntu-22.04
 
 ./vint/install.sh 1665582810.8407655 5 os=ubuntu-22.04
+
+./system/install.sh 1665582815.1071317 4 os=ubuntu-22.04
