@@ -27,3 +27,5 @@
 ./ctags/install.sh 1665552373.668774 5 os=ubuntu-22.04
 
 ./fzf/install.sh 1665552375.8957517 2 os=ubuntu-22.04
+
+./vint/install.sh 1665552382.2349768 7 os=ubuntu-22.04
