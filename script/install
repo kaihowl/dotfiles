@@ -13,6 +13,12 @@ if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get update
 fi
 
+if [[ "$(uname)" == *"Darwin"* ]] && [[ "$(xcode-select -p)" == *"CommandLineTools"* ]]; then
+  # Full XCode is for example needed to compile pynvim's greenlet
+  echo -e "Running \e[32mFull XCode install needed\e[0m"
+  exit 1
+fi
+
 # No explicit update for homebrew, there are enough update and cleanup
 # invocations automatically after a certain time has passed.
 

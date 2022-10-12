@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -eux
 #
 # Homebrew
 #
@@ -12,6 +12,10 @@ if [ "$(uname -s)" != "Darwin" ]; then
 fi
 
 source "$DOTS/common/brew.sh"
+
+if ! grep "brew shellenv" ~/.zprofile; then
+  echo "eval \"\$($HOMEBREW_PREFIX/bin/brew shellenv)\"" >> ~/.zprofile
+fi
 
 # Install homebrew packages
 brew_install coreutils
