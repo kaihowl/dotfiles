@@ -5,3 +5,5 @@
 ./shellcheck/install.sh 1665553268.6384053 1 os=ubuntu-20.04
 
 ./vint/install.sh 1665553277.7768836 9 os=ubuntu-20.04
+
+./alacritty/install.sh 1665553289.0848072 11 os=ubuntu-20.04
