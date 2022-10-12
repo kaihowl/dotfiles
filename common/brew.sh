@@ -1,15 +1,15 @@
 #!/bin/bash
 set -e
 
+if [[ "$(/usr/bin/uname -m)" == "arm64" ]]; then
+  # On ARM macOS, this script installs to /opt/homebrew only
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  # On Intel macOS, this script installs to /usr/local only
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
 function ensure_brew_installed() {
-  if [[ "$(/usr/bin/uname -m)" == "arm64" ]]
-  then
-    # On ARM macOS, this script installs to /opt/homebrew only
-    HOMEBREW_PREFIX="/opt/homebrew"
-  else
-    # On Intel macOS, this script installs to /usr/local only
-    HOMEBREW_PREFIX="/usr/local"
-  fi
   BREW_BIN=$HOMEBREW_PREFIX/bin/brew
   eval "$($BREW_BIN shellenv)" || true
   if test ! "$(which brew)"
