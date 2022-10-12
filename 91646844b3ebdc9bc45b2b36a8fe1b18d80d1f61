@@ -21,3 +21,5 @@
 ./homebrew/install.sh 1665552319.2222998 0 os=ubuntu-20.04
 
 ./nvim/install.sh 1665552327.571958 8 os=ubuntu-20.04
+
+./fzf/install.sh 1665552328.823956 1 os=ubuntu-20.04
