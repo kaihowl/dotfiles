@@ -16,8 +16,8 @@ function ensure_brew_installed() {
   then
     echo "  Installing Homebrew for you."
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$($BREW_BIN shellenv)"
   fi
+  eval "$($BREW_BIN shellenv)"
 }
 
 function brew_install() {
