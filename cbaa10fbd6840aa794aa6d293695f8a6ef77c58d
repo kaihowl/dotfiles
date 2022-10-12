@@ -25,3 +25,5 @@
 ./virtualenvwrapper/install.sh 1665555724.0545044 5 os=ubuntu-22.04
 
 ./ctags/install.sh 1665555728.1161506 4 os=ubuntu-22.04
+
+./fzf/install.sh 1665555729.5851343 1 os=ubuntu-22.04
