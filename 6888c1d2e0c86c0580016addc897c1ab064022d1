@@ -11,3 +11,5 @@
 ./ripgrep/install.sh 1665551683.056858 2 os=ubuntu-22.04
 
 ./cmake/install.sh 1665551695.5013058 12 os=ubuntu-22.04
+
+./pyls/install.sh 1665551710.152406 15 os=ubuntu-22.04
