@@ -23,3 +23,5 @@
 ./nvim/install.sh 1665556783.8904524 8 os=ubuntu-20.04
 
 ./fzf/install.sh 1665556785.2420096 2 os=ubuntu-20.04
+
+./tmux/install.sh 1665556785.9640481 0 os=ubuntu-20.04
