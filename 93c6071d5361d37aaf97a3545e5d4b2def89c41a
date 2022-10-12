@@ -33,3 +33,5 @@
 ./tmux/install.sh 1665583220.712959 10 os=macos-11
 
 ./vint/install.sh 1665583228.048217 7 os=macos-11
+
+./virtualenvwrapper/install.sh 1665583248.6864698 20 os=macos-11
