@@ -35,3 +35,5 @@
 ./ninja/install.sh 1665582819.3061123 4 os=ubuntu-22.04
 
 ./nvim/install.sh 1665582830.0792937 10 os=ubuntu-22.04
+
+./zoxide/install.sh 1665582831.3165238 1 os=ubuntu-22.04
