@@ -37,3 +37,5 @@
 ./gdb/install.sh 1665582852.0912576 18 os=ubuntu-20.04
 
 ./pyls/install.sh 1665582859.3227198 7 os=ubuntu-20.04
+
+./efm/install.sh 1665582859.6626117 0 os=ubuntu-20.04
