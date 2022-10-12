@@ -39,3 +39,5 @@
 ./pyls/install.sh 1665553386.7733724 8 os=ubuntu-20.04
 
 ./efm/install.sh 1665553387.220191 1 os=ubuntu-20.04
+
+./zoxide/install.sh 1665553388.350991 1 os=ubuntu-20.04
