@@ -41,3 +41,5 @@
 ./shellcheck/install.sh 1665575860.670084 0 os=ubuntu-22.04
 
 ./homebrew/install.sh 1665575860.785142 0 os=ubuntu-22.04
+
+install 1665575860.8925934 104 os=ubuntu-22.04
