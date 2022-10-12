@@ -35,3 +35,5 @@
 ./ctags/install.sh 1665555746.0705771 5 os=ubuntu-20.04
 
 ./gdb/install.sh 1665555763.5509348 17 os=ubuntu-20.04
+
+./pyls/install.sh 1665555770.7654026 7 os=ubuntu-20.04
