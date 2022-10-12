@@ -33,3 +33,5 @@
 ./system/install.sh 1665575845.9385624 4 os=ubuntu-22.04
 
 ./ninja/install.sh 1665575849.8047922 4 os=ubuntu-22.04
+
+./nvim/install.sh 1665575859.1581652 10 os=ubuntu-22.04
