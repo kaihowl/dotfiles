@@ -13,7 +13,7 @@ fi
 
 source "$DOTS/common/brew.sh"
 
-if ! grep "brew shellenv" ; then
+if ! grep "brew shellenv" ~/.zprofile; then
   echo "eval \"\$($HOMEBREW_PREFIX/bin/brew shellenv\)\"" >> ~/.zprofile
 fi
 
