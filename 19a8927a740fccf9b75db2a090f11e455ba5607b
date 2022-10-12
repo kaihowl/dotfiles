@@ -37,3 +37,5 @@
 ./nvim/install.sh 1665576038.4904363 10 os=ubuntu-22.04
 
 ./zoxide/install.sh 1665576039.5863264 1 os=ubuntu-22.04
+
+./shellcheck/install.sh 1665576040.216976 1 os=ubuntu-22.04
