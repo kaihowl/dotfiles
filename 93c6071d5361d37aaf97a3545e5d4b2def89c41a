@@ -41,3 +41,5 @@
 ./efm/install.sh 1665577016.9654646 0 os=ubuntu-20.04
 
 ./zoxide/install.sh 1665577017.9581873 1 os=ubuntu-20.04
+
+install 1665577018.0664306 134 os=ubuntu-20.04
