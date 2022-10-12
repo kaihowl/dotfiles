@@ -7,3 +7,5 @@
 ./clangd/install.sh 1665576922.0746799 8 os=ubuntu-22.04
 
 ./efm/install.sh 1665576922.804754 0 os=ubuntu-22.04
+
+./ripgrep/install.sh 1665576924.4826877 2 os=ubuntu-22.04
