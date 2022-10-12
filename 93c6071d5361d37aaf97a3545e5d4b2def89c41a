@@ -31,3 +31,5 @@
 ./vint/install.sh 1665582825.079652 4 os=ubuntu-22.04
 
 ./system/install.sh 1665582828.5566046 3 os=ubuntu-22.04
+
+./ninja/install.sh 1665582832.0026286 3 os=ubuntu-22.04
