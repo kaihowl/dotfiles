@@ -19,3 +19,5 @@
 ./ninja/install.sh 1665576947.6962793 5 os=ubuntu-20.04
 
 ./homebrew/install.sh 1665576947.808948 0 os=ubuntu-20.04
+
+./nvim/install.sh 1665576956.331417 9 os=ubuntu-20.04
