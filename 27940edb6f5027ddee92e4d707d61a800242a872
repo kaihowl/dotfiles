@@ -27,3 +27,5 @@
 ./tmux/install.sh 1665567286.295698 1 os=ubuntu-20.04
 
 ./ccache/install.sh 1665567291.2532659 5 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1665567298.252284 7 os=ubuntu-20.04
