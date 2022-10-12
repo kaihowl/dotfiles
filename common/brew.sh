@@ -2,14 +2,23 @@
 set -e
 
 function ensure_brew_installed() {
-  eval "$(/opt/homebrew/bin/brew shellenv)" || true
+  if [[ "$(/usr/bin/uname -m)" == "arm64" ]]
+  then
+    # On ARM macOS, this script installs to /opt/homebrew only
+    HOMEBREW_PREFIX="/opt/homebrew"
+  else
+    # On Intel macOS, this script installs to /usr/local only
+    HOMEBREW_PREFIX="/usr/local"
+  fi
+  BREW_BIN=$HOMEBREW_PREFIX/bin/brew
+  eval "$($BREW_BIN shellenv)" || true
   if test ! "$(which brew)"
   then
     echo "  Installing Homebrew for you."
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # shellcheck disable=SC2016
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    echo 'eval "$($BREW_BIN shellenv)"' >> ~/.zprofile
+    eval "$($BREW_BIN shellenv)"
   fi
 }
 
