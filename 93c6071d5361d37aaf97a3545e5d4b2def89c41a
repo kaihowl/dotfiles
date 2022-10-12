@@ -15,3 +15,5 @@
 ./pyls/install.sh 1665582794.868184 12 os=ubuntu-22.04
 
 ./ccache/install.sh 1665582798.4282584 4 os=ubuntu-22.04
+
+./tmux/install.sh 1665582799.01003 0 os=ubuntu-22.04
