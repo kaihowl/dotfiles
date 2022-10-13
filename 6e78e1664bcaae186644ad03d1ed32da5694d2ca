@@ -7,3 +7,5 @@
 ./vint/install.sh 1665672099.0183506 9 os=ubuntu-20.04
 
 ./alacritty/install.sh 1665672111.0573835 11 os=ubuntu-20.04
+
+./ripgrep/install.sh 1665672114.0760732 2 os=ubuntu-20.04
