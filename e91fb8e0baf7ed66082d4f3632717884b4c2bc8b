@@ -37,3 +37,5 @@
 ./ctags/install.sh 1665672960.5040896 3 os=ubuntu-22.04
 
 ./nvim/install.sh 1665672971.080938 10 os=ubuntu-22.04
+
+./pyls/install.sh 1665672979.3915348 8 os=ubuntu-22.04
