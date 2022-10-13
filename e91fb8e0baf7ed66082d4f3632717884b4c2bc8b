@@ -43,3 +43,5 @@
 ./zoxide/install.sh 1665673028.7230418 1 os=ubuntu-20.04
 
 install 1665673028.8290317 144 os=ubuntu-20.04
+
+test 1665673088.0110013 57 os=ubuntu-20.04
