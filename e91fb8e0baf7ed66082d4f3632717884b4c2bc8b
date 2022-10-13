@@ -33,3 +33,5 @@
 ./clangd/install.sh 1665672995.8507977 14 os=ubuntu-20.04
 
 ./ctags/install.sh 1665673001.1174195 6 os=ubuntu-20.04
+
+./gdb/install.sh 1665673019.0847344 17 os=ubuntu-20.04
