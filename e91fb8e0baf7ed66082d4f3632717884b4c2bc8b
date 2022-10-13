@@ -41,3 +41,5 @@
 ./pyls/install.sh 1665672979.3915348 8 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1665672984.8291974 5 os=ubuntu-22.04
+
+install 1665672984.9365022 102 os=ubuntu-22.04
