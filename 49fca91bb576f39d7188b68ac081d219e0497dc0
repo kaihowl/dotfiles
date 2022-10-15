@@ -35,3 +35,5 @@
 ./ninja/install.sh 1665825846.4937139 3 os=ubuntu-22.04
 
 ./ctags/install.sh 1665825849.7900944 3 os=ubuntu-22.04
+
+./nvim/install.sh 1665825860.8694837 11 os=ubuntu-22.04
