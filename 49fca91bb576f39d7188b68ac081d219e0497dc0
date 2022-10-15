@@ -1,3 +1,5 @@
 ./zsh/install.sh 1665825782.069678 6 os=ubuntu-22.04
 
 ./clangd/install.sh 1665825791.2194483 9 os=ubuntu-22.04
+
+./colors/install.sh 1665825792.680988 1 os=ubuntu-22.04
