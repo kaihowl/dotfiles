@@ -3,6 +3,10 @@ set -ex
 
 shopt -s nocasematch
 
+function print_red {
+  printf "\033[0;31m%s\033[0m\n" "$1"
+}
+
 update=""
 if [[ "$*" =~ update ]]; then
   update="--update"
@@ -33,6 +37,10 @@ if [[ -n "${libcxx}" ]]; then
 fi
 
 profile_switch=(${CROM_DEFAULT_PROFILE:+-pr $CROM_DEFAULT_PROFILE})
+
+if [ -z "${CROM_DEFAULT_PROFILE}" ]; then
+  print_red "Missing CROM_DEFAULT_PROFILE"
+fi
 
 additional_switches=()
 for var in "${!CROM_@}"; do

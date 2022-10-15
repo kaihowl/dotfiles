@@ -2,6 +2,7 @@
 set -ex
 
 if [ "$(uname -s)" = "Darwin" ]; then
+  # TODO(kaihowl) there is no arm64 support yet.
   download_url="https://github.com/koalaman/shellcheck/releases/download/v0.8.0/shellcheck-v0.8.0.darwin.x86_64.tar.xz"
   expect_hash="e065d4afb2620cc8c1d420a9b3e6243c84ff1a693c1ff0e38f279c8f31e86634"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then

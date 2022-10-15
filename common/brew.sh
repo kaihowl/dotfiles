@@ -1,12 +1,23 @@
 #!/bin/bash
 set -e
 
+if [[ "$(/usr/bin/uname -m)" == "arm64" ]]; then
+  # On ARM macOS, this script installs to /opt/homebrew only
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  # On Intel macOS, this script installs to /usr/local only
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
 function ensure_brew_installed() {
+  BREW_BIN=$HOMEBREW_PREFIX/bin/brew
+  eval "$($BREW_BIN shellenv)" || true
   if test ! "$(which brew)"
   then
     echo "  Installing Homebrew for you."
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" > /tmp/homebrew-install.log
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
+  eval "$($BREW_BIN shellenv)"
 }
 
 function brew_install() {

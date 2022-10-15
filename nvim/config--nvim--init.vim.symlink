@@ -909,7 +909,7 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 " Auto-format files when possible prior to saving
 augroup autoformat
   autocmd!
-  autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
+  autocmd BufWritePre * lua vim.lsp.buf.format { timeout_ms = 1000 }
 augroup END
 " }}}
 
