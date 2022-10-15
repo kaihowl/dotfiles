@@ -19,3 +19,5 @@
 ./tmux/install.sh 1665825193.9198909 0 os=ubuntu-22.04
 
 ./git/install.sh 1665825194.592864 1 os=ubuntu-22.04
+
+./gdb/install.sh 1665825204.3845346 10 os=ubuntu-22.04
