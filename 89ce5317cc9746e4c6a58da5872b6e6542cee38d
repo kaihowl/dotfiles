@@ -23,3 +23,5 @@
 ./gdb/install.sh 1665825204.3845346 10 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1665825210.1651614 6 os=ubuntu-22.04
+
+./ctags/install.sh 1665825213.9583724 3 os=ubuntu-22.04
