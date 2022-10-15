@@ -1,1 +1,0 @@
-- install rust-analyzer with rustup component add rust-analyzer, ensure that rust-src is installed, add symlink into ~/.cargo/bin
