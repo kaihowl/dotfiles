@@ -15,3 +15,5 @@
 ./cmake/install.sh 1665825227.3200963 14 os=ubuntu-20.04
 
 ./git/install.sh 1665825228.2387292 1 os=ubuntu-20.04
+
+./ninja/install.sh 1665825234.340999 6 os=ubuntu-20.04
