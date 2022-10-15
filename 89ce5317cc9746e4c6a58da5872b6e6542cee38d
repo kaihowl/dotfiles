@@ -5,3 +5,5 @@
 ./colors/install.sh 1665825155.821664 1 os=ubuntu-22.04
 
 ./clangd/install.sh 1665825165.7528822 10 os=ubuntu-22.04
+
+./efm/install.sh 1665825166.3819313 1 os=ubuntu-22.04
