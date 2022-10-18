@@ -2,6 +2,10 @@
 # Shamelessly copied from oh my zsh
 
 printf '\033[0;34m%s\033[0m\n' "Upgrading Dotfiles"
+
+printf '\033[0;34m%s\033[0m\n' 'Requesting sudo for bootstrap/install.'
+sudo /usr/bin/true
+
 cd "$DOTS" || exit 1
 oldcommit=$(git rev-parse master)
 if git fetch origin && git rebase origin/master master
