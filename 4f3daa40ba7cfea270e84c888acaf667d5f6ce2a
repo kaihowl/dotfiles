@@ -43,3 +43,5 @@
 ./homebrew/install.sh 1666112795.7000103 0 os=ubuntu-22.04
 
 install 1666112795.8060331 110 os=ubuntu-22.04
+
+test 1666112852.1122532 55 os=ubuntu-22.04
