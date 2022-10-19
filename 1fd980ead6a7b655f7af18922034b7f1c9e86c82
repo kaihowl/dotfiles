@@ -9,3 +9,5 @@
 ./homebrew/install.sh 1666163968.9725943 0 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1666163972.1706383 4 os=ubuntu-22.04
+
+./shellcheck/install.sh 1666163973.4311728 1 os=ubuntu-22.04
