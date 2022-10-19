@@ -3,3 +3,5 @@
 ./clangd/install.sh 1666162109.3115804 10 os=ubuntu-22.04
 
 ./colors/install.sh 1666162110.9268312 1 os=ubuntu-22.04
+
+./cmake/install.sh 1666162117.8685641 7 os=ubuntu-22.04
