@@ -25,3 +25,5 @@
 ./fzf/install.sh 1666164008.498829 4 os=ubuntu-22.04
 
 ./tmux/install.sh 1666164009.262238 1 os=ubuntu-22.04
+
+./vint/install.sh 1666164018.7671642 9 os=ubuntu-22.04
