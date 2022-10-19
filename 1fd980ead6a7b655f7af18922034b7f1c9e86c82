@@ -5,3 +5,5 @@
 ./colors/install.sh 1666163959.4031017 2 os=ubuntu-22.04
 
 ./cmake/install.sh 1666163968.8418143 9 os=ubuntu-22.04
+
+./homebrew/install.sh 1666163968.9725943 0 os=ubuntu-22.04
