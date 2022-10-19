@@ -9,3 +9,6 @@ which tree
 
 echo "Check if jq is available"
 which jq
+
+echo "Check if htop is available"
+which htop
