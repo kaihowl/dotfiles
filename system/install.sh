@@ -3,8 +3,8 @@ set -e
 
 if [ "$(uname -s)" = "Darwin" ]; then
   source "$DOTS/common/brew.sh"
-  brew_install ncdu tree jq
+  brew_install ncdu tree jq htop
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "$DOTS/common/apt.sh"
-  apt_install ncdu tree jq
+  apt_install ncdu tree jq htop
 fi
