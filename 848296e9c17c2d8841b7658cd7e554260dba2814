@@ -3,3 +3,5 @@
 ./ripgrep/install.sh 1666382947.4931486 2 os=ubuntu-22.04
 
 ./nvim/install.sh 1666382964.3086069 17 os=ubuntu-22.04
+
+./ctags/install.sh 1666382967.406622 3 os=ubuntu-22.04
