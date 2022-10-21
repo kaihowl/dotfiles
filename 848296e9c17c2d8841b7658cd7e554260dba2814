@@ -1,3 +1,5 @@
 ./zsh/install.sh 1666382964.2117627 14 os=ubuntu-20.04
 
 ./homebrew/install.sh 1666382964.3425653 0 os=ubuntu-20.04
+
+./tmux/install.sh 1666382965.142636 1 os=ubuntu-20.04
