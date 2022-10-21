@@ -37,3 +37,5 @@
 ./ninja/install.sh 1666383420.9247174 3 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1666383421.9141808 1 os=ubuntu-22.04
+
+./alacritty/install.sh 1666383429.4013512 8 os=ubuntu-22.04
