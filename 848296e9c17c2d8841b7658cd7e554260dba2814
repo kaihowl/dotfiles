@@ -39,3 +39,5 @@
 ./shellcheck/install.sh 1666383067.066911 0 os=ubuntu-20.04
 
 ./ctags/install.sh 1666383072.331258 5 os=ubuntu-20.04
+
+./clangd/install.sh 1666383087.5215635 15 os=ubuntu-20.04
