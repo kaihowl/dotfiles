@@ -94,7 +94,7 @@ cd ..
 mkdir modules
 cd modules
 git init
-git submodule add ../source
+git -c protocol.file.allow=always submodule add ../source
 git commit -m 'test'
 # pwd == main repo but open file in submodule
 output=$(nvim --headless -c 'call stdioopen({})' -c "edit source/a" -c 'call chansend(1, Get_default_branch())' -c 'quit')
