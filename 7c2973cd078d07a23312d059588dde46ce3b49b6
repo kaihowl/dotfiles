@@ -33,3 +33,5 @@
 ./zoxide/install.sh 1666383416.6706579 1 os=ubuntu-20.04
 
 ./nvim/install.sh 1666383426.9315083 10 os=ubuntu-20.04
+
+./efm/install.sh 1666383427.5277026 1 os=ubuntu-20.04
