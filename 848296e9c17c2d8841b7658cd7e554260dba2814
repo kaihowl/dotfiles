@@ -17,3 +17,5 @@
 ./vint/install.sh 1666382999.130954 10 os=ubuntu-20.04
 
 ./cmake/install.sh 1666383013.156999 14 os=ubuntu-20.04
+
+./alacritty/install.sh 1666383023.750636 10 os=ubuntu-20.04
