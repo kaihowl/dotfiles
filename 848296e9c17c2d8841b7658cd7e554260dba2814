@@ -7,3 +7,5 @@
 ./ctags/install.sh 1666382967.406622 3 os=ubuntu-22.04
 
 ./clangd/install.sh 1666382977.835764 10 os=ubuntu-22.04
+
+./homebrew/install.sh 1666382977.9508715 0 os=ubuntu-22.04
