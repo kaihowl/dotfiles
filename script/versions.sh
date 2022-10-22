@@ -18,7 +18,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   echo "apt installed:" >> "$output_file"
   # Not using `apt list --installed` as apt does not have a stable interface
-  sudo dpkg --get-selections | grep -v 'deinstall$' | tee -a "$output_file"
+  dpkg-query --show | tee -a "$output_file"
 fi
 
 tmp_file=$(mktemp)
