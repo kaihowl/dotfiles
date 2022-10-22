@@ -3,3 +3,5 @@
 ./homebrew/install.sh 1666431268.274862 0 os=ubuntu-20.04
 
 ./rust/install.sh 1666431287.9871404 19 os=ubuntu-20.04
+
+./tmux/install.sh 1666431288.7610967 0 os=ubuntu-20.04
