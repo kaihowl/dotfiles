@@ -39,3 +39,5 @@
 ./efm/install.sh 1666420438.6835585 0 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1666420439.1381238 1 os=ubuntu-20.04
+
+./ctags/install.sh 1666420443.5958035 4 os=ubuntu-20.04
