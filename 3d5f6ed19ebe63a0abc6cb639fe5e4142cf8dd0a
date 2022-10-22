@@ -27,3 +27,5 @@
 ./tmux/install.sh 1666446614.9298244 0 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1666446622.0588694 7 os=ubuntu-22.04
+
+./zoxide/install.sh 1666446623.500128 1 os=ubuntu-22.04
