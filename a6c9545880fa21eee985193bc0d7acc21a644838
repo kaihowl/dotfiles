@@ -17,3 +17,5 @@
 ./ninja/install.sh 1666447036.65179 4 os=ubuntu-20.04
 
 ./vint/install.sh 1666447046.8802807 10 os=ubuntu-20.04
+
+./cmake/install.sh 1666447058.4888678 12 os=ubuntu-20.04
