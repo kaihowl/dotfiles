@@ -27,3 +27,5 @@
 ./fzf/install.sh 1666418396.1203601 3 os=ubuntu-20.04
 
 ./system/install.sh 1666418400.4781544 4 os=ubuntu-20.04
+
+./gdb/install.sh 1666418409.6678836 9 os=ubuntu-20.04
