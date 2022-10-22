@@ -29,3 +29,5 @@
 ./system/install.sh 1666446651.4530206 6 os=ubuntu-20.04
 
 ./gdb/install.sh 1666446663.262452 12 os=ubuntu-20.04
+
+./pyls/install.sh 1666446672.8596036 9 os=ubuntu-20.04
