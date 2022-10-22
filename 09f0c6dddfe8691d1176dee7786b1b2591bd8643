@@ -25,3 +25,5 @@
 ./git/install.sh 1666446212.5121891 1 os=ubuntu-20.04
 
 ./fzf/install.sh 1666446214.9490118 2 os=ubuntu-20.04
+
+./system/install.sh 1666446218.970287 4 os=ubuntu-20.04
