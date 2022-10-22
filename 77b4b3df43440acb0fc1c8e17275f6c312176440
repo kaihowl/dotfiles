@@ -45,3 +45,5 @@
 ./system/install.sh 1666431359.3813162 3 os=ubuntu-22.04
 
 install 1666431359.4837298 114 os=ubuntu-22.04
+
+test 1666431422.8708446 60 os=ubuntu-22.04
