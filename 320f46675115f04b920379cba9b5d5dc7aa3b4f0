@@ -29,3 +29,5 @@
 ./virtualenvwrapper/install.sh 1666469805.3598194 6 os=ubuntu-22.04
 
 ./zoxide/install.sh 1666469806.5698638 1 os=ubuntu-22.04
+
+./pyls/install.sh 1666469816.6218336 10 os=ubuntu-22.04
