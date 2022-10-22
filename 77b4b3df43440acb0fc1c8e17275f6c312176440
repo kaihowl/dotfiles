@@ -23,3 +23,5 @@
 ./vint/install.sh 1666431315.6626685 5 os=ubuntu-22.04
 
 ./colors/install.sh 1666431316.9205534 1 os=ubuntu-22.04
+
+./tmux/install.sh 1666431317.4903378 1 os=ubuntu-22.04
