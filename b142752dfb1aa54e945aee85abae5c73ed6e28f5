@@ -21,3 +21,5 @@
 ./cmake/install.sh 1666444880.9723341 9 os=ubuntu-20.04
 
 ./alacritty/install.sh 1666444889.2187667 9 os=ubuntu-20.04
+
+./git/install.sh 1666444889.8799615 0 os=ubuntu-20.04
