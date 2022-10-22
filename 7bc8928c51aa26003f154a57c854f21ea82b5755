@@ -5,3 +5,5 @@
 ./nvim/install.sh 1666445587.9592917 13 os=ubuntu-22.04
 
 ./ctags/install.sh 1666445591.1041312 4 os=ubuntu-22.04
+
+./clangd/install.sh 1666445600.7724068 9 os=ubuntu-22.04
