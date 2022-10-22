@@ -5,3 +5,5 @@
 ./rust/install.sh 1666447015.297083 20 os=ubuntu-20.04
 
 ./tmux/install.sh 1666447016.0502276 0 os=ubuntu-20.04
+
+./ccache/install.sh 1666447020.524322 4 os=ubuntu-20.04
