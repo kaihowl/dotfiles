@@ -1,6 +1,6 @@
-#!/bin/zsh -i 
-set -e
-set -x
+#!/bin/zsh -i
+set -eux
+set -o pipefail
 
 if [ $# != 1 ]; then
   echo Missing output file argument
@@ -17,7 +17,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   brew info --installed --json | jq '.[] | .name + "@" + .installed[0].version' | tee -a "$output_file"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   echo "apt installed:" >> "$output_file"
-  sudo apt-get list --installed | tee -a "$output_file"
+  # Not using `apt list --installed` as apt does not have a stable interface
+  sudo dpkg --get-selections | grep -v 'deinstall$' | tee -a "$output_file"
 fi
 
 tmp_file=$(mktemp)
