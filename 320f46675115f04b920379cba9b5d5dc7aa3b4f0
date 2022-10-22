@@ -43,3 +43,5 @@
 ./ctags/install.sh 1666469841.3913977 5 os=ubuntu-20.04
 
 ./clangd/install.sh 1666469854.6920617 13 os=ubuntu-20.04
+
+install 1666469854.8017175 138 os=ubuntu-20.04
