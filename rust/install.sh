@@ -20,5 +20,8 @@ if [[ "$expect_hash" != "$actual_hash" ]]; then
   exit 1
 fi
 chmod +x "${rustupinit}"
-# "${rustupinit}" -y --verbose
+"${rustupinit}" -y --verbose --component rust-analyzer
+# shellcheck disable=SC1091
+source "$HOME/.cargo/env"
+ln -sf "$(rustup which rust-analyzer)" "$HOME/.cargo/bin/"
 
