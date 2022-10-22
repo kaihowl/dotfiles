@@ -19,3 +19,5 @@
 ./ccache/install.sh 1666444865.731904 3 os=ubuntu-22.04
 
 ./git/install.sh 1666444866.305164 1 os=ubuntu-22.04
+
+./vint/install.sh 1666444871.072205 4 os=ubuntu-22.04
