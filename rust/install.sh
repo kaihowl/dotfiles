@@ -20,5 +20,5 @@ if [[ "$expect_hash" != "$actual_hash" ]]; then
   exit 1
 fi
 chmod +x "${rustupinit}"
-"${rustupinit}" -y --verbose
+# "${rustupinit}" -y --verbose
 
