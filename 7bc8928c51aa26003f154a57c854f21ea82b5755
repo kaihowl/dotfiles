@@ -23,3 +23,5 @@
 ./alacritty/install.sh 1666445678.0576067 10 os=ubuntu-20.04
 
 ./git/install.sh 1666445678.8849525 0 os=ubuntu-20.04
+
+./fzf/install.sh 1666445682.3017757 4 os=ubuntu-20.04
