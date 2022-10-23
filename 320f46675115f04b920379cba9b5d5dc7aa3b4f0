@@ -33,3 +33,5 @@
 ./pyls/install.sh 1666525682.719075 9 os=ubuntu-20.04
 
 ./zoxide/install.sh 1666525684.8019016 2 os=ubuntu-20.04
+
+./nvim/install.sh 1666525697.4248202 13 os=ubuntu-20.04
