@@ -1,3 +1,5 @@
 ./zsh/install.sh 1666525540.1318696 6 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1666525541.6881967 1 os=ubuntu-22.04
+
+./nvim/install.sh 1666525556.1892116 15 os=ubuntu-22.04
