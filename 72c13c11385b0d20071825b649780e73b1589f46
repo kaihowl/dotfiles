@@ -25,3 +25,5 @@
 ./colors/install.sh 1667039086.192085 2 os=ubuntu-22.04
 
 ./tmux/install.sh 1667039086.9439523 0 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1667039094.064576 7 os=ubuntu-22.04
