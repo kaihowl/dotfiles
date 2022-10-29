@@ -9,3 +9,5 @@
 ./ccache/install.sh 1667039023.8994305 4 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1667039030.556285 7 os=ubuntu-20.04
+
+./ripgrep/install.sh 1667039037.2269554 7 os=ubuntu-20.04
