@@ -1,3 +1,5 @@
 ./zsh/install.sh 1667038611.4212618 15 os=ubuntu-20.04
 
 ./homebrew/install.sh 1667038611.6400042 0 os=ubuntu-20.04
+
+./rust/install.sh 1667038634.3295064 23 os=ubuntu-20.04
