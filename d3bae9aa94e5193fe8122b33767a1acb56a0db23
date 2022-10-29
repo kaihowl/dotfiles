@@ -31,3 +31,5 @@
 ./zoxide/install.sh 1667038651.563536 1 os=ubuntu-22.04
 
 ./pyls/install.sh 1667038664.5106337 13 os=ubuntu-22.04
+
+./gdb/install.sh 1667038676.819332 12 os=ubuntu-22.04
