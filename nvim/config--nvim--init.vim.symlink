@@ -1,3 +1,4 @@
+" init.vim
 "{{{ misc options, sane defaults
 set modelines=1
 
