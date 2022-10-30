@@ -9,3 +9,5 @@
 ./clangd/install.sh 1667130252.3459728 9 os=ubuntu-22.04
 
 ./homebrew/install.sh 1667130252.4556055 0 os=ubuntu-22.04
+
+./rust/install.sh 1667130275.246027 23 os=ubuntu-22.04
