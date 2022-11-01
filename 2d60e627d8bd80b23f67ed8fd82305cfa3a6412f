@@ -33,3 +33,5 @@
 ./pyls/install.sh 1667280167.7868972 12 os=ubuntu-22.04
 
 ./gdb/install.sh 1667280177.36722 10 os=ubuntu-22.04
+
+./cmake/install.sh 1667280184.307 7 os=ubuntu-22.04
