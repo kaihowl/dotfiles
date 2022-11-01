@@ -35,3 +35,5 @@
 ./gdb/install.sh 1667280177.36722 10 os=ubuntu-22.04
 
 ./cmake/install.sh 1667280184.307 7 os=ubuntu-22.04
+
+./ninja/install.sh 1667280187.661858 3 os=ubuntu-22.04
