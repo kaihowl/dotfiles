@@ -11,3 +11,5 @@
 ./homebrew/install.sh 1667279573.566005 0 os=ubuntu-22.04
 
 ./rust/install.sh 1667279595.0133865 21 os=ubuntu-22.04
+
+./fzf/install.sh 1667279596.3432941 1 os=ubuntu-22.04
