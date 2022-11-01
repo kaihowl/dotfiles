@@ -27,3 +27,5 @@
 ./ninja/install.sh 1667280312.270067 7 os=macos-11
 
 ./system/install.sh 1667280331.848643 19 os=macos-11
+
+./colors/install.sh 1667280339.462571 8 os=macos-11
