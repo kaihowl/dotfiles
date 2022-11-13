@@ -21,3 +21,5 @@
 ./git/install.sh 1668339886.7712016 0 os=ubuntu-22.04
 
 ./vint/install.sh 1668339891.6865387 5 os=ubuntu-22.04
+
+./colors/install.sh 1668339893.0126333 1 os=ubuntu-22.04
