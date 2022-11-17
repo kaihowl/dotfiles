@@ -704,10 +704,6 @@ augroup nerdtree_find
   autocmd!
   autocmd BufRead * nmap - :NERDTreeFind<CR>
 augroup END
-
-" Work around nerdtree#1321
-" TODO: check if still needed
-let g:NERDTreeMinimalMenu=1
 "}}}
 
 "{{{ Todo functionality
