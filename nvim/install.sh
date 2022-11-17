@@ -6,7 +6,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   expect_hash="52efab6794653ff6346b3a94d991c086b93837f95eeed467cb3769a3c65088ea"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.tar.gz"
-  expect_hash="a901b8815d1c0a26104bcbe405e1aa308f364f98d9dc7daa58c70114def60a2j"
+  expect_hash="a901b8815d1c0a26104bcbe405e1aa308f364f98d9dc7daa58c70114def60a29"
 fi
 
 tmpfile=$(mktemp)
