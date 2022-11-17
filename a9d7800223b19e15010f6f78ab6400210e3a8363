@@ -37,3 +37,5 @@
 ./nvim/install.sh 1668665982.9017544 12 os=ubuntu-20.04
 
 ./efm/install.sh 1668665983.5583324 1 os=ubuntu-20.04
+
+./shellcheck/install.sh 1668665984.727266 1 os=ubuntu-20.04
