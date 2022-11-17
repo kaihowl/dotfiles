@@ -15,3 +15,5 @@
 ./colors/install.sh 1668665893.4837909 2 os=ubuntu-20.04
 
 ./ninja/install.sh 1668665899.6240242 6 os=ubuntu-20.04
+
+./vint/install.sh 1668665909.3933756 10 os=ubuntu-20.04
