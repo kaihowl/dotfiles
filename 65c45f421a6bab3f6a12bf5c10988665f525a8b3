@@ -19,3 +19,5 @@
 ./rust/install.sh 1669407902.4000823 23 os=ubuntu-20.04
 
 ./zoxide/install.sh 1669407903.9775777 1 os=ubuntu-20.04
+
+./cmake/install.sh 1669407914.1118486 11 os=ubuntu-20.04
