@@ -1,3 +1,5 @@
 ./zsh/install.sh 1669407835.332966 11 os=ubuntu-20.04
 
 ./colors/install.sh 1669407836.7414708 1 os=ubuntu-20.04
+
+./efm/install.sh 1669407837.4369507 1 os=ubuntu-20.04
