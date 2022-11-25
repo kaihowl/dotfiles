@@ -31,3 +31,5 @@
 ./pyls/install.sh 1669407951.0238717 12 os=ubuntu-20.04
 
 ./ctags/install.sh 1669407955.6346736 4 os=ubuntu-20.04
+
+./ripgrep/install.sh 1669407957.8630395 2 os=ubuntu-20.04
