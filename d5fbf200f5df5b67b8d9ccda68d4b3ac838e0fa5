@@ -11,3 +11,5 @@
 ./pyls/install.sh 1669480154.867337 18 os=ubuntu-22.04
 
 ./gdb/install.sh 1669480161.5251305 7 os=ubuntu-22.04
+
+./rust/install.sh 1669480185.9583383 24 os=ubuntu-22.04
