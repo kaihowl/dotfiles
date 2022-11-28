@@ -163,6 +163,8 @@ Plug 'skywind3000/asyncrun.vim'
 
 Plug 'ibhagwan/fzf-lua'
 
+Plug 'gaving/vim-textobj-argument'
+
 " the plug#end automatically calls "filetype plugin indent on" and "syntax enable"
 call plug#end()
 " }}}
