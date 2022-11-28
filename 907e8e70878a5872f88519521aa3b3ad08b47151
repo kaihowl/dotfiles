@@ -15,3 +15,5 @@
 ./rust/install.sh 1669662289.0774686 19 os=ubuntu-22.04
 
 ./ctags/install.sh 1669662293.428362 4 os=ubuntu-22.04
+
+./nvim/install.sh 1669662304.964757 11 os=ubuntu-22.04
