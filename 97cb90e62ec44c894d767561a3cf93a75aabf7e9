@@ -41,3 +41,5 @@
 ./system/install.sh 1669661664.9947925 4 os=ubuntu-22.04
 
 ./zoxide/install.sh 1669661666.1516447 1 os=ubuntu-22.04
+
+./cmake/install.sh 1669661674.4761844 8 os=ubuntu-22.04
