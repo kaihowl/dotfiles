@@ -33,3 +33,5 @@
 ./alacritty/install.sh 1669662336.8745055 8 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1669662343.562366 7 os=ubuntu-22.04
+
+./shellcheck/install.sh 1669662344.1545916 1 os=ubuntu-22.04
