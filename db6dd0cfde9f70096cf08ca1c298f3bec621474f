@@ -17,3 +17,5 @@
 ./ctags/install.sh 1669758099.3779237 4 os=ubuntu-22.04
 
 ./nvim/install.sh 1669758109.7269561 10 os=ubuntu-22.04
+
+./efm/install.sh 1669758110.941273 1 os=ubuntu-22.04
