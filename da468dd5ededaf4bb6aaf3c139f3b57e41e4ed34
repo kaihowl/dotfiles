@@ -5,3 +5,5 @@
 ./tmux/install.sh 1669736929.3177395 1 os=ubuntu-22.04
 
 ./colors/install.sh 1669736930.8577902 1 os=ubuntu-22.04
+
+./fzf/install.sh 1669736933.1248837 3 os=ubuntu-22.04
