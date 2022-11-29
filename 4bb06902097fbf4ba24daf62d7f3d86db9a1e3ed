@@ -19,3 +19,5 @@
 ./nvim/install.sh 1669737958.064544 14 os=ubuntu-22.04
 
 ./efm/install.sh 1669737958.8703856 0 os=ubuntu-22.04
+
+./homebrew/install.sh 1669737959.0031698 0 os=ubuntu-22.04
