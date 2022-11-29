@@ -25,3 +25,5 @@
 ./clangd/install.sh 1669751666.8934572 11 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1669751669.4057462 3 os=ubuntu-22.04
+
+./ninja/install.sh 1669751674.895856 5 os=ubuntu-22.04
