@@ -21,3 +21,5 @@
 ./zoxide/install.sh 1669754157.2193835 1 os=ubuntu-20.04
 
 ./cmake/install.sh 1669754167.8091848 10 os=ubuntu-20.04
+
+./nvim/install.sh 1669754182.2860165 15 os=ubuntu-20.04
