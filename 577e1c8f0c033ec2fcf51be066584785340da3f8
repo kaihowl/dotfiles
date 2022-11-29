@@ -35,3 +35,5 @@
 ./ripgrep/install.sh 1669754213.7087617 2 os=ubuntu-20.04
 
 ./git/install.sh 1669754214.4639225 1 os=ubuntu-20.04
+
+./shellcheck/install.sh 1669754215.2164278 1 os=ubuntu-20.04
