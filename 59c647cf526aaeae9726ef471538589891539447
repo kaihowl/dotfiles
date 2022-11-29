@@ -31,3 +31,5 @@
 ./vint/install.sh 1669758783.6361616 5 os=ubuntu-22.04
 
 ./alacritty/install.sh 1669758792.3635263 9 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1669758799.3426414 7 os=ubuntu-22.04
