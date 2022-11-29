@@ -343,7 +343,6 @@ nnoremap <leader>mx :AsyncStop<cr>
 nnoremap <leader>M :AsyncTaskEdit<cr>
 nnoremap <leader>m<space> :AsyncTask<space>
 
-let g:asyncrun_open = 10 " Open quickfix window after starting command with given height
 let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
 let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
 let g:asynctasks_template = {}
@@ -351,6 +350,11 @@ let g:asynctasks_template.cpp = [
             \ '[file-build-run]',
             \ 'command=clang++ -std=c++17 $(VIM_FILEPATH) -o $(VIM_FILEDIR)/$(VIM_FILENOEXT) && $(VIM_FILEDIR)/$(VIM_FILENOEXT)',
             \ ]
+
+augroup asynctasks
+  autocmd!
+  autocmd User AsyncRunStart set splitright | vert copen | wincmd = | wincmd p | set nosplitright
+augroup END
 "}}}
 
 "{{{ latex
