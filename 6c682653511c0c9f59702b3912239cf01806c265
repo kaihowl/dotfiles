@@ -23,3 +23,5 @@
 ./cmake/install.sh 1669751658.556614 11 os=ubuntu-20.04
 
 ./nvim/install.sh 1669751672.771608 14 os=ubuntu-20.04
+
+./vint/install.sh 1669751677.6400201 5 os=ubuntu-20.04
