@@ -17,3 +17,5 @@
 ./ninja/install.sh 1669758429.5352874 5 os=ubuntu-20.04
 
 ./rust/install.sh 1669758453.0708313 23 os=ubuntu-20.04
+
+./zoxide/install.sh 1669758454.1486535 1 os=ubuntu-20.04
