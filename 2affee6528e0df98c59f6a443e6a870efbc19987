@@ -3,3 +3,5 @@
 ./colors/install.sh 1669758379.0887651 1 os=ubuntu-20.04
 
 ./efm/install.sh 1669758379.5679536 0 os=ubuntu-20.04
+
+./homebrew/install.sh 1669758379.7043474 0 os=ubuntu-20.04
