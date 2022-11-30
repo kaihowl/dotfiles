@@ -9,3 +9,5 @@
 ./fzf/install.sh 1669804366.1113718 2 os=ubuntu-22.04
 
 ./pyls/install.sh 1669804382.4363513 16 os=ubuntu-22.04
+
+./gdb/install.sh 1669804389.676084 7 os=ubuntu-22.04
