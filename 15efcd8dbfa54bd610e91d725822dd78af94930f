@@ -9,3 +9,5 @@
 ./fzf/install.sh 1669801600.7416487 2 os=ubuntu-20.04
 
 ./clangd/install.sh 1669801618.9511137 18 os=ubuntu-20.04
+
+./gdb/install.sh 1669801643.0537899 24 os=ubuntu-20.04
