@@ -10,7 +10,7 @@ function Test()
   if qfitems != 3
     echoerr 'Missing the command output'
     echoerr 'Instead of header, footer, and a single line of command output'
-    echoerr 'we only received ' . qfitems . ' item(s)'
+    echoerr 'we received ' . qfitems . ' item(s)'
     echoerr 'Command output omitted, likely wrong errorformat'
     mess
     cquit!
