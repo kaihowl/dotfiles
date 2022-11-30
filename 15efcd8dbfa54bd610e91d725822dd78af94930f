@@ -7,3 +7,5 @@
 ./colors/install.sh 1669801573.7790065 2 os=ubuntu-22.04
 
 ./fzf/install.sh 1669801576.4402728 3 os=ubuntu-22.04
+
+./pyls/install.sh 1669801594.286266 18 os=ubuntu-22.04
