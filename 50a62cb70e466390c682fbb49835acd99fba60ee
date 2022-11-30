@@ -11,3 +11,5 @@
 ./clangd/install.sh 1669801135.5448103 17 os=ubuntu-20.04
 
 ./gdb/install.sh 1669801155.9104633 20 os=ubuntu-20.04
+
+./system/install.sh 1669801161.6648211 6 os=ubuntu-20.04
