@@ -13,3 +13,5 @@
 ./gdb/install.sh 1669804389.676084 7 os=ubuntu-22.04
 
 ./rust/install.sh 1669804410.429698 21 os=ubuntu-22.04
+
+./ctags/install.sh 1669804415.637259 5 os=ubuntu-22.04
