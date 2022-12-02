@@ -134,8 +134,7 @@ Plug 'tpope/vim-abolish'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'nathanaelkane/vim-indent-guides'
-" TODO(kaihowl) #471
-Plug 'kaihowl/vim-trailing-whitespace', { 'branch': 'reset-on-ft' }
+Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
