@@ -35,3 +35,5 @@
 ./virtualenvwrapper/install.sh 1669999375.0727055 6 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1669999375.7574887 0 os=ubuntu-22.04
+
+./ccache/install.sh 1669999380.2305772 5 os=ubuntu-22.04
