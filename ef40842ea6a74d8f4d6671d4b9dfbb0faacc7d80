@@ -21,3 +21,5 @@
 ./efm/install.sh 1669999763.5901139 0 os=ubuntu-22.04
 
 ./homebrew/install.sh 1669999763.7031767 0 os=ubuntu-22.04
+
+./clangd/install.sh 1669999775.367189 12 os=ubuntu-22.04
