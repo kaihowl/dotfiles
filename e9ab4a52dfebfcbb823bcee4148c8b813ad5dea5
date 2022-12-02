@@ -23,3 +23,5 @@
 ./homebrew/install.sh 1669999023.8061366 0 os=ubuntu-22.04
 
 ./clangd/install.sh 1669999033.697578 10 os=ubuntu-22.04
+
+./ripgrep/install.sh 1669999035.5757508 2 os=ubuntu-22.04
