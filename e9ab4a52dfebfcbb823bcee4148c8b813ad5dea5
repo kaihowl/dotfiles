@@ -29,3 +29,5 @@
 ./ninja/install.sh 1669999040.6076524 5 os=ubuntu-22.04
 
 ./vint/install.sh 1669999045.9905856 5 os=ubuntu-22.04
+
+./alacritty/install.sh 1669999054.2002687 8 os=ubuntu-22.04
