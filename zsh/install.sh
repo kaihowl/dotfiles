@@ -15,7 +15,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
 fi
 
 if [ -d "$checkout_path" ]; then
-  if [[ "${ZSH}" == "" ]]; then
+  if [[ -z "${ZSH:-}" ]]; then
     # Older zsh templates did not export ZSH var
     export ZSH=$checkout_path
   fi

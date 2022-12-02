@@ -3,13 +3,17 @@
 set -e
 set -x
 
+function identity() {
+  "$@"
+}
+
 if [[ $(uname) == *Darwin* ]]; then
   word_begin="[[:<:]]"
   word_end="[[:>:]]"
   # Use line buffering
   less_buffering="-l"
   # Do not use stdbuf (not available by default, not needed so far.)
-  stdbuf=()
+  stdbuf=(identity)
 else
   word_begin="\b"
   word_end="\b"
