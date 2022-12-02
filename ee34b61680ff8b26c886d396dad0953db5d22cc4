@@ -3,3 +3,5 @@
 ./git/install.sh 1669999270.0243077 0 os=ubuntu-22.04
 
 ./tmux/install.sh 1669999270.6432123 0 os=ubuntu-22.04
+
+./colors/install.sh 1669999272.0484967 1 os=ubuntu-22.04
