@@ -41,3 +41,5 @@
 ./ccache/install.sh 1669989229.9418397 5 os=ubuntu-20.04
 
 ./alacritty/install.sh 1669989240.2979624 11 os=ubuntu-20.04
+
+./tmux/install.sh 1669989240.970632 0 os=ubuntu-20.04
