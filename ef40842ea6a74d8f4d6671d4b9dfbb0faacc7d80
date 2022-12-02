@@ -15,3 +15,5 @@
 ./system/install.sh 1669999760.586151 5 os=ubuntu-20.04
 
 ./ninja/install.sh 1669999765.2784345 5 os=ubuntu-20.04
+
+./rust/install.sh 1669999785.264037 20 os=ubuntu-20.04
