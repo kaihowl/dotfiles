@@ -45,3 +45,5 @@
 ./cmake/install.sh 1669999079.864017 8 os=ubuntu-22.04
 
 install 1669999079.972189 140 os=ubuntu-22.04
+
+test 1669999144.950451 63 os=ubuntu-22.04
