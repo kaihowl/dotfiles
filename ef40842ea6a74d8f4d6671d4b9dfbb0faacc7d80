@@ -25,3 +25,5 @@
 ./nvim/install.sh 1669999813.4574893 15 os=ubuntu-20.04
 
 ./vint/install.sh 1669999817.7827399 4 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1669999825.3899715 8 os=ubuntu-20.04
