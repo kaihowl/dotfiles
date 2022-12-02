@@ -37,3 +37,5 @@
 ./git/install.sh 1669988339.0007803 0 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1669988339.43371 0 os=ubuntu-20.04
+
+./ccache/install.sh 1669988344.8574986 5 os=ubuntu-20.04
