@@ -29,3 +29,5 @@
 ./virtualenvwrapper/install.sh 1670154340.8373928 7 os=ubuntu-20.04
 
 ./pyls/install.sh 1670154352.5731087 12 os=ubuntu-20.04
+
+./ctags/install.sh 1670154357.1652734 5 os=ubuntu-20.04
