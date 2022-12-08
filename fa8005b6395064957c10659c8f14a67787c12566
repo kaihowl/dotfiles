@@ -33,3 +33,5 @@
 ./ctags/install.sh 1670484784.5492482 5 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1670484787.4412034 3 os=ubuntu-20.04
+
+./git/install.sh 1670484788.209222 1 os=ubuntu-20.04
