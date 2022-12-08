@@ -51,11 +51,11 @@ endfunction
 
 function Test()
   let tests = {
-        \'test12.cpp': 'inl',
-        \'test12.py': 'imp',
+        \'test12.cpp': {'complete_chars': 'inl'},
+        \'test12.py': {'complete_chars': 'imp'},
         \}
-  for [filename, complete_chars] in items(tests)
-    if !ProtoTest(filename, complete_chars)
+  for [filename, test_data] in items(tests)
+    if !ProtoTest(filename, test_data['complete_chars'])
       echoerr 'Test failed for ' . filename
       mess
       cquit!
