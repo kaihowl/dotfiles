@@ -18,11 +18,11 @@ endfunction
 function FeedIt(complete_chars)
   call timer_start(500, funcref('Check'))
   echomsg 'Feeding keys'
-  " Get completion for 'inline' keyword
-  call feedkeys('i'.a:complete_chars."\<c-x>\<c-o>", 'tx!')
+  " Get completion for a unique word that can only be sourced from LSP
+  call feedkeys('O'.a:complete_chars."\<c-x>\<c-o>", 'tx!')
 endfunction
 
-function ProtoTest(filename, complete_chars)
+function ProtoTest(filename, complete_chars, init_timeout_seconds)
   let g:test_result = v:false
   let g:test_done = v:false
 
@@ -30,7 +30,7 @@ function ProtoTest(filename, complete_chars)
   exec 'noswap edit! '. a:filename
 
   " Wait until the LSP server / client has established connection.
-  let lsp_init =  wait(20000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
+  let lsp_init =  wait(a:init_timeout_seconds * 1000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
   echomsg 'lsp_init: ' . lsp_init
   if lsp_init != 0
     echomsg 'Failed to establish LSP connection'
@@ -53,9 +53,13 @@ function Test()
   let tests = {
         \'test12.cpp': {'complete_chars': 'inl'},
         \'test12.py': {'complete_chars': 'imp'},
+        \'test-rustanalyzer/src/main.rs': {
+          \'complete_chars': 'wri',
+          \'init_timeout_seconds': 30,
+          \},
         \}
   for [filename, test_data] in items(tests)
-    if !ProtoTest(filename, test_data['complete_chars'])
+    if !ProtoTest(filename, test_data['complete_chars'], get(test_data, 'init_timeout_seconds', 20))
       echoerr 'Test failed for ' . filename
       mess
       cquit!
