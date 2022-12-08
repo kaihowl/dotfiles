@@ -13,3 +13,5 @@
 ./gdb/install.sh 1670484694.4893203 18 os=ubuntu-20.04
 
 ./system/install.sh 1670484699.234509 5 os=ubuntu-20.04
+
+./ninja/install.sh 1670484704.029449 4 os=ubuntu-20.04
