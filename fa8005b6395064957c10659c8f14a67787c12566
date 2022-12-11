@@ -17,3 +17,5 @@
 ./pyls/install.sh 1670759172.844308 17 os=macos-11
 
 ./zoxide/install.sh 1670759175.665795 3 os=macos-11
+
+./rust/install.sh 1670759195.8261938 20 os=macos-11
