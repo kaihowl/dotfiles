@@ -5,3 +5,5 @@
 ./efm/install.sh 1670759039.115007 1 os=ubuntu-20.04
 
 ./homebrew/install.sh 1670759039.228332 0 os=ubuntu-20.04
+
+./fzf/install.sh 1670759041.3079374 2 os=ubuntu-20.04
