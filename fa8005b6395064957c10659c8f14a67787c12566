@@ -27,3 +27,5 @@
 ./ripgrep/install.sh 1670759114.9949281 1 os=ubuntu-22.04
 
 ./ninja/install.sh 1670759118.9535537 3 os=ubuntu-22.04
+
+./vint/install.sh 1670759124.2563887 6 os=ubuntu-22.04
