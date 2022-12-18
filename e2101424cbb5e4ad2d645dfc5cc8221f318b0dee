@@ -7,3 +7,5 @@
 ./colors/install.sh 1671375807.8986368 1 os=ubuntu-22.04
 
 ./ctags/install.sh 1671375811.9673212 4 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1671375817.8383615 6 os=ubuntu-22.04
