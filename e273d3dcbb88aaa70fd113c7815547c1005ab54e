@@ -35,3 +35,5 @@
 ./git/install.sh 1671381685.9981215 0 os=ubuntu-22.04
 
 ./nvim/install.sh 1671381695.8239975 9 os=ubuntu-22.04
+
+./rust/install.sh 1671381715.6383364 20 os=ubuntu-22.04
