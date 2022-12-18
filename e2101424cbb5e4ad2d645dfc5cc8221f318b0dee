@@ -37,3 +37,5 @@
 ./system/install.sh 1671375968.982454 6 os=ubuntu-20.04
 
 ./vint/install.sh 1671375974.5623846 6 os=ubuntu-20.04
+
+./ccache/install.sh 1671375980.6455457 6 os=ubuntu-20.04
