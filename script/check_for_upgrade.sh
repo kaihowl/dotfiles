@@ -40,7 +40,7 @@ then
   fi
 
   epoch_diff=$(($(_current_epoch) - LAST_EPOCH))
-  if [ $epoch_diff -ge $epoch_target ]
+  if [ $epoch_diff -ge "$epoch_target" ]
   then
     _upgrade_dots && _update_dots_update
   fi
