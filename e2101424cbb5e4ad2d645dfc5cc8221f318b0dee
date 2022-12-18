@@ -41,3 +41,5 @@
 ./ccache/install.sh 1671375980.6455457 6 os=ubuntu-20.04
 
 ./gdb/install.sh 1671376002.1299617 22 os=ubuntu-20.04
+
+./tmux/install.sh 1671376002.98139 0 os=ubuntu-20.04
