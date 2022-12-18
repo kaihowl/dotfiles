@@ -33,3 +33,5 @@
 ./shellcheck/install.sh 1671380161.0096004 0 os=ubuntu-22.04
 
 ./git/install.sh 1671380161.5905483 0 os=ubuntu-22.04
+
+./nvim/install.sh 1671380171.9696958 10 os=ubuntu-22.04
