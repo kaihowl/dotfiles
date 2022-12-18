@@ -15,3 +15,5 @@
 ./nvim/install.sh 1671376151.534624 52 os=macos-11
 
 ./pyls/install.sh 1671376171.784353 20 os=macos-11
+
+./zoxide/install.sh 1671376175.203491 4 os=macos-11
