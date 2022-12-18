@@ -25,3 +25,5 @@
 ./cmake/install.sh 1671381668.6819558 8 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1671381670.1911666 2 os=ubuntu-22.04
+
+./tmux/install.sh 1671381674.5401518 4 os=ubuntu-22.04
