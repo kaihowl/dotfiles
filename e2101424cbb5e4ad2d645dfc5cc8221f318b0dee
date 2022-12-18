@@ -1,3 +1,5 @@
 ./zsh/install.sh 1671375792.1423159 7 os=ubuntu-22.04
 
 ./gdb/install.sh 1671375798.032354 5 os=ubuntu-22.04
+
+./alacritty/install.sh 1671375806.1382804 8 os=ubuntu-22.04
