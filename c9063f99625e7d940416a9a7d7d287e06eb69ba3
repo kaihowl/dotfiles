@@ -27,3 +27,5 @@
 ./ripgrep/install.sh 1671380897.210044 2 os=ubuntu-22.04
 
 ./tmux/install.sh 1671380902.8605747 5 os=ubuntu-22.04
+
+./system/install.sh 1671380908.0163708 5 os=ubuntu-22.04
