@@ -15,3 +15,5 @@
 ./virtualenvwrapper/install.sh 1671375781.753932 7 os=ubuntu-20.04
 
 ./alacritty/install.sh 1671375791.9544764 10 os=ubuntu-20.04
+
+./homebrew/install.sh 1671375792.0643747 0 os=ubuntu-20.04
