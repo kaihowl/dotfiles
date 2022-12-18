@@ -7,3 +7,5 @@
 ./git/install.sh 1671380823.304047 1 os=ubuntu-20.04
 
 ./fzf/install.sh 1671380825.5134554 2 os=ubuntu-20.04
+
+./colors/install.sh 1671380827.2834632 2 os=ubuntu-20.04
