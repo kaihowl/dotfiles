@@ -31,3 +31,5 @@
 ./system/install.sh 1671380908.0163708 5 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1671380908.9776623 0 os=ubuntu-22.04
+
+./git/install.sh 1671380909.783755 1 os=ubuntu-22.04
