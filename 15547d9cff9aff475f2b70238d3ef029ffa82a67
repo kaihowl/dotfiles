@@ -1,3 +1,5 @@
 ./zsh/install.sh 1671380084.727347 15 os=ubuntu-20.04
 
 ./ctags/install.sh 1671380091.122858 7 os=ubuntu-20.04
+
+./efm/install.sh 1671380091.923187 0 os=ubuntu-20.04
