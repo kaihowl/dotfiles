@@ -23,3 +23,5 @@
 ./clangd/install.sh 1671375882.4579756 16 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1671375885.447569 3 os=ubuntu-20.04
+
+./cmake/install.sh 1671375902.8134713 17 os=ubuntu-20.04
