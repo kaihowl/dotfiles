@@ -25,6 +25,7 @@ function get_host_from_ssh_config() {
 }
 
 function title() {
+  # shellcheck disable=SC2317
   case $TERM in
   screen|screen-256color|tmux|tmux-256color)
     precmd () {

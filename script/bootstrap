@@ -150,7 +150,6 @@ then
     success "mac settings configured"
   else
     fail "error setting mac-specific settings"
-    exit 1
   fi
 fi
 
