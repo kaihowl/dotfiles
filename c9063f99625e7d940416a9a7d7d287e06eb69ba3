@@ -45,3 +45,5 @@
 ./tmux/install.sh 1671380990.652745 1 os=ubuntu-20.04
 
 install 1671380990.7811117 201 os=ubuntu-20.04
+
+test 1671381060.4148107 67 os=ubuntu-20.04
