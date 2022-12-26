@@ -43,7 +43,7 @@ INSTALL_END=$(date +%s)
 INSTALL_DURATION=$((INSTALL_END - INSTALL_START))
 add_measurement install $INSTALL_DURATION
 
-./script/versions.sh versions.txt
+# ./script/versions.sh versions.txt
 
 TEST_START=$(date +%s)
 # "${stdbuf[@]}" ./script/test > >(decorate) 2>&1
