@@ -39,3 +39,5 @@
 ./rust/install.sh 1672064651.2090847 20 os=ubuntu-22.04
 
 ./homebrew/install.sh 1672064651.3126626 0 os=ubuntu-22.04
+
+./zoxide/install.sh 1672064652.7668831 1 os=ubuntu-22.04
