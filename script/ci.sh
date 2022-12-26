@@ -38,7 +38,7 @@ CI_START=$(date +%s)
 "${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
 
 INSTALL_START=$(date +%s)
-"${stdbuf[@]}" ./script/install > >(decorate) 2>&1
+# "${stdbuf[@]}" ./script/install > >(decorate) 2>&1
 INSTALL_END=$(date +%s)
 INSTALL_DURATION=$((INSTALL_END - INSTALL_START))
 add_measurement install $INSTALL_DURATION
@@ -46,14 +46,14 @@ add_measurement install $INSTALL_DURATION
 ./script/versions.sh versions.txt
 
 TEST_START=$(date +%s)
-"${stdbuf[@]}" ./script/test > >(decorate) 2>&1
+# "${stdbuf[@]}" ./script/test > >(decorate) 2>&1
 TEST_END=$(date +%s)
 TEST_DURATION=$((TEST_END - TEST_START))
 add_measurement test $TEST_DURATION
 
-source nvim/path.zsh 
-run_measurement nvim nvim +qall
-run_measurement zsh zsh -i -c 'exit'
+# source nvim/path.zsh 
+# run_measurement nvim nvim +qall
+# run_measurement zsh zsh -i -c 'exit'
 
 CI_END=$(date +%s)
 CI_DURATION=$((CI_END - CI_START))
