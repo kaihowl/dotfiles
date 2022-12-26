@@ -97,11 +97,13 @@ jobs:
       - name: report
         shell: bash
         run: |
-          export PATH=~/.local/bin:$PATH
-          python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
-          git perf pull
+          mkdir -p ~/.git-perf/
+          pushd ~/.git-perf
+          curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.1/gitperf-0.0.1-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
+          popd
+          ~/.git-perf/git-perf pull
           mkdir reports/
-          git perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
+          ~/.git-perf/git-perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
       - name: Publish new perf reports
         uses: peaceiris/actions-gh-pages@v3
         with:

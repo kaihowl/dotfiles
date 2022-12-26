@@ -1,9 +1,14 @@
 #!/bin/bash
 set -e
 
-python3 -m venv ~/.git-perf
-~/.git-perf/bin/python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
-
+mkdir -p ~/.git-perf/
+pushd ~/.git-perf
+if [ "$(uname)" == "Darwin" ]; then
+  curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.1/gitperf-0.0.1-x86_64-apple-darwin.tar.gz | tar -xz --strip-components=1
+elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+  curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.1/gitperf-0.0.1-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
+fi
+popd
 
 function add_measurement {
   if [[ $# -ne 2 ]]; then
@@ -14,7 +19,7 @@ function add_measurement {
   name=$1
   value=$2
 
-  ~/.git-perf/bin/git-perf add -m "$name" -kv "os=${VERSION_RUNNER_OS}" "$value"
+  ~/.git-perf/git-perf add -m "$name" -kv "os=${VERSION_RUNNER_OS}" "$value"
 }
 
 function run_measurement {
@@ -25,11 +30,11 @@ function run_measurement {
   fi
 
   name=$1
-  ~/.git-perf/bin/git-perf measure -n 10 -m "$name" -kv "os=${VERSION_RUNNER_OS}" -- "${@:2}"
+  ~/.git-perf/git-perf measure -n 10 -m "$name" -kv "os=${VERSION_RUNNER_OS}" -- "${@:2}"
 }
 
 function publish_measurements {
-  ~/.git-perf/bin/git-perf push
+  ~/.git-perf/git-perf push
 }
 
 # Make functions available in called bash scripts as well
