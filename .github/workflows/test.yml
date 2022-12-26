@@ -99,7 +99,7 @@ jobs:
         run: |
           mkdir -p ~/.git-perf/
           pushd ~/.git-perf
-          curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.1/gitperf-0.0.1-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
+          curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.2/gitperf-0.0.2-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
           popd
           ~/.git-perf/git-perf pull
           mkdir reports/
