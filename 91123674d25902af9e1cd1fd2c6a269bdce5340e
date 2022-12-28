@@ -3,3 +3,5 @@
 ./gdb/install.sh 1672228723.552115 9 os=ubuntu-22.04
 
 ./alacritty/install.sh 1672228734.5546834 11 os=ubuntu-22.04
+
+./colors/install.sh 1672228736.397786 2 os=ubuntu-22.04
