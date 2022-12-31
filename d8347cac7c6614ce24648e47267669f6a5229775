@@ -4,3 +4,4 @@
 ./git/install.sh 1672491947.2567778 1.0 os=ubuntu-20.04
 ./fzf/install.sh 1672491949.473313 2.0 os=ubuntu-20.04
 ./colors/install.sh 1672491951.3020155 2.0 os=ubuntu-20.04
+./shellcheck/install.sh 1672491952.1017563 1.0 os=ubuntu-20.04
