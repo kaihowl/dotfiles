@@ -6,3 +6,4 @@
 ./virtualenvwrapper/install.sh 1672491955.3925197 7.0 os=ubuntu-22.04
 ./vint/install.sh 1672491964.4747212 9.0 os=ubuntu-22.04
 ./pyls/install.sh 1672491976.6751204 12.0 os=ubuntu-22.04
+./fzf/install.sh 1672491978.0732439 2.0 os=ubuntu-22.04
