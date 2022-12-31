@@ -31,3 +31,5 @@
 ./rust/install.sh 1672485059.3497002 21 os=ubuntu-20.04
 
 ./nvim/install.sh 1672485069.9751227 10 os=ubuntu-20.04
+
+./zoxide/install.sh 1672485070.9755127 1 os=ubuntu-20.04
