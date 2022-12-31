@@ -4,9 +4,9 @@ set -e
 mkdir -p ~/.git-perf/
 pushd ~/.git-perf
 if [ "$(uname)" == "Darwin" ]; then
-  curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.2/gitperf-0.0.2-x86_64-apple-darwin.tar.gz | tar -xz --strip-components=1
+  curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.3/gitperf-0.0.3-x86_64-apple-darwin.tar.gz | tar -xz --strip-components=1
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.2/gitperf-0.0.2-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
+  curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.3/gitperf-0.0.3-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
 fi
 popd
 
