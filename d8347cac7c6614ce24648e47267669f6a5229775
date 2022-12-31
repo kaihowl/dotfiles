@@ -1,1 +1,2 @@
 ./zsh/install.sh 1672491928.4118044 8.0 os=ubuntu-22.04
+./gdb/install.sh 1672491934.5777752 6.0 os=ubuntu-22.04
