@@ -11,3 +11,4 @@
 ./ninja/install.sh 1672491978.4338775 6.0 os=ubuntu-20.04
 ./clangd/install.sh 1672491993.698231 15.0 os=ubuntu-20.04
 ./ripgrep/install.sh 1672491996.6271322 3.0 os=ubuntu-20.04
+./cmake/install.sh 1672492014.517466 18.0 os=ubuntu-20.04
