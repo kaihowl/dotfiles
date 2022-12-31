@@ -22,3 +22,4 @@
 ./zoxide/install.sh 1672492048.0103338 0.0 os=ubuntu-22.04
 ./ninja/install.sh 1672492052.483615 4.0 os=ubuntu-22.04
 install 1672492052.4958181 138.0 os=ubuntu-22.04
+test 1672492115.2353072 61.0 os=ubuntu-22.04
