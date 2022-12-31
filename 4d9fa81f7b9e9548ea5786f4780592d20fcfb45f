@@ -41,3 +41,5 @@
 ./homebrew/install.sh 1672485067.1992116 0 os=ubuntu-22.04
 
 ./zoxide/install.sh 1672485068.7387772 1 os=ubuntu-22.04
+
+./ninja/install.sh 1672485073.2751908 5 os=ubuntu-22.04
