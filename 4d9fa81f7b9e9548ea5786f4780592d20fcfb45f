@@ -15,3 +15,5 @@
 ./pyls/install.sh 1672484996.4042292 12 os=ubuntu-22.04
 
 ./fzf/install.sh 1672484997.9471135 1 os=ubuntu-22.04
+
+./ccache/install.sh 1672485002.5960894 5 os=ubuntu-22.04
