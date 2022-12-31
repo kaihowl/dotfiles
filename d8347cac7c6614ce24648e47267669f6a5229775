@@ -4,3 +4,4 @@
 ./colors/install.sh 1672491944.4383183 1.0 os=ubuntu-22.04
 ./ctags/install.sh 1672491948.9184666 4.0 os=ubuntu-22.04
 ./virtualenvwrapper/install.sh 1672491955.3925197 7.0 os=ubuntu-22.04
+./vint/install.sh 1672491964.4747212 9.0 os=ubuntu-22.04
