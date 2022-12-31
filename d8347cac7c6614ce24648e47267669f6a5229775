@@ -16,3 +16,4 @@
 ./system/install.sh 1672492012.9613721 4.0 os=ubuntu-22.04
 ./shellcheck/install.sh 1672492013.6510634 1.0 os=ubuntu-22.04
 ./git/install.sh 1672492014.246354 1.0 os=ubuntu-22.04
+./nvim/install.sh 1672492025.0532312 11.0 os=ubuntu-22.04
