@@ -29,3 +29,5 @@
 ./pyls/install.sh 1672485038.7194836 15 os=ubuntu-20.04
 
 ./rust/install.sh 1672485059.3497002 21 os=ubuntu-20.04
+
+./nvim/install.sh 1672485069.9751227 10 os=ubuntu-20.04
