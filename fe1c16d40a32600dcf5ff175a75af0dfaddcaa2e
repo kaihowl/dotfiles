@@ -13,3 +13,5 @@
 ./vint/install.sh 1672485402.4006438 9 os=ubuntu-22.04
 
 ./pyls/install.sh 1672485417.28479 15 os=ubuntu-22.04
+
+./fzf/install.sh 1672485419.2326846 2 os=ubuntu-22.04
