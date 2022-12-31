@@ -13,3 +13,4 @@
 ./ripgrep/install.sh 1672491996.6271322 3.0 os=ubuntu-20.04
 ./cmake/install.sh 1672492014.517466 18.0 os=ubuntu-20.04
 ./pyls/install.sh 1672492031.5991447 17.0 os=ubuntu-20.04
+./rust/install.sh 1672492053.870395 22.0 os=ubuntu-20.04
