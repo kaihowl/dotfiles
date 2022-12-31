@@ -5,3 +5,4 @@
 ./ctags/install.sh 1672491948.9184666 4.0 os=ubuntu-22.04
 ./virtualenvwrapper/install.sh 1672491955.3925197 7.0 os=ubuntu-22.04
 ./vint/install.sh 1672491964.4747212 9.0 os=ubuntu-22.04
+./pyls/install.sh 1672491976.6751204 12.0 os=ubuntu-22.04
