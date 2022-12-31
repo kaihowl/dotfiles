@@ -7,3 +7,4 @@
 ./shellcheck/install.sh 1672491952.1017563 1.0 os=ubuntu-20.04
 ./virtualenvwrapper/install.sh 1672491960.5275311 8.0 os=ubuntu-20.04
 ./alacritty/install.sh 1672491972.6325612 12.0 os=ubuntu-20.04
+./homebrew/install.sh 1672491972.6537526 0.0 os=ubuntu-20.04
