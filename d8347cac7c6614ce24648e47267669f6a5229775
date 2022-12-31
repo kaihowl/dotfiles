@@ -19,3 +19,4 @@
 ./nvim/install.sh 1672492025.0532312 11.0 os=ubuntu-22.04
 ./rust/install.sh 1672492046.9987156 21.0 os=ubuntu-22.04
 ./homebrew/install.sh 1672492047.0185468 0.0 os=ubuntu-22.04
+./zoxide/install.sh 1672492048.0103338 0.0 os=ubuntu-22.04
