@@ -14,3 +14,4 @@
 ./cmake/install.sh 1672492014.517466 18.0 os=ubuntu-20.04
 ./pyls/install.sh 1672492031.5991447 17.0 os=ubuntu-20.04
 ./rust/install.sh 1672492053.870395 22.0 os=ubuntu-20.04
+./nvim/install.sh 1672492066.170573 13.0 os=ubuntu-20.04
