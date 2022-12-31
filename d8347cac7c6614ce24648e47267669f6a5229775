@@ -8,3 +8,4 @@
 ./pyls/install.sh 1672491976.6751204 12.0 os=ubuntu-22.04
 ./fzf/install.sh 1672491978.0732439 2.0 os=ubuntu-22.04
 ./ccache/install.sh 1672491982.43242 4.0 os=ubuntu-22.04
+./clangd/install.sh 1672491993.3727612 11.0 os=ubuntu-22.04
