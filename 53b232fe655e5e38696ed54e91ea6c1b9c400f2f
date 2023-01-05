@@ -13,3 +13,5 @@
 ./cmake/install.sh 1672904264.058382 2 os=macos-11
 
 ./nvim/install.sh 1672904298.974127 34 os=macos-11
+
+./pyls/install.sh 1672904315.2623801 16 os=macos-11
