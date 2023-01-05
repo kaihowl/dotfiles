@@ -35,3 +35,5 @@
 ./zoxide/install.sh 1672902656.0913775 1 os=ubuntu-20.04
 
 ./system/install.sh 1672902661.0246444 4 os=ubuntu-20.04
+
+./vint/install.sh 1672902665.4305835 4 os=ubuntu-20.04
