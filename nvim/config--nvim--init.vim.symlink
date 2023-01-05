@@ -148,6 +148,7 @@ Plug 'morhetz/gruvbox'
 Plug 'folke/tokyonight.nvim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'kaiuri/nvim-juliana'
 
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket
