@@ -15,7 +15,8 @@ _change_color() {
             "tokyonight[clean, dark color scheme]" \
             "onehalf[clean, vibrant color scheme]" \
             "papercolor[colors inspired by google's material colorscheme]" \
-            "gruvbox[retro color scheme]"
+            "gruvbox[retro color scheme]" \
+            "juliana[clear contrast, no light support]"
           ;;
   esac
 }
