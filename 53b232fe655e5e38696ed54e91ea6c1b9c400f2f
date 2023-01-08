@@ -5,3 +5,5 @@
 ./efm/install.sh 1673178245.7170796 1 os=ubuntu-20.04
 
 ./git/install.sh 1673178246.5712924 1 os=ubuntu-20.04
+
+./fzf/install.sh 1673178254.4244244 8 os=ubuntu-20.04
