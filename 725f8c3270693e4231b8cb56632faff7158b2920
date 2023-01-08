@@ -9,3 +9,5 @@
 ./fzf/install.sh 1673193543.1289546 7 os=ubuntu-20.04
 
 ./colors/install.sh 1673193544.7139714 1 os=ubuntu-20.04
+
+./shellcheck/install.sh 1673193546.818644 2 os=ubuntu-20.04
