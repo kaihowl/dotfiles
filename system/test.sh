@@ -12,3 +12,6 @@ which jq
 
 echo "Check if htop is available"
 which htop
+
+echo "Check if lnav is available"
+which lnav
