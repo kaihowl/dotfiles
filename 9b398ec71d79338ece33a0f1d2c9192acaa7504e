@@ -21,3 +21,5 @@
 ./clangd/install.sh 1673200689.1468208 10 os=ubuntu-22.04
 
 ./efm/install.sh 1673200689.7660608 0 os=ubuntu-22.04
+
+./cmake/install.sh 1673200697.787109 8 os=ubuntu-22.04
