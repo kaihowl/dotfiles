@@ -9,3 +9,5 @@
 ./ctags/install.sh 1673200647.3049517 4 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1673200653.3351865 6 os=ubuntu-22.04
+
+./vint/install.sh 1673200662.0319064 8 os=ubuntu-22.04
