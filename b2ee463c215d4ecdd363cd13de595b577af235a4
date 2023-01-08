@@ -19,3 +19,5 @@
 ./homebrew/install.sh 1673193955.5128202 0 os=ubuntu-20.04
 
 ./ninja/install.sh 1673193960.711289 5 os=ubuntu-20.04
+
+./clangd/install.sh 1673193975.209363 15 os=ubuntu-20.04
