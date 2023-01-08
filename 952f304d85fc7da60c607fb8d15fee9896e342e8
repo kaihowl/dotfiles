@@ -17,3 +17,5 @@
 ./alacritty/install.sh 1673200279.562776 12 os=ubuntu-20.04
 
 ./homebrew/install.sh 1673200279.6906826 0 os=ubuntu-20.04
+
+./ninja/install.sh 1673200286.0740929 6 os=ubuntu-20.04
