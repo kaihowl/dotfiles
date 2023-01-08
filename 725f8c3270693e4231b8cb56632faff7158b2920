@@ -7,3 +7,5 @@
 ./ccache/install.sh 1673193595.235282 11 os=macos-11
 
 ./gdb/install.sh 1673193595.5080872 0 os=macos-11
+
+./clangd/install.sh 1673193598.776767 3 os=macos-11
