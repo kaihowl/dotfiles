@@ -29,3 +29,5 @@
 ./tmux/install.sh 1673200331.4369507 6 os=ubuntu-22.04
 
 ./system/install.sh 1673200336.6901002 5 os=ubuntu-22.04
+
+./shellcheck/install.sh 1673200337.6302552 1 os=ubuntu-22.04
