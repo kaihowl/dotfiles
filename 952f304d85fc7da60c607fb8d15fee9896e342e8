@@ -37,3 +37,5 @@
 ./nvim/install.sh 1673200350.9211273 12 os=ubuntu-22.04
 
 ./rust/install.sh 1673200372.7636611 22 os=ubuntu-22.04
+
+./homebrew/install.sh 1673200372.8887944 0 os=ubuntu-22.04
