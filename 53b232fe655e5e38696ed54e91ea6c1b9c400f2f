@@ -13,3 +13,5 @@
 ./shellcheck/install.sh 1673178257.0504856 0 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1673178265.9755902 8 os=ubuntu-20.04
+
+./alacritty/install.sh 1673178277.8027625 12 os=ubuntu-20.04
