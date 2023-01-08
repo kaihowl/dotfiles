@@ -1,1 +1,3 @@
 ./zsh/install.sh 1673193924.5879414 12 os=ubuntu-20.04
+
+./ctags/install.sh 1673193929.7291176 5 os=ubuntu-20.04
