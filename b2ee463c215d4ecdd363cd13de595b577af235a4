@@ -23,3 +23,5 @@
 ./efm/install.sh 1673193975.950656 0 os=ubuntu-22.04
 
 ./cmake/install.sh 1673193983.8767557 8 os=ubuntu-22.04
+
+./ripgrep/install.sh 1673193985.359881 2 os=ubuntu-22.04
