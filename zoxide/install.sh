@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 set -ex
 
 # Remove old autojump installation.
@@ -14,15 +13,15 @@ fi
 
 if [ "$(uname -s)" = "Darwin" ]; then
   if [ "$(uname -m)" = "arm64" ]; then
-    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.3/zoxide-0.8.3-aarch64-apple-darwin.tar.gz"
-    expect_hash="4f7cad989d6aa9402daef55a7c95af84c83b7653b66c0e341a06da925e3505f6"
+    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.0/zoxide-0.9.0-aarch64-apple-darwin.tar.gz"
+    expect_hash="91429d02e97183cbaba47a93de909d85528c2d3258be392bb695158834fd32f9"
   else
-    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.3/zoxide-0.8.3-x86_64-apple-darwin.tar.gz"
-    expect_hash="c9000934d28d8c7de0130a1eade8152e37ae4bf521ed1b2df90d362cb1ed1611"
+    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.0/zoxide-0.9.0-x86_64-apple-darwin.tar.gz"
+    expect_hash="5e91baccbb175e57ac4a248cc6146de352f7a229777bd34bb040c1e9fc862317"
   fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.8.3/zoxide-0.8.3-x86_64-unknown-linux-musl.tar.gz"
-  expect_hash="a3fea067a719b921881bdcde81b52c5ad1017bd39f835b3684f91ddfbb596d8f"
+  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.0/zoxide-0.9.0-x86_64-unknown-linux-musl.tar.gz"
+  expect_hash="291bfd218ee274812264cb5da6a67a00003b4b7637aed915356ec8fd92045e6a"
 fi
 
 tmpfile=$(mktemp)
