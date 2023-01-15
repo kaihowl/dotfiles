@@ -23,3 +23,5 @@
 ./virtualenvwrapper/install.sh 1673783132.990374 9 os=ubuntu-22.04
 
 ./ccache/install.sh 1673783138.9793825 5 os=ubuntu-22.04
+
+./pyls/install.sh 1673783149.383345 11 os=ubuntu-22.04
