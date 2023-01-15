@@ -17,3 +17,5 @@
 ./vint/install.sh 1673783096.699339 4 os=ubuntu-20.04
 
 ./colors/install.sh 1673783098.1832514 2 os=ubuntu-20.04
+
+./fzf/install.sh 1673783100.5153377 2 os=ubuntu-20.04
