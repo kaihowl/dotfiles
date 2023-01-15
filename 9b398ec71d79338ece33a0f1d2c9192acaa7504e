@@ -19,3 +19,5 @@
 ./colors/install.sh 1673783098.1832514 2 os=ubuntu-20.04
 
 ./fzf/install.sh 1673783100.5153377 2 os=ubuntu-20.04
+
+./pyls/install.sh 1673783108.3979187 8 os=ubuntu-20.04
