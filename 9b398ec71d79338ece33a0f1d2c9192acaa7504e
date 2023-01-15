@@ -45,3 +45,5 @@
 ./ninja/install.sh 1673783167.490972 5 os=ubuntu-20.04
 
 install 1673783167.5946665 154 os=ubuntu-20.04
+
+test 1673783228.2506485 58 os=ubuntu-20.04
