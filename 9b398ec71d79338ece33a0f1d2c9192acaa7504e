@@ -5,3 +5,5 @@
 ./clangd/install.sh 1673783058.8196895 12 os=ubuntu-22.04
 
 ./rust/install.sh 1673783086.5502174 28 os=ubuntu-22.04
+
+./fzf/install.sh 1673783088.9261599 2 os=ubuntu-22.04
