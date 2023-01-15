@@ -41,3 +41,5 @@
 ./zoxide/install.sh 1673783150.0736263 1 os=ubuntu-20.04
 
 ./alacritty/install.sh 1673783162.6789052 12 os=ubuntu-20.04
+
+./ninja/install.sh 1673783167.490972 5 os=ubuntu-20.04
