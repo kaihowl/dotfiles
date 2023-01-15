@@ -29,3 +29,5 @@
 ./gdb/install.sh 1673783163.4475026 14 os=ubuntu-22.04
 
 ./nvim/install.sh 1673783177.8443215 14 os=ubuntu-22.04
+
+./ripgrep/install.sh 1673783179.9803574 2 os=ubuntu-22.04
