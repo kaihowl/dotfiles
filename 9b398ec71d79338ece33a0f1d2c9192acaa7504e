@@ -5,3 +5,5 @@
 ./tmux/install.sh 1673783044.2727957 1 os=ubuntu-20.04
 
 ./rust/install.sh 1673783067.2217848 23 os=ubuntu-20.04
+
+./efm/install.sh 1673783068.3556187 1 os=ubuntu-20.04
