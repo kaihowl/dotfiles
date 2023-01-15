@@ -7,3 +7,5 @@
 ./rust/install.sh 1673783086.5502174 28 os=ubuntu-22.04
 
 ./fzf/install.sh 1673783088.9261599 2 os=ubuntu-22.04
+
+./vint/install.sh 1673783100.061012 11 os=ubuntu-22.04
