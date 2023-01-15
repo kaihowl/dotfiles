@@ -1,3 +1,5 @@
 ./zsh/install.sh 1673783040.5566416 9 os=ubuntu-22.04
 
 ./ctags/install.sh 1673783046.6451702 6 os=ubuntu-22.04
+
+./clangd/install.sh 1673783058.8196895 12 os=ubuntu-22.04
