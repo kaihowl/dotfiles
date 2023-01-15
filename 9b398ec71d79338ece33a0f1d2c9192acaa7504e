@@ -29,3 +29,5 @@
 ./virtualenvwrapper/install.sh 1673783130.079765 7 os=ubuntu-20.04
 
 ./clangd/install.sh 1673783143.7752185 13 os=ubuntu-20.04
+
+./ripgrep/install.sh 1673783146.2824254 3 os=ubuntu-20.04
