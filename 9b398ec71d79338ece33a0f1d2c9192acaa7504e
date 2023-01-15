@@ -17,3 +17,5 @@
 ./system/install.sh 1673783122.426523 6 os=ubuntu-22.04
 
 ./homebrew/install.sh 1673783122.5699437 0 os=ubuntu-22.04
+
+./git/install.sh 1673783123.3974617 1 os=ubuntu-22.04
