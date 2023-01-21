@@ -9,3 +9,5 @@
 ./alacritty/install.sh 1674301488.1693888 8 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1674301493.6429136 5 os=ubuntu-22.04
+
+./ctags/install.sh 1674301497.1902504 4 os=ubuntu-22.04
