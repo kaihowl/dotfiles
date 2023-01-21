@@ -5,3 +5,5 @@
 ./clangd/install.sh 1674301891.3391383 13 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1674301893.708025 2 os=ubuntu-20.04
+
+./git/install.sh 1674301894.5166807 1 os=ubuntu-20.04
