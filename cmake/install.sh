@@ -9,7 +9,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # NOTE This explicitly forgoes using the kitware-archive-keyring for automatic key rotation.
   # For uniformity with other packages, we will manually rotate the key.
   source "$DOTS/common/apt.sh"
-  apt_add_repo kitware https://apt.kitware.com/ubuntu ::codename:: 0bb2bbf7862c3fb082da7887e2d464b33738bd19
+  apt_add_repo kitware https://apt.kitware.com/ubuntu ::codename:: f41e5eaee6993e4dec254b3542d5a192b819c5da
   apt_install cmake
 fi
 
