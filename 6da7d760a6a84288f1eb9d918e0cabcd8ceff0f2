@@ -37,3 +37,5 @@
 ./pyls/install.sh 1674992699.7336912 8 os=ubuntu-22.04
 
 ./fzf/install.sh 1674992701.224092 2 os=ubuntu-22.04
+
+./cmake/install.sh 1674992710.5692096 9 os=ubuntu-22.04
