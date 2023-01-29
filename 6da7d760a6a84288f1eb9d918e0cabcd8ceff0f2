@@ -45,3 +45,5 @@
 ./colors/install.sh 1674992733.7262595 1 os=ubuntu-22.04
 
 install 1674992733.8294756 128 os=ubuntu-22.04
+
+test 1674992799.6935077 64 os=ubuntu-22.04
