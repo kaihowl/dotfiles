@@ -13,3 +13,5 @@
 ./ctags/install.sh 1674992640.2282996 4 os=ubuntu-22.04
 
 ./system/install.sh 1674992644.2431302 4 os=ubuntu-22.04
+
+./ninja/install.sh 1674992647.7717488 3 os=ubuntu-22.04
