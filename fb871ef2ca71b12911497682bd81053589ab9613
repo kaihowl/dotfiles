@@ -11,3 +11,5 @@
 ./gdb/install.sh 1675359021.992521 214 os=ubuntu-20.04
 
 ./pyls/install.sh 1675359030.956912 8 os=ubuntu-20.04
+
+./zoxide/install.sh 1675359032.4611337 2 os=ubuntu-20.04
