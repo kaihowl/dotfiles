@@ -3,3 +3,5 @@
 ./vint/install.sh 1675358779.3883913 10 os=ubuntu-20.04
 
 ./clangd/install.sh 1675358799.5747364 20 os=ubuntu-20.04
+
+./ripgrep/install.sh 1675358806.2004979 7 os=ubuntu-20.04
