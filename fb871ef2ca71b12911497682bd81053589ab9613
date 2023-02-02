@@ -23,3 +23,5 @@
 ./system/install.sh 1675359058.8052125 11 os=ubuntu-20.04
 
 ./efm/install.sh 1675359059.5324986 1 os=ubuntu-20.04
+
+./ninja/install.sh 1675359068.7571929 9 os=ubuntu-20.04
