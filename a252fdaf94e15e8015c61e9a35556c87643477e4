@@ -43,3 +43,5 @@
 ./rust/install.sh 1675326247.7806106 19 os=ubuntu-22.04
 
 ./colors/install.sh 1675326249.3622487 2 os=ubuntu-22.04
+
+install 1675326249.4616866 145 os=ubuntu-22.04
