@@ -23,3 +23,5 @@
 ./efm/install.sh 1675326288.895777 2 os=macos-11
 
 ./homebrew/install.sh 1675326309.072032 20 os=macos-11
+
+./ninja/install.sh 1675326318.3810089 9 os=macos-11
