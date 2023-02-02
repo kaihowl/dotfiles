@@ -39,3 +39,5 @@
 ./cmake/install.sh 1675325867.7304595 13 os=ubuntu-20.04
 
 ./tmux/install.sh 1675325868.4041111 1 os=ubuntu-20.04
+
+./nvim/install.sh 1675325879.2838087 11 os=ubuntu-20.04
