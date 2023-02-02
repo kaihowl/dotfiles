@@ -41,3 +41,5 @@
 ./cmake/install.sh 1675326228.5262406 12 os=ubuntu-22.04
 
 ./rust/install.sh 1675326247.7806106 19 os=ubuntu-22.04
+
+./colors/install.sh 1675326249.3622487 2 os=ubuntu-22.04
