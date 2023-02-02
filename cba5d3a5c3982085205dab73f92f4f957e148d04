@@ -19,3 +19,5 @@
 ./colors/install.sh 1675325787.4226227 2 os=ubuntu-20.04
 
 ./ctags/install.sh 1675325795.7649212 8 os=ubuntu-20.04
+
+./system/install.sh 1675325803.9052122 8 os=ubuntu-20.04
