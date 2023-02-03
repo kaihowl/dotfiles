@@ -29,3 +29,5 @@
 ./gdb/install.sh 1675421752.1985233 9 os=ubuntu-22.04
 
 ./nvim/install.sh 1675421762.273667 10 os=ubuntu-22.04
+
+./zoxide/install.sh 1675421763.2800074 1 os=ubuntu-22.04
