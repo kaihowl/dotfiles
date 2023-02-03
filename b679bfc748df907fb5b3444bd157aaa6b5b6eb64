@@ -41,3 +41,5 @@
 ./tmux/install.sh 1675422488.7667193 1 os=ubuntu-20.04
 
 ./nvim/install.sh 1675422499.5547917 11 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1675422511.8253152 12 os=ubuntu-20.04
