@@ -69,7 +69,7 @@ cd "source"
 git init
 touch a
 git add a
-git commit -m 'test'
+git commit --no-gpg-sign -m 'test'
 git branch -M specialdefault
 cd ..
 git clone "source" "target"
@@ -88,14 +88,14 @@ cd "source"
 git init
 touch a
 git add a
-git commit -m 'test'
+git commit --no-gpg-sign -m 'test'
 git branch -M specialdefault
 cd ..
 mkdir modules
 cd modules
 git init
 git -c protocol.file.allow=always submodule add ../source
-git commit -m 'test'
+git commit --no-gpg-sign -m 'test'
 # pwd == main repo but open file in submodule
 output=$(nvim --headless -c 'call stdioopen({})' -c "edit source/a" -c 'call chansend(1, Get_default_branch())' -c 'quit')
 if [[ "$output" != *"origin/specialdefault" ]]; then
