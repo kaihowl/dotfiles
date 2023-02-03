@@ -19,3 +19,5 @@
 ./homebrew/install.sh 1675421724.6409972 0 os=ubuntu-22.04
 
 ./vint/install.sh 1675421732.8967588 8 os=ubuntu-22.04
+
+./clangd/install.sh 1675421742.2125952 10 os=ubuntu-22.04
