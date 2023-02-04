@@ -27,3 +27,5 @@
 ./efm/install.sh 1675542475.3027272 1 os=ubuntu-22.04
 
 ./gdb/install.sh 1675542486.3548336 11 os=ubuntu-22.04
+
+./nvim/install.sh 1675542497.226846 11 os=ubuntu-22.04
