@@ -27,3 +27,5 @@
 ./ninja/install.sh 1675547209.904385 8 os=ubuntu-20.04
 
 ./ccache/install.sh 1675547217.5603173 8 os=ubuntu-20.04
+
+./alacritty/install.sh 1675547230.0051742 12 os=ubuntu-20.04
