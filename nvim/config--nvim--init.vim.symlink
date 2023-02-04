@@ -338,10 +338,43 @@ augroup END
 "}}}
 
 "{{{ asynctasks / asyncrun
-nnoremap <leader>mm :AsyncTaskLast<cr>
-nnoremap <leader>mx :AsyncStop<cr>
-nnoremap <leader>M :AsyncTaskEdit<cr>
-nnoremap <leader>m<space> :AsyncTask<space>
+
+" Call asynctask with pwd: for submodules with individual task files, only the
+" task file from the current working directory should count.
+
+function! SimpleAsyncTaskComplete(Arg, Ignore1, Ignore2)
+  return join(map(asynctasks#list('.'), 'v:val["name"]'), "\n")
+endfunction
+
+function! SimpleAsyncTaskLast()
+  if g:asynctasks_last ==# ''
+    echoerr 'no task history'
+    return -1
+  endif
+  call asynctasks#start('', g:asynctasks_last, '.')
+endfunction
+
+function! SimpleAsyncTask(taskname)
+  let g:asynctasks_last = a:taskname
+  call asynctasks#start('', a:taskname, '.')
+endfunction
+
+" TODO(kaihowl) this loses the templating functionality
+function! SimpleAsyncTaskEdit()
+  edit .tasks
+endfunction
+
+command! -bang -nargs=* -range=0 -complete=custom,SimpleAsyncTaskComplete SimpleAsyncTask
+			\ call SimpleAsyncTask(<q-args>)
+command! -bang -nargs=* -range=0 SimpleAsyncTaskLast
+			\ call SimpleAsyncTaskLast()
+command! -bang -nargs=0 -range=0 SimpleAsyncTaskEdit
+			\ call SimpleAsyncTaskEdit()
+
+nnoremap <leader>mm :SimpleAsyncTaskLast<cr>
+nnoremap <leader>mx :AsyncStop <bar> :vert copen<cr>
+nnoremap <leader>M :SimpleAsyncTaskEdit<cr>
+nnoremap <leader>m<space> :SimpleAsyncTask<space>
 
 let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
 let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
