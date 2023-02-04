@@ -29,3 +29,5 @@
 ./ccache/install.sh 1675542497.341474 7 os=ubuntu-20.04
 
 ./alacritty/install.sh 1675542508.204907 11 os=ubuntu-20.04
+
+./shellcheck/install.sh 1675542508.8469074 0 os=ubuntu-20.04
