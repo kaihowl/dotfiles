@@ -1,3 +1,5 @@
 ./zsh/install.sh 1675547827.9324841 19 os=ubuntu-20.04
 
 ./vint/install.sh 1675547837.8369858 10 os=ubuntu-20.04
+
+./clangd/install.sh 1675547857.6405842 20 os=ubuntu-20.04
