@@ -1,25 +1,23 @@
 #!/bin/bash
 set -ex
 
+version=0.8.3
+
 if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-macos.tar.gz"
+  download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos.tar.gz"
   expect_hash="26326708f34ead29e770514c2fb307702102166339c8f31660f7259ce9032925"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.tar.gz"
+  download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-linux64.tar.gz"
   expect_hash="58ac03b345e8675e13322f8c7135906ce26a1ca7a87d041344d64b207be7bedf"
 fi
 
-tmpfile=$(mktemp)
-# shellcheck disable=SC2064
-trap "rm -rf ${tmpfile}" EXIT
-curl -Lo "${tmpfile}" "${download_url}"
-actual_hash="$(shasum -a 256 "${tmpfile}" | cut -d' ' -f 1)"
-if [[ "$expect_hash" != "$actual_hash" ]]; then
-  echo "shasum mismatch for nvim. Aborting."
-  exit 1
-fi
+file_name=nvim-${version}.tar.gz
+
+source "$DOTS/common/download.sh"
+cache_file "$file_name" "$download_url" "$expect_hash"
+
 mkdir -p ~/.nvim
-tar -C ~/.nvim --extract -z -f "${tmpfile}" --strip-components 1
+tar -C ~/.nvim --extract -z -f "$(cache_path "${file_name}")" --strip-components 1
 
 # Make freshly installed nvim available in path
 script_dir=$(dirname "$0")

@@ -11,27 +11,25 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   apt_remove autojump
 fi
 
+version=0.9.0
+
 if [ "$(uname -s)" = "Darwin" ]; then
   if [ "$(uname -m)" = "arm64" ]; then
-    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.0/zoxide-0.9.0-aarch64-apple-darwin.tar.gz"
+    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v${version}/zoxide-${version}-aarch64-apple-darwin.tar.gz"
     expect_hash="91429d02e97183cbaba47a93de909d85528c2d3258be392bb695158834fd32f9"
   else
-    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.0/zoxide-0.9.0-x86_64-apple-darwin.tar.gz"
+    download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v${version}/zoxide-${version}-x86_64-apple-darwin.tar.gz"
     expect_hash="5e91baccbb175e57ac4a248cc6146de352f7a229777bd34bb040c1e9fc862317"
   fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.0/zoxide-0.9.0-x86_64-unknown-linux-musl.tar.gz"
+  download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v${version}/zoxide-${version}-x86_64-unknown-linux-musl.tar.gz"
   expect_hash="291bfd218ee274812264cb5da6a67a00003b4b7637aed915356ec8fd92045e6a"
 fi
 
-tmpfile=$(mktemp)
-# shellcheck disable=SC2064
-trap "rm -rf ${tmpfile}" EXIT
-curl -Lo "${tmpfile}" "${download_url}"
-actual_hash="$(shasum -a 256 "${tmpfile}" | cut -d' ' -f 1)"
-if [[ "$expect_hash" != "$actual_hash" ]]; then
-  echo "shasum mismatch for zoxide. Aborting."
-  exit 1
-fi
+file_name=zoxide-${version}.tar.gz
+
+source "$DOTS/common/download.sh"
+cache_file "$file_name" "$download_url" "$expect_hash"
+
 mkdir -p ~/.zoxide
-tar -C ~/.zoxide --extract -z -f "${tmpfile}"
+tar -C ~/.zoxide --extract -z -f "$(cache_path "${file_name}")"
