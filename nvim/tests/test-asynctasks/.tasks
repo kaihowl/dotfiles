@@ -1,0 +1,3 @@
+[veryspecialtest]
+command = echo from parent
+
