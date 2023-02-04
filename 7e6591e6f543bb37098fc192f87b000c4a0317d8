@@ -33,3 +33,5 @@
 ./zoxide/install.sh 1675552103.1022525 2 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1675552104.772704 1 os=ubuntu-22.04
+
+./pyls/install.sh 1675552113.4249616 9 os=ubuntu-22.04
