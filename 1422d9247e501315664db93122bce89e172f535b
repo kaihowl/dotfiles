@@ -21,3 +21,5 @@
 ./rust/install.sh 1675547960.63023 21 os=macos-11
 
 ./efm/install.sh 1675547962.0090969 1 os=macos-11
+
+./homebrew/install.sh 1675547981.094507 18 os=macos-11
