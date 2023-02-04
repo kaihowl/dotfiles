@@ -7,3 +7,5 @@
 ./git/install.sh 1675547107.99696 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1675547116.278795 8 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1675547123.1452653 7 os=ubuntu-22.04
