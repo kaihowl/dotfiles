@@ -304,6 +304,7 @@ require('fzf-lua').setup{
   git = {
     branches = {
       cmd = "git branch --color --sort=-committerdate",
+      cwd = "%:h:p"
     }
   }
 }
