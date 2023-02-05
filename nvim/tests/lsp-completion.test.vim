@@ -5,11 +5,18 @@ function _G.comp_visible()
 end
 
 function _G.has_complete_with_starting_text(text)
+  local log_file_path = '/tmp/vim.log'
+  local log_file = io.open(log_file_path, "a")
+  io.output(log_file)
   for key, value in pairs(require('cmp').get_entries()) do
+    vim.notify(value.completion_item.label)
+    io.write(value.completion_item.label.."\n")
     if vim.startswith(value.completion_item.label, text) then
+      io.close(log_file)
       return true
     end
   end
+  io.close(log_file)
   return false
 end
 EOF
