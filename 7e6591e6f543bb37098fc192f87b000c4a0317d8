@@ -15,3 +15,5 @@
 ./zoxide/install.sh 1675597485.0761952 1 os=ubuntu-20.04
 
 ./fzf/install.sh 1675597486.3279762 1 os=ubuntu-20.04
+
+./colors/install.sh 1675597487.7245932 1 os=ubuntu-20.04
