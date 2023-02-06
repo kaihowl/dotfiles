@@ -37,3 +37,5 @@
 ./homebrew/install.sh 1675697266.5408633 0 os=ubuntu-20.04
 
 ./cmake/install.sh 1675697283.1702633 17 os=ubuntu-20.04
+
+./tmux/install.sh 1675697283.8558717 0 os=ubuntu-20.04
