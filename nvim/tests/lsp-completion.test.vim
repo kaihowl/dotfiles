@@ -1,6 +1,5 @@
 lua << EOF
 function _G.has_complete_with_starting_text(text)
-  vim.cmd("redraw")
   for key, value in pairs(require('cmp').get_entries()) do
     if vim.startswith(value.completion_item.label, text) then
       return true
@@ -14,7 +13,7 @@ EOF
 function Check(id)
   " TODO(kaihowl) make expectation configurable
   let has_desired_completion = wait(2000, "luaeval('has_complete_with_starting_text(_A)', 'writeln!')")
-  " silent echoerr 'has_desired_completion: ' . has_desired_completion
+  silent echoerr 'has_desired_completion: ' . has_desired_completion
   " Make sure that all pending feedkeys are ended
   call feedkeys("\<esc>", 't')
   if has_desired_completion == 0
@@ -31,10 +30,10 @@ endfunction
 
 function FeedIt(complete_chars)
   call timer_start(500, funcref('Check'))
-  " silent echoerr 'Feeding keys'
+  silent echoerr 'Feeding keys'
   " Get completion for a unique word that can only be sourced from LSP
-  call feedkeys('O'.a:complete_chars, 'tx!')
-  " call feedkeys('O'.a:complete_chars."\<c-x>\<c-o>", 'tx!')
+  " call feedkeys('O'.a:complete_chars, 'tx!')
+  call feedkeys('O'.a:complete_chars."\<c-x>\<c-o>", 'tx!')
 endfunction
 
 function ProtoTest(filename, complete_chars, init_timeout_seconds)
