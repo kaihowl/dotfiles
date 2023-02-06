@@ -12,8 +12,8 @@ EOF
 function Log_pum_visible(id)
   set cmdheight=10
   set showmode
-  silent echoerr 'pum_visible ' . get(complete_info(), 'pum_visible', 'default')
-  silent echoerr 'cmp.visible ' . luaeval("require('cmp').visible()")
+  " silent echoerr 'pum_visible ' . get(complete_info(), 'pum_visible', 'default')
+  " silent echoerr 'cmp.visible ' . luaeval("require('cmp').visible()")
   " echom 'iterms ' . string(get(complete_info(), 'items', []))
   " echom 'pumvisible ' . pumvisible()
   " silent let stuff = luaeval("vim.inspect(vim.tbl_keys(require('cmp').get_entries()[0]))")

@@ -1,46 +1,31 @@
 lua << EOF
-function _G.comp_visible()
-  vim.cmd('redraw')
-  return require('cmp').visible()
-end
-
 function _G.has_complete_with_starting_text(text)
-  local log_file_path = '/tmp/vim.log'
-  local log_file = io.open(log_file_path, "a")
-  io.output(log_file)
+  vim.cmd("redraw")
   for key, value in pairs(require('cmp').get_entries()) do
-    vim.notify(value.completion_item.label)
-    io.write(value.completion_item.label.."\n")
     if vim.startswith(value.completion_item.label, text) then
-      io.close(log_file)
       return true
     end
   end
-  io.close(log_file)
   return false
 end
 EOF
 
 " Test completion with omni-complete and LSP
 function Check(id)
-  let complete_visible = wait(500, "luaeval('comp_visible()')")
   " TODO(kaihowl) make expectation configurable
-  let has_desired_completion = luaeval('has_complete_with_starting_text(_A)', 'writeln!')
-  silent echoerr 'complete_visible: ' . complete_visible
-  silent echoerr 'has_desired_completion: ' . has_desired_completion
-  call feedkeys("\<esc>")
-  if complete_visible == 0
-    if has_desired_completion
-      silent echoerr 'Setting test result'
-      let g:test_result = v:true
-    endif
+  let has_desired_completion = wait(2000, "luaeval('has_complete_with_starting_text(_A)', 'writeln!')")
+  " silent echoerr 'has_desired_completion: ' . has_desired_completion
+  " Make sure that all pending feedkeys are ended
+  call feedkeys("\<esc>", 't')
+  if has_desired_completion == 0
+    silent echoerr 'Setting test result'
+    let g:test_result = v:true
     silent echoerr 'Setting test state'
     let g:test_done = v:true
-    " Make sure that all pending feedkeys are ended
   else
-    silent echoerr 'rerun'
-    call timer_start(500, funcref('Check'))
-    call feedkeys("A\<c-x>\<c-o>", 'tx!')
+    " silent echoerr 'rerun'
+    call timer_start(1000, funcref('Check'))
+    call feedkeys("A \<bs>", 'tx!')
   endif
 endfunction
 
