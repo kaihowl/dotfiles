@@ -35,3 +35,5 @@
 ./ripgrep/install.sh 1675753555.0838776 1 os=ubuntu-22.04
 
 ./pyls/install.sh 1675753563.5149112 8 os=ubuntu-22.04
+
+./fzf/install.sh 1675753565.5545495 2 os=ubuntu-22.04
