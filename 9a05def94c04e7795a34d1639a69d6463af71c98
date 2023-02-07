@@ -35,3 +35,5 @@
 ./rust/install.sh 1675753597.7018013 22 os=ubuntu-20.04
 
 ./homebrew/install.sh 1675753597.8244295 0 os=ubuntu-20.04
+
+./cmake/install.sh 1675753614.12227 17 os=ubuntu-20.04
