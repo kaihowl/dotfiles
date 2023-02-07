@@ -17,3 +17,5 @@
 ./fzf/install.sh 1675753025.1740544 2 os=ubuntu-20.04
 
 ./colors/install.sh 1675753026.5575478 1 os=ubuntu-20.04
+
+./ctags/install.sh 1675753034.064952 7 os=ubuntu-20.04
