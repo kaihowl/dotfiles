@@ -31,3 +31,5 @@
 ./alacritty/install.sh 1675753067.3968954 11 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1675753067.9024184 0 os=ubuntu-20.04
+
+./rust/install.sh 1675753087.5386984 20 os=ubuntu-20.04
