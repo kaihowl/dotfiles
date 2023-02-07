@@ -17,3 +17,5 @@
 ./ninja/install.sh 1675751997.9303088 4 os=ubuntu-22.04
 
 ./homebrew/install.sh 1675751998.044656 0 os=ubuntu-22.04
+
+./vint/install.sh 1675752006.2590182 8 os=ubuntu-22.04
