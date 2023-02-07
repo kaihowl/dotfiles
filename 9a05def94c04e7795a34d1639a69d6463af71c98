@@ -25,3 +25,5 @@
 ./efm/install.sh 1675753543.5833006 0 os=ubuntu-20.04
 
 ./ninja/install.sh 1675753551.6743348 8 os=ubuntu-20.04
+
+./ccache/install.sh 1675753560.5110426 9 os=ubuntu-20.04
