@@ -23,3 +23,5 @@
 ./clangd/install.sh 1675753526.997851 10 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1675753528.0935044 0 os=ubuntu-22.04
+
+./efm/install.sh 1675753529.3053458 1 os=ubuntu-22.04
