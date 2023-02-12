@@ -32,10 +32,11 @@ function Check(id)
 endfunction
 
 function Redraw(id)
-  silent! redraw!
+  redraw!
   call feedkeys("\<esc>")
-  call timer_start(500, funcref('Redraw'))
-  call feedkeys("i\<tab>", 'tx!')
+  call feedkeys("A\<tab>", 't')
+  call timer_start(2000, funcref('Redraw'))
+  " call feedkeys("i\<tab>", 'tx!')
 endfunction
 
 function FeedIt(complete_chars)
@@ -45,7 +46,7 @@ function FeedIt(complete_chars)
   call timer_start(500, funcref('Redraw'))
   " Get completion for a unique word that can only be sourced from LSP
   " call feedkeys('O'.a:complete_chars, 'tx!')
-  call feedkeys('O'.a:complete_chars."\<c-x>\<c-o>", 'tx!')
+  call feedkeys('O'.a:complete_chars, 'tx!')
 endfunction
 
 function ProtoTest(filename, complete_chars, init_timeout_seconds)
