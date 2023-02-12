@@ -1,5 +1,7 @@
 lua << EOF
 function _G.has_complete_with_starting_text(text)
+  vim.cmd("silent echoerr 'hello'")
+  vim.cmd("redraw!")
   for key, value in pairs(require('cmp').get_entries()) do
     if vim.startswith(value.completion_item.label, text) then
       return true
@@ -12,7 +14,8 @@ EOF
 " Test completion with omni-complete and LSP
 function Check(id)
   " TODO(kaihowl) make expectation configurable
-  let has_desired_completion = wait(2000, "luaeval('has_complete_with_starting_text(_A)', 'writeln!')")
+  redraw!
+  let has_desired_completion = wait(500, "luaeval('has_complete_with_starting_text(_A)', 'writeln!')")
   silent echoerr 'has_desired_completion: ' . has_desired_completion
   " Make sure that all pending feedkeys are ended
   call feedkeys("\<esc>", 't')
@@ -22,15 +25,16 @@ function Check(id)
     silent echoerr 'Setting test state'
     let g:test_done = v:true
   else
-    " silent echoerr 'rerun'
-    call timer_start(1000, funcref('Check'))
-    call feedkeys("A \<bs>", 'tx!')
+    silent echoerr 'rerun'
+    call FeedIt(" \<bs>")
   endif
 endfunction
 
 function FeedIt(complete_chars)
   call timer_start(500, funcref('Check'))
-  silent echoerr 'Feeding keys'
+  echomsg 'Feeding keys'
+  " silent echoerr 'Feeding keys'
+  redraw!
   " Get completion for a unique word that can only be sourced from LSP
   " call feedkeys('O'.a:complete_chars, 'tx!')
   call feedkeys('O'.a:complete_chars."\<c-x>\<c-o>", 'tx!')
@@ -64,6 +68,7 @@ function ProtoTest(filename, complete_chars, init_timeout_seconds)
 endfunction
 
 function Test()
+  set cmdheight=10
   let tests = {
         \'test-rustanalyzer/src/main.rs': {
           \'complete_chars': 'write',
