@@ -33,3 +33,5 @@
 ./shellcheck/install.sh 1676270874.3634675 1 os=ubuntu-20.04
 
 ./rust/install.sh 1676270897.5509665 23 os=ubuntu-20.04
+
+./homebrew/install.sh 1676270897.6623917 0 os=ubuntu-20.04
