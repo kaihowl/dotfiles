@@ -21,3 +21,5 @@
 ./vint/install.sh 1676272245.700057 9 os=ubuntu-22.04
 
 ./clangd/install.sh 1676272256.951005 11 os=ubuntu-22.04
+
+./shellcheck/install.sh 1676272258.0951478 1 os=ubuntu-22.04
