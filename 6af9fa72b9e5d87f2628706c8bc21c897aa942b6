@@ -45,3 +45,5 @@
 ./virtualenvwrapper/install.sh 1676270932.0237179 10 os=ubuntu-20.04
 
 install 1676270932.1282206 196 os=ubuntu-20.04
+
+test 1676270994.6470504 60 os=ubuntu-20.04
