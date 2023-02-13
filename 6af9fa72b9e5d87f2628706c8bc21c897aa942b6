@@ -21,3 +21,5 @@
 ./ctags/install.sh 1676270840.5900164 7 os=ubuntu-20.04
 
 ./system/install.sh 1676270848.0834022 7 os=ubuntu-20.04
+
+./efm/install.sh 1676270848.7492652 0 os=ubuntu-20.04
