@@ -134,7 +134,8 @@ Plug 'tpope/vim-abolish'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'bronson/vim-trailing-whitespace'
+" TODO(hoewelmk) #531 workaround
+Plug 'bronson/vim-trailing-whitespace', { 'tag': '9071740' }
 
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
