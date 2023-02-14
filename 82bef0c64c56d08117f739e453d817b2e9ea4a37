@@ -7,3 +7,5 @@
 ./ripgrep/install.sh 1676383773.7520337 5 os=ubuntu-20.04
 
 ./git/install.sh 1676383781.6885352 8 os=ubuntu-20.04
+
+./gdb/install.sh 1676383804.6656902 23 os=ubuntu-20.04
