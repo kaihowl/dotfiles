@@ -31,3 +31,5 @@
 ./nvim/install.sh 1676383834.5596986 11 os=ubuntu-22.04
 
 ./zoxide/install.sh 1676383835.6407108 1 os=ubuntu-22.04
+
+./ripgrep/install.sh 1676383837.520473 2 os=ubuntu-22.04
