@@ -41,3 +41,5 @@
 ./colors/install.sh 1676815124.8071291 1 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1676815131.102862 7 os=ubuntu-20.04
+
+./tmux/install.sh 1676815131.6607087 0 os=ubuntu-20.04
