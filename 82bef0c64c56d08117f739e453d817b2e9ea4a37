@@ -7,3 +7,5 @@
 ./clangd/install.sh 1676807040.6826806 11 os=ubuntu-22.04
 
 ./colors/install.sh 1676807041.939421 1 os=ubuntu-22.04
+
+./pyls/install.sh 1676807054.074622 12 os=ubuntu-22.04
