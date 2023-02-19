@@ -27,3 +27,5 @@
 ./alacritty/install.sh 1676815100.9541123 9 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1676815109.3536978 9 os=ubuntu-22.04
+
+./ninja/install.sh 1676815113.2830105 4 os=ubuntu-22.04
