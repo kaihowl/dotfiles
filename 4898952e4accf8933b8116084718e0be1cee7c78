@@ -21,3 +21,5 @@
 ./ctags/install.sh 1676815044.8639932 3 os=ubuntu-20.04
 
 ./ccache/install.sh 1676815048.6130466 4 os=ubuntu-20.04
+
+./nvim/install.sh 1676815058.4545374 10 os=ubuntu-20.04
