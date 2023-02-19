@@ -31,3 +31,5 @@
 ./homebrew/install.sh 1676815091.7453423 0 os=ubuntu-20.04
 
 ./ninja/install.sh 1676815095.671576 4 os=ubuntu-20.04
+
+./git/install.sh 1676815102.0392494 6 os=ubuntu-20.04
