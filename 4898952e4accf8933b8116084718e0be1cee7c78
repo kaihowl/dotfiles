@@ -33,3 +33,5 @@
 ./ctags/install.sh 1676815117.035383 3 os=ubuntu-22.04
 
 ./zoxide/install.sh 1676815118.0788102 0 os=ubuntu-22.04
+
+./git/install.sh 1676815125.639923 7 os=ubuntu-22.04
