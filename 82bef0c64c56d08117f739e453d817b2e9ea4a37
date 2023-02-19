@@ -25,3 +25,5 @@
 ./nvim/install.sh 1676807092.4912572 11 os=ubuntu-20.04
 
 ./cmake/install.sh 1676807102.303536 10 os=ubuntu-20.04
+
+./rust/install.sh 1676807125.4959545 23 os=ubuntu-20.04
