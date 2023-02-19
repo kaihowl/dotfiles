@@ -13,3 +13,5 @@
 ./gdb/install.sh 1676815037.1508522 11 os=ubuntu-22.04
 
 ./ccache/install.sh 1676815040.6773908 3 os=ubuntu-22.04
+
+./fzf/install.sh 1676815042.020735 1 os=ubuntu-22.04
