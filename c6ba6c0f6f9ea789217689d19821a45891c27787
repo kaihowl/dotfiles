@@ -15,3 +15,5 @@
 ./ccache/install.sh 1676815680.1164155 4 os=ubuntu-22.04
 
 ./fzf/install.sh 1676815681.498448 1 os=ubuntu-22.04
+
+./nvim/install.sh 1676815691.4071534 10 os=ubuntu-22.04
