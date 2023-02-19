@@ -3,3 +3,5 @@
 ./ripgrep/install.sh 1676807039.9608803 2 os=ubuntu-20.04
 
 ./pyls/install.sh 1676807051.422771 12 os=ubuntu-20.04
+
+./zoxide/install.sh 1676807053.1165714 2 os=ubuntu-20.04
