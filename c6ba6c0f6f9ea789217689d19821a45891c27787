@@ -19,3 +19,5 @@
 ./fzf/install.sh 1676815675.5011823 1 os=ubuntu-20.04
 
 ./ctags/install.sh 1676815679.3154283 4 os=ubuntu-20.04
+
+./ccache/install.sh 1676815683.4202557 4 os=ubuntu-20.04
