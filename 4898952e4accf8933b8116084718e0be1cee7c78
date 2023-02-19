@@ -31,3 +31,5 @@
 ./ninja/install.sh 1676815113.2830105 4 os=ubuntu-22.04
 
 ./ctags/install.sh 1676815117.035383 3 os=ubuntu-22.04
+
+./zoxide/install.sh 1676815118.0788102 0 os=ubuntu-22.04
