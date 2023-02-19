@@ -3,3 +3,5 @@
 ./tmux/install.sh 1676814998.955191 0 os=ubuntu-22.04
 
 ./efm/install.sh 1676814999.6730042 1 os=ubuntu-22.04
+
+./clangd/install.sh 1676815012.6423707 13 os=ubuntu-22.04
