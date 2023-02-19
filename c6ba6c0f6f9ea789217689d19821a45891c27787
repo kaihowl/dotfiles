@@ -17,3 +17,5 @@
 ./fzf/install.sh 1676815681.498448 1 os=ubuntu-22.04
 
 ./nvim/install.sh 1676815691.4071534 10 os=ubuntu-22.04
+
+./vint/install.sh 1676815696.227603 5 os=ubuntu-22.04
