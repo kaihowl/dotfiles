@@ -29,3 +29,5 @@
 ./rust/install.sh 1676815722.2745907 21 os=ubuntu-20.04
 
 ./homebrew/install.sh 1676815722.3870113 0 os=ubuntu-20.04
+
+./ninja/install.sh 1676815726.5548291 4 os=ubuntu-20.04
