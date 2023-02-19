@@ -21,3 +21,5 @@
 ./vint/install.sh 1676807085.9088135 5 os=ubuntu-22.04
 
 ./cmake/install.sh 1676807094.6096385 9 os=ubuntu-22.04
+
+./rust/install.sh 1676807116.9772635 22 os=ubuntu-22.04
