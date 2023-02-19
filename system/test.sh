@@ -1,8 +1,11 @@
 #!/bin/zsh -i
 set -ex
 
-echo "Check if ncdu is available"
-which ncdu
+source "$DOTS/common/utilities.sh"
+if [ "$(uname)" != "Darwin" ] || ! version_less_than "$(darwin_version)" 11.0.0 ; then
+  echo "Check if ncdu is available"
+  which ncdu
+fi
 
 echo "Check if tree is available"
 which tree

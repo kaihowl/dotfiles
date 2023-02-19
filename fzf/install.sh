@@ -10,7 +10,12 @@ fi
 
 if [ "$(uname)" == "Darwin" ]; then
   source "$DOTS/common/brew.sh"
-  brew_install curl wget
+  if ! which curl > /dev/null; then
+    brew_install curl
+  fi
+  if ! which wget > /dev/null; then
+    brew_install wget
+  fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "$DOTS/common/apt.sh"
   apt_install wget curl git
