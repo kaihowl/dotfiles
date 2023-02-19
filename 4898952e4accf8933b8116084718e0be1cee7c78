@@ -9,3 +9,5 @@
 ./shellcheck/install.sh 1676815019.8362935 0 os=ubuntu-20.04
 
 ./system/install.sh 1676815023.8405437 4 os=ubuntu-20.04
+
+./vint/install.sh 1676815028.1435285 5 os=ubuntu-20.04
