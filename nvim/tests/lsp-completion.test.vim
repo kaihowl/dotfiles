@@ -12,9 +12,7 @@ EOF
 " Test completion with omni-complete and LSP
 function Check(id)
   " TODO(kaihowl) make expectation configurable
-  silent! redraw!
-  call wait(1000, "luaeval('require(\"cmp\").visible()')")
-  let has_desired_completion = luaeval('has_complete_with_starting_text(_A)', 'writeln!')
+  let has_desired_completion = luaeval('has_complete_with_starting_text(_A)', 'inline')
   echomsg 'has_desired_completion: ' . has_desired_completion
   if has_desired_completion == v:true
     silent echomsg 'Setting test result'
@@ -24,32 +22,42 @@ function Check(id)
     " Make sure that all pending feedkeys are ended
     call feedkeys("\<esc>")
     let g:test_done = v:true
-  else
-    echomsg 'Retrying'
-    call timer_start(1000, funcref('Check'))
-    call feedkeys("\<tab>", 'tx!')
   endif
 endfunction
 
+lua <<EOF
+function _G.completion_callback(window)
+  if has_complete_with_starting_text("inl") then
+    print("Hello from check")
+    vim.cmd('let g:test_result = v:true')
+    vim.cmd('let g:test_done = v:true')
+  end
+end
+
+function _G.setup_completion_callback()
+  require 'cmp'.event:on('menu_opened', completion_callback)
+end
+EOF
+
 function Redraw(id)
   redraw!
-  call feedkeys("\<esc>")
-  call feedkeys("A\<tab>", 't')
-  call timer_start(2000, funcref('Redraw'))
-  " call feedkeys("i\<tab>", 'tx!')
+  call feedkeys("\<esc>", 't')
+  call timer_start(50, { -> execute('redraw') })
+  call timer_start(3000, funcref('Redraw'))
+  call feedkeys("A\<tab>", 'tx!')
+  silent redraw!
 endfunction
 
 function FeedIt(complete_chars)
   echomsg 'Feeding keys'
   silent! redraw!
-  " call timer_start(500, funcref('Check'))
   call timer_start(500, funcref('Redraw'))
-  " Get completion for a unique word that can only be sourced from LSP
-  " call feedkeys('O'.a:complete_chars, 'tx!')
   call feedkeys('O'.a:complete_chars, 'tx!')
 endfunction
 
 function ProtoTest(filename, complete_chars, init_timeout_seconds)
+  lua setup_completion_callback()
+
   let g:test_result = v:false
   let g:test_done = v:false
 
@@ -79,8 +87,8 @@ endfunction
 function Test()
   set cmdheight=10
   let tests = {
-        \'test-rustanalyzer/src/main.rs': {
-          \'complete_chars': 'write',
+        \'test.cpp': {
+          \'complete_chars': 'inl',
           \'init_timeout_seconds': 30,
           \},
         \}
@@ -88,8 +96,10 @@ function Test()
     if !ProtoTest(filename, test_data['complete_chars'], get(test_data, 'init_timeout_seconds', 20))
       echomsg 'Test failed for ' . filename
       mess
+      cquit!
     else
       echomsg 'Test successful for ' . filename
     endif
   endfor
+  qall!
 endfunction
