@@ -25,3 +25,5 @@
 ./rust/install.sh 1676815091.2442777 24 os=ubuntu-22.04
 
 ./alacritty/install.sh 1676815100.9541123 9 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1676815109.3536978 9 os=ubuntu-22.04
