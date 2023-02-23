@@ -1,1 +1,3 @@
 ./zsh/install.sh 1677163797.079715 17 os=ubuntu-20.04
+
+./ripgrep/install.sh 1677163799.198611 2 os=ubuntu-20.04
