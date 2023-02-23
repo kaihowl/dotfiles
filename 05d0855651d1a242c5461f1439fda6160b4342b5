@@ -35,3 +35,5 @@
 ./zoxide/install.sh 1677163956.678168 1 os=ubuntu-22.04
 
 ./git/install.sh 1677163965.434563 9 os=ubuntu-22.04
+
+./system/install.sh 1677163969.7747192 4 os=ubuntu-22.04
