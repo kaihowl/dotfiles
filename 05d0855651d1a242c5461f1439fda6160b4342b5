@@ -11,3 +11,5 @@
 ./pyls/install.sh 1677163852.529711 15 os=ubuntu-22.04
 
 ./gdb/install.sh 1677163865.4415863 13 os=ubuntu-22.04
+
+./ccache/install.sh 1677163869.6732097 4 os=ubuntu-22.04
