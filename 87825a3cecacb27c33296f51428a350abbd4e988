@@ -29,3 +29,5 @@
 ./virtualenvwrapper/install.sh 1677164573.473304 6 os=ubuntu-22.04
 
 ./ninja/install.sh 1677164576.9766662 3 os=ubuntu-22.04
+
+./ctags/install.sh 1677164581.2068224 5 os=ubuntu-22.04
