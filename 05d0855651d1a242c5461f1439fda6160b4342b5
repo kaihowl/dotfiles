@@ -19,3 +19,5 @@
 ./nvim/install.sh 1677163886.7438612 14 os=ubuntu-22.04
 
 ./vint/install.sh 1677163892.961083 6 os=ubuntu-22.04
+
+./cmake/install.sh 1677163904.7625368 12 os=ubuntu-22.04
