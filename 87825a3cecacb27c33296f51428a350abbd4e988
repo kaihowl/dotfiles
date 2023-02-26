@@ -11,3 +11,5 @@
 ./system/install.sh 1677411879.7090201 6 os=ubuntu-20.04
 
 ./vint/install.sh 1677411885.4495378 6 os=ubuntu-20.04
+
+./efm/install.sh 1677411885.92553 0 os=ubuntu-20.04
