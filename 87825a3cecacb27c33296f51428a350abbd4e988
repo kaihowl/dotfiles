@@ -43,3 +43,5 @@
 ./shellcheck/install.sh 1677411993.2322357 2 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1677411995.224209 2 os=ubuntu-22.04
+
+install 1677411995.3611002 182 os=ubuntu-22.04
