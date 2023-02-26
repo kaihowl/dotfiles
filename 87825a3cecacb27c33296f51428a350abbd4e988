@@ -23,3 +23,5 @@
 ./ccache/install.sh 1677411912.5042233 6 os=ubuntu-20.04
 
 ./nvim/install.sh 1677411925.1400018 13 os=ubuntu-20.04
+
+./cmake/install.sh 1677411938.8893538 13 os=ubuntu-20.04
