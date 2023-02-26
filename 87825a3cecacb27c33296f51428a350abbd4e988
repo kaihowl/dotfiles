@@ -17,3 +17,5 @@
 ./gdb/install.sh 1677411898.6431916 13 os=ubuntu-20.04
 
 ./fzf/install.sh 1677411900.782262 2 os=ubuntu-20.04
+
+./ctags/install.sh 1677411906.8181708 6 os=ubuntu-20.04
