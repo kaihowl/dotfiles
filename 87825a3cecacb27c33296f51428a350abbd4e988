@@ -9,3 +9,5 @@
 ./gdb/install.sh 1677411899.050896 0 os=macos-11
 
 ./clangd/install.sh 1677411902.155968 2 os=macos-11
+
+./cmake/install.sh 1677411904.512 2 os=macos-11
