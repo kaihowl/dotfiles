@@ -7,3 +7,5 @@
 ./zoxide/install.sh 1677411872.4544115 2 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1677411873.3108473 1 os=ubuntu-20.04
+
+./system/install.sh 1677411879.7090201 6 os=ubuntu-20.04
