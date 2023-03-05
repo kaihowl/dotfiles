@@ -23,3 +23,5 @@
 ./cmake/install.sh 1678016730.7866611 13 os=ubuntu-22.04
 
 ./rust/install.sh 1678016754.7933369 24 os=ubuntu-22.04
+
+./alacritty/install.sh 1678016767.074041 12 os=ubuntu-22.04
