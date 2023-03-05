@@ -33,3 +33,5 @@
 ./ninja/install.sh 1678016732.7066271 4 os=ubuntu-20.04
 
 ./git/install.sh 1678016739.4010894 7 os=ubuntu-20.04
+
+./alacritty/install.sh 1678016748.573743 9 os=ubuntu-20.04
