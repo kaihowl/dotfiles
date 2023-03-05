@@ -39,3 +39,5 @@
 ./clangd/install.sh 1678016760.8034465 12 os=ubuntu-20.04
 
 ./colors/install.sh 1678016762.1603792 2 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1678016768.4273312 6 os=ubuntu-20.04
