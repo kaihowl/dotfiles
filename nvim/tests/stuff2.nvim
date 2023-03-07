@@ -16,7 +16,7 @@ EOF
 lua <<EOF
 function _G.completion_callback(window)
   vim.cmd('echomsg "complete shown"')
-  if has_complete_with_starting_text("inl") then
+  if has_complete_with_starting_text("writeln") then
     vim.cmd('echomsg "done done"')
     vim.cmd('let g:test_result = v:true')
     vim.cmd('let g:test_done = v:true')
@@ -30,11 +30,12 @@ end
 EOF
 
 lua setup_completion_callback()
+lua vim.lsp.set_log_level("debug")
 
 let g:test_result = v:false
 let g:test_done = v:false
 
-noswap edit test.cpp
+noswap edit test-rustanalyzer/src/main.rs
 " Wait until the LSP server / client has established connection.
 let lsp_init =  wait(20000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
 " silent echomsg 'lsp_init: ' . lsp_init
@@ -44,9 +45,15 @@ if lsp_init != 0
     silent echomsg line
   endfor
 endif
-" For some reason necessary?
-call feedkeys("A", "tx")
-call feedkeys("Ain\<tab>", "tx!")
+" Type half-baked input to trigger diagnostics, which we use to determine (in a portable way) if the LSP server is ready
+call feedkeys("owrit", "tx")
+
+let wait_for_diagnostic =  wait(20000, 'luaeval("#vim.diagnostic.get()") != 0')
+if wait_for_diagnostic != 0
+  silent echomsg "Server was not ready in time"
+endif
+call feedkeys("A\<tab>", "tx!")
+
 
 if !g:test_done || !g:test_result
   :cquit!
