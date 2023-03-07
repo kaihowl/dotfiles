@@ -44,14 +44,10 @@ if lsp_init != 0
     silent echomsg line
   endfor
 endif
-call timer_start(1000,  {-> execute("redraw!")})
-call timer_start(2000,  {-> execute("redraw!")})
-call timer_start(3000,  {-> execute("redraw!")})
-call timer_start(4000,  {-> execute("redraw!")})
 call feedkeys("iin", "tx")
 call feedkeys("A\<tab>", "tx!")
 
 if !g:test_done || !g:test_result
   :cquit!
 endif
-:qall!
+":qall!
