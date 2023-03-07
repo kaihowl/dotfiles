@@ -1,0 +1,41 @@
+lua << EOF
+function _G.has_complete_with_starting_text(text)
+  vim.notify("text: " .. text)
+  for key, value in pairs(require('cmp').get_entries()) do
+    vim.notify(value.completion_item.label)
+    if vim.startswith(vim.trim(value.completion_item.label), text) then
+      vim.notify("return true")
+      return true
+    end
+  end
+  vim.notify("return false")
+  return false
+end
+EOF
+
+lua <<EOF
+function _G.completion_callback(window)
+  vim.cmd('echomsg "complete shown"')
+  if has_complete_with_starting_text("inl") then
+    vim.cmd('echomsg "done done"')
+    vim.cmd('let g:test_result = v:true')
+    vim.cmd('let g:test_done = v:true')
+  end
+end
+
+function _G.setup_completion_callback()
+  require 'cmp'.event:on('menu_opened', completion_callback)
+end
+EOF
+
+lua setup_completion_callback()
+
+noswap edit test.cpp
+sleep 5
+call timer_start(1000,  {-> execute("redraw!")})
+call timer_start(2000,  {-> execute("redraw!")})
+call timer_start(3000,  {-> execute("redraw!")})
+call timer_start(4000,  {-> execute("redraw!")})
+call timer_start(5000,  {-> execute("call feedkeys(\"\\<esc>\")")})
+call feedkeys("iin", "tx")
+call feedkeys("A\<tab>", "tx!")

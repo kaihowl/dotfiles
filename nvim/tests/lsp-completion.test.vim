@@ -31,6 +31,7 @@ function _G.completion_callback(window)
     print("Hello from check")
     vim.cmd('let g:test_result = v:true')
     vim.cmd('let g:test_done = v:true')
+    vim.cmd('call feedkeys("\\<esc>")')
   end
 end
 
@@ -40,19 +41,10 @@ end
 EOF
 
 function Redraw(id)
-  redraw!
-  call feedkeys("\<esc>", 't')
-  call timer_start(50, { -> execute('redraw') })
-  call timer_start(3000, funcref('Redraw'))
-  call feedkeys("A\<tab>", 'tx!')
-  silent redraw!
 endfunction
 
 function FeedIt(complete_chars)
   echomsg 'Feeding keys'
-  silent! redraw!
-  call timer_start(500, funcref('Redraw'))
-  call feedkeys('O'.a:complete_chars, 'tx!')
 endfunction
 
 function ProtoTest(filename, complete_chars, init_timeout_seconds)
@@ -77,7 +69,8 @@ function ProtoTest(filename, complete_chars, init_timeout_seconds)
 
   " Make sure the function returns and does not wait for the end of the insert
   " mode instead
-  call timer_start(50, {-> execute('call FeedIt("'.a:complete_chars.'")')})
+  call feedkeys('O'.a:complete_chars."\<tab>", 'tx!')
+  " Stalls till insert mode is left
   " echomsg 'Starting to wait'
   let test_wait = wait(20000, 'g:test_done')
   " silent echomsg 'test_wait: ' . test_wait
