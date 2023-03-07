@@ -31,7 +31,16 @@ EOF
 lua setup_completion_callback()
 
 noswap edit test.cpp
-sleep 5
+" Wait until the LSP server / client has established connection.
+let lsp_init =  wait(20000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
+" silent echomsg 'lsp_init: ' . lsp_init
+if lsp_init != 0
+  " silent echomsg 'Failed to establish LSP connection'
+  for line in readfile(luaeval('vim.lsp.get_log_path()'))[-20:]
+    " silent echomsg line
+  endfor
+  return v:false
+endif
 call timer_start(1000,  {-> execute("redraw!")})
 call timer_start(2000,  {-> execute("redraw!")})
 call timer_start(3000,  {-> execute("redraw!")})
