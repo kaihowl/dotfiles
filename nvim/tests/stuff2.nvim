@@ -44,10 +44,11 @@ if lsp_init != 0
     silent echomsg line
   endfor
 endif
-call feedkeys("iin", "tx")
-call feedkeys("A\<tab>", "tx!")
+" For some reason necessary?
+call feedkeys("A", "tx")
+call feedkeys("Ain\<tab>", "tx!")
 
 if !g:test_done || !g:test_result
   :cquit!
 endif
-":qall!
+:qall!
