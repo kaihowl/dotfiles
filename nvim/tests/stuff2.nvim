@@ -31,6 +31,9 @@ EOF
 
 lua setup_completion_callback()
 
+let g:test_result = v:false
+let g:test_done = v:false
+
 noswap edit test.cpp
 " Wait until the LSP server / client has established connection.
 let lsp_init =  wait(20000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
@@ -48,3 +51,8 @@ call timer_start(3000,  {-> execute("redraw!")})
 call timer_start(4000,  {-> execute("redraw!")})
 call feedkeys("iin", "tx")
 call feedkeys("A\<tab>", "tx!")
+
+if !g:test_done || !g:test_result
+  :cquit!
+endif
+:qall!
