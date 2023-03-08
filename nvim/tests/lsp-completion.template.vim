@@ -52,6 +52,8 @@ function ProtoTest(filename, complete_chars, expected_completion)
   call v:lua.setup_completion_callback(a:expected_completion)
   echomsg 'Done setting up handler'
 
+  lua vim.lsp.set_log_level("debug")
+
   let g:test_result = v:false
   let g:test_done = v:false
 
