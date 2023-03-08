@@ -19,7 +19,6 @@ function _G.completion_callback(expected_completion)
     vim.notify('done done')
     vim.cmd('let g:test_result = v:true')
     vim.cmd('let g:test_done = v:true')
-    require
     vim.cmd('call feedkeys("\\<esc>")')
   end
 end
