@@ -25,4 +25,4 @@ chmod +x "${rustupinit}"
 # shellcheck disable=SC1091
 source "$HOME/.cargo/env"
 ln -sf "$(rustup which rust-analyzer)" "$HOME/.cargo/bin/"
-
+chmod +x "$HOME/.cargo/bin/rust-analyzer"
