@@ -37,3 +37,5 @@
 ./vint/install.sh 1678296000.633228 8 os=macos-11
 
 ./virtualenvwrapper/install.sh 1678296014.854917 14 os=macos-11
+
+./ripgrep/install.sh 1678296021.501885 7 os=macos-11
