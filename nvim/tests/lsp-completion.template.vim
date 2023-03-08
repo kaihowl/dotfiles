@@ -1,3 +1,22 @@
+" This file contains the harness for testing LSP in various langauges.
+" To maintain a clean environment, we spawn a complete new nvim instance and
+" source this harness instead of running multiple tests in the same nvim
+" instance. This is easier as for example the global completion_callback would
+" otherwise be appended for all tests with no supported way to reset
+" / unregister them.
+"
+" Overview:
+" - Open a non-existing file in the target language. For workspace-oriented
+"   langues, open an existing file in a committed, ready-made workspace.
+" - Insert the first few characters of a completion that can only be emitted
+"   by LSP.
+" - As some language servers are not immediately ready after establishing
+"   a connection, wait for the diagnostics to appear that flag the
+"   half-inserted completion.
+" - Evoke a completion by pressing tab and stay in insert mode
+" - Once, the desired completion appears in the list of all completions, exit
+"   insert mode and declare success.
+
 lua << EOF
 function _G.has_complete_with_starting_text(text)
   vim.notify("text: " .. text)
@@ -32,8 +51,6 @@ function ProtoTest(filename, complete_chars, expected_completion)
   echomsg 'Setting up handler'
   call v:lua.setup_completion_callback(a:expected_completion)
   echomsg 'Done setting up handler'
-
-  messages
 
   let g:test_result = v:false
   let g:test_done = v:false
@@ -72,25 +89,14 @@ function ProtoTest(filename, complete_chars, expected_completion)
   return g:test_done && g:test_result
 endfunction
 
-function Test()
-  let tests = {
-        \'test.cpp': {
-          \'complete_chars': 'inl',
-          \'expected_completion': 'inline',
-          \},
-        \'test-rustanalyzer/src/main.rs': {
-          \'complete_chars': 'wri',
-          \'expected_completion': 'writeln',
-          \},
-        \}
-  for [filename, test_data] in items(tests)
-    if !ProtoTest(filename, test_data['complete_chars'], test_data['expected_completion'])
-      echomsg 'Test failed for ' . filename
-      mess
-      cquit!
-    else
-      echomsg 'Test successful for ' . filename
-    endif
-  endfor
+function FullTest(filename, complete_chars, expected_completion)
+  if !ProtoTest(a:filename, a:complete_chars, a:expected_completion)
+    echomsg 'Test failed for ' . a:filename
+    mess
+    cquit!
+  else
+    echomsg 'Test successful for ' . a:filename
+  endif
   qall!
 endfunction
+
