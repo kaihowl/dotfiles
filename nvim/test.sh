@@ -45,6 +45,8 @@ run_vim_test completion.test.vim
 run_vim_test editorconfig.test.vim
 run_vim_test lsp-completion-cpp.test.vim
 run_vim_test lsp-completion-python.test.vim
+# TODO(kaihowl) remove
+which rust-analyzer
 run_vim_test lsp-completion-rust.test.vim
 run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
