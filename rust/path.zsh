@@ -1,2 +1,1 @@
-# shellcheck disable=SC1091
-. "$HOME/.cargo/env"
+export PATH=~/.cargo/env:$PATH
