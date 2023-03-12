@@ -32,4 +32,4 @@ echo "Check if lnav is available"
 which lnav
 
 echo "Check if lnav is runnable"
-lnav --version
+lnav -V
