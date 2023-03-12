@@ -33,3 +33,5 @@
 ./fzf/install.sh 1678661504.6682572 2 os=ubuntu-22.04
 
 ./cmake/install.sh 1678661513.6799169 9 os=ubuntu-22.04
+
+./alacritty/install.sh 1678661522.5010705 9 os=ubuntu-22.04
