@@ -5,3 +5,5 @@
 ./system/install.sh 1678653910.8630345 4 os=ubuntu-22.04
 
 ./ninja/install.sh 1678653913.7946534 3 os=ubuntu-22.04
+
+./shellcheck/install.sh 1678653914.8353634 1 os=ubuntu-22.04
