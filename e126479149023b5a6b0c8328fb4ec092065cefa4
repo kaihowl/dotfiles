@@ -1,1 +1,3 @@
 ./zsh/install.sh 1678662876.1115766 17 os=ubuntu-20.04
+
+./gdb/install.sh 1678662885.297234 9 os=ubuntu-20.04
