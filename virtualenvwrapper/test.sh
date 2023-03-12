@@ -16,7 +16,8 @@ fi
 
 echo "Check if 'mkvirtualenv' is runnable"
 which mkvirtualenv
-if ! mkvirtualenv --version; then
+# Cannot use --version as that returns unclean by default.
+if ! mkvirtualenv --help; then
   echo "Failed to run mkvirtualenv"
   exit 1
 fi
