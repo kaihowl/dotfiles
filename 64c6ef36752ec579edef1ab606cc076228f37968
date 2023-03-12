@@ -9,3 +9,5 @@
 ./shellcheck/install.sh 1678660474.8356798 1 os=ubuntu-22.04
 
 ./vint/install.sh 1678660483.669274 9 os=ubuntu-22.04
+
+./homebrew/install.sh 1678660483.7832386 0 os=ubuntu-22.04
