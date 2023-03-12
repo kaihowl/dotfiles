@@ -21,3 +21,5 @@
 ./pyls/install.sh 1678652424.707255 9 os=ubuntu-22.04
 
 ./rust/install.sh 1678652446.6687343 22 os=ubuntu-22.04
+
+./clangd/install.sh 1678652458.2485015 12 os=ubuntu-22.04
