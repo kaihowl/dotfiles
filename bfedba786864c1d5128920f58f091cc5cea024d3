@@ -25,3 +25,5 @@
 ./clangd/install.sh 1678660027.7902503 10 os=ubuntu-22.04
 
 ./ctags/install.sh 1678660031.06317 3 os=ubuntu-22.04
+
+./zoxide/install.sh 1678660032.0217183 0 os=ubuntu-22.04
