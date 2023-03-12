@@ -37,3 +37,5 @@
 ./virtualenvwrapper/install.sh 1678660562.135067 7 os=ubuntu-20.04
 
 ./rust/install.sh 1678660578.6300652 16 os=ubuntu-20.04
+
+./clangd/install.sh 1678660591.5516222 13 os=ubuntu-20.04
