@@ -4,6 +4,9 @@ set -ex
 echo "Check if nvim is available"
 which nvim
 
+echo "Check if nvim is runnable"
+nvim --version
+
 echo "Check if vim alias is set"
 which vim
 
