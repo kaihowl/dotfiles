@@ -19,3 +19,5 @@
 ./ccache/install.sh 1678652429.2391253 4 os=ubuntu-20.04
 
 ./vint/install.sh 1678652438.5617886 9 os=ubuntu-20.04
+
+./homebrew/install.sh 1678652438.6762822 0 os=ubuntu-20.04
