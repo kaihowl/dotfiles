@@ -29,3 +29,5 @@
 ./nvim/install.sh 1678653555.9037037 9 os=ubuntu-20.04
 
 ./pyls/install.sh 1678653563.8139107 8 os=ubuntu-20.04
+
+./colors/install.sh 1678653565.23782 2 os=ubuntu-20.04
