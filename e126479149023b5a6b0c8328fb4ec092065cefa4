@@ -21,3 +21,5 @@
 ./vint/install.sh 1678662926.9913034 7 os=ubuntu-20.04
 
 ./homebrew/install.sh 1678662927.1029954 0 os=ubuntu-20.04
+
+./shellcheck/install.sh 1678662927.6813993 0 os=ubuntu-20.04
