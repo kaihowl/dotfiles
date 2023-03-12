@@ -11,3 +11,5 @@
 ./vint/install.sh 1678660275.062334 9 os=ubuntu-22.04
 
 ./homebrew/install.sh 1678660275.1822827 0 os=ubuntu-22.04
+
+./tmux/install.sh 1678660275.8837295 0 os=ubuntu-22.04
