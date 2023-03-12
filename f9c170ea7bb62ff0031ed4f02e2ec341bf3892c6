@@ -7,3 +7,5 @@
 ./git/install.sh 1678660277.7245493 6 os=ubuntu-20.04
 
 ./cmake/install.sh 1678660286.8093438 9 os=ubuntu-20.04
+
+./fzf/install.sh 1678660288.017768 1 os=ubuntu-20.04
