@@ -5,6 +5,9 @@ set -x
 echo "Check if zoxide is on path"
 which zoxide
 
+echo "Check if zoxide is runnable"
+zoxide --version
+
 echo "Check if zoxide is user-installed one"
 actual_path=$(realpath "$(which zoxide)")
 if [[ "${actual_path}" != $(realpath ~/.zoxide/)* ]]; then

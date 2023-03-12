@@ -4,6 +4,9 @@ set -ex
 echo "Check if git is installed"
 which git
 
+echo "Check if git is runnable"
+git --version
+
 echo "Ensure git is >= 2.34.0 to support ssh signing"
 git --version
 version=$(git --version 2>&1 | cut -d' ' -f3)

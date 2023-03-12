@@ -4,6 +4,9 @@ set -ex
 echo "Check if clangd is available"
 which clangd
 
+echo "Check if clangd is runnable"
+clangd --version
+
 echo "Check that clangd can be started"
 clangd --help > /dev/null
 
