@@ -1,1 +1,3 @@
 ./zsh/install.sh 1678660253.8734784 15 os=ubuntu-22.04
+
+./ccache/install.sh 1678660257.669752 4 os=ubuntu-22.04
