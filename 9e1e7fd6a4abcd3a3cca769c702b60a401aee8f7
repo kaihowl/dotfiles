@@ -23,3 +23,5 @@
 ./homebrew/install.sh 1678661034.2659583 0 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1678661035.043221 0 os=ubuntu-20.04
+
+./system/install.sh 1678661038.9067664 3 os=ubuntu-20.04
