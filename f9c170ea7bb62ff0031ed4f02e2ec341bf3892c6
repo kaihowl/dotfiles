@@ -17,3 +17,5 @@
 ./efm/install.sh 1678660277.0406528 1 os=ubuntu-22.04
 
 ./gdb/install.sh 1678660283.5254316 6 os=ubuntu-22.04
+
+./pyls/install.sh 1678660292.9513836 9 os=ubuntu-22.04
