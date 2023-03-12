@@ -41,3 +41,5 @@
 ./colors/install.sh 1678654009.8459978 1 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1678654011.494111 2 os=ubuntu-22.04
+
+./git/install.sh 1678654018.2648675 7 os=ubuntu-22.04
