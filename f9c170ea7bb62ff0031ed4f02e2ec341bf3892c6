@@ -1,3 +1,5 @@
 ./zsh/install.sh 1678660306.670753 30 os=macos-11
 
 ./ctags/install.sh 1678660320.625508 14 os=macos-11
+
+./alacritty/install.sh 1678660338.974463 18 os=macos-11
