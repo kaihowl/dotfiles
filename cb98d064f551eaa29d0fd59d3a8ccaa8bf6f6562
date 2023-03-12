@@ -27,3 +27,5 @@
 ./ctags/install.sh 1678653971.8515391 3 os=ubuntu-22.04
 
 ./zoxide/install.sh 1678653972.9448068 1 os=ubuntu-22.04
+
+./nvim/install.sh 1678653984.4076211 12 os=ubuntu-22.04
