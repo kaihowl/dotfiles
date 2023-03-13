@@ -31,3 +31,5 @@
 ./nvim/install.sh 1678710711.5731032 10 os=ubuntu-22.04
 
 ./fzf/install.sh 1678710712.85291 1 os=ubuntu-22.04
+
+./cmake/install.sh 1678710721.0332396 8 os=ubuntu-22.04
