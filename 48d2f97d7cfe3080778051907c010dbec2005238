@@ -27,3 +27,5 @@
 ./system/install.sh 1678710705.8833168 4 os=ubuntu-20.04
 
 ./nvim/install.sh 1678710715.9878695 10 os=ubuntu-20.04
+
+./pyls/install.sh 1678710723.4096792 7 os=ubuntu-20.04
