@@ -35,3 +35,5 @@
 ./cmake/install.sh 1678710721.0332396 8 os=ubuntu-22.04
 
 ./alacritty/install.sh 1678710729.1473782 8 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1678710734.0656931 4 os=ubuntu-22.04
