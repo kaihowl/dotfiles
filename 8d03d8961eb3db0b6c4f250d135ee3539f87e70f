@@ -37,3 +37,5 @@
 ./alacritty/install.sh 1678705887.8340125 8 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1678705893.6487546 6 os=ubuntu-22.04
+
+./colors/install.sh 1678705895.0221875 1 os=ubuntu-22.04
