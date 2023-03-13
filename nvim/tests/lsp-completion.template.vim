@@ -5,6 +5,8 @@
 " otherwise be appended for all tests with no supported way to reset
 " / unregister them.
 "
+" Loosely based on https://vimways.org/2019/a-test-to-attest-to/
+"
 " Overview:
 " - Open a non-existing file in the target language. For workspace-oriented
 "   langues, open an existing file in a committed, ready-made workspace.
