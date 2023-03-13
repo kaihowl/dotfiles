@@ -39,3 +39,5 @@
 ./virtualenvwrapper/install.sh 1678710734.0656931 4 os=ubuntu-22.04
 
 ./colors/install.sh 1678710735.3871245 1 os=ubuntu-22.04
+
+./ripgrep/install.sh 1678710736.9273565 1 os=ubuntu-22.04
