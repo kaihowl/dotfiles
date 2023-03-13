@@ -15,3 +15,5 @@
 ./tmux/install.sh 1678710655.1432147 1 os=ubuntu-22.04
 
 ./efm/install.sh 1678710655.688322 0 os=ubuntu-22.04
+
+./gdb/install.sh 1678710662.7854347 7 os=ubuntu-22.04
