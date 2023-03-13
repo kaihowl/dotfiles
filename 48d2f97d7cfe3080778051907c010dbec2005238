@@ -41,3 +41,5 @@
 ./clangd/install.sh 1678710777.5003123 11 os=ubuntu-20.04
 
 ./ninja/install.sh 1678710781.1238477 4 os=ubuntu-20.04
+
+./ripgrep/install.sh 1678710784.6494856 3 os=ubuntu-20.04
