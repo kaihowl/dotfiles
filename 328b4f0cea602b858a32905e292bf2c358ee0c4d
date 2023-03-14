@@ -13,3 +13,5 @@
 ./homebrew/install.sh 1678805765.1438372 0 os=ubuntu-22.04
 
 ./tmux/install.sh 1678805765.7215624 0 os=ubuntu-22.04
+
+./efm/install.sh 1678805766.3416417 1 os=ubuntu-22.04
