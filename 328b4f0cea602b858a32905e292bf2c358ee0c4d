@@ -7,3 +7,5 @@
 ./ninja/install.sh 1678805755.453694 4 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1678805756.1324196 1 os=ubuntu-22.04
+
+./vint/install.sh 1678805765.019348 8 os=ubuntu-22.04
