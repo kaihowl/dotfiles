@@ -29,3 +29,5 @@
 ./zoxide/install.sh 1678806547.8553944 1 os=ubuntu-22.04
 
 ./nvim/install.sh 1678806560.440205 13 os=ubuntu-22.04
+
+./fzf/install.sh 1678806562.4191024 2 os=ubuntu-22.04
