@@ -154,8 +154,7 @@ Plug 'kaiuri/nvim-juliana'
 Plug 'tommcdo/vim-fubitive' " Bitbucket
 Plug 'tpope/vim-rhubarb' " Github
 
-" TODO(kaihowl) #538 workaround
-Plug 'editorconfig/editorconfig-vim', { 'tag': '1d54632' }
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tomtom/tcomment_vim'
 
