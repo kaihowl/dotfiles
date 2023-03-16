@@ -27,3 +27,5 @@
 ./ripgrep/install.sh 1678960045.3954482 2 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1678960054.479435 9 os=ubuntu-22.04
+
+./cmake/install.sh 1678960067.1966202 13 os=ubuntu-22.04
