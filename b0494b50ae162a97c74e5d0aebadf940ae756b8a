@@ -1,3 +1,5 @@
 ./zsh/install.sh 1678963109.1013653 23 os=ubuntu-22.04
 
 ./fzf/install.sh 1678963110.7082803 1 os=ubuntu-22.04
+
+./ninja/install.sh 1678963113.4554746 3 os=ubuntu-22.04
