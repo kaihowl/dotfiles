@@ -23,3 +23,5 @@
 ./tmux/install.sh 1678962860.0260892 0 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1678962860.948274 0 os=ubuntu-22.04
+
+./ripgrep/install.sh 1678962862.7230601 2 os=ubuntu-22.04
