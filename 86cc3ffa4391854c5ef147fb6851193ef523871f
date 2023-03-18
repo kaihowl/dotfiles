@@ -39,3 +39,5 @@
 ./rust/install.sh 1679173949.0663884 18 os=ubuntu-20.04
 
 ./clangd/install.sh 1679173964.8122926 15 os=ubuntu-20.04
+
+./ninja/install.sh 1679173969.2686803 5 os=ubuntu-20.04
