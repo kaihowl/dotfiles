@@ -25,3 +25,5 @@
 ./shellcheck/install.sh 1679248035.7392664 1 os=ubuntu-20.04
 
 ./system/install.sh 1679248041.182406 6 os=ubuntu-20.04
+
+./nvim/install.sh 1679248052.8901725 11 os=ubuntu-20.04
