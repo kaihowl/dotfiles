@@ -35,3 +35,5 @@
 ./efm/install.sh 1679230704.534276 0 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1679230710.890465 6 os=ubuntu-20.04
+
+./rust/install.sh 1679230726.882231 16 os=ubuntu-20.04
