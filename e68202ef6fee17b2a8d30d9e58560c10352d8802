@@ -17,3 +17,5 @@
 ./zoxide/install.sh 1679247502.7202983 1 os=ubuntu-20.04
 
 ./ccache/install.sh 1679247506.6056151 4 os=ubuntu-20.04
+
+./vint/install.sh 1679247514.1530461 8 os=ubuntu-20.04
