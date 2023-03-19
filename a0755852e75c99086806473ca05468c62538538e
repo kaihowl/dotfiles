@@ -31,3 +31,5 @@
 ./cmake/install.sh 1679241346.04606 8 os=ubuntu-22.04
 
 ./ctags/install.sh 1679241348.9278626 2 os=ubuntu-22.04
+
+./homebrew/install.sh 1679241349.0414653 0 os=ubuntu-22.04
