@@ -3,3 +3,5 @@
 ./gdb/install.sh 1679231019.805058 8 os=ubuntu-20.04
 
 ./alacritty/install.sh 1679231028.9919968 9 os=ubuntu-20.04
+
+./git/install.sh 1679231036.0817301 6 os=ubuntu-20.04
