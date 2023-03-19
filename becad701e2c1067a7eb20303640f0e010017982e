@@ -25,3 +25,5 @@
 ./shellcheck/install.sh 1679230585.9888065 0 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1679230587.3121428 1 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1679230592.6996706 5 os=ubuntu-22.04
