@@ -9,3 +9,5 @@
 ./cmake/install.sh 1679247496.0813048 8 os=ubuntu-20.04
 
 ./fzf/install.sh 1679247497.0658588 0 os=ubuntu-20.04
+
+./tmux/install.sh 1679247497.6070642 0 os=ubuntu-20.04
