@@ -74,6 +74,10 @@ link_dotfiles () {
   backup_all=false
   skip_all=false
 
+  if [[ "${CODESPACES}" == "true" ]] || [[ "${CI}" == "true" ]]; then
+    backup_all=true
+  fi
+
   # shellcheck disable=SC2044
   for source in $(find "$DOTFILES_ROOT" -maxdepth 2 -name \*.symlink)
   do
@@ -93,11 +97,7 @@ link_dotfiles () {
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
         user "File already exists: ${filename_with_dir}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-	if [[ "$CI" == "true" ]]; then
-	  action="O"
-	else
-          read -rn 1 action
-	fi
+        read -rn 1 action
 
         case "$action" in
           o )
