@@ -11,3 +11,5 @@
 ./fzf/install.sh 1679247333.602508 1 os=ubuntu-20.04
 
 ./tmux/install.sh 1679247334.2790365 1 os=ubuntu-20.04
+
+./ctags/install.sh 1679247338.9796338 4 os=ubuntu-20.04
