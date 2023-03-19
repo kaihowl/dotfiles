@@ -43,3 +43,5 @@
 ./ninja/install.sh 1679226417.797861 4 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1679226420.424497 3 os=ubuntu-20.04
+
+install 1679226420.5520082 197 os=ubuntu-20.04
