@@ -45,3 +45,5 @@
 ./clangd/install.sh 1679231606.408901 12 os=ubuntu-22.04
 
 install 1679231606.543329 197 os=ubuntu-22.04
+
+test 1679231705.146834 95 os=ubuntu-22.04
