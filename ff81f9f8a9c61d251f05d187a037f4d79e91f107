@@ -15,3 +15,5 @@
 ./ctags/install.sh 1679247338.9796338 4 os=ubuntu-20.04
 
 ./zoxide/install.sh 1679247339.9324782 1 os=ubuntu-20.04
+
+./ccache/install.sh 1679247344.4085515 5 os=ubuntu-20.04
