@@ -9,3 +9,5 @@
 ./colors/install.sh 1679231004.3541276 1 os=ubuntu-22.04
 
 ./vint/install.sh 1679231009.3315709 5 os=ubuntu-22.04
+
+./nvim/install.sh 1679231021.5717437 12 os=ubuntu-22.04
