@@ -6,13 +6,10 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     setopt xtrace prompt_subst
 fi
 
-# shortcut to this dotfiles path is $DOTS
-# if not using ALT_HOME use normal HOME
-if [ -z "$ALT_HOME" ]; then
-	export DOTS=$HOME/.dotfiles
-else
-	export DOTS=$ALT_HOME/.dotfiles
-fi
+# Do not use dirname and `cd` as this costs about 10 ms of start up time,
+# instead use these unreadable but fast builtins.
+# Get the canonical (A) parent directory (:h:h) of this source file (%)
+export DOTS=${${(%):-%x}:A:h:h}
 
 DISABLE_UPDATE_PROMPT="true"
 
