@@ -4,9 +4,6 @@ set -x
 
 source common/perf_stubs.sh
 
-# Run all dotfiles installers.
-export DOTS=$HOME/.dotfiles
-
 cd "$(dirname "$0")"/..
 
 if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then

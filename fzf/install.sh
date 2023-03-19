@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ex
 
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
 cd "$(dirname "$0")"
 
 if ! which zsh; then
@@ -9,7 +11,7 @@ if ! which zsh; then
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
-  source "$DOTS/common/brew.sh"
+  source "${SCRIPT_DIR}/../common/brew.sh"
   if ! which curl > /dev/null; then
     brew_install curl
   fi
@@ -17,7 +19,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew_install wget
   fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "$DOTS/common/apt.sh"
+  source "${SCRIPT_DIR}/../common/apt.sh"
   apt_install wget curl git
 fi
 

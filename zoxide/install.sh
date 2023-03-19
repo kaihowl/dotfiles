@@ -1,13 +1,15 @@
 #!/bin/bash
 set -ex
 
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
 # Remove old autojump installation.
 # Otherwise old "j" compdef might still be sourced and conflicts with the zoxide definition.
 if [ "$(uname -s)" = "Darwin" ]; then
-  source "$DOTS/common/brew.sh"
+  source "${SCRIPT_DIR}/../common/brew.sh"
   brew_remove autojump
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "$DOTS/common/apt.sh"
+  source "${SCRIPT_DIR}/../common/apt.sh"
   apt_remove autojump
 fi
 
@@ -28,7 +30,7 @@ fi
 
 file_name=zoxide-${version}.tar.gz
 
-source "$DOTS/common/download.sh"
+source "${SCRIPT_DIR}/../common/download.sh"
 cache_file "$file_name" "$download_url" "$expect_hash"
 
 mkdir -p ~/.zoxide

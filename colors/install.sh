@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-# Depends on an installed zsh for using zparseopts in change-color
-"$DOTS/zsh/install.sh"
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-"$DOTS/colors/change-color"
+# Depends on an installed zsh for using zparseopts in change-color
+"${SCRIPT_DIR}/../zsh/install.sh"
+
+"${SCRIPT_DIR}/../colors/change-color"

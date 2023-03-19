@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ex
 
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
 version=0.8.3
 
 if [ "$(uname -s)" = "Darwin" ]; then
@@ -13,7 +15,7 @@ fi
 
 file_name=nvim-${version}.tar.gz
 
-source "$DOTS/common/download.sh"
+source "${SCRIPT_DIR}/../common/download.sh"
 cache_file "$file_name" "$download_url" "$expect_hash"
 
 mkdir -p ~/.nvim
@@ -23,7 +25,7 @@ tar -C ~/.nvim --extract -z -f "$(cache_path "${file_name}")" --strip-components
 script_dir=$(dirname "$0")
 . "${script_dir}/path.zsh"
 
-source "$DOTS/common/python.sh"
+source "${SCRIPT_DIR}/../common/python.sh"
 install_in_virtualenv pynvim
 
 # update packages in Plug
