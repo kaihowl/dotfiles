@@ -53,9 +53,8 @@ jobs:
           VERSION_RUNNER_OS: ${{ matrix.os }}
         shell: bash
         run: |
-          export HOME=$(pwd)
           env
-          export XDG_CONFIG_HOME=$(pwd)/.config
+          export XDG_CONFIG_HOME=~/.config
           # Don't care about outdated, broken linkages on CI.
           # Otherwise, this might update node or php.
           export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
