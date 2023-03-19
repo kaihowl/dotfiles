@@ -1,11 +1,13 @@
 #!/bin/bash
 set -ex
 
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
 if [ "$(uname)" == "Darwin" ]; then
   # Do nothing
   exit 0
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "$DOTS/common/apt.sh"
+  source "${SCRIPT_DIR}/../common/apt.sh"
   # This will break if it is a different version used for the standard library.
   # We have a test to detect this.
   codename=$(lsb_release -cs)

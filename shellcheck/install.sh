@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ex
 
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
 version=0.9.0
 
 if [ "$(uname -s)" = "Darwin" ]; then
@@ -14,7 +16,7 @@ fi
 
 file_name=shellcheck-v${version}.tar.xz
 
-source "$DOTS/common/download.sh"
+source "${SCRIPT_DIR}/../common/download.sh"
 cache_file "$file_name" "$download_url" "$expect_hash"
 
 mkdir -p ~/.shellcheck

@@ -1,13 +1,16 @@
 #!/bin/bash
 set -e
+
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
 if [ "$(uname)" == "Darwin" ]; then
-  source "$DOTS/common/brew.sh"
+  source "${SCRIPT_DIR}/../common/brew.sh"
   brew_install ripgrep
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "$DOTS/common/apt.sh"
+  source "${SCRIPT_DIR}/../common/apt.sh"
   apt_install curl
 
-  source "$DOTS/common/download.sh"
+  source "${SCRIPT_DIR}/../common/download.sh"
 
   file_name=ripgrep_13.0.0_amd64.deb
   download_url=https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
