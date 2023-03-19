@@ -5,3 +5,5 @@
 ./alacritty/install.sh 1679247480.818241 8 os=ubuntu-20.04
 
 ./git/install.sh 1679247487.0209992 6 os=ubuntu-20.04
+
+./cmake/install.sh 1679247496.0813048 8 os=ubuntu-20.04
