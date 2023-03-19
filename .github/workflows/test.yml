@@ -47,6 +47,7 @@ jobs:
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
           git config --global user.name "git-perf"
+          git config --list --show-origin
       - name: Install and test
         env:
           VERSION_RUNNER_OS: ${{ matrix.os }}
@@ -62,6 +63,7 @@ jobs:
           # Make `infocmp` for nvim healthcheck succeed
           export TERM=dumb
           cd .dotfiles/
+          git config --list --show-origin
           ./script/ci.sh
       - name: Rename versions report
         if: always()
