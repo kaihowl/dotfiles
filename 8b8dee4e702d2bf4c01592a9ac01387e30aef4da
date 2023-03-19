@@ -13,3 +13,5 @@
 ./tmux/install.sh 1679247027.1281135 1 os=ubuntu-20.04
 
 ./ctags/install.sh 1679247032.9112127 5 os=ubuntu-20.04
+
+./zoxide/install.sh 1679247034.4977236 2 os=ubuntu-20.04
