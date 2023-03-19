@@ -40,7 +40,7 @@ setup_gitconfig () {
       git_credential='osxkeychain'
     fi
 
-    preset_user=$(git config --global --get user.name || true)
+    preset_user=$(git config --get user.name || true)
     user ' - What is your github author name?'
     if [[ -n "${preset_user}" ]]; then
        git_authorname=$preset_user
@@ -48,7 +48,7 @@ setup_gitconfig () {
       read -re git_authorname
     fi
 
-    preset_email=$(git config --global --get user.email || true)
+    preset_email=$(git config --get user.email || true)
     user ' - What is your github author email?'
     if [[ -n "${preset_email}" ]]; then
       git_authoremail=$preset_email
