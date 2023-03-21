@@ -1,1 +1,3 @@
 ./zsh/install.sh 1679396914.3782997 21 os=ubuntu-22.04
+
+./fzf/install.sh 1679396919.1992292 5 os=ubuntu-22.04
