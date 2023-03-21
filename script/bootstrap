@@ -2,9 +2,7 @@
 #
 # bootstrap installs things.
 
-
 set -e
-set -x
 
 SCRIPT_DIR=$(dirname "$0")
 DOTFILES_ROOT=$(unset CDPATH; cd "$SCRIPT_DIR"/.. > /dev/null; pwd -P)
