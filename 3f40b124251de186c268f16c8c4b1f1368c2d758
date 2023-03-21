@@ -29,3 +29,5 @@
 ./virtualenvwrapper/install.sh 1679397656.8173428 6 os=ubuntu-22.04
 
 ./cmake/install.sh 1679397666.8639507 10 os=ubuntu-22.04
+
+./ctags/install.sh 1679397669.9142988 3 os=ubuntu-22.04
