@@ -721,8 +721,16 @@ endif
 
 "{{{ Carbon
 lua <<EOF
+function OpenParent()
+  local parent = vim.fn.expand("%:h:p")
+  local cwd = vim.fn.getcwd()
+  if not (parent == '') and not vim.startswith(parent, cwd) then
+    require('carbon.buffer').set_root(parent)
+  end
+  require("carbon").explore({bang=true})
+end
 require("carbon").setup({auto_open=false})
-vim.keymap.set("n", "-", function() require("carbon").explore({bang=true}) end, { desc = "Open parent directory" })
+vim.keymap.set("n", "-", OpenParent, { desc = "Open parent directory" })
 EOF
 "}}}
 
