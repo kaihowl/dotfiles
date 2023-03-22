@@ -722,11 +722,13 @@ endif
 "{{{ Carbon
 lua <<EOF
 function OpenParent()
-  local parent = vim.fn.expand("%:h:p")
+  local parent = vim.fn.expand("%:p:h")
   local cwd = vim.fn.getcwd()
+  local root = cwd
   if not (parent == '') and not vim.startswith(parent, cwd) then
-    require('carbon.buffer').set_root(parent)
+    root = parent
   end
+  require('carbon').cd(root)
   require("carbon").explore({bang=true})
 end
 require("carbon").setup({auto_open=false})
