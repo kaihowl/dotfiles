@@ -37,3 +37,5 @@
 ./system/install.sh 1679473484.6316717 3 os=ubuntu-22.04
 
 ./zoxide/install.sh 1679473485.5461195 1 os=ubuntu-22.04
+
+./ccache/install.sh 1679473488.8217084 3 os=ubuntu-22.04
