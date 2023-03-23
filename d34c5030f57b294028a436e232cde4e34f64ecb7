@@ -19,3 +19,5 @@
 ./zoxide/install.sh 1679603936.1313941 3 os=macos-11
 
 ./rust/install.sh 1679603951.029151 14 os=macos-11
+
+./efm/install.sh 1679603951.831519 0 os=macos-11
