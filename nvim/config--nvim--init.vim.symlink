@@ -107,6 +107,8 @@ call plug#begin(stdpath('data') . '/plugged')
 " - performance
 Plug 'SidOfc/carbon.nvim'
 
+Plug 'stevearc/oil.nvim'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -721,18 +723,54 @@ endif
 
 "{{{ Carbon
 lua <<EOF
-function OpenParent()
-  local parent = vim.fn.expand("%:p:h")
+function CdTreeAndHighlight(target_dir)
+  vim.notify('target: ' .. target_dir)
   local cwd = vim.fn.getcwd()
+
   local root = cwd
-  if not (parent == '') and not vim.startswith(parent, cwd) then
-    root = parent
+  -- if target_dir is not contained in current root
+  if not (target_dir == '') and not vim.startswith(target_dir, cwd) then
+    root = target_dir
   end
+
   require('carbon').cd(root)
   require("carbon").explore({bang=true})
 end
+
+function OpenParent()
+  local parent = vim.fn.expand("%:p:h")
+  CdTreeAndHighlight(parent)
+end
+
 require("carbon").setup({auto_open=false})
+
 vim.keymap.set("n", "-", OpenParent, { desc = "Open parent directory" })
+
+local augroup = vim.api.nvim_create_augroup("CarbonFileExplorer", {})
+-- TODO(kaihowl) vimenter
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  desc = "If directory buffer, open carbon file browser",
+  group = augroup,
+  pattern = "*",
+  nested = true,
+  callback = function(params) 
+    local bufname = vim.api.nvim_buf_get_name(params.buf)
+    vim.notify('bufname: ' .. bufname)
+    if bufname == '' then return end
+    if (vim.fn.isdirectory(bufname)) then
+      local carbon_handle = require('carbon.buffer').handle()
+      if not(params.buf == carbon_handle) then
+        local timer = vim.loop.new_timer()
+        -- Hack as we cannot change the buffer while handling BufAdd
+        timer:start(0, 0, vim.schedule_wrap(function()
+          vim.api.nvim_buf_delete(params.buf, {})
+          CdTreeAndHighlight(bufname)
+        end))
+      end
+    end
+  end,
+})
+
 EOF
 "}}}
 
@@ -968,6 +1006,12 @@ augroup TreeSitterVim
   autocmd!
   autocmd FileType vim lua vim.treesitter.start()
 augroup END
+"}}}
+
+"{{{ Oil
+lua <<EOF
+require('oil').setup({default_file_explorer = false})
+EOF
 "}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
