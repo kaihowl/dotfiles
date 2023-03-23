@@ -21,3 +21,5 @@
 ./gdb/install.sh 1679604377.1919918 7 os=ubuntu-22.04
 
 ./tmux/install.sh 1679604377.715081 0 os=ubuntu-22.04
+
+./shellcheck/install.sh 1679604378.5119636 1 os=ubuntu-22.04
