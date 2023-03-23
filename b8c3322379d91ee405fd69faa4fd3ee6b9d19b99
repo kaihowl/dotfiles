@@ -33,3 +33,5 @@
 ./colors/install.sh 1679602813.6319206 1 os=ubuntu-20.04
 
 ./efm/install.sh 1679602814.0439434 0 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1679602821.1459792 7 os=ubuntu-20.04
