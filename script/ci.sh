@@ -35,10 +35,8 @@ function decorate() {
 source common/perf.sh
 CI_START=$(date +%s)
 
-"${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
-
 INSTALL_START=$(date +%s)
-"${stdbuf[@]}" ./script/install > >(decorate) 2>&1
+"${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
 INSTALL_END=$(date +%s)
 INSTALL_DURATION=$((INSTALL_END - INSTALL_START))
 add_measurement install $INSTALL_DURATION

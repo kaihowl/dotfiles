@@ -21,8 +21,6 @@ then
   sudo /usr/bin/true
   printf '\033[0;34m%s\033[0m\n' "Running bootstrap..."
   ./script/bootstrap
-  printf '\033[0;34m%s\033[0m\n' 'Running install...'
-  ./script/install
 
   if ! git --no-pager diff --exit-code master..origin/master > /dev/null; then
     printf '\033[0;31m%s\033[0m\n' 'You have pending, local changes. Use dot-export or push them.'
