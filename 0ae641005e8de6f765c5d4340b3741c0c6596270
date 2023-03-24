@@ -5,3 +5,5 @@
 ./alacritty/install.sh 1679693084.4433138 17 os=macos-11
 
 ./ccache/install.sh 1679693101.62756 17 os=macos-11
+
+./gdb/install.sh 1679693102.632769 0 os=macos-11
