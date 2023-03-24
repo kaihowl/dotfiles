@@ -61,6 +61,7 @@ jobs:
           # Make `infocmp` for nvim healthcheck succeed
           export TERM=dumb
           cd .dotfiles/
+          cat /etc/apt/sources.list
           ./gdb/install.sh
           gdb --version
           exit 1
