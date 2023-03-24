@@ -3,3 +3,5 @@
 ./fzf/install.sh 1679693026.3928928 4 os=ubuntu-22.04
 
 ./ninja/install.sh 1679693029.7442672 3 os=ubuntu-22.04
+
+./pyls/install.sh 1679693040.8559086 11 os=ubuntu-22.04
