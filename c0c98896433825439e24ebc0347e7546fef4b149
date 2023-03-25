@@ -31,3 +31,5 @@
 ./pyls/install.sh 1679764942.378618 8 os=ubuntu-20.04
 
 ./colors/install.sh 1679764943.7554178 1 os=ubuntu-20.04
+
+./efm/install.sh 1679764944.4104843 1 os=ubuntu-20.04
