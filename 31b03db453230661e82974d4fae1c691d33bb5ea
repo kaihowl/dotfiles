@@ -45,3 +45,5 @@
 ./git/install.sh 1679820511.7359629 2 os=macos-11
 
 install 1679820511.914986 222 os=macos-11
+
+test 1679820615.760355 95 os=macos-11
