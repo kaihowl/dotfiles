@@ -45,3 +45,5 @@
 ./ripgrep/install.sh 1679819902.7085295 2 os=ubuntu-20.04
 
 install 1679819902.8136597 144 os=ubuntu-20.04
+
+test 1679819977.0890598 72 os=ubuntu-20.04
