@@ -1,10 +1,15 @@
 {
   // image being used
-   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   // set minimum cpu
-   "hostRequirements": {
-       "cpus": 2
-   },
-   // install dotfiles
-   "updateContentCommand": "script/bootstrap",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  // install dotfiles
+  "updateContentCommand": "script/bootstrap",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
+  }
 }
