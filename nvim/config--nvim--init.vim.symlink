@@ -101,11 +101,7 @@ set shortmess+=c
 " Specify a directory for plugins
 call plug#begin(stdpath('data') . '/plugged')
 
-" Carbon offers:
-" - auto update based on file system watchers
-" - intuitive addition of new files / directories
-" - performance
-Plug 'SidOfc/carbon.nvim'
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTreeCWD'] }
 
 Plug 'stevearc/oil.nvim'
 
@@ -721,21 +717,47 @@ if !exists('g:first_time_startup')
 endif
 "}}}
 
-"{{{ Carbon
-lua <<EOF
-function OpenParent()
-  local parent = vim.fn.expand("%:p:h")
-  local cwd = vim.fn.getcwd()
-  local root = cwd
-  if not (parent == '') and not vim.startswith(parent, cwd) then
-    root = parent
-  end
-  require('carbon').cd(root)
-  require("carbon").explore({bang=true})
-end
-require("carbon").setup({auto_open=false})
-vim.keymap.set("n", "-", OpenParent, { desc = "Open parent directory" })
-EOF
+"{{{ NerdTree
+" Source: https://github.com/junegunn/vim-plug/issues/424#issuecomment-189343357
+augroup nerd_loader
+  autocmd!
+  autocmd VimEnter * silent! autocmd! FileExplorer
+  autocmd BufEnter,BufNew *
+        \  if isdirectory(expand('<amatch>'))
+        \|   call plug#load('nerdtree')
+        \|   execute 'autocmd! nerd_loader'
+        \| endif
+augroup END
+
+augroup nerdtree_group
+  autocmd!
+  autocmd! User nerdtree call AddNerdTreeMapping()
+augroup END
+
+function! AddNerdTreeMapping()
+  call NERDTreeAddKeyMap({
+          \ 'key': 'yy',
+          \ 'callback': 'NERDTreeYankCurrentNode',
+          \ 'quickhelpText': 'put full path of current node into the default register' })
+endfunction
+
+function! NERDTreeYankCurrentNode()
+    let n = g:NERDTreeFileNode.GetSelected()
+    if n != {}
+        call setreg('"', n.path.str())
+    endif
+endfunction
+
+" Make nerdtree work like vim-vinegar
+let g:NERDTreeMapJumpParent = '-'
+" Root dir
+nmap - :NERDTreeCWD<cr>
+
+" Current file when buffer open
+augroup nerdtree_find
+  autocmd!
+  autocmd BufRead * nmap - :NERDTreeFind<CR>
+augroup END
 "}}}
 
 "{{{ Todo functionality
