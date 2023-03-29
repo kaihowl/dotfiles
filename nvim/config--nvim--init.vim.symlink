@@ -732,6 +732,8 @@ function OpenParent()
   local fargs = {}
   fargs[1] = root
   require("carbon").explore({fargs=fargs, bang=true})
+  require("carbon").cd(root)
+  require("carbon").explore({fargs=fargs, bang=true})
 end
 require("carbon").setup({auto_open=false})
 vim.keymap.set("n", "-", OpenParent, { desc = "Open parent directory" })
