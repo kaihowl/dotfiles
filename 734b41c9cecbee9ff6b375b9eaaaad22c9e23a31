@@ -43,3 +43,5 @@
 ./git/install.sh 1680182273.3400264 4 os=ubuntu-20.04
 
 ./alacritty/install.sh 1680182282.16123 9 os=ubuntu-20.04
+
+install 1680182282.2683187 156 os=ubuntu-20.04
