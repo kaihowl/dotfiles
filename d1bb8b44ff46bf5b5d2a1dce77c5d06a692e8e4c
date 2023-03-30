@@ -43,3 +43,5 @@
 ./efm/install.sh 1680181284.8778694 0 os=ubuntu-22.04
 
 ./clangd/install.sh 1680181295.5832906 11 os=ubuntu-22.04
+
+install 1680181295.710573 145 os=ubuntu-22.04
