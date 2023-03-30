@@ -29,3 +29,5 @@
 ./gdb/install.sh 1680170872.297452 23 os=ubuntu-20.04
 
 ./vint/install.sh 1680170877.5463183 5 os=ubuntu-20.04
+
+./system/install.sh 1680170883.0507863 5 os=ubuntu-20.04
