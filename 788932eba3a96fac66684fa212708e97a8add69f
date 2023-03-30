@@ -1,1 +1,3 @@
 ./zsh/install.sh 1680166216.8559427 16 os=ubuntu-20.04
+
+./zoxide/install.sh 1680166217.7397466 1 os=ubuntu-20.04
