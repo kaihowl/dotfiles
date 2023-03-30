@@ -17,3 +17,5 @@
 ./nvim/install.sh 1680170820.0987391 14 os=ubuntu-20.04
 
 ./homebrew/install.sh 1680170820.2312596 0 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1680170829.1997218 9 os=ubuntu-20.04
