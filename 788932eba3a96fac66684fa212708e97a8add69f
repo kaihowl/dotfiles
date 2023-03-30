@@ -19,3 +19,5 @@
 ./homebrew/install.sh 1680166262.5067847 0 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1680166269.4872475 7 os=ubuntu-20.04
+
+./clangd/install.sh 1680166283.6626678 14 os=ubuntu-20.04
