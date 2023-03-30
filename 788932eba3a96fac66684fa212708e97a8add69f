@@ -3,3 +3,5 @@
 ./ctags/install.sh 1680170282.164577 15 os=macos-11
 
 ./alacritty/install.sh 1680170299.443985 17 os=macos-11
+
+./ccache/install.sh 1680170319.0761752 19 os=macos-11
