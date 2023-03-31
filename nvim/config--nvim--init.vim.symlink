@@ -380,6 +380,7 @@ nnoremap <leader>M :SimpleAsyncTaskEdit<cr>
 nnoremap <leader>m<space> :SimpleAsyncTask<space>
 
 let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
+let g:asyncrun_auto = 'make'
 let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
 let g:asynctasks_template = {}
 let g:asynctasks_template.cpp = [
