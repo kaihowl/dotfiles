@@ -23,3 +23,5 @@
 ./clangd/install.sh 1680451640.6429105 14 os=ubuntu-20.04
 
 ./ctags/install.sh 1680451645.382485 5 os=ubuntu-20.04
+
+./tmux/install.sh 1680451645.9715943 0 os=ubuntu-20.04
