@@ -7,3 +7,5 @@
 ./shellcheck/install.sh 1680455224.5775535 0 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1680455226.884854 2 os=ubuntu-20.04
+
+./rust/install.sh 1680455239.7591324 13 os=ubuntu-20.04
