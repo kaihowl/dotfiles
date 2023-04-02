@@ -41,3 +41,5 @@
 ./ccache/install.sh 1680455304.0182884 3 os=ubuntu-22.04
 
 ./efm/install.sh 1680455304.8875544 0 os=ubuntu-22.04
+
+./clangd/install.sh 1680455313.4658334 9 os=ubuntu-22.04
