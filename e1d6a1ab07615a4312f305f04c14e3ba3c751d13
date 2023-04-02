@@ -15,3 +15,5 @@
 ./colors/install.sh 1680454856.1996763 2 os=ubuntu-20.04
 
 ./nvim/install.sh 1680454869.197283 13 os=ubuntu-20.04
+
+./homebrew/install.sh 1680454869.3305767 0 os=ubuntu-20.04
