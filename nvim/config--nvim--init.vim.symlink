@@ -727,7 +727,6 @@ endif
 "{{{ Carbon
 lua <<EOF
 function CdTreeAndHighlight(target_dir)
-  vim.notify('target: ' .. target_dir)
   local cwd = vim.fn.getcwd()
 
   local root = cwd
@@ -751,23 +750,24 @@ vim.keymap.set("n", "-", OpenParent, { desc = "Open parent directory" })
 
 local augroup = vim.api.nvim_create_augroup("CarbonFileExplorer", {})
 -- TODO(kaihowl) vimenter
-vim.api.nvim_create_autocmd("BufWinEnter", {
+vim.api.nvim_create_autocmd("BufAdd", {
   desc = "If directory buffer, open carbon file browser",
   group = augroup,
   pattern = "*",
   nested = true,
   callback = function(params) 
-    local bufname = vim.api.nvim_buf_get_name(params.buf)
-    vim.notify('bufname: ' .. bufname)
-    if bufname == '' then return end
-    if (vim.fn.isdirectory(bufname)) then
+    local filename = params.file or ''
+    if filename == '' then return end
+    if (vim.fn.isdirectory(filename) == 1) then
       local carbon_handle = require('carbon.buffer').handle()
       if not(params.buf == carbon_handle) then
         local timer = vim.loop.new_timer()
         -- Hack as we cannot change the buffer while handling BufAdd
         timer:start(0, 0, vim.schedule_wrap(function()
+          timer:stop()
+          timer:close()
           vim.api.nvim_buf_delete(params.buf, {})
-          CdTreeAndHighlight(bufname)
+          CdTreeAndHighlight(filename)
         end))
       end
     end
