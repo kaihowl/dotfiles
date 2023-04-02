@@ -21,3 +21,5 @@
 ./virtualenvwrapper/install.sh 1680455261.8647208 6 os=ubuntu-20.04
 
 ./clangd/install.sh 1680455275.2698896 14 os=ubuntu-20.04
+
+./ctags/install.sh 1680455279.5760217 4 os=ubuntu-20.04
