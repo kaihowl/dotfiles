@@ -25,3 +25,5 @@
 ./ctags/install.sh 1680455279.5760217 4 os=ubuntu-20.04
 
 ./tmux/install.sh 1680455280.1973908 1 os=ubuntu-20.04
+
+./gdb/install.sh 1680455298.4322197 18 os=ubuntu-20.04
