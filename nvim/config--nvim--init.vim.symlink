@@ -1001,7 +1001,7 @@ require('oil').setup({default_file_explorer = false})
 EOF
 "}}}
 
-
+"{{{ Thread Sanitizer Error Format
 augroup ThreadSanitizer
   autocmd!
   " Example:
@@ -1011,9 +1011,10 @@ augroup ThreadSanitizer
   "     #2 0x7f4c11792082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
   "     #3 0x4194ed in _start (/tmp/tmp.sH5TtCAT35/sanitizer+0x4194ed) 
   " Without column
-  autocmd BufWinEnter * setlocal efm^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l
   " With column
-  autocmd BufWinEnter * setlocal efm^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l:%c
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l:%c
 augroup END
+"}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
