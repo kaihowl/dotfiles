@@ -11,3 +11,5 @@
 ./vint/install.sh 1680451594.527253 5 os=ubuntu-22.04
 
 ./nvim/install.sh 1680451606.4154882 12 os=ubuntu-22.04
+
+./git/install.sh 1680451609.4180167 3 os=ubuntu-22.04
