@@ -13,3 +13,5 @@
 ./ccache/install.sh 1680447765.1644251 5 os=ubuntu-20.04
 
 ./colors/install.sh 1680447767.0857413 1 os=ubuntu-20.04
+
+./nvim/install.sh 1680447778.5718157 11 os=ubuntu-20.04
