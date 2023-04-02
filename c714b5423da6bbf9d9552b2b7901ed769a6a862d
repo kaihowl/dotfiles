@@ -9,3 +9,5 @@
 ./ripgrep/install.sh 1680451590.8625948 2 os=ubuntu-20.04
 
 ./rust/install.sh 1680451603.6568358 13 os=ubuntu-20.04
+
+./ccache/install.sh 1680451608.1949975 5 os=ubuntu-20.04
