@@ -380,6 +380,7 @@ nnoremap <leader>M :SimpleAsyncTaskEdit<cr>
 nnoremap <leader>m<space> :SimpleAsyncTask<space>
 
 let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
+let g:asyncrun_auto = 'make'
 let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
 let g:asynctasks_template = {}
 let g:asynctasks_template.cpp = [
@@ -998,6 +999,22 @@ augroup END
 lua <<EOF
 require('oil').setup({default_file_explorer = false})
 EOF
+"}}}
+
+"{{{ Thread Sanitizer Error Format
+augroup ThreadSanitizer
+  autocmd!
+  " Example:
+  " ==784292==Hint: address points to the zero page.
+  "     #0 0x50ae06 in fun() /tmp/tmp.sH5TtCAT35/sanitizer.cpp:3:6
+  "     #1 0x50ae33 in main /tmp/tmp.sH5TtCAT35/sanitizer.cpp:7:3
+  "     #2 0x7f4c11792082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+  "     #3 0x4194ed in _start (/tmp/tmp.sH5TtCAT35/sanitizer+0x4194ed) 
+  " Without column
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l
+  " With column
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l:%c
+augroup END
 "}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
