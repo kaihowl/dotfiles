@@ -45,3 +45,5 @@
 ./alacritty/install.sh 1680447858.5973608 9 os=ubuntu-20.04
 
 install 1680447858.7036035 155 os=ubuntu-20.04
+
+test 1680447934.733085 74 os=ubuntu-20.04
