@@ -5,3 +5,5 @@
 ./ninja/install.sh 1680447725.6167157 3 os=ubuntu-22.04
 
 ./pyls/install.sh 1680447737.511141 12 os=ubuntu-22.04
+
+./colors/install.sh 1680447738.8383486 1 os=ubuntu-22.04
