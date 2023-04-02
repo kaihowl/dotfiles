@@ -1,4 +1,4 @@
-function RunTest()
+function Test()
   cd test-sanitizer-errorformat
   set makeprg=bash\ -c\ \"clang++\ -O0\ -g3\ -o\ /tmp/sanitizer\ -std=c++14\ -fsanitize=address\ example.cpp\ &&\ /tmp/sanitizer\"
   noswap make
