@@ -3,3 +3,5 @@
 ./zoxide/install.sh 1680435832.5483382 1 os=ubuntu-20.04
 
 ./pyls/install.sh 1680435843.8052561 11 os=ubuntu-20.04
+
+./shellcheck/install.sh 1680435844.6226373 1 os=ubuntu-20.04
