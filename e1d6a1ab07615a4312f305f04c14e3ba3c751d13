@@ -33,3 +33,5 @@
 ./system/install.sh 1680454929.5005834 6 os=ubuntu-20.04
 
 ./efm/install.sh 1680454930.2719903 1 os=ubuntu-20.04
+
+./fzf/install.sh 1680454932.2525003 2 os=ubuntu-20.04
