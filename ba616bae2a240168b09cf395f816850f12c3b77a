@@ -37,3 +37,5 @@
 ./fzf/install.sh 1680452309.788977 2 os=ubuntu-20.04
 
 ./ninja/install.sh 1680452316.0888956 6 os=ubuntu-20.04
+
+./cmake/install.sh 1680452329.5559459 13 os=ubuntu-20.04
