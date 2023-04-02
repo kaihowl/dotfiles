@@ -5,3 +5,5 @@
 ./pyls/install.sh 1680452199.0734806 14 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1680452199.9810529 0 os=ubuntu-20.04
+
+./ripgrep/install.sh 1680452202.8568912 3 os=ubuntu-20.04
