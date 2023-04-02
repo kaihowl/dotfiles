@@ -12,10 +12,8 @@ Run this:
 ```sh
 git clone https://github.com/kaihowl/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-# Actual sourcing/linking of dotfiles
+# Actual sourcing/linking of dotfiles and installation
 script/bootstrap
-# Optionally, install packages
-script/install
 # Optionally, run the tests
 script/test
 ```

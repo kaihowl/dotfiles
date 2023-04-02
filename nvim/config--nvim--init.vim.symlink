@@ -101,11 +101,9 @@ set shortmess+=c
 " Specify a directory for plugins
 call plug#begin(stdpath('data') . '/plugged')
 
-" Carbon offers:
-" - auto update based on file system watchers
-" - intuitive addition of new files / directories
-" - performance
-Plug 'SidOfc/carbon.nvim'
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTreeCWD'] }
+
+Plug 'stevearc/oil.nvim'
 
 Plug 'stevearc/oil.nvim'
 
@@ -384,6 +382,7 @@ nnoremap <leader>M :SimpleAsyncTaskEdit<cr>
 nnoremap <leader>m<space> :SimpleAsyncTask<space>
 
 let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
+let g:asyncrun_auto = 'make'
 let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
 let g:asynctasks_template = {}
 let g:asynctasks_template.cpp = [
@@ -943,12 +942,13 @@ cmp.setup {
     { name = 'buffer',
       option = {
         get_bufnrs = function()
-          local buf = vim.api.nvim_get_current_buf()
-          local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
-          if byte_size > 1024 * 1024 then -- 1 Megabyte max
-            return {}
+          local is_small_buf = function(index, buf)
+            local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
+            return byte_size <= 1024*1024 -- 1 Megabyte max
           end
-          return { buf }
+
+          local all_bufs = vim.api.nvim_list_bufs()
+          return vim.fn.filter(all_bufs, is_small_buf)
         end
       }
     },
@@ -1012,6 +1012,22 @@ augroup END
 lua <<EOF
 require('oil').setup({default_file_explorer = false})
 EOF
+"}}}
+
+"{{{ Thread Sanitizer Error Format
+augroup ThreadSanitizer
+  autocmd!
+  " Example:
+  " ==784292==Hint: address points to the zero page.
+  "     #0 0x50ae06 in fun() /tmp/tmp.sH5TtCAT35/sanitizer.cpp:3:6
+  "     #1 0x50ae33 in main /tmp/tmp.sH5TtCAT35/sanitizer.cpp:7:3
+  "     #2 0x7f4c11792082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+  "     #3 0x4194ed in _start (/tmp/tmp.sH5TtCAT35/sanitizer+0x4194ed) 
+  " Without column
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l
+  " With column
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l:%c
+augroup END
 "}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0

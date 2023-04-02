@@ -156,5 +156,7 @@ then
   fi
 fi
 
+"${DOTFILES_ROOT}/script/install"
+
 echo ''
 echo '  All installed!'

@@ -9,7 +9,6 @@ if [ "$(uname)" == "Darwin" ]; then
   brew_install --overwrite git
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "${SCRIPT_DIR}/../common/apt.sh"
-  # TODO(hoewelmk) replace with apt_add_repo (if needed)
-  sudo add-apt-repository ppa:git-core/ppa -y
+  apt_add_repo git-core https://ppa.launchpadcontent.net/git-core/ppa/ubuntu ::codename:: E1DD270288B4E6030699E45FA1715D88E1DF1F24
   apt_install git
 fi

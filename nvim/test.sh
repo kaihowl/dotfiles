@@ -1,5 +1,5 @@
 #!/bin/zsh -i
-set -ex
+set -euxo pipefail
 
 echo "Check if nvim is available"
 which nvim
@@ -21,7 +21,11 @@ fi
 echo "Check health for errors"
 health_file=$(mktemp)
 trap 'rm -rf $health_file' EXIT
-nvim --headless +checkhealth "+write $health_file" +qa
+nvim --headless +checkhealth "+write! $health_file" +qa!
+if [[ $(wc -l < "$health_file") -eq 0 ]]; then
+  echo "Health output is empty"
+  exit 1
+fi
 cat "$health_file"
 # Find all errors but exclude the optional node provider failure
 if grep -ie 'error' "$health_file" | grep -vie 'node -v'; then
@@ -53,6 +57,7 @@ run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
 run_vim_test restorecurpos.test.vim
 run_vim_test ripgrep.test.vim
+run_vim_test sanitizer-errorformat.test.vim
 run_vim_test sneak.test.vim
 run_vim_test tagbar.test.vim
 run_vim_test t_comment.test.vim
