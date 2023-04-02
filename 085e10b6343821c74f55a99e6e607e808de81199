@@ -27,3 +27,5 @@
 ./tmux/install.sh 1680468640.3155713 1 os=ubuntu-20.04
 
 ./gdb/install.sh 1680468658.5743527 18 os=ubuntu-20.04
+
+./vint/install.sh 1680468663.1995447 5 os=ubuntu-20.04
