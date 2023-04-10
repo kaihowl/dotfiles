@@ -303,6 +303,8 @@ nnoremap <leader>fc :FzfLua changes<cr>
 nnoremap <leader>fj :FzfLua jumps<cr>
 nnoremap <leader>fb :FzfLua git_branches<cr>
 nnoremap <leader>R :FzfLua live_grep<cr>
+nnoremap <leader>rr :lua require('fzf-lua').grep_cword({})<cr>
+vnoremap <leader>rr :lua require('fzf-lua').grep_visual({})<cr>
 "}}}
 
 "{{{ mode escaping
@@ -494,42 +496,6 @@ nmap ]h <Plug>(GitGutterNextHunk)
 nnoremap <leader>o :TagbarOpen fj<cr>
 " show line numbers in tagbar
 let g:tagbar_show_linenumbers=-1
-"}}}
-
-"{{{ rg
-" Set smart case for rg
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden
-  let &grepformat='%f:%l:%c:%m'
-endif
-
-fun! s:Grep(txt, bang)
-  if empty(a:txt)
-    let needle = expand('<cword>')
-  else
-    let needle =  a:txt
-  endif
-  " Escape vim command mode special chars.
-  " Borrowed from mileszs/ack.vim.
-  let needle = escape(needle, '|#%')
-  " And escape full search string for shell usage.
-  " Unless passing <bang>, then allow for passing arguments.
-  if a:bang !=# '!'
-    let needle = shellescape(needle)
-  endif
-  silent! execute 'grep! ' . needle
-  copen
-endfun
-
-fun! s:GrepCurrentWord()
-  call s:Grep('-w ' . expand('<cword>'), '!')
-endfun
-
-command! -bang -nargs=* Rg :call s:Grep(<q-args>, '<bang>')
-command! RgCurrentWord :call s:GrepCurrentWord()
-
-noremap <leader>rr :RgCurrentWord<cr>
-noremap <leader>r<space> :Rg<space>
 "}}}
 
 "{{{ filetypes
