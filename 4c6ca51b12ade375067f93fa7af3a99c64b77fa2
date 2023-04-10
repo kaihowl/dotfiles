@@ -15,3 +15,5 @@
 ./ctags/install.sh 1681113047.6479664 4 os=ubuntu-22.04
 
 ./ccache/install.sh 1681113051.6883209 4 os=ubuntu-22.04
+
+./nvim/install.sh 1681113062.3510134 11 os=ubuntu-22.04
