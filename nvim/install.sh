@@ -18,6 +18,8 @@ file_name=nvim-${version}.tar.gz
 source "${SCRIPT_DIR}/../common/download.sh"
 cache_file "$file_name" "$download_url" "$expect_hash"
 
+# Ensure a clean install with no left behind files
+rm -rf ~/.nvim
 mkdir -p ~/.nvim
 tar -C ~/.nvim --extract -z -f "$(cache_path "${file_name}")" --strip-components 1
 
