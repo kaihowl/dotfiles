@@ -5,3 +5,5 @@
 ./vint/install.sh 1681144666.383847 9 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1681144668.2132914 2 os=ubuntu-22.04
+
+./shellcheck/install.sh 1681144669.1871943 1 os=ubuntu-22.04
