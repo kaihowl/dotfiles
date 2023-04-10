@@ -69,8 +69,6 @@ set colorcolumn=81
 set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
-set pastetoggle=<leader>p
-
 " Allow to delete old characters in insert mode
 " Also needed that latex-suite will be able to delete placeholders
 set backspace=2
