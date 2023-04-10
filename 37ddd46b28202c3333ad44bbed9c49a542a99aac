@@ -21,3 +21,5 @@
 ./ctags/install.sh 1681145355.262303 5 os=ubuntu-20.04
 
 ./tmux/install.sh 1681145355.991435 0 os=ubuntu-20.04
+
+./homebrew/install.sh 1681145356.1434548 0 os=ubuntu-20.04
