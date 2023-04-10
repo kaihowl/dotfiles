@@ -163,6 +163,8 @@ Plug 'ibhagwan/fzf-lua'
 
 Plug 'gaving/vim-textobj-argument'
 
+Plug 'mfussenegger/nvim-dap'
+
 " the plug#end automatically calls "filetype plugin indent on" and "syntax enable"
 call plug#end()
 " }}}
