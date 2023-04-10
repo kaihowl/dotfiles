@@ -156,8 +156,6 @@ Plug 'kaiuri/nvim-juliana'
 Plug 'tommcdo/vim-fubitive' " Bitbucket
 Plug 'tpope/vim-rhubarb' " Github
 
-Plug 'editorconfig/editorconfig-vim'
-
 Plug 'tomtom/tcomment_vim'
 
 Plug 'skywind3000/asynctasks.vim'
