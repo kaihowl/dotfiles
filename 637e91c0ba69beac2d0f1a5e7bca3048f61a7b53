@@ -37,3 +37,5 @@
 ./rust/install.sh 1681111468.5816727 2 os=ubuntu-22.04
 
 ./alacritty/install.sh 1681111476.1933324 8 os=ubuntu-22.04
+
+./system/install.sh 1681111484.9181826 8 os=ubuntu-22.04
