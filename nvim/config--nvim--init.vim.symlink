@@ -273,9 +273,6 @@ endif
 if !exists('g:first_time_startup')
 lua <<EOF
 require('fzf-lua').setup{
-  winopts = {
-    split = 'botright new'
-  },
   fzf_opts = {
     -- Remove default reverse layout to get prompt at bottom
      ['--layout']      = false,
@@ -286,18 +283,8 @@ require('fzf-lua').setup{
   },
   files = {
     rg_opts = '--hidden --files --color=never --glob ""',
-    winopts = {
-      preview = {
-        hidden = 'hidden',
-      },
-    },
   },
   buffers = {
-    winopts = {
-      preview = {
-        hidden = 'hidden',
-      },
-    },
   },
   git = {
     branches = {
