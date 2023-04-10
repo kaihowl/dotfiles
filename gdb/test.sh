@@ -11,12 +11,10 @@ fi
 version=$(gdb --version | awk 'NR==1 {print $(NF)}')
 
 # If version is smaller than 3.10
-if [ "$(printf "%s\n3.10" "${version}" | sort -V | head -n 1)" != "3.10" ]; then
-  echo "gdb version should have been at least 3.10 but was ${version}."
+if [ "$(printf "%s\n10.2" "${version}" | sort -V | head -n 1)" != "10.2" ]; then
+  echo "gdb version should have been at least 10.2 but was ${version}."
   exit 1
 fi
-
-exit 1
 
 cd "$(mktemp -d)"
 
