@@ -69,8 +69,6 @@ set colorcolumn=81
 set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
-set pastetoggle=<leader>p
-
 " Allow to delete old characters in insert mode
 " Also needed that latex-suite will be able to delete placeholders
 set backspace=2
@@ -155,8 +153,6 @@ Plug 'kaiuri/nvim-juliana'
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket
 Plug 'tpope/vim-rhubarb' " Github
-
-Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tomtom/tcomment_vim'
 
@@ -593,6 +589,8 @@ endfun
 "}}}
 
 "{{{ diffopt
+" Generally enable the second stage diff added in nvim 0.9
+set diffopt+=linematch:60
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
