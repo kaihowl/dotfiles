@@ -27,3 +27,5 @@
 ./alacritty/install.sh 1681151828.0557692 8 os=ubuntu-20.04
 
 ./ninja/install.sh 1681151832.3644795 4 os=ubuntu-20.04
+
+./clangd/install.sh 1681151845.3714716 13 os=ubuntu-20.04
