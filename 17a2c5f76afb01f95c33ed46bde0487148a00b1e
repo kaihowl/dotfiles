@@ -29,3 +29,5 @@
 ./ninja/install.sh 1681114901.9842253 5 os=ubuntu-20.04
 
 ./clangd/install.sh 1681114917.5270271 15 os=ubuntu-20.04
+
+./system/install.sh 1681114923.6447408 6 os=ubuntu-20.04
