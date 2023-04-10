@@ -6,6 +6,16 @@ if [ "$(uname)" == "Darwin" ]; then
   exit 0
 fi
 
+# Example output:
+#   GNU gdb (Ubuntu 10.2-0ubuntu1~20.04~1) 10.2
+version=$(gdb --version | awk 'NR==1 {print $(NF)}')
+
+# If version is smaller than 3.10
+if [ "$(printf "%s\n10.2" "${version}" | sort -V | head -n 1)" != "10.2" ]; then
+  echo "gdb version should have been at least 10.2 but was ${version}."
+  exit 1
+fi
+
 cd "$(mktemp -d)"
 
 clang++ -std=c++17 -O0 -g3 -o mytest "${DOTS}/gdb/mytest.cpp"
