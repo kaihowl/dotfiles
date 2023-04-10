@@ -17,3 +17,5 @@
 ./git/install.sh 1681146818.681754 3 os=ubuntu-20.04
 
 ./zoxide/install.sh 1681146819.4552794 1 os=ubuntu-20.04
+
+./ctags/install.sh 1681146824.1695871 5 os=ubuntu-20.04
