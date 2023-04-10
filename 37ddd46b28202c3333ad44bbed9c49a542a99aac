@@ -39,3 +39,5 @@
 ./alacritty/install.sh 1681145368.7266126 7 os=ubuntu-22.04
 
 ./system/install.sh 1681145372.544443 4 os=ubuntu-22.04
+
+./tmux/install.sh 1681145373.0738897 0 os=ubuntu-22.04
