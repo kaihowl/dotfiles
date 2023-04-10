@@ -1,1 +1,3 @@
 ./zsh/install.sh 1681151775.9453979 30 os=ubuntu-22.04
+
+./clangd/install.sh 1681151786.8686633 11 os=ubuntu-22.04
