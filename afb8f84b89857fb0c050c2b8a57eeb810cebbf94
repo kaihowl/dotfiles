@@ -11,3 +11,5 @@
 ./shellcheck/install.sh 1681160697.3022535 1 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1681160705.2089438 8 os=ubuntu-20.04
+
+./cmake/install.sh 1681160716.2352002 11 os=ubuntu-20.04
