@@ -591,6 +591,8 @@ endfun
 "}}}
 
 "{{{ diffopt
+" Generally enable the second stage diff added in nvim 0.9
+set diffopt+=linematch:60
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
