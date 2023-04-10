@@ -3,3 +3,5 @@
 ./fzf/install.sh 1681114836.0131748 1 os=ubuntu-20.04
 
 ./gdb/install.sh 1681114845.8292487 9 os=ubuntu-20.04
+
+./vint/install.sh 1681114855.2899685 10 os=ubuntu-20.04
