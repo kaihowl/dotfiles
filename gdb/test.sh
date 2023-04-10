@@ -6,6 +6,10 @@ if [ "$(uname)" == "Darwin" ]; then
   exit 0
 fi
 
+gdb --version
+
+exit 1
+
 cd "$(mktemp -d)"
 
 clang++ -std=c++17 -O0 -g3 -o mytest "${DOTS}/gdb/mytest.cpp"
