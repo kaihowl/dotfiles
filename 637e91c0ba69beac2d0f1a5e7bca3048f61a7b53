@@ -29,3 +29,5 @@
 ./pyls/install.sh 1681111451.0832593 8 os=ubuntu-22.04
 
 ./colors/install.sh 1681111452.4845617 1 os=ubuntu-22.04
+
+./gdb/install.sh 1681111462.8801825 10 os=ubuntu-22.04
