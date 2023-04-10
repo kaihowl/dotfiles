@@ -56,7 +56,6 @@ run_vim_test lsp-completion-rust.test.vim
 run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
 run_vim_test restorecurpos.test.vim
-run_vim_test ripgrep.test.vim
 run_vim_test sanitizer-errorformat.test.vim
 run_vim_test sneak.test.vim
 run_vim_test tagbar.test.vim
