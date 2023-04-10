@@ -35,3 +35,5 @@
 ./rust/install.sh 1681146813.5352964 2 os=ubuntu-20.04
 
 ./pyls/install.sh 1681146821.104103 8 os=ubuntu-20.04
+
+./efm/install.sh 1681146821.5000322 0 os=ubuntu-20.04
