@@ -31,3 +31,5 @@
 ./clangd/install.sh 1681145388.1168277 16 os=ubuntu-20.04
 
 ./system/install.sh 1681145394.8593333 6 os=ubuntu-20.04
+
+./rust/install.sh 1681145396.6646209 2 os=ubuntu-20.04
