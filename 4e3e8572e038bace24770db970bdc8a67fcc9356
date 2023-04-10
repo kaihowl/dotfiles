@@ -13,3 +13,5 @@
 ./zoxide/install.sh 1681112185.7221322 1 os=ubuntu-22.04
 
 ./ctags/install.sh 1681112188.878911 3 os=ubuntu-22.04
+
+./ccache/install.sh 1681112192.8343947 4 os=ubuntu-22.04
