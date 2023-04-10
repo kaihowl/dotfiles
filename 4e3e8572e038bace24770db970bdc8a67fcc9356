@@ -9,3 +9,5 @@
 ./shellcheck/install.sh 1681112183.6663067 1 os=ubuntu-22.04
 
 ./efm/install.sh 1681112184.4624856 1 os=ubuntu-22.04
+
+./zoxide/install.sh 1681112185.7221322 1 os=ubuntu-22.04
