@@ -1,5 +1,5 @@
 #!/bin/zsh -i
-set -ex
+set -e
 
 source "$DOTS/common/utilities.sh"
 if [ "$(uname)" != "Darwin" ] || ! version_less_than "$(darwin_version)" 11.0.0 ; then
