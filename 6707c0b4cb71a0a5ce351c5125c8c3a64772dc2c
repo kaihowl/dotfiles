@@ -41,3 +41,5 @@
 ./system/install.sh 1681246469.2446709 6 os=ubuntu-22.04
 
 ./tmux/install.sh 1681246469.9611626 0 os=ubuntu-22.04
+
+./ninja/install.sh 1681246475.3078659 6 os=ubuntu-22.04
