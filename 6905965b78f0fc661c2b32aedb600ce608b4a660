@@ -45,3 +45,5 @@
 ./nvim/install.sh 1681193289.9965737 12 os=ubuntu-20.04
 
 install 1681193290.1238155 188 os=ubuntu-20.04
+
+test 1681193394.5060513 102 os=ubuntu-20.04
