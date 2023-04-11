@@ -1,6 +1,5 @@
 #!/bin/zsh -i
 set -e
-set -x
 
 echo "Check if zoxide is on path"
 which zoxide
