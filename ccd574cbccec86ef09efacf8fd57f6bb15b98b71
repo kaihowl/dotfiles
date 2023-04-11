@@ -11,3 +11,5 @@
 ./clangd/install.sh 1681193724.7455611 3 os=macos-11
 
 ./cmake/install.sh 1681193727.129365 2 os=macos-11
+
+./nvim/install.sh 1681193754.1707242 27 os=macos-11
