@@ -1,3 +1,5 @@
 ./zsh/install.sh 1681246328.3565474 17 os=ubuntu-20.04
 
 ./fzf/install.sh 1681246330.284798 2 os=ubuntu-20.04
+
+./gdb/install.sh 1681246344.9121618 14 os=ubuntu-20.04
