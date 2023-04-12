@@ -37,3 +37,5 @@
 ./pyls/install.sh 1681307310.5090318 9 os=ubuntu-20.04
 
 ./efm/install.sh 1681307311.2004309 1 os=ubuntu-20.04
+
+./ccache/install.sh 1681307317.9253619 6 os=ubuntu-20.04
