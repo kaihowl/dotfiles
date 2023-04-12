@@ -881,13 +881,17 @@ cmp.setup {
     { name = 'buffer',
       option = {
         get_bufnrs = function()
+          local bufs = {}
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            bufs[vim.api.nvim_win_get_buf(win)] = true
+          end
           local is_small_buf = function(index, buf)
             local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
             return byte_size <= 1024*1024 -- 1 Megabyte max
           end
 
-          local all_bufs = vim.api.nvim_list_bufs()
-          return vim.fn.filter(all_bufs, is_small_buf)
+          local all_visible_bufs = vim.tbl_keys(bufs)
+          return vim.fn.filter(all_visible_bufs, is_small_buf)
         end
       }
     },
