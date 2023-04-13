@@ -25,3 +25,5 @@
 ./homebrew/install.sh 1681412682.1285477 0 os=ubuntu-22.04
 
 ./cmake/install.sh 1681412689.9294899 7 os=ubuntu-22.04
+
+./pyls/install.sh 1681412697.7911441 8 os=ubuntu-22.04
