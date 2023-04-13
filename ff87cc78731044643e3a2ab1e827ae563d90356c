@@ -33,3 +33,5 @@
 ./gdb/install.sh 1681412712.4260907 13 os=ubuntu-22.04
 
 ./git/install.sh 1681412715.5387883 3 os=ubuntu-22.04
+
+./rust/install.sh 1681412717.8398485 2 os=ubuntu-22.04
