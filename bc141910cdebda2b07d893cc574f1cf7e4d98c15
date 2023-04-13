@@ -3,3 +3,5 @@
 ./clangd/install.sh 1681412703.1170523 13 os=ubuntu-22.04
 
 ./vint/install.sh 1681412714.1737607 11 os=ubuntu-22.04
+
+./ripgrep/install.sh 1681412716.0133038 1 os=ubuntu-22.04
