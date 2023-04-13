@@ -276,7 +276,8 @@ require('fzf-lua').setup{
   fzf_opts = {
     -- Remove default reverse layout to get prompt at bottom
      ['--layout']      = false,
-     ['--history']     = vim.g.fzf_history_dir .. '/' .. 'history'
+     ['--history']     = vim.g.fzf_history_dir .. '/' .. 'history',
+     ['--keep-right']  = '',
   },
   grep= {
     rg_opts = '--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512',
