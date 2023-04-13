@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-set -x
 
 function identity() {
   "$@"
@@ -49,7 +48,7 @@ TEST_END=$(date +%s)
 TEST_DURATION=$((TEST_END - TEST_START))
 add_measurement test $TEST_DURATION
 
-source nvim/path.zsh 
+source nvim/path.zsh
 run_measurement nvim nvim +qall
 run_measurement zsh zsh -i -c 'exit'
 
