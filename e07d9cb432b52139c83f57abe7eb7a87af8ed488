@@ -39,3 +39,5 @@
 ./efm/install.sh 1681494587.7393465 0 os=ubuntu-20.04
 
 ./ccache/install.sh 1681494593.1312828 6 os=ubuntu-20.04
+
+./ripgrep/install.sh 1681494595.5679457 2 os=ubuntu-20.04
