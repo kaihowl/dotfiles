@@ -35,6 +35,7 @@ function buffer_commits()
   local comm_path = commit_and_path()
   local rel_path = require'fzf-lua'.path.relative(comm_path[2], vim.loop.cwd())
   local parsing_state = {filename = rel_path}
+  vim.notify(vim.inspect(make_git_log_command(comm_path)))
   require'fzf-lua'.fzf_exec(make_git_log_command(comm_path), {
     fn_transform = function(line)
       if vim.startswith(line, ' rename') then
@@ -51,11 +52,14 @@ function buffer_commits()
       end
       return parsing_state.filename .. ':' .. line
     end,
+    fzf_opts = {
+      ['--delimiter'] = '":| "',
+    },
+    preview = "git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}",
     actions={
       ['default'] = function(selected, opts)
         assert(#selected == 1)
-        -- TODO(hoewelmk) parsing breaks if there is a colon in the file name as well.
-        -- TODO(hoewelmk) also check for spaces
+        -- TODO(hoewelmk) also check for spaces (both renames and general handling)
         local file, commit = string.match(selected[1], "^([^:]*):(%x+) %(")
         local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
         vim.cmd('edit ' .. fugitive_path)
