@@ -6,6 +6,8 @@
 --   - file in non git working directory
 --   - terminal buffer with cwd is git
 --   - terminal buffer with cwd is not git
+--   - with file changing its filename in the --follow output
+--   - single output line
 function commit_and_path()
   local fugitive_path = vim.fn.FugitiveFind()
   local parsed = vim.fn.FugitiveParse(fugitive_path)
@@ -20,20 +22,42 @@ function make_git_log_command(commit_and_path)
   return vim.fn.FugitiveShellCommand({
     'log',
     '--color',
-    '--pretty=format:%C(yellow)%h%Creset %C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
+    '--pretty=tformat:%C(yellow)%h%Creset %C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
     '--follow',
+    '--summary',
     commit_and_path[1],
     '--',
     commit_and_path[2]
   })
 end
 
-function git_log_buf()
-  return make_git_log_command(commit_and_path())
+function buffer_commits()
+  local comm_path = commit_and_path()
+  local parsing_state = {filename = comm_path[2]}
+  require'fzf-lua'.fzf_exec(make_git_log_command(comm_path), {
+    fn_transform = function(line)
+      if vim.startswith(line, ' rename') then
+        string.match(line, "^ rename ([^{]+){?(.*) => ")
+        -- Could be of form 'before.txt => after.txt' OR
+        -- the terse 'somedir/{before.txt => after.txt}'
+        local dir_or_full, remainder = string.match(line, "^ rename ([^{]+){?(.*) => ")
+        remainder = remainder or ''
+        -- return vim.inspect(rename)
+        return dir_or_full .. remainder
+        -- return string.match(line, "%d+")
+        -- return -- not an output line
+      end
+      if line == '' or vim.startswith(line, ' ') then
+        -- discard other summary lines
+        return
+      end
+      return parsing_state.filename .. ':' .. line
+    end,
+    actions={
+      ['default'] = function(selected, opts)
+        -- vim.notify(vim.inspect(selected) .. " " .. vim.inspect(opts))
+      end
+  }})
 end
 
-require'fzf-lua'.fzf_exec(git_log_buf(), {actions={
-  ['default'] = function(selected, opts)
-    vim.notify(vim.inspect(selected) .. " " .. vim.inspect(opts))
-  end
-}})
+buffer_commits()
