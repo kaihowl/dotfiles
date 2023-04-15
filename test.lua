@@ -53,7 +53,12 @@ function buffer_commits()
     end,
     actions={
       ['default'] = function(selected, opts)
-        -- vim.notify(vim.inspect(selected) .. " " .. vim.inspect(opts))
+        assert(#selected == 1)
+        -- TODO(hoewelmk) parsing breaks if there is a colon in the file name as well.
+        -- TODO(hoewelmk) also check for spaces
+        local file, commit = string.match(selected[1], "^([^:]*):(%x+) %(")
+        local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
+        vim.cmd('edit ' .. fugitive_path)
       end
   }})
 end
