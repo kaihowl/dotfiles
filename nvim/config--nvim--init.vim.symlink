@@ -264,16 +264,6 @@ let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 let g:fzf_history_dir = expand('~/.local/share/fzf-history')
 
 lua <<EOF
--- TODO(hoewelmk) test call on
---   - file
---   - file with commit in past
---   - dir
---   - dir with commit in past
---   - file in non git working directory
---   - terminal buffer with cwd is git
---   - terminal buffer with cwd is not git
---   - with file changing its filename in the --follow output
---   - single output line
 function commit_and_path()
   local fugitive_path = vim.fn.FugitiveFind()
   local parsed = vim.fn.FugitiveParse(fugitive_path)
@@ -349,6 +339,17 @@ function git_tab(selected, opts)
   git_cmd_with_selection(selected, opts, 'tabedit')
 end
 
+-- Manually tested on
+--   - (ok) file
+--   - (ok) file with commit in past
+--   - (nok) git status buffer
+--   - (nok) non-file buffer with cwd is git
+--   - (nok) non-file buffer with cwd is not git
+--   - (nok) dir
+--   - (nok) dir with commit in past
+--   - (nok) file in non git working directory
+--   - (ok) with file changing its filename in the --follow output
+--   - (ok) single output line
 function buffer_commits()
   local comm_path = commit_and_path()
   local rel_path = require'fzf-lua'.path.relative(comm_path[2], vim.loop.cwd())
