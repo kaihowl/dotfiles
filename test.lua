@@ -31,11 +31,32 @@ function make_git_log_command(commit_and_path)
   })
 end
 
-function edit_git_buffer(selected, _opts)
-  if #selected == 1 then
-    local file, commit = string.match(selected[1], "^([^:]*):(%x+) %(")
+local sel_to_qf = function(selected, _opts)
+  local qf_list = {}
+  for _, selection in ipairs(selected) do
+    local file, commit, text_offset = string.match(selection, "^([^:]*):(%x+) ()%(")
     local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
-    vim.cmd('edit ' .. fugitive_path)
+    table.insert(qf_list, {
+      filename = fugitive_path,
+      lnum = 1,
+      col = 1,
+      text = string.sub(selection, text_offset)
+    })
+  end
+  return qf_list
+end
+
+function edit_git_buffer(selected, opts, is_loclist)
+  local converted = sel_to_qf(selected, opts)
+  if #converted == 1 then
+    vim.cmd('edit ' .. converted[1].filename)
+  else
+    vim.fn.setqflist({}, " ", {
+      nr = "$",
+      items = converted,
+      title = opts.__resume_data.last_query,
+    })
+    vim.cmd("copen")
   end
 end
 
@@ -64,7 +85,7 @@ function buffer_commits()
     },
     preview = "git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}",
     actions={
-      ['default'] = edit_git_buffer,
+      ['default'] = edit_git_buffer
   }})
 end
 
