@@ -338,11 +338,11 @@ function git_set_qf(selected, opts)
 end
 
 function git_split(selected, opts)
-  git_cmd_with_selection(selected, opts, 'split')
+  git_cmd_with_selection(selected, opts, 'Gdiffsplit')
 end
 
 function git_vsplit(selected, opts)
-  git_cmd_with_selection(selected, opts, 'vsplit')
+  git_cmd_with_selection(selected, opts, 'Gvdiffsplit')
 end
 
 function git_tab(selected, opts)
