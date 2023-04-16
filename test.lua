@@ -31,6 +31,14 @@ function make_git_log_command(commit_and_path)
   })
 end
 
+function edit_git_buffer(selected, _opts)
+  if #selected == 1 then
+    local file, commit = string.match(selected[1], "^([^:]*):(%x+) %(")
+    local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
+    vim.cmd('edit ' .. fugitive_path)
+  end
+end
+
 function buffer_commits()
   local comm_path = commit_and_path()
   local rel_path = require'fzf-lua'.path.relative(comm_path[2], vim.loop.cwd())
@@ -57,13 +65,7 @@ function buffer_commits()
     },
     preview = "git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}",
     actions={
-      ['default'] = function(selected, opts)
-        assert(#selected == 1)
-        -- TODO(hoewelmk) also check for spaces (both renames and general handling)
-        local file, commit = string.match(selected[1], "^([^:]*):(%x+) %(")
-        local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
-        vim.cmd('edit ' .. fugitive_path)
-      end
+      ['default'] = edit_git_buffer,
   }})
 end
 
