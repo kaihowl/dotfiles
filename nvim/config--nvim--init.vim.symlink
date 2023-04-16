@@ -312,18 +312,41 @@ local sel_to_qf = function(selected, _opts)
   return qf_list
 end
 
-function edit_or_qf(selected, opts, is_loclist)
-  local converted = sel_to_qf(selected, opts)
-  if #converted == 1 then
-    vim.cmd('edit ' .. converted[1].filename)
+function git_edit_or_qf(selected, opts, is_loclist)
+  if #selected == 1 then
+    git_cmd_with_selection(selected, opts, 'edit')
   else
-    vim.fn.setqflist({}, " ", {
-      nr = "$",
-      items = converted,
-      title = opts.__resume_data.last_query,
-    })
-    vim.cmd("copen")
+    git_set_qf(selected, ops)
   end
+end
+
+function git_cmd_with_selection(selected, opts, cmd)
+  local converted = sel_to_qf(selected, opts)
+  for _, selection in ipairs(converted) do
+    vim.cmd(cmd .. ' ' .. selection.filename)
+  end
+end
+
+function git_set_qf(selected, opts)
+  local converted = sel_to_qf(selected, opts)
+  vim.fn.setqflist({}, " ", {
+    nr = "$",
+    items = converted,
+    title = opts.__resume_data.last_query,
+  })
+  vim.cmd("copen")
+end
+
+function git_split(selected, opts)
+  git_cmd_with_selection(selected, opts, 'split')
+end
+
+function git_vsplit(selected, opts)
+  git_cmd_with_selection(selected, opts, 'vsplit')
+end
+
+function git_tab(selected, opts)
+  git_cmd_with_selection(selected, opts, 'tabedit')
 end
 
 function buffer_commits()
@@ -351,7 +374,10 @@ function buffer_commits()
     },
     preview = "git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}",
     actions={
-      ['default'] = edit_git_buffer
+      ['default'] = git_edit_or_qf,
+      ['ctrl-s'] = git_split,
+      ['ctrl-v'] = git_vsplit,
+      ['ctrl-t'] = git_tab,
   }})
 end
 
