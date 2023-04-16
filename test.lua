@@ -43,7 +43,6 @@ function buffer_commits()
   local comm_path = commit_and_path()
   local rel_path = require'fzf-lua'.path.relative(comm_path[2], vim.loop.cwd())
   local parsing_state = {filename = rel_path}
-  vim.notify(vim.inspect(make_git_log_command(comm_path)))
   require'fzf-lua'.fzf_exec(make_git_log_command(comm_path), {
     fn_transform = function(line)
       if vim.startswith(line, ' rename') then
