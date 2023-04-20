@@ -267,10 +267,10 @@ lua <<EOF
 function commit_and_path()
   local fugitive_path = vim.fn.FugitiveFind()
   local parsed = vim.fn.FugitiveParse(fugitive_path)
-  if parsed[1] ~= '' then
+  if #parsed[1] > 1 then
     return vim.fn.split(parsed[1], ':')
   else
-    return {"HEAD", fugitive_path}
+    return {"HEAD", vim.fn.FugitiveWorkTree()}
   end
 end
 
@@ -281,7 +281,6 @@ function make_git_log_command(commit, path)
     '--pretty=tformat:%C(yellow)%h%Creset %C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
   }
   if path then
-    
     table.insert(additional_opts, '--follow')
     table.insert(additional_opts, '--summary')
 
@@ -352,6 +351,7 @@ end
 --   - (nok) dir
 --   - (nok) dir with commit in past
 --   - (nok) file in non git working directory
+--   - (nok) renamed dir
 --   - (ok) with file changing its filename in the --follow output
 --   - (ok) single output line
 function buffer_commits()
@@ -361,7 +361,9 @@ function buffer_commits()
   local commit, abs_path = unpack(comm_path)
   local rel_path = require'fzf-lua'.path.relative(abs_path or '', vim.loop.cwd())
   local parsing_state = {filename = rel_path}
-  require'fzf-lua'.fzf_exec(make_git_log_command(commit, abs_path), {
+  local command = make_git_log_command(commit, abs_path)
+  vim.notify(vim.inspect(command))
+  require'fzf-lua'.fzf_exec(command, {
     fn_transform = function(line)
       if vim.startswith(line, ' rename') then
         -- Could be of form 'before.txt => after.txt' OR
@@ -369,7 +371,7 @@ function buffer_commits()
         local dir_or_full, remainder = string.match(line, "^ rename ([^{]+){?(.*) => ")
         remainder = remainder or ''
         parsing_state.filename = dir_or_full .. remainder
-        return -- not an output line
+        return 'attention ' .. line
       end
       if line == '' or vim.startswith(line, ' ') then
         -- discard other summary lines
