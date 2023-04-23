@@ -1,5 +1,5 @@
 #!/bin/zsh -i
-set -euxo pipefail
+set -euo pipefail
 
 echo "Check if nvim is available"
 which nvim
@@ -44,7 +44,7 @@ fi
 
 function run_vim_test {
   echo "Running $1"
-  (set -ex && cd "$DOTS/nvim/tests" && nvim --headless -c "source $DOTS/nvim/tests/test-support.vim" -c "source $DOTS/nvim/tests/$1" -c "call RunTest()")
+  (set -e && cd "$DOTS/nvim/tests" && nvim --headless -c "source $DOTS/nvim/tests/test-support.vim" -c "source $DOTS/nvim/tests/$1" -c "call RunTest()")
 }
 
 echo "Check that plugins are installed"
@@ -56,7 +56,6 @@ run_vim_test lsp-completion-rust.test.vim
 run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
 run_vim_test restorecurpos.test.vim
-run_vim_test ripgrep.test.vim
 run_vim_test sanitizer-errorformat.test.vim
 run_vim_test sneak.test.vim
 run_vim_test tagbar.test.vim

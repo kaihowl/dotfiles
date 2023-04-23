@@ -1,6 +1,5 @@
 #!/bin/zsh -i
 set -e
-set -x
 
 echo "Check if rustc is on path"
 which rustc

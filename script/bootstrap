@@ -72,7 +72,7 @@ link_dotfiles () {
   backup_all=false
   skip_all=false
 
-  if [[ "${CODESPACES}" == "true" ]] || [[ "${CI}" == "true" ]]; then
+  if [[ "${CODESPACES}" == "true" ]] || [[ "${CI}" == "true" ]] || [[ "${DOTS_UPGRADE}" == "true" ]]; then
     backup_all=true
   fi
 

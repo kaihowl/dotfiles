@@ -12,8 +12,9 @@ function apt_remove() {
 # Replace add-apt-repository with safer variant:
 # Use pinned key and only use key for the package it was intended for.
 # apt-key and apt-add-repository are deprecated.
-# Usage apt_add_repo name uri suite key
-# Both uri and suite understand {{codename}} as a template that is replaced by Ubuntu codename. E.g., bionic.
+# Usage:
+#   apt_add_repo name uri suite key
+# Both uri and suite understand ::codename:: as a template that is replaced by Ubuntu codename. E.g., bionic.
 function apt_add_repo() {
   local name
   name=$1

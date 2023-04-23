@@ -1,5 +1,5 @@
 #!/bin/zsh -i
-set -ex
+set -e
 
 echo "Test that start up and basic user input to shell work without errors"
 # This was added after a faulty linter change led to printing the following on all key presses

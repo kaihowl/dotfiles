@@ -1,5 +1,5 @@
 #!/bin/zsh -i
-set -ex
+set -e
 
 echo "Check if clangd is available"
 which clangd
