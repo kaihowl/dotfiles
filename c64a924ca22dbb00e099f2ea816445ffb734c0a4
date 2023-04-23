@@ -23,3 +23,5 @@
 ./fzf/install.sh 1682269977.3386705 1 os=ubuntu-22.04
 
 ./homebrew/install.sh 1682269977.4511986 0 os=ubuntu-22.04
+
+./cmake/install.sh 1682269984.5611162 7 os=ubuntu-22.04
