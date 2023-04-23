@@ -5,3 +5,5 @@
 ./gdb/install.sh 1682269970.6922028 17 os=ubuntu-20.04
 
 ./vint/install.sh 1682269980.562336 10 os=ubuntu-20.04
+
+./colors/install.sh 1682269982.3067133 2 os=ubuntu-20.04
