@@ -41,3 +41,5 @@
 ./ccache/install.sh 1682255915.7485256 4 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1682255918.2088811 3 os=ubuntu-20.04
+
+./nvim/install.sh 1682255929.36772 11 os=ubuntu-20.04
