@@ -133,7 +133,7 @@ Plug 'tpope/vim-abolish'
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'godlygeek/tabular'
@@ -179,11 +179,11 @@ end
 
 "}}}
 
-"{{{ vim-indent-guides
-" Enable indent guides per default
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'fzf']
-"}}}
+" {{{indent-blankline
+lua <<EOF
+require("indent_blankline").setup { }
+EOF
+" }}}
 
 "{{{ vim-trailing-whitespace
 let g:extra_whitespace_ignored_filetypes = ['help', 'fzf']
