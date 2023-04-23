@@ -23,3 +23,5 @@
 ./tmux/install.sh 1682254162.473474 1 os=ubuntu-20.04
 
 ./homebrew/install.sh 1682254162.585755 0 os=ubuntu-20.04
+
+./alacritty/install.sh 1682254173.166472 11 os=ubuntu-20.04
