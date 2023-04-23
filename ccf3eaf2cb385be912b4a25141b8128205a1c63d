@@ -1,1 +1,3 @@
 ./zsh/install.sh 1682254110.1448686 15 os=ubuntu-20.04
+
+./fzf/install.sh 1682254111.8721175 1 os=ubuntu-20.04
