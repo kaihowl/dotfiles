@@ -27,3 +27,5 @@
 ./cmake/install.sh 1682269984.5611162 7 os=ubuntu-22.04
 
 ./pyls/install.sh 1682269992.3893583 8 os=ubuntu-22.04
+
+./colors/install.sh 1682269993.600329 1 os=ubuntu-22.04
