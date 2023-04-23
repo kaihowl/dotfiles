@@ -13,3 +13,5 @@
 ./virtualenvwrapper/install.sh 1682255351.2891586 6 os=ubuntu-20.04
 
 ./cmake/install.sh 1682255360.7450447 9 os=ubuntu-20.04
+
+./git/install.sh 1682255364.56817 4 os=ubuntu-20.04
