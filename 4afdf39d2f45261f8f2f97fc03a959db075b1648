@@ -11,3 +11,5 @@
 ./efm/install.sh 1682318398.6113088 0 os=ubuntu-22.04
 
 ./zoxide/install.sh 1682318399.6674805 1 os=ubuntu-22.04
+
+./ctags/install.sh 1682318402.8768306 3 os=ubuntu-22.04
