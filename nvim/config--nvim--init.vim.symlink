@@ -266,11 +266,17 @@ let g:fzf_history_dir = expand('~/.local/share/fzf-history')
 lua <<EOF
 function commit_and_path()
   local fugitive_path = vim.fn.FugitiveFind()
+  vim.notify("fugitive_path " .. vim.inspect(fugitive_path))
   local parsed = vim.fn.FugitiveParse(fugitive_path)
-  if #parsed[1] > 1 then
-    return vim.fn.split(parsed[1], ':')
+  vim.notify("parsed " .. vim.inspect(parsed))
+  if parsed[2] ~= '' then -- we parsed a fugitive:// url
+    local commit, path = unpack(vim.fn.split(parsed[1], ':'))
+    vim.notify(vim.inspect(commit, path))
+    local retval= {commit or "HEAD", path or vim.fn.FugitiveWorkTree()}
+    vim.notify("retval" .. vim.inspect(retval))
+    return retval
   else
-    return {"HEAD", vim.fn.FugitiveWorkTree()}
+    return {"HEAD", fugitive_path}
   end
 end
 
@@ -342,6 +348,34 @@ function git_tab(selected, opts)
   git_cmd_with_selection(selected, opts, 'tabedit')
 end
 
+-- Parse a line of the --summary from git log
+-- Could be of form 'before.txt => after.txt' OR
+-- the terse 'somedir/{before => after}/somefile.txt'
+-- Returns the from_filename and to_filename.
+function parse_rename_line(line)
+  local prefix, left, right, suffix = string.match(line, "^ rename ([^{]*){?(.*) => ([^}]*)}?(.*)")
+  if left == "" and suffix == "" then -- short form, no braces matched
+    return prefix, right
+  end
+  return prefix .. left .. suffix, prefix .. right .. suffix
+end
+
+function test_it()
+  local from, to = parse_rename_line(" rename somefile.txt => someother.txt")
+  vim.notify("from " .. from .. " to " .. to)
+
+  local from, to = parse_rename_line(" rename {gdb => gdb2}/somefile.txt")
+  vim.notify("from " .. from .. " to " .. to)
+
+  local from, to = parse_rename_line(" rename prefix/{gdb => gdb2}/somefile.txt")
+  vim.notify("from " .. from .. " to " .. to)
+
+  local from, to = parse_rename_line(" rename prefix/{gdb.txt => gdb2.vim}")
+  vim.notify("from " .. from .. " to " .. to)
+end
+
+-- test_it()
+
 -- Manually tested on
 --   - (ok) file
 --   - (ok) file with commit in past
@@ -361,17 +395,17 @@ function buffer_commits()
   local commit, abs_path = unpack(comm_path)
   local rel_path = require'fzf-lua'.path.relative(abs_path or '', vim.loop.cwd())
   local parsing_state = {filename = rel_path}
+  vim.notify(vim.inspect(abs_path))
   local command = make_git_log_command(commit, abs_path)
   vim.notify(vim.inspect(command))
   require'fzf-lua'.fzf_exec(command, {
     fn_transform = function(line)
       if vim.startswith(line, ' rename') then
-        -- Could be of form 'before.txt => after.txt' OR
-        -- the terse 'somedir/{before.txt => after.txt}'
-        local dir_or_full, remainder = string.match(line, "^ rename ([^{]+){?(.*) => ")
-        remainder = remainder or ''
-        parsing_state.filename = dir_or_full .. remainder
-        return 'attention ' .. line
+        local from, to = parse_rename_line(line)
+        if parsing_state.filename == to then
+          parsing_state.filename = from
+        end
+        return -- not an output line
       end
       if line == '' or vim.startswith(line, ' ') then
         -- discard other summary lines
