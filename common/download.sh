@@ -23,6 +23,8 @@ function cache_file() {
   actual_hash="$(shasum -a 256 "$(cache_path "${file_name}")" | cut -d' ' -f 1)"
   if [[ "$file_hash" != "$actual_hash" ]]; then
     echo "shasum mismatch for ${file_name}. Aborting."
+    echo "Expected $file_hash."
+    echo "Got $actual_hash."
     exit 1
   fi
 }
