@@ -5,7 +5,7 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 if [ "$(uname)" == "Darwin" ]; then
   source "${SCRIPT_DIR}/../common/brew.sh"
-  brew_install alacritty || true # work around for #605
+  brew_install alacritty
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo snap remove alacritty || true
   source "${SCRIPT_DIR}/../common/apt.sh"
