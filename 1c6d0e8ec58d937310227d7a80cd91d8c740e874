@@ -45,3 +45,5 @@
 ./ninja/install.sh 1682867578.5522585 4 os=ubuntu-22.04
 
 install 1682867578.6882365 151 os=ubuntu-22.04
+
+test 1682867666.594476 86 os=ubuntu-22.04
