@@ -15,3 +15,5 @@
 ./ctags/install.sh 1682866823.7000308 3 os=ubuntu-22.04
 
 ./clangd/install.sh 1682866833.1733534 10 os=ubuntu-22.04
+
+./efm/install.sh 1682866833.6789536 0 os=ubuntu-22.04
