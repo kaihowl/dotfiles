@@ -25,3 +25,5 @@
 ./git/install.sh 1682866899.3049552 5 os=ubuntu-20.04
 
 ./ctags/install.sh 1682866904.780598 5 os=ubuntu-20.04
+
+./rust/install.sh 1682866907.5332184 3 os=ubuntu-20.04
