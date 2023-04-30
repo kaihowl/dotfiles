@@ -3,3 +3,5 @@
 ./fzf/install.sh 1682866825.136305 3 os=ubuntu-22.04
 
 ./homebrew/install.sh 1682866825.266883 0 os=ubuntu-22.04
+
+./zoxide/install.sh 1682866826.6108792 1 os=ubuntu-22.04
