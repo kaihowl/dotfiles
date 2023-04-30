@@ -5,3 +5,5 @@
 ./pyls/install.sh 1682848721.4037704 12 os=ubuntu-20.04
 
 ./homebrew/install.sh 1682848721.5148504 0 os=ubuntu-20.04
+
+./colors/install.sh 1682848722.8507986 1 os=ubuntu-20.04
