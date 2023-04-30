@@ -31,3 +31,5 @@
 ./cmake/install.sh 1682855109.4049299 11 os=ubuntu-20.04
 
 ./ninja/install.sh 1682855113.8414733 4 os=ubuntu-20.04
+
+./alacritty/install.sh 1682855124.809518 11 os=ubuntu-20.04
