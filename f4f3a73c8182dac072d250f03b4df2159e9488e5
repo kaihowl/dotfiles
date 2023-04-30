@@ -1,3 +1,5 @@
 ./zsh/install.sh 1682849229.3179724 16 os=ubuntu-20.04
 
 ./ccache/install.sh 1682849233.3321788 4 os=ubuntu-20.04
+
+./pyls/install.sh 1682849245.196766 12 os=ubuntu-20.04
