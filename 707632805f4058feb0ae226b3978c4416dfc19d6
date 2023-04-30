@@ -21,3 +21,5 @@
 ./gdb/install.sh 1682848754.8082097 13 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1682848760.8902085 6 os=ubuntu-20.04
+
+./git/install.sh 1682848764.491795 4 os=ubuntu-20.04
