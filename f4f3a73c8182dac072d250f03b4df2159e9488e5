@@ -11,3 +11,5 @@
 ./git/install.sh 1682855043.2194638 3 os=ubuntu-22.04
 
 ./alacritty/install.sh 1682855052.1475046 9 os=ubuntu-22.04
+
+./ctags/install.sh 1682855055.7422817 3 os=ubuntu-22.04
