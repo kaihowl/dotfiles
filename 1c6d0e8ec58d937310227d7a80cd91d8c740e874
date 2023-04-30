@@ -33,3 +33,5 @@
 ./rust/install.sh 1682867533.1581402 3 os=ubuntu-22.04
 
 ./pyls/install.sh 1682867544.092931 10 os=ubuntu-22.04
+
+./ccache/install.sh 1682867548.465861 4 os=ubuntu-22.04
