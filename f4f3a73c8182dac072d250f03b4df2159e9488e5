@@ -11,3 +11,5 @@
 ./fzf/install.sh 1682849248.6586676 2 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1682849250.923001 2 os=ubuntu-20.04
+
+./system/install.sh 1682849255.2590477 5 os=ubuntu-20.04
