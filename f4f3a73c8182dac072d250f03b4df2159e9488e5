@@ -29,3 +29,5 @@
 ./rust/install.sh 1682849297.0832043 1 os=ubuntu-20.04
 
 ./cmake/install.sh 1682849307.5694292 10 os=ubuntu-20.04
+
+./ninja/install.sh 1682849311.568729 4 os=ubuntu-20.04
