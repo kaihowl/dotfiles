@@ -39,3 +39,5 @@
 ./shellcheck/install.sh 1682867549.527649 1 os=ubuntu-22.04
 
 ./gdb/install.sh 1682867563.9100919 14 os=ubuntu-22.04
+
+./cmake/install.sh 1682867574.0834017 10 os=ubuntu-22.04
