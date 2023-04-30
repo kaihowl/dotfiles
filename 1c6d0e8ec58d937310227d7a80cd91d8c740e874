@@ -45,3 +45,5 @@
 ./clangd/install.sh 1682867602.418387 17 os=ubuntu-20.04
 
 install 1682867602.553508 170 os=ubuntu-20.04
+
+test 1682867693.4709976 89 os=ubuntu-20.04
