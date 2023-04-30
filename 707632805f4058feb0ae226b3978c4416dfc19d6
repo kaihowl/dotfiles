@@ -21,3 +21,5 @@
 ./ripgrep/install.sh 1682848760.1120863 2 os=ubuntu-22.04
 
 ./colors/install.sh 1682848761.738782 1 os=ubuntu-22.04
+
+./tmux/install.sh 1682848762.3167984 1 os=ubuntu-22.04
