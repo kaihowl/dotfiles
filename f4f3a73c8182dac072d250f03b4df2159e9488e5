@@ -35,3 +35,5 @@
 ./pyls/install.sh 1682855093.9163275 8 os=ubuntu-22.04
 
 ./ccache/install.sh 1682855097.5964048 4 os=ubuntu-22.04
+
+./shellcheck/install.sh 1682855098.3984475 1 os=ubuntu-22.04
