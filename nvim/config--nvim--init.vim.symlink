@@ -385,7 +385,7 @@ end
 --   - (ok) file with commit in past
 --   - (ok) git status buffer
 --   - (ok) non-file buffer with cwd is git
---   - (nok) non-file buffer with cwd is not git
+--   - (ok) non-file buffer with cwd is not git
 --   - (ok) after start up
 --   - (nok) dir
 --   - (nok) dir with commit in past
@@ -394,6 +394,10 @@ end
 --   - (ok) with file changing its filename in the --follow output
 --   - (ok) single output line
 function buffer_commits()
+  if #vim.fn.FugitiveGitDir() == 0 then
+    vim.notify("Not in a git directory. Aborting.", vim.log.levels.WARN)
+    return
+  end
   -- for git status / non-file buffer: {}
   -- for directory: {"HEAD", "/home/.../NERD_tree_1"}
   local comm_path = commit_and_path()
