@@ -29,3 +29,5 @@
 ./system/install.sh 1683459887.476597 3 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1683459892.727213 5 os=ubuntu-22.04
+
+./rust/install.sh 1683459894.5838573 2 os=ubuntu-22.04
