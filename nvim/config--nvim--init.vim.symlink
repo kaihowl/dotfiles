@@ -387,12 +387,13 @@ end
 --   - (ok) non-file buffer with cwd is git
 --   - (ok) non-file buffer with cwd is not git
 --   - (ok) after start up
---   - (nok) dir
---   - (nok) dir with commit in past
---   - (nok) file in non git working directory
---   - (nok) renamed dir
+--   - (ok) file in non git working directory
 --   - (ok) with file changing its filename in the --follow output
 --   - (ok) single output line
+--   - !dirs not explicitly supported as rename support is expensive to implement
+--   - (n/a) dir
+--   - (n/a) dir with commit in past
+--   - (n/a) renamed dir
 function buffer_commits()
   if #vim.fn.FugitiveGitDir() == 0 then
     vim.notify("Not in a git directory. Aborting.", vim.log.levels.WARN)
