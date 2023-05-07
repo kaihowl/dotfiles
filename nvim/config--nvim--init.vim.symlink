@@ -269,14 +269,10 @@ function commit_and_path()
   if vim.o.buftype ~= '' or fugitive_path == '' then
     return {"HEAD", "."}
   end
-  vim.notify("fugitive_path " .. vim.inspect(fugitive_path))
   local parsed = vim.fn.FugitiveParse(fugitive_path)
-  vim.notify("parsed " .. vim.inspect(parsed))
   if parsed[2] ~= '' then -- we parsed a fugitive:// url
     local commit, path = unpack(vim.fn.split(parsed[1], ':'))
-    vim.notify(vim.inspect(commit, path))
     local retval= {commit or "HEAD", path or vim.fn.FugitiveWorkTree()}
-    vim.notify("retval" .. vim.inspect(retval))
     return retval
   else
     return {"HEAD", fugitive_path}
@@ -405,9 +401,7 @@ function buffer_commits()
   local commit, abs_path = unpack(comm_path)
   local rel_path = require'fzf-lua'.path.relative(abs_path or '', vim.loop.cwd())
   local parsing_state = {filename = rel_path}
-  vim.notify(vim.inspect(abs_path))
   local command = make_git_log_command(commit, abs_path)
-  vim.notify(vim.inspect(command))
   require'fzf-lua'.fzf_exec(command, {
     fn_transform = function(line)
       if vim.startswith(line, ' rename') then
