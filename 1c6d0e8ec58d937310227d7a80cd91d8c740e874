@@ -7,3 +7,5 @@
 ./homebrew/install.sh 1683459851.553018 0 os=ubuntu-20.04
 
 ./colors/install.sh 1683459852.8585901 1 os=ubuntu-20.04
+
+./fzf/install.sh 1683459854.0382857 1 os=ubuntu-20.04
