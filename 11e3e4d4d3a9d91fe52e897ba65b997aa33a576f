@@ -9,3 +9,5 @@
 ./colors/install.sh 1683555587.0564725 1 os=ubuntu-20.04
 
 ./fzf/install.sh 1683555588.331126 1 os=ubuntu-20.04
+
+./ripgrep/install.sh 1683555590.4551432 2 os=ubuntu-20.04
