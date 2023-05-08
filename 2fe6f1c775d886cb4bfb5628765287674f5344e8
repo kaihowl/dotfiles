@@ -19,3 +19,5 @@
 ./tmux/install.sh 1683556135.6334555 0 os=ubuntu-20.04
 
 ./gdb/install.sh 1683556149.7593088 14 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1683556155.7123957 6 os=ubuntu-20.04
