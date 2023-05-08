@@ -13,3 +13,5 @@
 ./alacritty/install.sh 1683555805.4514313 10 os=ubuntu-22.04
 
 ./ctags/install.sh 1683555809.7046866 4 os=ubuntu-22.04
+
+./clangd/install.sh 1683555819.9280233 10 os=ubuntu-22.04
