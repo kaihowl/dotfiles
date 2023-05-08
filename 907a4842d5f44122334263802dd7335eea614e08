@@ -9,3 +9,5 @@
 ./nvim/install.sh 1683555791.2231493 17 os=ubuntu-22.04
 
 ./git/install.sh 1683555795.0955472 3 os=ubuntu-22.04
+
+./alacritty/install.sh 1683555805.4514313 10 os=ubuntu-22.04
