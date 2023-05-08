@@ -13,19 +13,19 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   apt_remove autojump
 fi
 
-version=0.9.0
+version=0.9.1
 
 if [ "$(uname -s)" = "Darwin" ]; then
   if [ "$(uname -m)" = "arm64" ]; then
     download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v${version}/zoxide-${version}-aarch64-apple-darwin.tar.gz"
-    expect_hash="91429d02e97183cbaba47a93de909d85528c2d3258be392bb695158834fd32f9"
+    expect_hash="31a09d196616d889cc4a9dc703b470eb47c0c9593a73c15d898c194fd6923cf5"
   else
     download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v${version}/zoxide-${version}-x86_64-apple-darwin.tar.gz"
-    expect_hash="5e91baccbb175e57ac4a248cc6146de352f7a229777bd34bb040c1e9fc862317"
+    expect_hash="19ca1507a836cb746c4af03d85cc300ab18840b13ec8e3df6239b928df59d3b1"
   fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/ajeetdsouza/zoxide/releases/download/v${version}/zoxide-${version}-x86_64-unknown-linux-musl.tar.gz"
-  expect_hash="291bfd218ee274812264cb5da6a67a00003b4b7637aed915356ec8fd92045e6a"
+  expect_hash="29163749c99fb2e919f8d685eec4b91de6f5e5a5c46d0d094abe7ad4e042e091"
 fi
 
 file_name=zoxide-${version}.tar.gz
