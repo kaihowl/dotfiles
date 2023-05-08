@@ -25,3 +25,5 @@
 ./tmux/install.sh 1683556178.466259 1 os=ubuntu-22.04
 
 ./vint/install.sh 1683556184.3380973 6 os=ubuntu-22.04
+
+./system/install.sh 1683556189.1539855 5 os=ubuntu-22.04
