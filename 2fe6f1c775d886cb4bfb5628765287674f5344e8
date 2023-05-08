@@ -35,3 +35,5 @@
 ./alacritty/install.sh 1683556187.9284449 9 os=ubuntu-20.04
 
 ./efm/install.sh 1683556188.2721338 1 os=ubuntu-20.04
+
+./vint/install.sh 1683556192.6613243 4 os=ubuntu-20.04
