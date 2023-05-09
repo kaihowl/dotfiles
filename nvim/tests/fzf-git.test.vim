@@ -8,18 +8,22 @@ end
 
 function test_it()
   local from, to = parse_rename_line(" rename somefile.txt => someother.txt")
-  expect_eq(from, "someefile.txt")
+  expect_eq(from, "somefile.txt")
   expect_eq(to, "someother.txt")
 
   local from, to = parse_rename_line(" rename {gdb => gdb2}/somefile.txt")
-  vim.notify("from " .. from .. " to " .. to)
+  expect_eq(from, "gdb/somefile.txt")
+  expect_eq(to, "gdb2/somefile.txt")
 
   local from, to = parse_rename_line(" rename prefix/{gdb => gdb2}/somefile.txt")
-  vim.notify("from " .. from .. " to " .. to)
+  expect_eq(from, "prefix/gdb/somefile.txt")
+  expect_eq(to, "prefix/gdb2/somefile.txt")
 
   local from, to = parse_rename_line(" rename prefix/{gdb.txt => gdb2.vim}")
-  vim.notify("from " .. from .. " to " .. to)
+  expect_eq(from, "prefix/gdb.txt")
+  expect_eq(to, "prefix/gdb2.vim")
 end
+
 EOF
 function Test()
   lua test_it()
