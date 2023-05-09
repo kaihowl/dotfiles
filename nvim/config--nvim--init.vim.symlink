@@ -349,11 +349,11 @@ function git_tab(selected, opts)
 end
 
 -- Parse a line of the --summary from git log
--- Could be of form 'before.txt => after.txt' OR
--- the terse 'somedir/{before => after}/somefile.txt'
+-- Could be of form 'before.txt => after.txt (100%)' OR
+-- the terse 'somedir/{before => after}/somefile.txt (100%)'
 -- Returns the from_filename and to_filename.
 function parse_rename_line(line)
-  local prefix, left, right, suffix = string.match(line, "^ rename ([^{]*){?(.*) => ([^}]*)}?(.*)")
+  local prefix, left, right, suffix = string.match(line, "^ rename ([^{]*){?(.*) => ([^}]*)}?(.*) %(")
   if left == "" and suffix == "" then -- short form, no braces matched
     return prefix, right
   end
