@@ -284,15 +284,12 @@ function make_git_log_command(commit, path)
     'log',
     '--color',
     '--pretty=tformat:%C(yellow)%h%Creset %C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
+    '--follow',
+    '--summary',
+    '--',
+    path
   }
-  -- TODO(hoewelmk) can this be unconditional?
-  if path then
-    table.insert(additional_opts, '--follow')
-    table.insert(additional_opts, '--summary')
 
-    table.insert(additional_opts, '--')
-    table.insert(additional_opts, path)
-  end
   return vim.fn.FugitiveShellCommand(additional_opts)
 end
 
