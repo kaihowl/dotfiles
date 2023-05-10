@@ -41,3 +41,5 @@
 ./ctags/install.sh 1683706345.3987782 3 os=ubuntu-22.04
 
 ./tmux/install.sh 1683706345.946336 0 os=ubuntu-22.04
+
+./nvim/install.sh 1683706357.2134197 12 os=ubuntu-22.04
