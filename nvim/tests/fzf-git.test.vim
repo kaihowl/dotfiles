@@ -23,10 +23,20 @@ function test_it()
   expect_eq(from, "prefix/gdb.txt")
   expect_eq(to, "prefix/gdb2.vim")
 end
-
 EOF
+
+function Callback(id)
+  echomsg "Before"
+  call assert_equal(0, wait(10000, "&buftype == 'terminal'"), "Fail to open fzf")
+  echomsg "Show current line: " . getline('.')
+endfunction
+
 function Test()
   lua test_it()
+
+  call timer_start(500, funcref('Callback'))
+  call feedkeys(',s', 'tx!')
+
   if len(v:errors) != 0
     cquit!
   endif
