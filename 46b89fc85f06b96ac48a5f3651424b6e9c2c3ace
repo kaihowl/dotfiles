@@ -27,3 +27,5 @@
 ./ctags/install.sh 1683706367.3779535 6 os=ubuntu-20.04
 
 ./rust/install.sh 1683706369.5353613 2 os=ubuntu-20.04
+
+./cmake/install.sh 1683706383.131112 14 os=ubuntu-20.04
