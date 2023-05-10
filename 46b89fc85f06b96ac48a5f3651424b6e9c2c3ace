@@ -39,3 +39,5 @@
 ./vint/install.sh 1683706409.8079457 6 os=ubuntu-20.04
 
 ./zoxide/install.sh 1683706411.382588 2 os=ubuntu-20.04
+
+./shellcheck/install.sh 1683706412.2361119 1 os=ubuntu-20.04
