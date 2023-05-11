@@ -1,3 +1,5 @@
 ./zsh/install.sh 1683796257.5475855 26 os=ubuntu-20.04
 
 ./cmake/install.sh 1683796273.0635884 15 os=ubuntu-20.04
+
+./tmux/install.sh 1683796273.7449424 0 os=ubuntu-20.04
