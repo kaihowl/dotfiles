@@ -41,3 +41,5 @@
 ./vint/install.sh 1683796428.161327 6 os=ubuntu-20.04
 
 ./ctags/install.sh 1683796438.5688002 10 os=ubuntu-20.04
+
+./zoxide/install.sh 1683796439.7755635 1 os=ubuntu-20.04
