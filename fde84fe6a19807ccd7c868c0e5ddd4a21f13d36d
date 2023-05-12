@@ -37,3 +37,5 @@
 ./pyls/install.sh 1683878019.0260274 8 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1683878029.1426427 10 os=ubuntu-20.04
+
+./vint/install.sh 1683878033.8359988 4 os=ubuntu-20.04
