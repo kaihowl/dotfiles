@@ -33,3 +33,5 @@
 ./fzf/install.sh 1683876713.860654 2 os=ubuntu-22.04
 
 ./gdb/install.sh 1683876730.3192635 17 os=ubuntu-22.04
+
+./efm/install.sh 1683876731.0910757 0 os=ubuntu-22.04
