@@ -25,3 +25,5 @@
 ./vint/install.sh 1683875905.9318597 5 os=ubuntu-22.04
 
 ./homebrew/install.sh 1683875906.0440457 0 os=ubuntu-22.04
+
+./colors/install.sh 1683875907.383805 1 os=ubuntu-22.04
