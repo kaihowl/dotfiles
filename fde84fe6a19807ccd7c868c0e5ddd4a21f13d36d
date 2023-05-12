@@ -5,3 +5,5 @@
 ./tmux/install.sh 1683877905.9403052 0 os=ubuntu-20.04
 
 ./git/install.sh 1683877909.756538 4 os=ubuntu-20.04
+
+./ripgrep/install.sh 1683877915.339529 6 os=ubuntu-20.04
