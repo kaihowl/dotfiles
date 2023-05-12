@@ -11,3 +11,5 @@
 ./shellcheck/install.sh 1683875862.723296 1 os=ubuntu-22.04
 
 ./ninja/install.sh 1683875865.9296248 3 os=ubuntu-22.04
+
+./git/install.sh 1683875869.035781 3 os=ubuntu-22.04
