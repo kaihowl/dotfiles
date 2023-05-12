@@ -31,3 +31,5 @@
 ./rust/install.sh 1683875970.7489123 2 os=ubuntu-20.04
 
 ./ccache/install.sh 1683875979.9274328 9 os=ubuntu-20.04
+
+./homebrew/install.sh 1683875980.0616283 0 os=ubuntu-20.04
