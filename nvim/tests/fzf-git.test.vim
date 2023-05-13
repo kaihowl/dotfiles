@@ -25,19 +25,45 @@ function test_it()
 end
 EOF
 
-function Callback(id)
-  echomsg "Before"
+function WaitForFzf()
   call assert_equal(0, wait(10000, "&buftype == 'terminal'"), "Fail to open fzf")
-  echomsg "Show current line: " . getline('.')
+endfunction
+
+function CheckSingleFile(id)
+  call WaitForFzf()
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  let second_commit_line = search('second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
+
+  call feedkeys("\<esc>")
+endfunction
+
+function TestSingleFile()
+  " TODO(hoewelmk) clean up
+  let tmpdir = systemlist(['mktemp', '-d'])[0]
+  call chdir(tmpdir)
+  call system(['git', 'init'])
+  call writefile(['something'], 'testfile.log')
+  call system(['git', 'add', 'testfile.log'])
+  call system(['git', 'commit', '-m', 'first commit'])
+  call writefile(['something', 'something2'], 'testfile.log')
+  call system(['git', 'add', 'testfile.log'])
+  call system(['git', 'commit', '-m', 'second commit'])
+
+  call timer_start(500, funcref('CheckSingleFile'))
+  call feedkeys(',gl', 'tx!')
 endfunction
 
 function Test()
   lua test_it()
 
-  call timer_start(500, funcref('Callback'))
-  call feedkeys(',s', 'tx!')
+  call TestSingleFile()
 
   if len(v:errors) != 0
+    echoerr v:errors
     cquit!
   endif
 
