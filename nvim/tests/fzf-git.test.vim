@@ -26,7 +26,7 @@ end
 EOF
 
 function WaitForFzf()
-  call assert_equal(0, wait(10000, "&buftype == 'terminal'"), "Fail to open fzf")
+  call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Fail to open fzf')
 endfunction
 
 function CheckSingleFile(id)
@@ -57,10 +57,25 @@ function TestSingleFile()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function TestNonGitDir()
+  " TODO(hoewelmk) clean up
+  let tmpdir = systemlist(['mktemp', '-d'])[0]
+  call chdir(tmpdir)
+  call feedkeys(',gl', 'tx')
+
+  redir => s:last_message
+  1messages
+  redir END
+
+  call assert_equal("\nNot in a git directory. Aborting.", s:last_message, 'Could not find error message for non-git cwd')
+  " TODO(hoewelmk) check that the function is actually aborted?
+endfunction
+
 function Test()
   lua test_it()
 
   call TestSingleFile()
+  call TestNonGitDir()
 
   if len(v:errors) != 0
     echoerr v:errors
