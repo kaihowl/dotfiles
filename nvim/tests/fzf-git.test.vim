@@ -31,6 +31,12 @@ function WaitForFzf()
   call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Fail to open fzf')
 endfunction
 
+function CdTestDir()
+  let dir = systemlist(['mktemp', '-d'])[0]
+  call insert(g:test_dirs, dir)
+  call chdir(tmpdir)
+endfunction
+
 function CheckSingleFile(id)
   call WaitForFzf()
 
@@ -44,8 +50,8 @@ function CheckSingleFile(id)
 endfunction
 
 function TestSingleFile()
-  let tmpdir = MakeTestDir()
-  call chdir(tmpdir)
+  call CdTestDir()
+
   call system(['git', 'init'])
   call writefile(['something'], 'testfile.log')
   call system(['git', 'add', 'testfile.log'])
@@ -58,15 +64,9 @@ function TestSingleFile()
   call feedkeys(',gl', 'tx!')
 endfunction
 
-function MakeTestDir()
-  let dir = systemlist(['mktemp', '-d'])[0]
-  call insert(g:test_dirs, dir)
-  return dir
-endfunction
-
 function TestNonGitDir()
-  let tmpdir = MakeTestDir()
-  call chdir(tmpdir)
+  call CdTestDir()
+
   call feedkeys(',gl', 'tx')
 
   redir => s:last_message
