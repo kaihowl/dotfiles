@@ -194,5 +194,5 @@ function Test()
     cquit!
   endif
 
-  quit!
+  qall!
 endfunction
