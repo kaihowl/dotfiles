@@ -359,13 +359,7 @@ function parse_rename_line(line)
 end
 
 -- Manually tested on
---   - (ok) file
---   - (ok) file with commit in past
 --   - (ok) git status buffer
---   - (ok) non-file buffer with cwd is git
---   - (ok) non-file buffer with cwd is not git
---   - (ok) after start up
---   - (ok) file in non git working directory
 --   - (ok) with file changing its filename in the --follow output
 --   - (ok) single output line
 --   - (nok) quickfix output
