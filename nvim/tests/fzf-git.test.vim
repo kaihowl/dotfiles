@@ -34,10 +34,10 @@ endfunction
 function CdTestDir()
   let dir = systemlist(['mktemp', '-d'])[0]
   call insert(g:test_dirs, dir)
-  call chdir(tmpdir)
+  call chdir(dir)
 endfunction
 
-function CheckSingleFile(id)
+function CheckAfterStartup(id)
   call WaitForFzf()
 
   let first_commit_line = search('first commit', 'w')
@@ -49,7 +49,7 @@ function CheckSingleFile(id)
   call feedkeys("\<esc>")
 endfunction
 
-function TestSingleFile()
+function TestAfterStartup()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -60,7 +60,7 @@ function TestSingleFile()
   call system(['git', 'add', 'testfile.log'])
   call system(['git', 'commit', '-m', 'second commit'])
 
-  call timer_start(500, funcref('CheckSingleFile'))
+  call timer_start(500, funcref('CheckAfterStartup'))
   call feedkeys(',gl', 'tx!')
 endfunction
 
@@ -87,7 +87,7 @@ endfunction
 function Test()
   lua test_it()
 
-  call TestSingleFile()
+  call TestAfterStartup()
   call TestNonGitDir()
   call CleanUpDirs()
 
