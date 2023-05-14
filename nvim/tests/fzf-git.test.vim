@@ -27,8 +27,9 @@ EOF
 
 let g:test_dirs = []
 
-function WaitForFzf()
-  call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Fail to open fzf')
+function WaitForFzfResults(num_results)
+  call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Failed to open fzf')
+  call assert_equal(0, wait(10000, 'search("> .* < ' . a:num_results . '/", "w") != 0'), 'Failed to wait for fzf prompt')
 endfunction
 
 function CdTestDir()
@@ -38,7 +39,7 @@ function CdTestDir()
 endfunction
 
 function CheckAfterStartup(id)
-  call WaitForFzf()
+  call WaitForFzfResults(2)
 
   let first_commit_line = search('first commit', 'w')
   call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
@@ -60,7 +61,7 @@ function TestAfterStartup()
   call system(['git', 'add', 'testfile.log'])
   call system(['git', 'commit', '-m', 'second commit'])
 
-  call timer_start(500, funcref('CheckAfterStartup'))
+  call timer_start(50, funcref('CheckAfterStartup'))
   call feedkeys(',gl', 'tx!')
 endfunction
 
@@ -78,7 +79,7 @@ function TestNonGitDir()
 endfunction
 
 function CheckFileInPast(id)
-  call WaitForFzf()
+  call WaitForFzfResults(1)
 
   let first_commit_line = search('first commit', 'w')
   call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
@@ -86,8 +87,8 @@ function CheckFileInPast(id)
   let first_commit_line = search('second commit', 'w')
   call assert_equal(0, first_commit_line, 'second commit found in fzf window, despite viewing history _before_ this commit')
 
-  let unrelated_commit_line = search('unrelated commit', 'w')
-  call assert_equal(0, first_commit_line, 'unrlated commit found in fzf window, despite viewing history of specific file')
+  let unrelated_commit_line = search('unrelated', 'w')
+  call assert_equal(0, unrelated_commit_line, 'unrelated commit found in fzf window, despite viewing history of specific file')
 
   call feedkeys("\<esc>")
 endfunction
@@ -96,7 +97,7 @@ function TestFileInPast()
   call CdTestDir()
 
   call system(['git', 'init'])
-  call writefile(['something'], 'othertestfile.log')
+  call writefile(['teststuff'], 'othertestfile.log')
   call system(['git', 'add', 'othertestfile.log'])
   call system(['git', 'commit', '-m', 'unrelated commit'])
   call writefile(['something'], 'testfile.log')
@@ -109,12 +110,12 @@ function TestFileInPast()
 
   exe 'Gedit ' . file_first_commit . ':testfile.log'
 
-  call timer_start(500, funcref('CheckFileInPast'))
+  call timer_start(50, funcref('CheckFileInPast'))
   call feedkeys(',gl', 'tx!')
 endfunction
 
 function CheckFileChangingName(id)
-  call WaitForFzf()
+  call WaitForFzfResults(2)
 
   let first_commit_line = search('first commit', 'w')
   call assert_notequal(0, first_commit_line, 'first commit for renamed file not in fzf window')
@@ -143,7 +144,7 @@ function TestFileChangingName()
 
   edit renamedfile.log
 
-  call timer_start(500, funcref('CheckFileChangingName'))
+  call timer_start(50, funcref('CheckFileChangingName'))
   call feedkeys(',gl', 'tx!')
 endfunction
 
