@@ -113,6 +113,40 @@ function TestFileInPast()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function CheckFileChangingName(id)
+  call WaitForFzf()
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit for renamed file not in fzf window')
+
+  let renaming_commit_line = search('renaming commit', 'w')
+  call assert_notequal(0, renaming_commit_line, 'commit that renamed file not in fzf window')
+
+  let unrelated_commit_line = search('unrelated commit', 'w')
+  call assert_equal(0, unrelated_commit_line, 'unrelated commit in fzf window')
+
+  call feedkeys("\<esc>")
+endfunction
+
+function TestFileChangingName()
+  call CdTestDir()
+
+  call system(['git', 'init'])
+  call writefile(['teststuff'], 'othertestfile.log')
+  call system(['git', 'add', 'othertestfile.log'])
+  call system(['git', 'commit', '-m', 'unrelated commit'])
+  call writefile(['something'], 'testfile.log')
+  call system(['git', 'add', 'testfile.log'])
+  call system(['git', 'commit', '-m', 'first commit'])
+  call system(['git', 'mv', 'testfile.log', 'renamedfile.log'])
+  call system(['git', 'commit', '-m', 'renaming commit'])
+
+  edit renamedfile.log
+
+  call timer_start(500, funcref('CheckFileChangingName'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
 function CleanUpDirs()
   for dir in g:test_dirs
     echom 'Cleaning up dir ' . dir
@@ -126,6 +160,7 @@ function Test()
   call TestAfterStartup()
   call TestNonGitDir()
   call TestFileInPast()
+  call TestFileChangingName()
 
   call CleanUpDirs()
 
