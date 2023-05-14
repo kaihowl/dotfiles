@@ -148,6 +148,29 @@ function TestFileChangingName()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function CheckOnFugitiveStatus(id)
+  call WaitForFzfResults(1)
+
+  let init_commit_line = search('init commit', 'w')
+  call assert_notequal(0, init_commit_line, 'init commit not found in fzf window')
+
+  call feedkeys("\<esc>")
+endfunction
+
+function TestOnFugitiveStatus()
+  call CdTestDir()
+
+  call system(['git', 'init'])
+  call writefile(['teststuff'], 'testfile.log')
+  call system(['git', 'add', 'testfile.log'])
+  call system(['git', 'commit', '-m', 'init commit'])
+
+  Git
+
+  call timer_start(50, funcref('CheckOnFugitiveStatus'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
 function CleanUpDirs()
   for dir in g:test_dirs
     echom 'Cleaning up dir ' . dir
@@ -162,6 +185,7 @@ function Test()
   call TestNonGitDir()
   call TestFileInPast()
   call TestFileChangingName()
+  call TestOnFugitiveStatus()
 
   call CleanUpDirs()
 
