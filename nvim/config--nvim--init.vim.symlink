@@ -286,6 +286,7 @@ function make_git_log_command(commit, path)
     '--pretty=tformat:%C(yellow)%h%Creset %C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
     '--follow',
     '--summary',
+    commit,
     '--',
     path
   }
