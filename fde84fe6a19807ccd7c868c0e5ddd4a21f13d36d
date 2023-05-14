@@ -1,1 +1,3 @@
 ./zsh/install.sh 1684064650.247105 24 os=ubuntu-20.04
+
+./cmake/install.sh 1684064667.6093504 17 os=ubuntu-20.04
