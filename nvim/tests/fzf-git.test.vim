@@ -38,6 +38,13 @@ function CdTestDir()
   call chdir(dir)
 endfunction
 
+function CleanUpDirs()
+  for dir in g:test_dirs
+    echom 'Cleaning up dir ' . dir
+    call delete(dir, 'rf')
+  endfor
+endfunction
+
 function CheckAfterStartup(id)
   call WaitForFzfResults(2)
 
@@ -169,13 +176,6 @@ function TestOnFugitiveStatus()
 
   call timer_start(50, funcref('CheckOnFugitiveStatus'))
   call feedkeys(',gl', 'tx!')
-endfunction
-
-function CleanUpDirs()
-  for dir in g:test_dirs
-    echom 'Cleaning up dir ' . dir
-    call delete(dir, 'rf')
-  endfor
 endfunction
 
 function Test()
