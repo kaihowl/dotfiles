@@ -359,7 +359,7 @@ function parse_rename_line(line)
 end
 
 -- Manually tested on
---   - (ok) git status buffer
+-- TODO(hoewelmk) not handled: no commits and preview without predecessor
 --   - (ok) single output line
 --   - (nok) quickfix output
 --   - !dirs not explicitly supported as rename support is expensive to implement
