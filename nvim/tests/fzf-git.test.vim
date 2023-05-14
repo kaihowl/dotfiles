@@ -25,6 +25,8 @@ function test_it()
 end
 EOF
 
+let g:test_dirs = []
+
 function WaitForFzf()
   call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Fail to open fzf')
 endfunction
@@ -42,8 +44,7 @@ function CheckSingleFile(id)
 endfunction
 
 function TestSingleFile()
-  " TODO(hoewelmk) clean up
-  let tmpdir = systemlist(['mktemp', '-d'])[0]
+  let tmpdir = MakeTestDir()
   call chdir(tmpdir)
   call system(['git', 'init'])
   call writefile(['something'], 'testfile.log')
@@ -57,9 +58,14 @@ function TestSingleFile()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function MakeTestDir()
+  let dir = systemlist(['mktemp', '-d'])[0]
+  call insert(g:test_dirs, dir)
+  return dir
+endfunction
+
 function TestNonGitDir()
-  " TODO(hoewelmk) clean up
-  let tmpdir = systemlist(['mktemp', '-d'])[0]
+  let tmpdir = MakeTestDir()
   call chdir(tmpdir)
   call feedkeys(',gl', 'tx')
 
@@ -68,7 +74,14 @@ function TestNonGitDir()
   redir END
 
   call assert_equal("\nNot in a git directory. Aborting.", s:last_message, 'Could not find error message for non-git cwd')
-  " TODO(hoewelmk) check that the function is actually aborted?
+  call assert_notequal(&buftype, 'terminal', 'Fzf should not have been opened')
+endfunction
+
+function CleanUpDirs()
+  for dir in g:test_dirs
+    echom 'Cleaning up dir ' . dir
+    call delete(dir, 'rf')
+  endfor
 endfunction
 
 function Test()
@@ -76,6 +89,7 @@ function Test()
 
   call TestSingleFile()
   call TestNonGitDir()
+  call CleanUpDirs()
 
   if len(v:errors) != 0
     echoerr v:errors
