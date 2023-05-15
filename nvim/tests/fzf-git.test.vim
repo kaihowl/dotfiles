@@ -54,7 +54,7 @@ function CheckAfterStartup(id)
   let second_commit_line = search('second commit', 'w')
   call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
 
-  call feedkeys("\<esc>")
+  call feedkeys("first\<cr>", 't')
 endfunction
 
 function TestAfterStartup()
@@ -70,6 +70,17 @@ function TestAfterStartup()
 
   call timer_start(50, funcref('CheckAfterStartup'))
   call feedkeys(',gl', 'tx!')
+
+  " Resumes after the commit "first" was chosen interactively
+  call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
+
+  " Pull up the commit for this tree
+  norm C
+
+  let commit_description_line = search('first commit', 'w')
+
+  call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
+  call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
 endfunction
 
 function TestNonGitDir()
