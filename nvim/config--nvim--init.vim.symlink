@@ -363,9 +363,6 @@ end
 --   - (ok) single output line
 --   - (nok) quickfix output
 --   - !dirs not explicitly supported as rename support is expensive to implement
---   - (n/a) dir
---   - (n/a) dir with commit in past
---   - (n/a) renamed dir
 function buffer_commits()
   if #vim.fn.FugitiveGitDir() == 0 then
     vim.notify("Not in a git directory. Aborting.", vim.log.levels.WARN)
