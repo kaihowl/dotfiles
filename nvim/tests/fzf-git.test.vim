@@ -189,6 +189,41 @@ function TestOnFugitiveStatus()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function CheckMultipleSelection(id)
+  call WaitForFzfResults(2)
+
+  call feedkeys("\<tab>\<c-k>\<tab>\<cr>", 't')
+endfunction
+
+function TestMultipleSelection()
+  call CdTestDir()
+
+  call system(['git', 'init'])
+  call writefile(['something'], 'testfile.log')
+  call system(['git', 'add', 'testfile.log'])
+  call system(['git', 'commit', '-m', 'first commit'])
+  call writefile(['something', 'something2'], 'testfile.log')
+  call system(['git', 'add', 'testfile.log'])
+  call system(['git', 'commit', '-m', 'second commit'])
+
+
+  call timer_start(50, funcref('CheckMultipleSelection'))
+  call feedkeys(',gl', 'tx!')
+
+  " Resumes after the commit "first" was chosen interactively
+  call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
+
+  " TODO(hoewelmk) add expectations
+  echom getqflist()
+  " " Pull up the commit for this tree
+  " norm C
+  "
+  " let commit_description_line = search('first commit', 'w')
+  "
+  " call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
+  " call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
+endfunction
+
 function Test()
   lua test_it()
 
