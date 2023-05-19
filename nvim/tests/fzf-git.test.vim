@@ -213,8 +213,9 @@ function TestMultipleSelection()
   " Resumes after the commit "first" was chosen interactively
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
 
-  " TODO(hoewelmk) add expectations
-  echom getqflist()
+  " TODO(hoewelmk) add better expectations
+  echom 'test ' .. string(getqflist())
+  call assert_equal(2, len(getqflist()), 'Too few quickfix list items')
   " " Pull up the commit for this tree
   " norm C
   "
