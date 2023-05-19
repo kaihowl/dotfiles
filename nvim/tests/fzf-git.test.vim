@@ -235,6 +235,7 @@ function Test()
   call TestFileInPast()
   call TestFileChangingName()
   call TestOnFugitiveStatus()
+  call TestMultipleSelection()
 
   call CleanUpDirs()
 
