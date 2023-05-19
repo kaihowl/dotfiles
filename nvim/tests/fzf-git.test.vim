@@ -213,16 +213,18 @@ function TestMultipleSelection()
   " Resumes after the commit "first" was chosen interactively
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
 
-  " TODO(hoewelmk) add better expectations
-  echom 'test ' .. string(getqflist())
-  call assert_equal(2, len(getqflist()), 'Too few quickfix list items')
-  " " Pull up the commit for this tree
-  " norm C
-  "
-  " let commit_description_line = search('first commit', 'w')
-  "
-  " call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
-  " call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
+  let qf_list = getqflist()
+
+  call assert_equal(2, len(qf_list), 'Too few quickfix list items')
+
+  let first_bufnr = qf_list[0].bufnr
+  let second_bufnr = qf_list[1].bufnr
+
+  call assert_notequal(first_bufnr, second_bufnr, 'Expected two distinct buffers in quickfix list')
+
+  let first_text = qf_list[0].text
+  call assert_true(qf_list[0].text =~# 'second commit', 'first item should represent second commit')
+  call assert_true(qf_list[1].text =~# 'first commit', 'second item should represent first commit')
 endfunction
 
 function Test()
