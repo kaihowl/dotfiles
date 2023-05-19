@@ -360,8 +360,6 @@ end
 
 -- Manually tested on
 -- TODO(hoewelmk) not handled: no commits and preview without predecessor
---   - (ok) single output line
---   - (nok) quickfix output
 --   - !dirs not explicitly supported as rename support is expensive to implement
 function buffer_commits()
   if #vim.fn.FugitiveGitDir() == 0 then
