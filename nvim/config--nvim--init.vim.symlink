@@ -313,7 +313,7 @@ function git_edit_or_qf(selected, opts, is_loclist)
   if #selected == 1 then
     git_cmd_with_selection(selected, opts, 'edit')
   else
-    git_set_qf(selected, ops)
+    git_set_qf(selected, opts)
   end
 end
 
