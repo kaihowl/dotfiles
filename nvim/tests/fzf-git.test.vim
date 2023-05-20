@@ -235,6 +235,38 @@ function TestMultipleSelection()
   let first_text = qf_list[0].text
   call assert_true(qf_list[0].text =~# 'second commit', 'first item should represent second commit')
   call assert_true(qf_list[1].text =~# 'first commit', 'second item should represent first commit')
+
+  %bdel
+endfunction
+
+function CheckSingleCommitPreview(id)
+  call WaitForFzfResults(1)
+
+  " let init_commit_line = search('first commit', 'w')
+  " call assert_notequal(0, init_commit_line, 'init commit not found in fzf window')
+  redraw
+
+  " TODO(hoewelmk)
+  sleep 1
+
+  let failed_preview_line = search('fatal', 'w')
+  " TODO(hoewelmk) invert
+  call assert_notequal(0, failed_preview_line, 'preview for single commit without parent should not fail')
+
+  call feedkeys("\<esc>")
+endfunction
+
+function TestSingleCommitPreview()
+  call CdTestDir()
+
+  call system(['git', 'init'])
+  call writefile(['something'], 'testfile.log')
+  call system(['git', 'add', 'testfile.log'])
+  call system(['git', 'commit', '-m', 'first commit'])
+
+  call timer_start(50, funcref('CheckSingleCommitPreview'))
+  call feedkeys(',gl', 'tx!')
+
   %bdel
 endfunction
 
@@ -247,6 +279,7 @@ function Test()
   call TestFileChangingName()
   call TestOnFugitiveStatus()
   call TestMultipleSelection()
+  call TestSingleCommitPreview()
 
   call CleanUpDirs()
 
