@@ -81,6 +81,8 @@ function TestAfterStartup()
 
   call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
   call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
+
+  %bdel
 endfunction
 
 function TestNonGitDir()
@@ -94,6 +96,8 @@ function TestNonGitDir()
 
   call assert_equal("\nNot in a git directory. Aborting.", s:last_message, 'Could not find error message for non-git cwd')
   call assert_notequal(&buftype, 'terminal', 'Fzf should not have been opened')
+
+  %bdel
 endfunction
 
 function CheckFileInPast(id)
@@ -130,6 +134,8 @@ function TestFileInPast()
 
   call timer_start(50, funcref('CheckFileInPast'))
   call feedkeys(',gl', 'tx!')
+
+  %bdel
 endfunction
 
 function CheckFileChangingName(id)
@@ -164,6 +170,8 @@ function TestFileChangingName()
 
   call timer_start(50, funcref('CheckFileChangingName'))
   call feedkeys(',gl', 'tx!')
+
+  %bdel
 endfunction
 
 function CheckOnFugitiveStatus(id)
@@ -187,6 +195,8 @@ function TestOnFugitiveStatus()
 
   call timer_start(50, funcref('CheckOnFugitiveStatus'))
   call feedkeys(',gl', 'tx!')
+
+  %bdel
 endfunction
 
 function CheckMultipleSelection(id)
@@ -225,6 +235,7 @@ function TestMultipleSelection()
   let first_text = qf_list[0].text
   call assert_true(qf_list[0].text =~# 'second commit', 'first item should represent second commit')
   call assert_true(qf_list[1].text =~# 'first commit', 'second item should represent first commit')
+  %bdel
 endfunction
 
 function Test()
