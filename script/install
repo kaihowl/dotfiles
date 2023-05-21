@@ -1,12 +1,13 @@
 #!/bin/bash
 set -e
 
-source common/perf_stubs.sh
-
 cd "$(dirname "$0")"/..
 
+source common/perf_stubs.sh
+
 if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo apt-get update
+  source common/apt.sh
+  apt_update
 fi
 
 if [[ "$(uname)" == *"Darwin"* ]] && [[ "$(xcode-select -p)" == *"CommandLineTools"* ]]; then

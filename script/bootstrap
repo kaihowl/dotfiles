@@ -10,19 +10,19 @@ DOTFILES_ROOT=$(unset CDPATH; cd "$SCRIPT_DIR"/.. > /dev/null; pwd -P)
 echo ''
 
 info () {
-  printf "  [ \033[00;34m..\033[0m ] %s" "$1"
+  printf "  [ \033[00;34m..\033[0m ] %s\n" "$1"
 }
 
 user () {
-  printf "\r  [ \033[0;33m?\033[0m ] %s " "$1"
+  printf "  [ \033[0;33m?\033[0m ] %s\n" "$1"
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+  printf "\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+  printf "\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
   echo ''
   exit
 }
@@ -147,7 +147,7 @@ link_dotfiles
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "setting mac-specific settings\n"
+  info "setting mac-specific settings"
   if "${DOTFILES_ROOT}/osx/set-defaults.sh"
   then
     success "mac settings configured"
