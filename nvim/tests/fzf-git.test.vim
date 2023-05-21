@@ -257,6 +257,7 @@ function CheckSingleCommitPreview(id)
   call feedkeys("\<esc>")
 endfunction
 
+" Feature broken, test passing...
 function Test_SingleCommitPreview()
   call CdTestDir()
 
