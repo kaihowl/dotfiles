@@ -29,3 +29,5 @@
 ./ninja/install.sh 1684657969.6986055 7 os=ubuntu-20.04
 
 ./rust/install.sh 1684657971.3475056 2 os=ubuntu-20.04
+
+./ccache/install.sh 1684657978.8852303 7 os=ubuntu-20.04
