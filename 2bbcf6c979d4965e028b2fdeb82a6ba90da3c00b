@@ -27,3 +27,5 @@
 ./nvim/install.sh 1684674065.1858263 15 os=ubuntu-20.04
 
 ./ninja/install.sh 1684674073.2680316 8 os=ubuntu-20.04
+
+./rust/install.sh 1684674075.3896987 2 os=ubuntu-20.04
