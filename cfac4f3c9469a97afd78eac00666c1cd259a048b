@@ -23,3 +23,5 @@
 ./rust/install.sh 1684657933.4308262 3 os=ubuntu-22.04
 
 ./vint/install.sh 1684657938.588466 5 os=ubuntu-22.04
+
+./homebrew/install.sh 1684657938.6997185 0 os=ubuntu-22.04
