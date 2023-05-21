@@ -717,17 +717,16 @@ augroup END
 "}}}
 
 "{{{ Todo functionality
-function! s:GetUser()
+function! GetTodoUserName()
   return trim(system('id -un'))
 endfunction
 
 function! s:SearchForToDo()
-  let user = <sid>GetUser()
-  execute ':Rg todo.'.user
+  lua require('fzf-lua').grep({search = 'todo(' .. vim.fn.GetTodoUserName()}) 
 endfunction
 
 function! s:GenerateToDo()
-  let user = <sid>GetUser()
+  let user = GetTodoUserName()
   return 'TODO(' . user . ')'
 endfunction
 
