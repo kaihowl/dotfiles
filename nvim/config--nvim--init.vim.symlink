@@ -361,6 +361,7 @@ end
 -- Manually tested on
 -- TODO(hoewelmk) not handled: no commits and preview without predecessor
 -- TODO(kaihowl) not handled: visual selection
+-- TODO(kaihowl) restoring cursor (both normal / visual mode)
 --   - !dirs not explicitly supported as rename support is expensive to implement
 function buffer_commits()
   if #vim.fn.FugitiveGitDir() == 0 then
