@@ -29,3 +29,5 @@
 ./colors/install.sh 1684674549.0946903 1 os=ubuntu-22.04
 
 ./cmake/install.sh 1684674560.1193206 11 os=ubuntu-22.04
+
+./fzf/install.sh 1684674562.329516 2 os=ubuntu-22.04
