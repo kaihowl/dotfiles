@@ -7,3 +7,5 @@
 ./git/install.sh 1684669453.1995258 4 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1684669458.3009472 5 os=ubuntu-20.04
+
+./colors/install.sh 1684669459.8033578 1 os=ubuntu-20.04
