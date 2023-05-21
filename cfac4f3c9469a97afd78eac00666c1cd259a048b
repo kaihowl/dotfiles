@@ -15,3 +15,5 @@
 ./git/install.sh 1684669470.0602973 3 os=ubuntu-22.04
 
 ./clangd/install.sh 1684669481.3699105 11 os=ubuntu-22.04
+
+./pyls/install.sh 1684669495.3115647 14 os=ubuntu-22.04
