@@ -35,3 +35,5 @@
 ./gdb/install.sh 1684657962.5409296 13 os=ubuntu-22.04
 
 ./efm/install.sh 1684657963.0635514 0 os=ubuntu-22.04
+
+./ripgrep/install.sh 1684657964.5993624 1 os=ubuntu-22.04
