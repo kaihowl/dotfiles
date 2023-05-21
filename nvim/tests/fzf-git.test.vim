@@ -6,7 +6,7 @@ function expect_eq(expected, actual)
   assert(expected == actual)
 end
 
-function test_it()
+function test_parsing()
   local from, to = parse_rename_line(" rename somefile.txt => someother.txt (100%)")
   expect_eq(from, "somefile.txt")
   expect_eq(to, "someother.txt")
@@ -24,6 +24,10 @@ function test_it()
   expect_eq(to, "prefix/gdb2.vim")
 end
 EOF
+
+function! Test_LuaParsing()
+  lua test_parsing()
+endfunction
 
 let g:test_dirs = []
 
@@ -67,7 +71,7 @@ function CheckAfterStartup(id)
   call feedkeys("first\<cr>", 't')
 endfunction
 
-function TestAfterStartup()
+function Test_AfterStartup()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -95,7 +99,7 @@ function TestAfterStartup()
   %bdel
 endfunction
 
-function TestNonGitDir()
+function Test_NonGitDir()
   call CdTestDir()
 
   call feedkeys(',gl', 'tx')
@@ -125,7 +129,7 @@ function CheckFileInPast(id)
   call feedkeys("\<esc>")
 endfunction
 
-function TestFileInPast()
+function Test_FileInPast()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -163,7 +167,7 @@ function CheckFileChangingName(id)
   call feedkeys("\<esc>")
 endfunction
 
-function TestFileChangingName()
+function Test_FileChangingName()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -193,7 +197,7 @@ function CheckOnFugitiveStatus(id)
   call feedkeys("\<esc>")
 endfunction
 
-function TestOnFugitiveStatus()
+function Test_OnFugitiveStatus()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -215,7 +219,7 @@ function CheckMultipleSelection(id)
   call feedkeys("\<tab>\<c-k>\<tab>\<cr>", 't')
 endfunction
 
-function TestMultipleSelection()
+function Test_MultipleSelection()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -265,7 +269,7 @@ function CheckSingleCommitPreview(id)
   call feedkeys("\<esc>")
 endfunction
 
-function TestSingleCommitPreview()
+function Test_SingleCommitPreview()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -280,15 +284,17 @@ function TestSingleCommitPreview()
 endfunction
 
 function Test()
-  lua test_it()
+  " Source https://vimways.org/2019/a-test-to-attest-to/
+  let tests = split(substitute(execute('function /^Test_'),
+                            \  'function \(\k*()\)',
+                            \  '\1',
+                            \  'g'))
 
-  call TestAfterStartup()
-  call TestNonGitDir()
-  call TestFileInPast()
-  call TestFileChangingName()
-  call TestOnFugitiveStatus()
-  call TestMultipleSelection()
-  call TestSingleCommitPreview()
+  for test_function in tests
+    %bwipe!
+
+    execute 'call ' . test_function
+  endfor
 
   call CleanUpDirs()
 
