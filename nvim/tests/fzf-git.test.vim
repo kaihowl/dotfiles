@@ -27,9 +27,15 @@ EOF
 
 let g:test_dirs = []
 
+function CheckTerminal(pattern)
+  " Needed to force display of preview in fzf
+  redraw
+  return search(a:pattern, 'w') != 0
+endfunction
+
 function WaitForTerminalContent(pattern)
   call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Failed to open fzf / terminal')
-  call assert_equal(0, wait(10000, 'search("' . a:pattern . '", "w") != 0'), 'Failed to wait for pattern "' . a:pattern . '"')
+  call assert_equal(0, wait(10000, function('CheckTerminal', [a:pattern])), 'Failed to wait for pattern "' . a:pattern . '"')
 endfunction
 
 function WaitForFzfResults(num_results)
@@ -250,12 +256,11 @@ function CheckSingleCommitPreview(id)
   " call assert_notequal(0, init_commit_line, 'init commit not found in fzf window')
   redraw
 
-  " TODO(hoewelmk)
-  sleep 1
+  call WaitForTerminalContent('diff --git\|bad revision')
 
   let failed_preview_line = search('fatal', 'w')
-  " TODO(hoewelmk) invert
-  call assert_notequal(0, failed_preview_line, 'preview for single commit without parent should not fail')
+
+  call assert_equal(0, failed_preview_line, 'preview for single commit without parent should not fail')
 
   call feedkeys("\<esc>")
 endfunction
