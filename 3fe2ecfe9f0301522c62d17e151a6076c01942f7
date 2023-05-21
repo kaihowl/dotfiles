@@ -3,3 +3,5 @@
 ./cmake/install.sh 1684674504.9673965 16 os=ubuntu-20.04
 
 ./tmux/install.sh 1684674505.865255 1 os=ubuntu-20.04
+
+./git/install.sh 1684674510.7238014 5 os=ubuntu-20.04
