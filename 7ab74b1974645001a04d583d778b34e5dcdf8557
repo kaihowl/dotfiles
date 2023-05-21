@@ -13,3 +13,5 @@
 ./ninja/install.sh 1684657368.3474913 4 os=ubuntu-22.04
 
 ./git/install.sh 1684657371.4797525 3 os=ubuntu-22.04
+
+./clangd/install.sh 1684657381.3365548 10 os=ubuntu-22.04
