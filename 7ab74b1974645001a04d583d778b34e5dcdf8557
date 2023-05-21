@@ -13,3 +13,5 @@
 ./shellcheck/install.sh 1684657384.9795759 0 os=ubuntu-20.04
 
 ./alacritty/install.sh 1684657399.7598867 15 os=ubuntu-20.04
+
+./efm/install.sh 1684657400.216568 1 os=ubuntu-20.04
