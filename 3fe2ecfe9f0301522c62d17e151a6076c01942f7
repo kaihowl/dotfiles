@@ -33,3 +33,5 @@
 ./ccache/install.sh 1684674633.6649272 10 os=ubuntu-20.04
 
 ./homebrew/install.sh 1684674633.8090777 0 os=ubuntu-20.04
+
+./pyls/install.sh 1684674644.1956558 11 os=ubuntu-20.04
