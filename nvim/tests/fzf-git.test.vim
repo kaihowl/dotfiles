@@ -279,6 +279,8 @@ function Test()
   for test_function in tests
     %bwipe!
 
+    echom 'Testing ' . test_function
+
     execute 'call ' . test_function
   endfor
 
