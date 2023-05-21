@@ -17,3 +17,5 @@
 ./efm/install.sh 1684674000.7101376 0 os=ubuntu-20.04
 
 ./gdb/install.sh 1684674022.9601948 22 os=ubuntu-20.04
+
+./clangd/install.sh 1684674040.5937278 18 os=ubuntu-20.04
