@@ -31,3 +31,5 @@
 ./cmake/install.sh 1684657948.311538 9 os=ubuntu-22.04
 
 ./fzf/install.sh 1684657949.6404617 1 os=ubuntu-22.04
+
+./gdb/install.sh 1684657962.5409296 13 os=ubuntu-22.04
