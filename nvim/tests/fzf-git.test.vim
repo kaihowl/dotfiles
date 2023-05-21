@@ -27,9 +27,13 @@ EOF
 
 let g:test_dirs = []
 
+function WaitForTerminalContent(pattern)
+  call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Failed to open fzf / terminal')
+  call assert_equal(0, wait(10000, 'search("' . a:pattern . '", "w") != 0'), 'Failed to wait for pattern "' . a:pattern . '"')
+endfunction
+
 function WaitForFzfResults(num_results)
-  call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Failed to open fzf')
-  call assert_equal(0, wait(10000, 'search("> .* < ' . a:num_results . '/", "w") != 0'), 'Failed to wait for fzf prompt')
+  call WaitForTerminalContent('> .* < ' . a:num_results . '/')
 endfunction
 
 function CdTestDir()
