@@ -19,3 +19,5 @@
 ./pyls/install.sh 1684674525.9535952 15 os=ubuntu-22.04
 
 ./alacritty/install.sh 1684674538.3639722 13 os=ubuntu-22.04
+
+./rust/install.sh 1684674540.6055405 2 os=ubuntu-22.04
