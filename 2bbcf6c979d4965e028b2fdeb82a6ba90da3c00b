@@ -43,3 +43,5 @@
 ./tmux/install.sh 1684674051.921312 0 os=ubuntu-22.04
 
 ./nvim/install.sh 1684674064.1040761 13 os=ubuntu-22.04
+
+install 1684674064.208271 141 os=ubuntu-22.04
