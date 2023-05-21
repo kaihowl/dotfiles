@@ -39,3 +39,5 @@
 ./ripgrep/install.sh 1684657435.0216973 1 os=ubuntu-22.04
 
 ./ctags/install.sh 1684657439.3904545 4 os=ubuntu-22.04
+
+./tmux/install.sh 1684657439.981436 0 os=ubuntu-22.04
