@@ -394,7 +394,7 @@ function buffer_commits()
     fzf_opts = {
       ['--delimiter'] = '":| "',
     },
-    preview = "git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}",
+    preview = "if git rev-parse --quiet --verify --end-of-options {2}~1 > /dev/null; then git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}; else git show {2} -- {1}; fi",
     actions={
       ['default'] = git_edit_or_qf,
       ['ctrl-s'] = git_split,
