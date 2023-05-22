@@ -17,3 +17,5 @@
 ./clangd/install.sh 1684772360.1601777 10 os=ubuntu-22.04
 
 ./pyls/install.sh 1684772372.483797 12 os=ubuntu-22.04
+
+./alacritty/install.sh 1684772383.1058664 11 os=ubuntu-22.04
