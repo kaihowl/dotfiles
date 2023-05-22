@@ -14,7 +14,9 @@ function apt_update() {
 
 function apt_install() {
   wait_for_apt
-  sudo apt-get install --upgrade -y "$@"
+  # A different lock (/var/lib/dpkg/lock-frontend) is needed to install a package.
+  # It has a builtin wait mechanism. Use that in addition to the wait_for_apt script.
+  sudo apt-get -o DPkg::Lock::Timeout=-1 install --upgrade -y "$@"
 }
 
 function apt_remove() {
