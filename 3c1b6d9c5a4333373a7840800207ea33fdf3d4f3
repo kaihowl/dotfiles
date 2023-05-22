@@ -9,3 +9,5 @@
 ./ccache/install.sh 1684772341.2021847 5 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1684772342.110005 1 os=ubuntu-22.04
+
+./ninja/install.sh 1684772346.6531365 4 os=ubuntu-22.04
