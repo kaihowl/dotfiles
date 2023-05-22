@@ -3,3 +3,5 @@
 ./system/install.sh 1684772328.717594 5 os=ubuntu-22.04
 
 ./zoxide/install.sh 1684772329.8969479 1 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1684772336.653384 7 os=ubuntu-22.04
