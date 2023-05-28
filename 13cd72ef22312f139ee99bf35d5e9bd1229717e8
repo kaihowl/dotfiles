@@ -25,3 +25,5 @@
 ./fzf/install.sh 1685274336.9013672 1 os=ubuntu-20.04
 
 ./nvim/install.sh 1685274349.9519389 13 os=ubuntu-20.04
+
+./ninja/install.sh 1685274357.7984385 8 os=ubuntu-20.04
