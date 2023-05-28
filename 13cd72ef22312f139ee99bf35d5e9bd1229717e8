@@ -35,3 +35,5 @@
 ./homebrew/install.sh 1685274367.4108 0 os=ubuntu-20.04
 
 ./pyls/install.sh 1685274374.675533 7 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1685274384.4258285 10 os=ubuntu-20.04
