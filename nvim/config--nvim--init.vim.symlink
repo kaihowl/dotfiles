@@ -218,11 +218,6 @@ endfunction
 " Fugitive mappings
 nnoremap <leader>gs :G<cr>
 
-" Gclog with a range already restores the cursor position on the expected
-" chunk. This is superior to just retaining the current cursor position.
-vnoremap <leader>gl :Gclog --after='6 months ago'<cr>
-vnoremap <leader>gL :Gclog<cr>
-
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gm :call <sid>diff_to_default_branch()<cr>
 nnoremap <leader>ge :RestoreCurPos Gedit<cr>
@@ -279,19 +274,27 @@ function commit_and_path()
   end
 end
 
-function make_git_log_command(commit, path)
-  local additional_opts = {
+function make_git_log_command(commit, path, line_range)
+  local opts = {
     'log',
     '--color',
     '--pretty=tformat:%C(yellow)%h%Creset %C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
-    '--follow',
-    '--summary',
-    commit,
-    '--',
-    path
+    commit
   }
 
-  return vim.fn.FugitiveShellCommand(additional_opts)
+  if line_range then
+    table.insert(opts, '--no-patch')
+    table.insert(opts, '-L' .. line_range.startline .. ',' .. line_range.endline .. ':' .. path)
+  else
+    table.insert(opts, '--follow')
+    table.insert(opts, '--summary')
+    table.insert(opts, '--')
+    table.insert(opts, path)
+  end
+
+  vim.notify(vim.inspect(opts))
+
+  return vim.fn.FugitiveShellCommand(opts)
 end
 
 local sel_to_qf = function(selected, _opts)
@@ -364,7 +367,12 @@ end
 -- TODO(kaihowl) restoring cursor (both normal / visual mode)
 -- TODO(kaihowl) check spaces in file names
 --   - !dirs not explicitly supported as rename support is expensive to implement
-function buffer_commits()
+function buffer_commits(opts)
+  local line_range = nil
+  if opts and opts.count ~= -1 then
+    line_range = { startline = opts.line1, endline = opts.line2 }
+  end
+
   if #vim.fn.FugitiveGitDir() == 0 then
     vim.notify("Not in a git directory. Aborting.", vim.log.levels.WARN)
     return
@@ -375,7 +383,7 @@ function buffer_commits()
   local commit, abs_path = unpack(comm_path)
   local rel_path = require'fzf-lua'.path.relative(abs_path or '', vim.loop.cwd())
   local parsing_state = {filename = rel_path}
-  local command = make_git_log_command(commit, abs_path)
+  local command = make_git_log_command(commit, abs_path, line_range)
   require'fzf-lua'.fzf_exec(command, {
     fn_transform = function(line)
       if vim.startswith(line, ' rename') then
@@ -403,9 +411,14 @@ function buffer_commits()
   }})
 end
 
+vim.api.nvim_create_user_command('BufferCommits',
+  buffer_commits,
+  { range = -1 })
+
 EOF
 
-nnoremap <leader>gl :lua buffer_commits()<cr>
+nnoremap <leader>gl :BufferCommits<cr>
+vnoremap <leader>gl :BufferCommits<cr>
 
 " Create dirs
 if !isdirectory(g:fzf_history_dir)
