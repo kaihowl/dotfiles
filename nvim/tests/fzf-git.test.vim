@@ -34,7 +34,12 @@ let g:test_dirs = []
 function CheckTerminal(pattern)
   " Needed to force display of preview in fzf
   redraw
-  return search(a:pattern, 'w') != 0
+  let res = search(a:pattern, 'w')
+  if res != 0
+    echom 'Found pattern ' . a:pattern . ' on this line "' . getline(res) . '"'
+  endif
+  return res != 0
+
 endfunction
 
 function WaitForTerminalContent(pattern)
@@ -44,6 +49,7 @@ endfunction
 
 function WaitForFzfResults(num_results)
   call WaitForTerminalContent('> .* < ' . a:num_results . '/')
+  echom getline('^', '$')
 endfunction
 
 function CdTestDir()
@@ -244,11 +250,10 @@ endfunction
 function CheckSingleCommitPreview(id)
   call WaitForFzfResults(1)
 
-  " let init_commit_line = search('first commit', 'w')
-  " call assert_notequal(0, init_commit_line, 'init commit not found in fzf window')
-  redraw
+  let init_commit_line = search('first commit', 'w')
+  call assert_notequal(0, init_commit_line, 'init commit not found in fzf window')
 
-  call WaitForTerminalContent('diff --git\|bad revision')
+  call WaitForTerminalContent('Author: \|bad revision')
 
   let failed_preview_line = search('fatal', 'w')
 
