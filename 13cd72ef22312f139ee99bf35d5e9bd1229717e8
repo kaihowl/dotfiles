@@ -25,3 +25,5 @@
 ./fzf/install.sh 1685879178.9959655 2 os=ubuntu-20.04
 
 ./alacritty/install.sh 1685879197.508027 18 os=ubuntu-20.04
+
+./pyls/install.sh 1685879207.572529 10 os=ubuntu-20.04
