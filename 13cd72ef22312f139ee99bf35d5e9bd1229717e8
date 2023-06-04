@@ -39,3 +39,5 @@
 ./ripgrep/install.sh 1685879163.7125468 2 os=ubuntu-22.04
 
 ./clangd/install.sh 1685879179.4675364 16 os=ubuntu-22.04
+
+./rust/install.sh 1685879190.9852827 11 os=ubuntu-22.04
