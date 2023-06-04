@@ -43,3 +43,5 @@
 ./ninja/install.sh 1685879290.5327399 11 os=ubuntu-20.04
 
 ./ctags/install.sh 1685879301.8103456 11 os=ubuntu-20.04
+
+install 1685879301.954176 263 os=ubuntu-20.04
