@@ -1,3 +1,5 @@
 ./zsh/install.sh 1685879086.1840527 37 os=ubuntu-20.04
 
 ./colors/install.sh 1685879088.2109134 2 os=ubuntu-20.04
+
+./rust/install.sh 1685879102.7009778 14 os=ubuntu-20.04
