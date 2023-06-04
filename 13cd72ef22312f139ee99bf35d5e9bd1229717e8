@@ -27,3 +27,5 @@
 ./pyls/install.sh 1685879137.6077223 10 os=ubuntu-22.04
 
 ./git/install.sh 1685879142.2964256 5 os=ubuntu-22.04
+
+./gdb/install.sh 1685879155.0560348 12 os=ubuntu-22.04
