@@ -41,3 +41,5 @@
 ./clangd/install.sh 1685879279.7187202 21 os=ubuntu-20.04
 
 ./ninja/install.sh 1685879290.5327399 11 os=ubuntu-20.04
+
+./ctags/install.sh 1685879301.8103456 11 os=ubuntu-20.04
