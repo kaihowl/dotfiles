@@ -33,3 +33,5 @@
 ./tmux/install.sh 1685879214.5209057 1 os=ubuntu-20.04
 
 ./system/install.sh 1685879224.5331357 10 os=ubuntu-20.04
+
+./ccache/install.sh 1685879234.7863078 10 os=ubuntu-20.04
