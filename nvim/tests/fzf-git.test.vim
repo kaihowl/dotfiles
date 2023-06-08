@@ -31,24 +31,31 @@ endfunction
 
 let g:test_dirs = []
 
-function CheckTerminal(pattern)
+function CheckScreen(pattern)
   " Needed to force display of preview in fzf
   redraw
   let res = search(a:pattern, 'w')
+  " TODO(hoewelmk) add logging output when pattern fails to be found
   if res != 0
     echom 'Found pattern ' . a:pattern . ' on this line "' . getline(res) . '"'
   endif
+  " TODO(hoewelmk) cleanup
+  call writefile(getline(1, '$'), "/tmp/log.file")
   return res != 0
+endfunction
 
+function WaitForScreenContent(pattern)
+  call assert_equal(0, wait(10000, function('CheckScreen', [a:pattern])), 'Failed to wait for pattern "' . a:pattern . '"')
 endfunction
 
 function WaitForTerminalContent(pattern)
   call assert_equal(0, wait(10000, '&buftype == "terminal"'), 'Failed to open fzf / terminal')
-  call assert_equal(0, wait(10000, function('CheckTerminal', [a:pattern])), 'Failed to wait for pattern "' . a:pattern . '"')
+  call WaitForScreenContent(a:pattern)
 endfunction
 
 function WaitForFzfResults(num_results)
   call WaitForTerminalContent('> .* < ' . a:num_results . '/')
+  " TODO(hoewelmk) clean up
   echom getline('^', '$')
 endfunction
 
@@ -96,6 +103,8 @@ function Test_AfterStartup()
 
   " Pull up the commit for this tree
   norm C
+
+  call WaitForScreenContent('committer')
 
   let commit_description_line = search('first commit', 'w')
 

@@ -366,6 +366,7 @@ end
 -- TODO(kaihowl) not handled: visual selection
 -- TODO(kaihowl) restoring cursor (both normal / visual mode)
 -- TODO(kaihowl) check spaces in file names
+-- TODO(hoewelmk) empty select
 --   - !dirs not explicitly supported as rename support is expensive to implement
 function buffer_commits(opts)
   local line_range = nil
