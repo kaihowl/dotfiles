@@ -10,3 +10,4 @@ let g:done = v:true
 
 call wait(10000, 'g:done')
 
+quitall!
