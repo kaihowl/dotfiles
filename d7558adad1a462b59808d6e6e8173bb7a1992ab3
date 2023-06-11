@@ -15,3 +15,5 @@
 ./ripgrep/install.sh 1686513115.3624504 7 os=ubuntu-20.04
 
 ./git/install.sh 1686513124.3683252 9 os=ubuntu-20.04
+
+./nvim/install.sh 1686513142.1080933 17 os=ubuntu-20.04
