@@ -40,7 +40,8 @@ function CheckScreen(pattern)
     echom 'Found pattern ' . a:pattern . ' on this line "' . getline(res) . '"'
   endif
   " TODO(hoewelmk) cleanup
-  call writefile(getline(1, '$'), "/tmp/log.file")
+  call writefile(['waiting for ' . a:pattern ], "/tmp/log.file" , 'a')
+  call writefile(getline('^', '$'), "/tmp/log.file" , 'a')
   return res != 0
 endfunction
 
@@ -72,6 +73,8 @@ function CleanUpDirs()
   endfor
 endfunction
 
+let g:done = v:false
+
 function CheckAfterStartup(id)
   call WaitForFzfResults(2)
 
@@ -81,10 +84,18 @@ function CheckAfterStartup(id)
   let second_commit_line = search('second commit', 'w')
   call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
 
-  call feedkeys("first\<cr>", 't')
+  echom 'feeding keys'
+  echom 'mode: ' . mode() . '\n'
+  call feedkeys('ifirst', 't')
+
+  call WaitForScreenContent('> .*first')
+
+  call feedkeys("\<cr>", 't')
+
+  let g:done = v:true
 endfunction
 
-function Test_AfterStartup()
+function Test_This_AfterStartup()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -95,11 +106,42 @@ function Test_AfterStartup()
   call system(['git', 'add', 'testfile.log'])
   call system(['git', 'commit', '-m', 'second commit'])
 
-  call timer_start(50, funcref('CheckAfterStartup'))
-  call feedkeys(',gl', 'tx!')
+  echom 'before mode ' . mode('"full"') . "\n"
+
+  " call timer_start(50, funcref('CheckAfterStartup'))
+  call feedkeys(',gl', 'tx')
+
+  echom 'begin mode ' . mode('"full"') . "\n"
+
+  redraw
+  sleep 1
+
+  echom 'waiting'
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  let second_commit_line = search('second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
+
+  echom 'feeding keys'
+  echom 'mode: ' . mode('"full"') . '\n'
+  echom 'buftype: ' . &buftype . '\n'
+  call feedkeys('ifirst', 't')
+  call feedkeys('','x')
+
+  call WaitForScreenContent('> .*first')
+
+  call feedkeys("\<cr>", 't')
+
+  let g:done = v:true
 
   " Resumes after the commit "first" was chosen interactively
+  call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
+
+  echom 'continue stuff'
 
   " Pull up the commit for this tree
   norm C
@@ -286,7 +328,7 @@ endfunction
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_'),
+  let tests = split(substitute(execute('function /^Test_This_'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
