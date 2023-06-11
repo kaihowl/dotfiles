@@ -35,3 +35,5 @@
 ./ninja/install.sh 1686513099.476766 5 os=ubuntu-22.04
 
 ./tmux/install.sh 1686513100.0975242 1 os=ubuntu-22.04
+
+./ripgrep/install.sh 1686513101.735121 1 os=ubuntu-22.04
