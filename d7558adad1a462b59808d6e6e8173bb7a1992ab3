@@ -17,3 +17,5 @@
 ./ccache/install.sh 1686513049.5403895 5 os=ubuntu-22.04
 
 ./nvim/install.sh 1686513060.1568992 11 os=ubuntu-22.04
+
+./shellcheck/install.sh 1686513060.8669848 0 os=ubuntu-22.04
