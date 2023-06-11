@@ -9,3 +9,5 @@
 ./efm/install.sh 1686513034.9903831 0 os=ubuntu-22.04
 
 ./vint/install.sh 1686513043.3865035 8 os=ubuntu-22.04
+
+./fzf/install.sh 1686513044.758386 1 os=ubuntu-22.04
