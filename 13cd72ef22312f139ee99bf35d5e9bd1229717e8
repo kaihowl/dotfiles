@@ -29,3 +29,5 @@
 ./git/install.sh 1686483923.2984688 5 os=ubuntu-22.04
 
 ./gdb/install.sh 1686483935.9957843 12 os=ubuntu-22.04
+
+./zoxide/install.sh 1686483937.3046734 1 os=ubuntu-22.04
