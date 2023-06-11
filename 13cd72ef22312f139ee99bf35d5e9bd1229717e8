@@ -3,3 +3,5 @@
 ./alacritty/install.sh 1686483850.843531 11 os=ubuntu-22.04
 
 ./colors/install.sh 1686483852.419257 2 os=ubuntu-22.04
+
+./cmake/install.sh 1686483863.1011255 10 os=ubuntu-22.04
