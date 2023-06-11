@@ -35,3 +35,5 @@
 ./system/install.sh 1686484005.702194 8 os=ubuntu-20.04
 
 ./ccache/install.sh 1686484013.9647987 8 os=ubuntu-20.04
+
+./gdb/install.sh 1686484033.9466429 20 os=ubuntu-20.04
