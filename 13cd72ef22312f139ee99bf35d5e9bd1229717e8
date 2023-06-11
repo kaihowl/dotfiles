@@ -23,3 +23,5 @@
 ./zoxide/install.sh 1686483961.9311495 1 os=ubuntu-20.04
 
 ./fzf/install.sh 1686483964.1542456 3 os=ubuntu-20.04
+
+./alacritty/install.sh 1686483981.1853259 17 os=ubuntu-20.04
