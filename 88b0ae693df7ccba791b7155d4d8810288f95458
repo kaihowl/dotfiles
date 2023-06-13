@@ -27,3 +27,5 @@
 ./alacritty/install.sh 1686679789.3902152 16 os=ubuntu-20.04
 
 ./pyls/install.sh 1686679797.8878834 8 os=ubuntu-20.04
+
+./vint/install.sh 1686679803.1674557 6 os=ubuntu-20.04
