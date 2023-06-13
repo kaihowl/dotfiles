@@ -31,3 +31,5 @@
 ./gdb/install.sh 1686679774.5377195 12 os=ubuntu-22.04
 
 ./zoxide/install.sh 1686679775.7569394 1 os=ubuntu-22.04
+
+./ninja/install.sh 1686679780.578155 5 os=ubuntu-22.04
