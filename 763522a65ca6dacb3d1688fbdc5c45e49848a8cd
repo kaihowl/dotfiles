@@ -45,3 +45,5 @@
 ./ctags/install.sh 1686679465.6905942 5 os=ubuntu-22.04
 
 install 1686679465.8014147 185 os=ubuntu-22.04
+
+test 1686679568.8176677 101 os=ubuntu-22.04
