@@ -33,3 +33,5 @@
 ./zoxide/install.sh 1686679424.8194778 1 os=ubuntu-22.04
 
 ./ninja/install.sh 1686679429.9886806 5 os=ubuntu-22.04
+
+./tmux/install.sh 1686679430.6320112 0 os=ubuntu-22.04
