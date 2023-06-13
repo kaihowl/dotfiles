@@ -19,3 +19,5 @@
 ./nvim/install.sh 1686673505.4836617 23 os=ubuntu-20.04
 
 ./homebrew/install.sh 1686673505.5971746 0 os=ubuntu-20.04
+
+./zoxide/install.sh 1686673506.5306857 1 os=ubuntu-20.04
