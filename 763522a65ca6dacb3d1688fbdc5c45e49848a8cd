@@ -5,3 +5,5 @@
 ./rust/install.sh 1686673441.9248743 13 os=ubuntu-20.04
 
 ./efm/install.sh 1686673442.3937914 1 os=ubuntu-20.04
+
+./shellcheck/install.sh 1686673442.9396977 0 os=ubuntu-20.04
