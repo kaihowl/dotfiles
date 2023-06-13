@@ -31,3 +31,5 @@
 ./vint/install.sh 1686679803.1674557 6 os=ubuntu-20.04
 
 ./tmux/install.sh 1686679804.0123596 0 os=ubuntu-20.04
+
+./system/install.sh 1686679814.6271615 10 os=ubuntu-20.04
