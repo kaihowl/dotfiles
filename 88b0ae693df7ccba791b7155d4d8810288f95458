@@ -39,3 +39,5 @@
 ./gdb/install.sh 1686679844.4175992 20 os=ubuntu-20.04
 
 ./clangd/install.sh 1686679865.4582155 21 os=ubuntu-20.04
+
+./ninja/install.sh 1686679876.346521 11 os=ubuntu-20.04
