@@ -43,3 +43,5 @@
 ./rust/install.sh 1686679811.4931684 13 os=ubuntu-22.04
 
 ./ctags/install.sh 1686679817.0494914 5 os=ubuntu-22.04
+
+install 1686679817.1572964 181 os=ubuntu-22.04
