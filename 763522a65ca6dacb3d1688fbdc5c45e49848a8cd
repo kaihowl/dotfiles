@@ -5,3 +5,5 @@
 ./colors/install.sh 1686679336.65371 1 os=ubuntu-22.04
 
 ./cmake/install.sh 1686679346.5974681 10 os=ubuntu-22.04
+
+./efm/install.sh 1686679347.3700585 1 os=ubuntu-22.04
