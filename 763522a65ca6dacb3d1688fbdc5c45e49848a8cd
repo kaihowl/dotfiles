@@ -17,3 +17,5 @@
 ./git/install.sh 1686673482.1969247 9 os=ubuntu-20.04
 
 ./nvim/install.sh 1686673505.4836617 23 os=ubuntu-20.04
+
+./homebrew/install.sh 1686673505.5971746 0 os=ubuntu-20.04
