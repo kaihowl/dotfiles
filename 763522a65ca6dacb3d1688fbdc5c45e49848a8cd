@@ -43,3 +43,5 @@
 ./fzf/install.sh 1686673727.772471 2 os=macos-11
 
 ./git/install.sh 1686673731.422567 4 os=macos-11
+
+install 1686673731.6006138 318 os=macos-11
