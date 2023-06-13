@@ -11,3 +11,5 @@
 ./cmake/install.sh 1686679719.941078 16 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1686679732.2396538 13 os=ubuntu-20.04
+
+./ripgrep/install.sh 1686679738.3748467 6 os=ubuntu-20.04
