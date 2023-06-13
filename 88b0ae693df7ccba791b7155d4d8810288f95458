@@ -7,3 +7,5 @@
 ./efm/install.sh 1686679703.0351632 0 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1686679703.5436862 0 os=ubuntu-20.04
+
+./cmake/install.sh 1686679719.941078 16 os=ubuntu-20.04
