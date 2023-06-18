@@ -29,3 +29,5 @@
 ./alacritty/install.sh 1687088687.5264957 12 os=ubuntu-22.04
 
 ./clangd/install.sh 1687088698.2575686 11 os=ubuntu-22.04
+
+./gdb/install.sh 1687088713.1854572 15 os=ubuntu-22.04
