@@ -5,3 +5,5 @@
 ./shellcheck/install.sh 1687088631.0279744 0 os=ubuntu-22.04
 
 ./rust/install.sh 1687088632.990835 1 os=ubuntu-22.04
+
+./nvim/install.sh 1687088654.0077536 20 os=ubuntu-22.04
