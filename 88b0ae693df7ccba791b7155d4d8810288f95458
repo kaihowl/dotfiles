@@ -27,3 +27,5 @@
 ./efm/install.sh 1687088675.9143076 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1687088687.5264957 12 os=ubuntu-22.04
+
+./clangd/install.sh 1687088698.2575686 11 os=ubuntu-22.04
