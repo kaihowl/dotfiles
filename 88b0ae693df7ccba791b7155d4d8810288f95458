@@ -1,3 +1,5 @@
 ./zsh/install.sh 1687088625.5014048 14 os=ubuntu-22.04
 
 ./ctags/install.sh 1687088630.2625954 5 os=ubuntu-22.04
+
+./shellcheck/install.sh 1687088631.0279744 0 os=ubuntu-22.04
