@@ -1,1 +1,3 @@
 ./zsh/install.sh 1687088638.1294615 21 os=ubuntu-20.04
+
+./colors/install.sh 1687088639.6183467 1 os=ubuntu-20.04
