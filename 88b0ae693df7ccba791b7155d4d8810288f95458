@@ -3,3 +3,5 @@
 ./colors/install.sh 1687088639.6183467 1 os=ubuntu-20.04
 
 ./rust/install.sh 1687088641.4862063 2 os=ubuntu-20.04
+
+./efm/install.sh 1687088641.8835073 0 os=ubuntu-20.04
