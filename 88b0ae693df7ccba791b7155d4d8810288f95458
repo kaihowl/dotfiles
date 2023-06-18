@@ -45,3 +45,5 @@
 ./ctags/install.sh 1687088811.8237617 10 os=ubuntu-20.04
 
 install 1687088811.9396288 204 os=ubuntu-20.04
+
+test 1687088891.6260436 78 os=ubuntu-20.04
