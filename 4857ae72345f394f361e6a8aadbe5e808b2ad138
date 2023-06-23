@@ -3,3 +3,5 @@
 ./efm/install.sh 1687515199.8097897 0 os=ubuntu-20.04
 
 ./gdb/install.sh 1687515217.6873684 18 os=ubuntu-20.04
+
+./shellcheck/install.sh 1687515218.3919296 1 os=ubuntu-20.04
