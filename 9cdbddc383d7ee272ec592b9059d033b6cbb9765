@@ -3,3 +3,5 @@
 ./tmux/install.sh 1687514651.2243185 1 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1687514662.0956137 11 os=ubuntu-22.04
+
+./alacritty/install.sh 1687514672.0163622 9 os=ubuntu-22.04
