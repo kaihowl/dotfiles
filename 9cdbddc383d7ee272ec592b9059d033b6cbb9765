@@ -1,3 +1,5 @@
 ./zsh/install.sh 1687514650.669278 11 os=ubuntu-22.04
 
 ./tmux/install.sh 1687514651.2243185 1 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1687514662.0956137 11 os=ubuntu-22.04
