@@ -307,7 +307,9 @@ nnoremap <leader>fc :FzfLua changes<cr>
 nnoremap <leader>fj :FzfLua jumps<cr>
 nnoremap <leader>fb :FzfLua git_branches<cr>
 nnoremap <leader>R :FzfLua live_grep<cr>
-nnoremap <leader>rr :lua require('fzf-lua').grep_cword({})<cr>
+" Set no_esc=true to pass \b as boundary markers and not backspace. A cword is
+" unlikely to require escaping.
+nnoremap <leader>rr :lua require('fzf-lua').grep({search = "\\b"..vim.fn.expand('<cword>').."\\b", no_esc = true})<cr>
 vnoremap <leader>rr :lua require('fzf-lua').grep_visual({})<cr>
 "}}}
 
