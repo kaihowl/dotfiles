@@ -9,3 +9,5 @@
 ./clangd/install.sh 1687515219.7787197 10 os=ubuntu-22.04
 
 ./ctags/install.sh 1687515224.0599918 4 os=ubuntu-22.04
+
+./ninja/install.sh 1687515227.8786619 3 os=ubuntu-22.04
