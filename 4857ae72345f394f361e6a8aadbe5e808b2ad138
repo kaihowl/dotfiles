@@ -37,3 +37,5 @@
 ./pyls/install.sh 1687515299.904044 8 os=ubuntu-22.04
 
 ./colors/install.sh 1687515301.4245791 2 os=ubuntu-22.04
+
+./homebrew/install.sh 1687515301.5437202 0 os=ubuntu-22.04
