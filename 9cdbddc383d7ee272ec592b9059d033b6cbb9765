@@ -39,3 +39,5 @@
 ./colors/install.sh 1687514758.0184128 1 os=ubuntu-22.04
 
 ./homebrew/install.sh 1687514758.1271083 0 os=ubuntu-22.04
+
+./fzf/install.sh 1687514760.086129 1 os=ubuntu-22.04
