@@ -13,3 +13,5 @@
 ./ninja/install.sh 1687514688.8361142 3 os=ubuntu-22.04
 
 ./zoxide/install.sh 1687514690.1183312 2 os=ubuntu-22.04
+
+./ripgrep/install.sh 1687514691.7203064 1 os=ubuntu-22.04
