@@ -9,3 +9,5 @@
 ./vint/install.sh 1687693468.0802376 8 os=ubuntu-20.04
 
 ./cmake/install.sh 1687693478.5308812 10 os=ubuntu-20.04
+
+./rust/install.sh 1687693480.531183 2 os=ubuntu-20.04
