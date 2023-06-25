@@ -23,3 +23,5 @@
 ./fzf/install.sh 1687693496.5922432 1 os=ubuntu-20.04
 
 ./clangd/install.sh 1687693510.7573001 14 os=ubuntu-20.04
+
+./homebrew/install.sh 1687693510.874093 0 os=ubuntu-20.04
