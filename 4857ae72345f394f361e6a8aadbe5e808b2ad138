@@ -43,3 +43,5 @@
 ./fzf/install.sh 1687693579.1587155 3 os=ubuntu-22.04
 
 ./system/install.sh 1687693584.4301448 5 os=ubuntu-22.04
+
+install 1687693584.5731254 160 os=ubuntu-22.04
