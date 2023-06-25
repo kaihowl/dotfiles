@@ -1,1 +1,3 @@
 ./zsh/install.sh 1687693450.0682411 14 os=ubuntu-22.04
+
+./tmux/install.sh 1687693450.7868955 0 os=ubuntu-22.04
