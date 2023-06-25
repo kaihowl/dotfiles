@@ -33,3 +33,5 @@
 ./ripgrep/install.sh 1687693522.0953562 2 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1687693529.2327738 7 os=ubuntu-20.04
+
+./zoxide/install.sh 1687693530.2478256 1 os=ubuntu-20.04
