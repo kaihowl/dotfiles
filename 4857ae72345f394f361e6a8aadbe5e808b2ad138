@@ -27,3 +27,5 @@
 ./ccache/install.sh 1687693541.7059202 4 os=ubuntu-22.04
 
 ./git/install.sh 1687693546.6862972 5 os=ubuntu-22.04
+
+./shellcheck/install.sh 1687693547.809695 1 os=ubuntu-22.04
