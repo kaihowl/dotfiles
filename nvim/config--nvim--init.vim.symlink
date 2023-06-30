@@ -296,6 +296,12 @@ require('fzf-lua').setup{
   lsp = {
     jump_to_single_result = true,
   },
+  previewers = {
+    builtin = {
+      -- Show full file name and not just tail
+      title_fnamemodify = function(s) return s end,
+    },
+  },
 }
 EOF
 endif
