@@ -43,3 +43,5 @@
 ./tmux/install.sh 1688125091.2215462 1 os=ubuntu-22.04
 
 ./homebrew/install.sh 1688125091.3336873 0 os=ubuntu-22.04
+
+install 1688125091.4394183 118 os=ubuntu-22.04
