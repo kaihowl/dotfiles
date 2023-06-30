@@ -41,3 +41,5 @@
 ./alacritty/install.sh 1688126002.1984732 14 os=ubuntu-20.04
 
 ./ctags/install.sh 1688126007.8478534 5 os=ubuntu-20.04
+
+./nvim/install.sh 1688126020.6892257 13 os=ubuntu-20.04
