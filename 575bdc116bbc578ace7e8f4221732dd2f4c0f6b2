@@ -19,3 +19,5 @@
 ./shellcheck/install.sh 1688125935.8738525 1 os=ubuntu-22.04
 
 ./colors/install.sh 1688125937.5582392 2 os=ubuntu-22.04
+
+./vint/install.sh 1688125944.2931077 7 os=ubuntu-22.04
