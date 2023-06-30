@@ -3,3 +3,5 @@
 ./git/install.sh 1688124994.8221023 3 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1688125000.67728 6 os=ubuntu-22.04
+
+./system/install.sh 1688125004.4769137 4 os=ubuntu-22.04
