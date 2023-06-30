@@ -31,3 +31,5 @@
 ./clangd/install.sh 1688125077.5848835 10 os=ubuntu-22.04
 
 ./ccache/install.sh 1688125081.5278273 4 os=ubuntu-22.04
+
+./rust/install.sh 1688125084.0584722 2 os=ubuntu-22.04
