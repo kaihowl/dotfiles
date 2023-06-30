@@ -29,3 +29,5 @@
 ./fzf/install.sh 1688125067.7251408 1 os=ubuntu-22.04
 
 ./clangd/install.sh 1688125077.5848835 10 os=ubuntu-22.04
+
+./ccache/install.sh 1688125081.5278273 4 os=ubuntu-22.04
