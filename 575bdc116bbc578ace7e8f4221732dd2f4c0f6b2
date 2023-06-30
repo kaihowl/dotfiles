@@ -35,3 +35,5 @@
 ./rust/install.sh 1688125998.2936373 3 os=ubuntu-22.04
 
 ./ninja/install.sh 1688126003.1399753 5 os=ubuntu-22.04
+
+./zoxide/install.sh 1688126004.5642831 1 os=ubuntu-22.04
