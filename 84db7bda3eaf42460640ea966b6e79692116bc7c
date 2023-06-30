@@ -13,3 +13,5 @@
 ./pyls/install.sh 1688125021.0443594 12 os=ubuntu-22.04
 
 ./cmake/install.sh 1688125028.8404942 7 os=ubuntu-22.04
+
+./alacritty/install.sh 1688125037.6267745 9 os=ubuntu-22.04
