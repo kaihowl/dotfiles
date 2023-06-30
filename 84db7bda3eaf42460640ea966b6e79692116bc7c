@@ -15,3 +15,5 @@
 ./pyls/install.sh 1688125067.5616183 9 os=ubuntu-20.04
 
 ./system/install.sh 1688125072.7945874 5 os=ubuntu-20.04
+
+./tmux/install.sh 1688125073.5658767 1 os=ubuntu-20.04
