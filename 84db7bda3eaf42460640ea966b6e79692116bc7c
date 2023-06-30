@@ -13,3 +13,5 @@
 ./rust/install.sh 1688125058.2607124 2 os=ubuntu-20.04
 
 ./pyls/install.sh 1688125067.5616183 9 os=ubuntu-20.04
+
+./system/install.sh 1688125072.7945874 5 os=ubuntu-20.04
