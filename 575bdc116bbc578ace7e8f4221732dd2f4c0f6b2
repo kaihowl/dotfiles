@@ -25,3 +25,5 @@
 ./nvim/install.sh 1688298297.1607118 12 os=ubuntu-22.04
 
 ./gdb/install.sh 1688298306.6609237 9 os=ubuntu-22.04
+
+./fzf/install.sh 1688298308.1413176 2 os=ubuntu-22.04
