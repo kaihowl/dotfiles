@@ -7,3 +7,5 @@
 ./shellcheck/install.sh 1688298272.770435 1 os=ubuntu-20.04
 
 ./vint/install.sh 1688298282.4385006 10 os=ubuntu-20.04
+
+./cmake/install.sh 1688298294.7419019 12 os=ubuntu-20.04
