@@ -11,3 +11,5 @@
 ./cmake/install.sh 1688298294.7419019 12 os=ubuntu-20.04
 
 ./rust/install.sh 1688298296.823832 2 os=ubuntu-20.04
+
+./pyls/install.sh 1688298306.5188596 10 os=ubuntu-20.04
