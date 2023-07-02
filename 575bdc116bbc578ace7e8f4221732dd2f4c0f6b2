@@ -37,3 +37,5 @@
 ./zoxide/install.sh 1688298358.2179585 2 os=ubuntu-20.04
 
 ./ccache/install.sh 1688298363.6565645 5 os=ubuntu-20.04
+
+./alacritty/install.sh 1688298380.0289876 16 os=ubuntu-20.04
