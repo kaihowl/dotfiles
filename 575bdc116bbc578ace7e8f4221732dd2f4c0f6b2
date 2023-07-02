@@ -17,3 +17,5 @@
 ./system/install.sh 1688298311.8532708 5 os=ubuntu-20.04
 
 ./tmux/install.sh 1688298312.6447423 1 os=ubuntu-20.04
+
+./colors/install.sh 1688298314.371382 2 os=ubuntu-20.04
