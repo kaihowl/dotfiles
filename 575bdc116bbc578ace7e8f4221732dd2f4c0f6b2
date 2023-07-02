@@ -7,3 +7,5 @@
 ./system/install.sh 1688298243.634667 4 os=ubuntu-22.04
 
 ./ctags/install.sh 1688298247.4360404 4 os=ubuntu-22.04
+
+./efm/install.sh 1688298248.2240555 1 os=ubuntu-22.04
