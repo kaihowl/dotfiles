@@ -9,3 +9,5 @@
 ./ctags/install.sh 1688540258.7923632 4 os=ubuntu-22.04
 
 ./efm/install.sh 1688540259.6607928 1 os=ubuntu-22.04
+
+./pyls/install.sh 1688540272.4563916 13 os=ubuntu-22.04
