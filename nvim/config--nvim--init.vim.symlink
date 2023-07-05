@@ -372,7 +372,7 @@ command! -bang -nargs=0 -range=0 SimpleAsyncTaskEdit
 			\ call SimpleAsyncTaskEdit()
 
 nnoremap <leader>mm :SimpleAsyncTaskLast<cr>
-nnoremap <leader>mx :AsyncStop <bar> :vert copen<cr>
+nnoremap <leader>mx :AsyncStop <bar> :vert copen<cr> <bar>gg/error:<cr>
 nnoremap <leader>M :SimpleAsyncTaskEdit<cr>
 nnoremap <leader>m<space> :SimpleAsyncTask<space>
 
