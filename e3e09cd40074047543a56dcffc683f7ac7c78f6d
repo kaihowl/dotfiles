@@ -1,3 +1,5 @@
 ./zsh/install.sh 1688545578.7316706 15 os=ubuntu-20.04
 
 ./efm/install.sh 1688545579.243954 1 os=ubuntu-20.04
+
+./gdb/install.sh 1688545592.916773 13 os=ubuntu-20.04
