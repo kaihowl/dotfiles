@@ -1,3 +1,5 @@
 ./zsh/install.sh 1688539716.7349138 21 os=ubuntu-22.04
 
 ./git/install.sh 1688539720.2045743 4 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1688539726.2133274 6 os=ubuntu-22.04
