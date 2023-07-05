@@ -39,3 +39,5 @@
 ./zoxide/install.sh 1688539820.2491114 1 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1688539821.8832648 1 os=ubuntu-22.04
+
+./tmux/install.sh 1688539822.538276 1 os=ubuntu-22.04
