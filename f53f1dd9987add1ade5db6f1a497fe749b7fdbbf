@@ -45,3 +45,5 @@
 ./rust/install.sh 1688545172.1925585 2 os=ubuntu-20.04
 
 install 1688545172.3102772 182 os=ubuntu-20.04
+
+test 1688545255.2727067 81 os=ubuntu-20.04
