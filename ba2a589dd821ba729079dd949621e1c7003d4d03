@@ -5,3 +5,5 @@
 ./gdb/install.sh 1688539729.3133204 14 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1688539730.004502 0 os=ubuntu-20.04
+
+./vint/install.sh 1688539738.4133723 8 os=ubuntu-20.04
