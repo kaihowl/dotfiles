@@ -21,3 +21,5 @@
 ./colors/install.sh 1688539766.58314 1 os=ubuntu-20.04
 
 ./fzf/install.sh 1688539768.4964957 2 os=ubuntu-20.04
+
+./clangd/install.sh 1688539782.1055546 14 os=ubuntu-20.04
