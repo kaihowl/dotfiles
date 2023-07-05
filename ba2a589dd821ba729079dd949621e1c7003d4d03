@@ -35,3 +35,5 @@
 ./virtualenvwrapper/install.sh 1688539800.1249766 7 os=ubuntu-20.04
 
 ./zoxide/install.sh 1688539801.2502158 1 os=ubuntu-20.04
+
+./ccache/install.sh 1688539806.0252035 4 os=ubuntu-20.04
