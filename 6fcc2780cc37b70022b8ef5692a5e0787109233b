@@ -15,3 +15,5 @@
 ./cmake/install.sh 1688540280.7610166 8 os=ubuntu-22.04
 
 ./alacritty/install.sh 1688540290.606587 10 os=ubuntu-22.04
+
+./shellcheck/install.sh 1688540291.7058315 1 os=ubuntu-22.04
