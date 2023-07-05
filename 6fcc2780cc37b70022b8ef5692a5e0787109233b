@@ -27,3 +27,5 @@
 ./gdb/install.sh 1688540331.08666 20 os=ubuntu-22.04
 
 ./fzf/install.sh 1688540333.0429535 1 os=ubuntu-22.04
+
+./clangd/install.sh 1688540347.0607467 13 os=ubuntu-22.04
