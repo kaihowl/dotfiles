@@ -27,3 +27,5 @@
 ./ninja/install.sh 1688540338.9828203 5 os=ubuntu-20.04
 
 ./alacritty/install.sh 1688540351.1179962 12 os=ubuntu-20.04
+
+./colors/install.sh 1688540352.8487768 1 os=ubuntu-20.04
