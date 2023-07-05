@@ -11,3 +11,5 @@
 ./efm/install.sh 1688539734.7187922 1 os=ubuntu-22.04
 
 ./pyls/install.sh 1688539747.348445 13 os=ubuntu-22.04
+
+./cmake/install.sh 1688539755.5703406 8 os=ubuntu-22.04
