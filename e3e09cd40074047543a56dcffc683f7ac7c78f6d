@@ -37,3 +37,5 @@
 ./tmux/install.sh 1688903106.642822 0 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1688903108.3468063 2 os=ubuntu-22.04
+
+./efm/install.sh 1688903108.9190512 0 os=ubuntu-22.04
