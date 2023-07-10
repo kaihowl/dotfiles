@@ -19,3 +19,5 @@
 ./zoxide/install.sh 1688979318.2613606 2 os=ubuntu-22.04
 
 ./git/install.sh 1688979323.2515585 5 os=ubuntu-22.04
+
+./ninja/install.sh 1688979327.9436722 4 os=ubuntu-22.04
