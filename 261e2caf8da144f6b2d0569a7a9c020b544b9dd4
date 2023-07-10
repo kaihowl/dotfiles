@@ -1,3 +1,5 @@
 ./zsh/install.sh 1688979251.6971102 14 os=ubuntu-22.04
 
 ./gdb/install.sh 1688979264.1388385 13 os=ubuntu-22.04
+
+./rust/install.sh 1688979266.1587598 2 os=ubuntu-22.04
