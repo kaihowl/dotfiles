@@ -21,3 +21,5 @@
 ./ctags/install.sh 1688979330.9026911 5 os=ubuntu-20.04
 
 ./efm/install.sh 1688979331.5735445 1 os=ubuntu-20.04
+
+./homebrew/install.sh 1688979331.7138207 0 os=ubuntu-20.04
