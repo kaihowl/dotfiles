@@ -35,3 +35,5 @@
 ./homebrew/install.sh 1688979348.9917598 0 os=ubuntu-22.04
 
 ./tmux/install.sh 1688979349.6393683 0 os=ubuntu-22.04
+
+./ripgrep/install.sh 1688979351.7189355 2 os=ubuntu-22.04
