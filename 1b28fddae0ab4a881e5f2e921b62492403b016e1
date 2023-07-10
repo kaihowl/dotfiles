@@ -3,3 +3,5 @@
 ./gdb/install.sh 1688978673.6245537 14 os=ubuntu-22.04
 
 ./rust/install.sh 1688978676.2750654 3 os=ubuntu-22.04
+
+./clangd/install.sh 1688978692.107245 15 os=ubuntu-22.04
