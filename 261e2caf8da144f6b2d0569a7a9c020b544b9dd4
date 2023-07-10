@@ -19,3 +19,5 @@
 ./git/install.sh 1688979325.1590788 6 os=ubuntu-20.04
 
 ./ctags/install.sh 1688979330.9026911 5 os=ubuntu-20.04
+
+./efm/install.sh 1688979331.5735445 1 os=ubuntu-20.04
