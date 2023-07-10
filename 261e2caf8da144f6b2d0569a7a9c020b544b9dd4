@@ -35,3 +35,5 @@
 ./gdb/install.sh 1688979395.3610132 27 os=ubuntu-20.04
 
 ./cmake/install.sh 1688979410.239892 15 os=ubuntu-20.04
+
+./vint/install.sh 1688979416.0824642 5 os=ubuntu-20.04
