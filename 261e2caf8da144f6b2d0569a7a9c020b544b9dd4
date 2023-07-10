@@ -11,3 +11,5 @@
 ./system/install.sh 1688979286.3827572 5 os=ubuntu-22.04
 
 ./vint/install.sh 1688979295.2611756 9 os=ubuntu-22.04
+
+./alacritty/install.sh 1688979307.597045 12 os=ubuntu-22.04
