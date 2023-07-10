@@ -37,3 +37,5 @@
 ./cmake/install.sh 1688979410.239892 15 os=ubuntu-20.04
 
 ./vint/install.sh 1688979416.0824642 5 os=ubuntu-20.04
+
+./shellcheck/install.sh 1688979416.8511796 0 os=ubuntu-20.04
