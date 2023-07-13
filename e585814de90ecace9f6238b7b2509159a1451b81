@@ -9,3 +9,5 @@
 ./fzf/install.sh 1689232765.9302423 2 os=ubuntu-20.04
 
 ./system/install.sh 1689232772.0210989 6 os=ubuntu-20.04
+
+./nvim/install.sh 1689232784.596455 12 os=ubuntu-20.04
