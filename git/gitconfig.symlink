@@ -57,5 +57,3 @@
 	signingkey = ~/.ssh/id_rsa
 [commit]
 	gpgsign = true
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
