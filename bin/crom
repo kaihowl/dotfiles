@@ -50,8 +50,13 @@ for var in "${!CROM_@}"; do
   fi
 done
 
+build_type=Debug
+if [[ "$*" =~ release ]]; then
+  build_type=Release
+fi
+
 if [[ "$*" =~ create ]]; then
-  conan create $update "${sanitizer_flags[@]}" "${additional_switches[@]}" "${library_switch[@]}" "${profile_switch[@]}" -s "${conan_package_name}:build_type=Debug" --build=outdated . "${conan_package_name}/9001@user/testing"
+  conan create $update "${sanitizer_flags[@]}" "${additional_switches[@]}" "${library_switch[@]}" "${profile_switch[@]}" -s "${conan_package_name}:build_type=${build_type}" --build=outdated . "${conan_package_name}/9001@user/testing"
 else
   mkdir -p build
   pushd build
@@ -59,7 +64,7 @@ else
   # Always force full regeneration
   rm -f CMakeCache.txt
 
-  conan install $update "${sanitizer_flags[@]}" "${additional_switches[@]}" "${library_switch[@]}" "${profile_switch[@]}" -s "${conan_package_name}:build_type=Debug" --build=outdated ..
+  conan install $update "${sanitizer_flags[@]}" "${additional_switches[@]}" "${library_switch[@]}" "${profile_switch[@]}" -s "${conan_package_name}:build_type=${build_type}" --build=outdated ..
 
   if [[ -f ../conanfile.py ]]; then
     CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
