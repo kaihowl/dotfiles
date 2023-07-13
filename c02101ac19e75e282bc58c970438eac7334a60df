@@ -3,3 +3,5 @@
 ./pyls/install.sh 1689241050.6668727 14 os=ubuntu-20.04
 
 ./ccache/install.sh 1689241056.6260142 6 os=ubuntu-20.04
+
+./tmux/install.sh 1689241057.4234684 1 os=ubuntu-20.04
