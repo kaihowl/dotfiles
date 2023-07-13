@@ -29,3 +29,5 @@
 ./colors/install.sh 1689232851.0580914 1 os=ubuntu-22.04
 
 ./fzf/install.sh 1689232853.4933176 2 os=ubuntu-22.04
+
+./ccache/install.sh 1689232859.8746614 6 os=ubuntu-22.04
