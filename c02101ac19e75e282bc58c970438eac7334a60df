@@ -15,3 +15,5 @@
 ./virtualenvwrapper/install.sh 1689241086.2270367 9 os=ubuntu-20.04
 
 ./zoxide/install.sh 1689241087.3695357 1 os=ubuntu-20.04
+
+./git/install.sh 1689241092.3961246 5 os=ubuntu-20.04
