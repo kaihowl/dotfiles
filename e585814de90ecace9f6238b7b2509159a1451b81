@@ -13,3 +13,5 @@
 ./nvim/install.sh 1689232784.596455 12 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1689232793.1670341 9 os=ubuntu-20.04
+
+./zoxide/install.sh 1689232794.436788 1 os=ubuntu-20.04
