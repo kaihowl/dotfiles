@@ -31,3 +31,5 @@
 ./colors/install.sh 1689241119.3804877 2 os=ubuntu-20.04
 
 ./clangd/install.sh 1689241137.017568 17 os=ubuntu-20.04
+
+./gdb/install.sh 1689241163.6808228 26 os=ubuntu-20.04
