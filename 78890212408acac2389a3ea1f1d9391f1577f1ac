@@ -9,3 +9,5 @@
 ./ctags/install.sh 1689234316.3612316 5 os=ubuntu-22.04
 
 ./system/install.sh 1689234321.8623683 5 os=ubuntu-22.04
+
+./vint/install.sh 1689234331.627484 10 os=ubuntu-22.04
