@@ -1,1 +1,3 @@
 ./zsh/install.sh 1689232741.583911 22 os=ubuntu-22.04
+
+./gdb/install.sh 1689232755.8335247 14 os=ubuntu-22.04
