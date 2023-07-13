@@ -39,3 +39,5 @@
 ./vint/install.sh 1689232889.5743713 6 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1689232890.4436738 1 os=ubuntu-20.04
+
+./ripgrep/install.sh 1689232893.2558293 3 os=ubuntu-20.04
