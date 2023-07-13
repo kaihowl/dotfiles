@@ -5,3 +5,5 @@
 ./ccache/install.sh 1689241056.6260142 6 os=ubuntu-20.04
 
 ./tmux/install.sh 1689241057.4234684 1 os=ubuntu-20.04
+
+./fzf/install.sh 1689241059.0640438 1 os=ubuntu-20.04
