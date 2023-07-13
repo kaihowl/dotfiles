@@ -7,3 +7,5 @@
 ./tmux/install.sh 1689233343.832466 0 os=ubuntu-20.04
 
 ./fzf/install.sh 1689233345.214625 2 os=ubuntu-20.04
+
+./system/install.sh 1689233350.6754344 5 os=ubuntu-20.04
