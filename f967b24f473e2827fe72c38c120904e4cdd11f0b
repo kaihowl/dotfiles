@@ -39,3 +39,5 @@
 ./ripgrep/install.sh 1689507978.1641893 2 os=ubuntu-22.04
 
 ./efm/install.sh 1689507979.0241697 0 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1689507988.45301 9 os=ubuntu-22.04
