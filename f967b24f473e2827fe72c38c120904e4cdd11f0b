@@ -29,3 +29,5 @@
 ./alacritty/install.sh 1689507933.774861 13 os=ubuntu-20.04
 
 ./colors/install.sh 1689507935.4396572 2 os=ubuntu-20.04
+
+./clangd/install.sh 1689507953.038402 17 os=ubuntu-20.04
