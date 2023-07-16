@@ -27,3 +27,5 @@
 ./shellcheck/install.sh 1689507959.5608275 1 os=ubuntu-22.04
 
 ./colors/install.sh 1689507961.338221 2 os=ubuntu-22.04
+
+./fzf/install.sh 1689507963.7762592 2 os=ubuntu-22.04
