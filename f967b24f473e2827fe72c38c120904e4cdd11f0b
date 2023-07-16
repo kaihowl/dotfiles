@@ -7,3 +7,5 @@
 ./clangd/install.sh 1689507884.556504 14 os=ubuntu-22.04
 
 ./ctags/install.sh 1689507890.9452262 6 os=ubuntu-22.04
+
+./system/install.sh 1689507897.6903365 7 os=ubuntu-22.04
