@@ -23,3 +23,5 @@
 ./efm/install.sh 1689507914.605827 0 os=ubuntu-20.04
 
 ./homebrew/install.sh 1689507914.7415252 0 os=ubuntu-20.04
+
+./ninja/install.sh 1689507920.9333057 6 os=ubuntu-20.04
