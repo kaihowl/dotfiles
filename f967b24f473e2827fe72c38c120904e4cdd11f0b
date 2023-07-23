@@ -31,3 +31,5 @@
 ./fzf/install.sh 1690112712.5570884 5 os=ubuntu-22.04
 
 ./ccache/install.sh 1690112716.9314964 4 os=ubuntu-22.04
+
+./homebrew/install.sh 1690112717.0480394 0 os=ubuntu-22.04
