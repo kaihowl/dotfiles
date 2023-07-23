@@ -29,3 +29,5 @@
 ./tmux/install.sh 1690112699.523846 1 os=ubuntu-20.04
 
 ./zoxide/install.sh 1690112700.4588525 1 os=ubuntu-20.04
+
+./ccache/install.sh 1690112704.8380647 4 os=ubuntu-20.04
