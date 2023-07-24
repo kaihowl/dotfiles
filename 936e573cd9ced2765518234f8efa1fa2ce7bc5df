@@ -41,3 +41,5 @@
 ./clangd/install.sh 1690191137.9537666 15 os=ubuntu-20.04
 
 ./homebrew/install.sh 1690191138.0757535 0 os=ubuntu-20.04
+
+./colors/install.sh 1690191139.818916 1 os=ubuntu-20.04
