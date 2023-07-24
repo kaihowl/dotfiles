@@ -1,3 +1,5 @@
 ./zsh/install.sh 1690187490.7424536 21 os=ubuntu-20.04
 
 ./efm/install.sh 1690187491.3397245 1 os=ubuntu-20.04
+
+./nvim/install.sh 1690187508.031105 16 os=ubuntu-20.04
