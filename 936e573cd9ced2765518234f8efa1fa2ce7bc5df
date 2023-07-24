@@ -19,3 +19,5 @@
 ./alacritty/install.sh 1690191071.2106893 12 os=ubuntu-20.04
 
 ./git/install.sh 1690191076.1218002 5 os=ubuntu-20.04
+
+./shellcheck/install.sh 1690191076.7931602 0 os=ubuntu-20.04
