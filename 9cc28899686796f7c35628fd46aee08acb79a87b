@@ -31,3 +31,5 @@
 ./zoxide/install.sh 1690188047.3147566 2 os=ubuntu-20.04
 
 ./ccache/install.sh 1690188053.1568255 6 os=ubuntu-20.04
+
+./gdb/install.sh 1690188070.420442 17 os=ubuntu-20.04
