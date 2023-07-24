@@ -15,3 +15,5 @@
 ./alacritty/install.sh 1690191079.8021796 12 os=ubuntu-22.04
 
 ./pyls/install.sh 1690191091.194655 12 os=ubuntu-22.04
+
+./zoxide/install.sh 1690191092.6683116 1 os=ubuntu-22.04
