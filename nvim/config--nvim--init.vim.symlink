@@ -367,6 +367,7 @@ function! SimpleAsyncStop()
   let &splitright = original_splitright
   call cursor(1,1)
   call search('error:')
+  call feedkeys("\<cr>", 'tx')
 endfunction
 
 " TODO(kaihowl) this loses the templating functionality
