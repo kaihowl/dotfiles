@@ -11,3 +11,5 @@
 ./vint/install.sh 1690188001.6609201 6 os=ubuntu-20.04
 
 ./fzf/install.sh 1690188004.0789113 2 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1690188011.9139507 7 os=ubuntu-20.04
