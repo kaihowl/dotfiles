@@ -359,6 +359,16 @@ function! SimpleAsyncTask(taskname)
   call asynctasks#start('', a:taskname, '.')
 endfunction
 
+function! SimpleAsyncStop()
+  AsyncStop
+  let original_splitright = &splitright
+  vert copen
+  wincmd =
+  let &splitright = original_splitright
+  call cursor(1,1)
+  call search('error:')
+endfunction
+
 " TODO(kaihowl) this loses the templating functionality
 function! SimpleAsyncTaskEdit()
   edit .tasks
@@ -370,9 +380,11 @@ command! -bang -nargs=* -range=0 SimpleAsyncTaskLast
 			\ call SimpleAsyncTaskLast()
 command! -bang -nargs=0 -range=0 SimpleAsyncTaskEdit
 			\ call SimpleAsyncTaskEdit()
+command! -bang -nargs=0 -range=0 SimpleAsyncStop
+			\ call SimpleAsyncStop()
 
 nnoremap <leader>mm :SimpleAsyncTaskLast<cr>
-nnoremap <leader>mx :AsyncStop <bar> :vert copen<cr> <bar>gg/error:<cr>
+nnoremap <leader>mx :SimpleAsyncStop<cr>
 nnoremap <leader>M :SimpleAsyncTaskEdit<cr>
 nnoremap <leader>m<space> :SimpleAsyncTask<space>
 
