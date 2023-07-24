@@ -43,3 +43,5 @@
 ./homebrew/install.sh 1690187638.1371584 0 os=ubuntu-20.04
 
 ./colors/install.sh 1690187639.9451017 1 os=ubuntu-20.04
+
+install 1690187640.0920398 184 os=ubuntu-20.04
