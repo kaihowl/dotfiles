@@ -21,3 +21,5 @@
 ./git/install.sh 1690187992.4906921 4 os=ubuntu-22.04
 
 ./ninja/install.sh 1690187996.2531226 4 os=ubuntu-22.04
+
+./cmake/install.sh 1690188004.3620768 8 os=ubuntu-22.04
