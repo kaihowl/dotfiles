@@ -5,3 +5,5 @@
 ./rust/install.sh 1690187522.1829512 3 os=ubuntu-22.04
 
 ./clangd/install.sh 1690187535.4646347 13 os=ubuntu-22.04
+
+./ctags/install.sh 1690187540.9797688 5 os=ubuntu-22.04
