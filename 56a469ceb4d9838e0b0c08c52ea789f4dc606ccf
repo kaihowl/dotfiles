@@ -21,3 +21,5 @@
 ./git/install.sh 1690190633.5486472 5 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1690190634.244348 1 os=ubuntu-20.04
+
+./rust/install.sh 1690190636.2241771 2 os=ubuntu-20.04
