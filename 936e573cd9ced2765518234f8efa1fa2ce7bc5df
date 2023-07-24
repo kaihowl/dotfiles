@@ -7,3 +7,5 @@
 ./ripgrep/install.sh 1690191028.3815227 7 os=ubuntu-20.04
 
 ./pyls/install.sh 1690191037.7474713 9 os=ubuntu-20.04
+
+./vint/install.sh 1690191043.114439 6 os=ubuntu-20.04
