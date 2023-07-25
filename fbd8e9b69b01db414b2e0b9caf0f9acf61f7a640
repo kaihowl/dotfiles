@@ -5,3 +5,5 @@
 ./nvim/install.sh 1690310620.7015672 15 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1690310627.540236 7 os=ubuntu-20.04
+
+./pyls/install.sh 1690310636.3710868 9 os=ubuntu-20.04
