@@ -33,3 +33,5 @@
 ./ccache/install.sh 1690311111.175157 5 os=ubuntu-22.04
 
 ./homebrew/install.sh 1690311111.2918274 0 os=ubuntu-22.04
+
+./tmux/install.sh 1690311111.9063902 0 os=ubuntu-22.04
