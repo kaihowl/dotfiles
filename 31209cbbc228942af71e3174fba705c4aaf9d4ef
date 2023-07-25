@@ -25,3 +25,5 @@
 ./cmake/install.sh 1690311099.5329716 9 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1690311100.3665862 1 os=ubuntu-22.04
+
+./colors/install.sh 1690311101.6798391 1 os=ubuntu-22.04
