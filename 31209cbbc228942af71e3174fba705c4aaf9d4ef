@@ -25,3 +25,5 @@
 ./rust/install.sh 1690311126.8977692 2 os=ubuntu-20.04
 
 ./ctags/install.sh 1690311132.8715513 6 os=ubuntu-20.04
+
+./tmux/install.sh 1690311133.703124 1 os=ubuntu-20.04
