@@ -23,3 +23,5 @@
 ./shellcheck/install.sh 1690310672.6758308 0 os=ubuntu-20.04
 
 ./rust/install.sh 1690310674.554195 2 os=ubuntu-20.04
+
+./ctags/install.sh 1690310679.7736979 5 os=ubuntu-20.04
