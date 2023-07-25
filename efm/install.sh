@@ -3,19 +3,19 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-version=0.0.44
+version=0.0.46
 
 if [ "$(uname -s)" = "Darwin" ]; then
   if [ "$(uname -m)" = "arm64" ]; then
     download_url="https://github.com/mattn/efm-langserver/releases/download/v${version}/efm-langserver_v${version}_darwin_arm64.zip"
-    expect_hash="18858e84d31464a7fd7ae0040fd298002f616f39b94369a14027c6c66324acf0"
+    expect_hash="6c1524f31236c3ca775635a5fb8ad1b3b07aa12f7e0d0ed8b2bb8b5878a5b6dc"
   else
     download_url="https://github.com/mattn/efm-langserver/releases/download/v${version}/efm-langserver_v${version}_darwin_amd64.zip"
-    expect_hash="a94f4410d59d299cf73b3709e63f6ee9d86c1aff397c14b44275927a8312cc7a"
+    expect_hash="6ded4bfc3de1896487f0e643b70a31ce474a9e2bd77b1e995c3af73ba82a594b"
   fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/mattn/efm-langserver/releases/download/v${version}/efm-langserver_v${version}_linux_amd64.tar.gz"
-  expect_hash="ec426dd75cd3afa1f921a25c9cd635958091a1f2d4d7f747181eef8d355cb432"
+  expect_hash="1423e11df7b684886028eddd7fce6b2f7178c120eb263615464dfacf25da9a3a"
 fi
 
 file_name=efm-langserver-${version}.tar.gz
