@@ -13,3 +13,5 @@
 ./fzf/install.sh 1690717470.8769808 2 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1690717477.8621137 7 os=ubuntu-20.04
+
+./system/install.sh 1690717482.5373085 5 os=ubuntu-20.04
