@@ -9,3 +9,5 @@
 ./ctags/install.sh 1690717450.871178 4 os=ubuntu-22.04
 
 ./system/install.sh 1690717455.4575715 5 os=ubuntu-22.04
+
+./vint/install.sh 1690717464.1721437 9 os=ubuntu-22.04
