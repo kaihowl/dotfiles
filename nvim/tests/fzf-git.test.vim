@@ -96,10 +96,6 @@ function CheckAfterStartup(id)
 endfunction
 
 function CallMe2(id)
-  let g:done = v:true
-
-  " Resumes after the commit "first" was chosen interactively
-  call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
 
   echom 'continue stuff'
@@ -113,6 +109,7 @@ function CallMe2(id)
 
   call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
   call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
+  let g:done = v:true
 endfunction
 
 function CallMe(id)
@@ -124,7 +121,13 @@ function CallMe(id)
   call timer_start(50, funcref('CallMe2'))
 endfunction
 
-function Test_This_AfterStartup()
+function FirstCallMe(id)
+  call nvim_input('first')
+
+  call timer_start(50, funcref('CallMe'))
+endfunction
+
+function Test_This_AfterStartup(id)
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -157,11 +160,11 @@ function Test_This_AfterStartup()
   " echom 'feeding keys'
   " echom 'mode: ' . mode('"full"') . '\n'
   " echom 'buftype: ' . &buftype . '\n'
-  sleep 1
-  redraw!
-  call nvim_input('first')
 
-  call timer_start(50, funcref('CallMe'))
+  call timer_start(50, funcref('FirstCallMe'))
+  call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
+  echom 'Waiting done'
+  qall!
 endfunction
 
 function Test_NonGitDir()
