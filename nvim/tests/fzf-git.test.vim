@@ -127,7 +127,7 @@ function FirstCallMe(id)
   call timer_start(50, funcref('CallMe'))
 endfunction
 
-function Test_This_AfterStartup(id)
+function Test_This_AfterStartup()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -339,7 +339,7 @@ function Test_SingleCommitPreview()
   call feedkeys(',gl', 'tx!')
 endfunction
 
-function Test()
+function TestIt(id)
   " Source https://vimways.org/2019/a-test-to-attest-to/
   let tests = split(substitute(execute('function /^Test_This_'),
                             \  'function \(\k*()\)',
@@ -362,4 +362,8 @@ function Test()
   endif
 
   qall!
+endfunction
+
+function Test()
+  call timer_start(50, funcref('TestIt'))
 endfunction
