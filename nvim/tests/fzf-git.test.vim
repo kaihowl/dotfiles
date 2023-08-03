@@ -108,7 +108,7 @@ function CallMe2(id)
   let commit_description_line = search('first commit', 'w')
 
   call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
-  call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
+  call assert_equal(0, commit_description_line, 'expected to find commit in buffer')
   let g:done = v:true
 endfunction
 
@@ -122,9 +122,9 @@ function CallMe(id)
 endfunction
 
 function FirstCallMe(id)
-  call nvim_input('first')
-
   call timer_start(50, funcref('CallMe'))
+  call nvim_feedkeys('ifirst', 'tx!', v:false)
+
 endfunction
 
 function Test_This_AfterStartup()
@@ -164,7 +164,6 @@ function Test_This_AfterStartup()
   call timer_start(50, funcref('FirstCallMe'))
   call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
   echom 'Waiting done'
-  qall!
 endfunction
 
 function Test_NonGitDir()
