@@ -147,9 +147,6 @@ function Test_This_AfterStartup()
 
   echom 'begin mode ' . mode('"full"') . "\n"
 
-  redraw
-  sleep 1
-
   echom 'waiting'
   call WaitForFzfResults(2)
 
