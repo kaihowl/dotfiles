@@ -36,9 +36,9 @@ function CheckScreen(pattern)
   redraw
   let res = search(a:pattern, 'w')
   " TODO(hoewelmk) add logging output when pattern fails to be found
-  " if res != 0
-  "   echom 'Found pattern ' . a:pattern . ' on this line "' . getline(res) . '"'
-  " endif
+  if res != 0
+    echom 'Found pattern ' . a:pattern . ' on this line "' . getline(res) . '"'
+  endif
   " TODO(hoewelmk) cleanup
   call writefile(['waiting for ' . a:pattern ], "/tmp/log.file" , 'a')
   call writefile(getline('^', '$'), "/tmp/log.file" , 'a')
@@ -95,6 +95,35 @@ function CheckAfterStartup(id)
   let g:done = v:true
 endfunction
 
+function CallMe2(id)
+  let g:done = v:true
+
+  " Resumes after the commit "first" was chosen interactively
+  call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
+  call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
+
+  echom 'continue stuff'
+
+  " Pull up the commit for this tree
+  call feedkeys('C', 'tx')
+
+  call WaitForScreenContent('committer')
+
+  let commit_description_line = search('first commit', 'w')
+
+  call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
+  call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
+endfunction
+
+function CallMe(id)
+  echom 'holla'
+  call WaitForScreenContent('> .*first')
+  echom 'done waiting for screencontent'
+
+  call nvim_input("<cr>")
+  call timer_start(50, funcref('CallMe2'))
+endfunction
+
 function Test_This_AfterStartup()
   call CdTestDir()
 
@@ -129,32 +158,10 @@ function Test_This_AfterStartup()
   " echom 'mode: ' . mode('"full"') . '\n'
   " echom 'buftype: ' . &buftype . '\n'
   sleep 1
+  redraw!
   call nvim_input('first')
 
-  return
-
-  call WaitForScreenContent('> .*first')
-
-
-  call feedkeys("\<cr>", 't')
-
-  let g:done = v:true
-
-  " Resumes after the commit "first" was chosen interactively
-  call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
-  call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
-
-  echom 'continue stuff'
-
-  " Pull up the commit for this tree
-  norm C
-
-  call WaitForScreenContent('committer')
-
-  let commit_description_line = search('first commit', 'w')
-
-  call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
-  call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
+  call timer_start(50, funcref('CallMe'))
 endfunction
 
 function Test_NonGitDir()
