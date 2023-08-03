@@ -118,6 +118,9 @@ function CallMe(id)
   echom 'done waiting for screencontent'
 
   call timer_start(50, funcref('CallMe2'))
+  " No clue why this must be an nvim_input call instead of feedkeys
+  " usually, nvim_feedkeys requires a poke to the event loop which does not
+  " work for me out of vimscript
   call nvim_input("<cr>")
 endfunction
 
