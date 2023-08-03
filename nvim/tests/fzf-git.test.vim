@@ -340,7 +340,7 @@ function Test_SingleCommitPreview()
   call feedkeys(',gl', 'tx!')
 endfunction
 
-function TestIt(id)
+function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
   let tests = split(substitute(execute('function /^Test_This_'),
                             \  'function \(\k*()\)',
@@ -363,8 +363,4 @@ function TestIt(id)
   endif
 
   qall!
-endfunction
-
-function Test()
-  call timer_start(50, funcref('TestIt'))
 endfunction
