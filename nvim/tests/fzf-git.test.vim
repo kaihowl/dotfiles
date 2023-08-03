@@ -117,14 +117,13 @@ function CallMe(id)
   call WaitForScreenContent('> .*first')
   echom 'done waiting for screencontent'
 
-  call nvim_input("<cr>")
   call timer_start(50, funcref('CallMe2'))
+  call nvim_input("<cr>")
 endfunction
 
 function FirstCallMe(id)
   call timer_start(50, funcref('CallMe'))
   call nvim_feedkeys('ifirst', 'tx!', v:false)
-
 endfunction
 
 function Test_This_AfterStartup()
