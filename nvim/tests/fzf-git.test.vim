@@ -78,8 +78,6 @@ let g:done = v:false
 function CallMe2(id)
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
 
-  echom 'continue stuff'
-
   " Pull up the commit for this tree
   call feedkeys('C', 'tx')
 
@@ -93,9 +91,7 @@ function CallMe2(id)
 endfunction
 
 function CallMe(id)
-  echom 'holla'
   call WaitForScreenContent('> .*first')
-  echom 'done waiting for screencontent'
 
   call timer_start(50, funcref('CallMe2'))
   " No clue why this must be an nvim_input call instead of feedkeys
@@ -120,13 +116,8 @@ function Test_This_AfterStartup()
   call system(['git', 'add', 'testfile.log'])
   call system(['git', 'commit', '-m', 'second commit'])
 
-  echom 'before mode ' . mode('"full"') . "\n"
-
   call feedkeys(',gl', 'tx')
 
-  echom 'begin mode ' . mode('"full"') . "\n"
-
-  echom 'waiting'
   call WaitForFzfResults(2)
 
   let first_commit_line = search('first commit', 'w')
@@ -134,10 +125,6 @@ function Test_This_AfterStartup()
 
   let second_commit_line = search('second commit', 'w')
   call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
-
-  " echom 'feeding keys'
-  " echom 'mode: ' . mode('"full"') . '\n'
-  " echom 'buftype: ' . &buftype . '\n'
 
   call timer_start(50, funcref('FirstCallMe'))
   call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
