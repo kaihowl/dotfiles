@@ -75,26 +75,6 @@ endfunction
 
 let g:done = v:false
 
-function CheckAfterStartup(id)
-  call WaitForFzfResults(2)
-
-  let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
-
-  let second_commit_line = search('second commit', 'w')
-  call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
-
-  echom 'feeding keys'
-  echom 'mode: ' . mode() . '\n'
-  call feedkeys('ifirst', 't')
-
-  call WaitForScreenContent('> .*first')
-
-  call feedkeys("\<cr>", 't')
-
-  let g:done = v:true
-endfunction
-
 function CallMe2(id)
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
 
@@ -142,7 +122,6 @@ function Test_This_AfterStartup()
 
   echom 'before mode ' . mode('"full"') . "\n"
 
-  " call timer_start(50, funcref('CheckAfterStartup'))
   call feedkeys(',gl', 'tx')
 
   echom 'begin mode ' . mode('"full"') . "\n"
