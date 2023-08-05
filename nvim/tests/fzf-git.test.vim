@@ -129,7 +129,6 @@ function Test_This_AfterStartup()
 
   call timer_start(50, funcref('AfterStartup_InputKeysForFirstSelection'))
   call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
-  echom 'Waiting done'
 endfunction
 
 function Test_NonGitDir()
