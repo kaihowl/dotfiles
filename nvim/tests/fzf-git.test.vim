@@ -75,7 +75,7 @@ endfunction
 
 let g:done = v:false
 
-function CallMe2(id)
+function AfterStartup_CheckSelectedCommit(id)
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
 
   " Pull up the commit for this tree
@@ -90,18 +90,19 @@ function CallMe2(id)
   let g:done = v:true
 endfunction
 
-function CallMe(id)
+function AfterStartup_WaitForInput_And_Select(id)
   call WaitForScreenContent('> .*first')
 
-  call timer_start(50, funcref('CallMe2'))
+  call timer_start(50, funcref('AfterStartup_CheckSelectedCommit'))
   " No clue why this must be an nvim_input call instead of feedkeys
   " usually, nvim_feedkeys requires a poke to the event loop which does not
   " work for me out of vimscript
   call nvim_input("<cr>")
 endfunction
 
-function FirstCallMe(id)
-  call timer_start(50, funcref('CallMe'))
+function AfterStartup_InputKeysForFirstSelection(id)
+  call timer_start(50, funcref('AfterStartup_WaitForInput_And_Select'))
+  " TODO(hoewelmk) test with second for failure
   call nvim_feedkeys('ifirst', 'tx!', v:false)
 endfunction
 
@@ -126,7 +127,7 @@ function Test_This_AfterStartup()
   let second_commit_line = search('second commit', 'w')
   call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
 
-  call timer_start(50, funcref('FirstCallMe'))
+  call timer_start(50, funcref('AfterStartup_InputKeysForFirstSelection'))
   call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
   echom 'Waiting done'
 endfunction
