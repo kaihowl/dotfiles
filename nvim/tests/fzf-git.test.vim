@@ -108,7 +108,7 @@ function CallMe2(id)
   let commit_description_line = search('first commit', 'w')
 
   call assert_notequal(&buftype, 'terminal', 'expected to exit fzf')
-  call assert_equal(0, commit_description_line, 'expected to find commit in buffer')
+  call assert_notequal(0, commit_description_line, 'expected to find commit in buffer')
   let g:done = v:true
 endfunction
 
