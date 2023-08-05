@@ -106,7 +106,7 @@ function AfterStartup_InputKeysForFirstSelection(id)
   call nvim_feedkeys('ifirst', 'tx!', v:false)
 endfunction
 
-function Test_This_AfterStartup()
+function Test_AfterStartup()
   call CdTestDir()
 
   call system(['git', 'init'])
@@ -305,7 +305,7 @@ endfunction
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_This_'),
+  let tests = split(substitute(execute('function /^Test_'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
