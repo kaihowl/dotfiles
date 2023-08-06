@@ -37,3 +37,5 @@
 ./clangd/install.sh 1691336787.2612674 13 os=ubuntu-22.04
 
 ./vint/install.sh 1691336793.6477704 6 os=ubuntu-22.04
+
+./ctags/install.sh 1691336798.9813085 5 os=ubuntu-22.04
