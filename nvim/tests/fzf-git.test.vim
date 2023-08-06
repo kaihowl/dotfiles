@@ -277,16 +277,18 @@ function CheckSingleCommitPreview(id)
 
   call WaitForTerminalContent('Author: \|bad revision')
 
-  let failed_preview_line = search('fatal', 'w')
+  let failed_preview_line = search('fatal:', 'w')
 
   call assert_equal(0, failed_preview_line, 'preview for single commit without parent should not fail')
 
   call feedkeys("\<esc>")
 endfunction
 
-" Feature broken, test passing...
 function Test_SingleCommitPreview()
   call CdTestDir()
+
+  " English language necessary to check for "fatal:" string
+  call setenv('LC_ALL', 'en_US.UTF8')
 
   call RunSystemCommand(['git', 'init'])
   call assert_equal(0, writefile(['something'], 'testfile.log'))
