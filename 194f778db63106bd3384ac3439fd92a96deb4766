@@ -9,3 +9,5 @@
 ./colors/install.sh 1691351991.1729205 2 os=ubuntu-20.04
 
 ./pyls/install.sh 1691352002.884432 11 os=ubuntu-20.04
+
+./ctags/install.sh 1691352007.021806 4 os=ubuntu-20.04
