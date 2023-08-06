@@ -23,3 +23,5 @@
 ./efm/install.sh 1691347168.7187543 1 os=ubuntu-22.04
 
 ./fzf/install.sh 1691347170.8275578 2 os=ubuntu-22.04
+
+./system/install.sh 1691347175.7004313 5 os=ubuntu-22.04
