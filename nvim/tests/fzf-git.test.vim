@@ -117,10 +117,10 @@ function Test_AfterStartup()
   call RunSystemCommand(['git', 'init'])
   call writefile(['something'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
   call writefile(['something', 'something2'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'second commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
 
   call feedkeys(',gl', 'tx')
 
@@ -170,14 +170,14 @@ function Test_FileInPast()
   call RunSystemCommand(['git', 'init'])
   call writefile(['teststuff'], 'othertestfile.log')
   call RunSystemCommand(['git', 'add', 'othertestfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'unrelated commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'unrelated commit', '--no-verify', '--no-gpg-sign'])
   call writefile(['something'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
   let file_first_commit = systemlist(['git', 'rev-parse', 'HEAD'])[0]
   call writefile(['something', 'something2'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'second commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
 
   exe 'Gedit ' . file_first_commit . ':testfile.log'
 
@@ -206,12 +206,12 @@ function Test_FileChangingName()
   call RunSystemCommand(['git', 'init'])
   call writefile(['teststuff'], 'othertestfile.log')
   call RunSystemCommand(['git', 'add', 'othertestfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'unrelated commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'unrelated commit', '--no-verify', '--no-gpg-sign'])
   call writefile(['something'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
   call RunSystemCommand(['git', 'mv', 'testfile.log', 'renamedfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'renaming commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'renaming commit', '--no-verify', '--no-gpg-sign'])
 
   edit renamedfile.log
 
@@ -234,7 +234,7 @@ function Test_OnFugitiveStatus()
   call RunSystemCommand(['git', 'init'])
   call writefile(['teststuff'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'init commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'init commit', '--no-verify', '--no-gpg-sign'])
 
   Git
 
@@ -254,10 +254,10 @@ function Test_MultipleSelection()
   call RunSystemCommand(['git', 'init'])
   call writefile(['something'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
   call writefile(['something', 'something2'], 'testfile.log')
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'second commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
 
 
   call timer_start(50, funcref('CheckMultipleSelection'))
@@ -302,7 +302,7 @@ function Test_SingleCommitPreview()
   call RunSystemCommand(['git', 'init'])
   call assert_equal(0, writefile(['something'], 'testfile.log'))
   call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
 
   call timer_start(50, funcref('CheckSingleCommitPreview'))
   call feedkeys(',gl', 'tx!')
