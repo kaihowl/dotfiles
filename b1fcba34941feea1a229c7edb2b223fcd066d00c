@@ -31,3 +31,5 @@
 ./homebrew/install.sh 1691347176.4952898 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1691347187.8971612 11 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1691347195.1697662 8 os=ubuntu-22.04
