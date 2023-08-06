@@ -48,8 +48,6 @@ endfunction
 
 function WaitForFzfResults(num_results)
   call WaitForTerminalContent('> .* < ' . a:num_results . '/')
-  " TODO(hoewelmk) clean up
-  echom getline('^', '$')
 endfunction
 
 function CdTestDir()
@@ -99,7 +97,6 @@ endfunction
 
 function AfterStartup_InputKeysForFirstSelection(id)
   call timer_start(50, funcref('AfterStartup_WaitForInput_And_Select'))
-  " TODO(hoewelmk) test with second for failure
   call nvim_feedkeys('ifirst', 'tx!', v:false)
 endfunction
 
