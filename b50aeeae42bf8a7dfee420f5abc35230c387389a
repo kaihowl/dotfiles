@@ -13,3 +13,5 @@
 ./cmake/install.sh 1691336710.0772758 11 os=ubuntu-22.04
 
 ./zoxide/install.sh 1691336711.4637861 1 os=ubuntu-22.04
+
+./ripgrep/install.sh 1691336713.4594803 2 os=ubuntu-22.04
