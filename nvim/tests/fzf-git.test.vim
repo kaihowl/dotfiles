@@ -73,6 +73,11 @@ function CleanUpDirs()
   endfor
 endfunction
 
+function RunSystemCommand(cmd)
+  let output = system(a:cmd)
+  call assert_equal(0, v:shell_error, output)
+endfunction
+
 let g:done = v:false
 
 function AfterStartup_CheckSelectedCommit(id)
@@ -109,13 +114,13 @@ endfunction
 function Test_AfterStartup()
   call CdTestDir()
 
-  call system(['git', 'init'])
+  call RunSystemCommand(['git', 'init'])
   call writefile(['something'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
   call writefile(['something', 'something2'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'second commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit'])
 
   call feedkeys(',gl', 'tx')
 
@@ -162,17 +167,17 @@ endfunction
 function Test_FileInPast()
   call CdTestDir()
 
-  call system(['git', 'init'])
+  call RunSystemCommand(['git', 'init'])
   call writefile(['teststuff'], 'othertestfile.log')
-  call system(['git', 'add', 'othertestfile.log'])
-  call system(['git', 'commit', '-m', 'unrelated commit'])
+  call RunSystemCommand(['git', 'add', 'othertestfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'unrelated commit'])
   call writefile(['something'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
   let file_first_commit = systemlist(['git', 'rev-parse', 'HEAD'])[0]
   call writefile(['something', 'something2'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'second commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit'])
 
   exe 'Gedit ' . file_first_commit . ':testfile.log'
 
@@ -198,15 +203,15 @@ endfunction
 function Test_FileChangingName()
   call CdTestDir()
 
-  call system(['git', 'init'])
+  call RunSystemCommand(['git', 'init'])
   call writefile(['teststuff'], 'othertestfile.log')
-  call system(['git', 'add', 'othertestfile.log'])
-  call system(['git', 'commit', '-m', 'unrelated commit'])
+  call RunSystemCommand(['git', 'add', 'othertestfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'unrelated commit'])
   call writefile(['something'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'first commit'])
-  call system(['git', 'mv', 'testfile.log', 'renamedfile.log'])
-  call system(['git', 'commit', '-m', 'renaming commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'mv', 'testfile.log', 'renamedfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'renaming commit'])
 
   edit renamedfile.log
 
@@ -226,10 +231,10 @@ endfunction
 function Test_OnFugitiveStatus()
   call CdTestDir()
 
-  call system(['git', 'init'])
+  call RunSystemCommand(['git', 'init'])
   call writefile(['teststuff'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'init commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'init commit'])
 
   Git
 
@@ -246,13 +251,13 @@ endfunction
 function Test_MultipleSelection()
   call CdTestDir()
 
-  call system(['git', 'init'])
+  call RunSystemCommand(['git', 'init'])
   call writefile(['something'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
   call writefile(['something', 'something2'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'second commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit'])
 
 
   call timer_start(50, funcref('CheckMultipleSelection'))
@@ -294,10 +299,10 @@ endfunction
 function Test_SingleCommitPreview()
   call CdTestDir()
 
-  call system(['git', 'init'])
+  call RunSystemCommand(['git', 'init'])
   call writefile(['something'], 'testfile.log')
-  call system(['git', 'add', 'testfile.log'])
-  call system(['git', 'commit', '-m', 'first commit'])
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
 
   call timer_start(50, funcref('CheckSingleCommitPreview'))
   call feedkeys(',gl', 'tx!')
