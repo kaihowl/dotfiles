@@ -15,3 +15,5 @@
 ./shellcheck/install.sh 1691336725.6248214 0 os=ubuntu-20.04
 
 ./ccache/install.sh 1691336729.5931494 4 os=ubuntu-20.04
+
+./homebrew/install.sh 1691336729.70948 0 os=ubuntu-20.04
