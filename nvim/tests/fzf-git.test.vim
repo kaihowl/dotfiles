@@ -299,6 +299,45 @@ function Test_SingleCommitPreview()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function RestoreCursorPos_Validate(id)
+  call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
+
+  let cursor = getpos('.')
+  call assert_equal(2, cursor[1], 'Expected to restore the line position') 
+  call assert_equal(4, cursor[2], 'Expected to restore the cursor position') 
+
+  let g:done = v:true
+endfunction
+
+function RestoreCursorPos_HitEnter(id)
+  call timer_start(50, funcref('RestoreCursorPos_Validate'))
+  call nvim_input('i<cr>')
+endfunction
+
+function Test_RestoreCursorPos()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['line1', 'line2', 'line3'], 'testfile.log'))
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  edit testfile.log
+  call cursor(2, 4)
+
+  call feedkeys(',gl', 'tx')
+
+  call WaitForFzfResults(1)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  call timer_start(50, funcref('RestoreCursorPos_HitEnter'))
+  call nvim_feedkeys('i', 'tx!', v:false)
+  call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
+endfunction
+  
+
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
   let tests = split(substitute(execute('function /^Test_'),
