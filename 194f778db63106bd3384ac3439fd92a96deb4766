@@ -35,3 +35,5 @@
 ./virtualenvwrapper/install.sh 1691352029.048342 6 os=ubuntu-22.04
 
 ./clangd/install.sh 1691352039.7011962 10 os=ubuntu-22.04
+
+./vint/install.sh 1691352045.170785 6 os=ubuntu-22.04
