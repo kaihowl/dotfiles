@@ -312,18 +312,20 @@ local sel_to_qf = function(selected, _opts)
   return qf_list
 end
 
-function git_edit_or_qf(selected, opts, is_loclist)
+function git_edit_or_qf(cursorpos, selected, opts, is_loclist)
   if #selected == 1 then
-    git_cmd_with_selection(selected, opts, 'edit')
+    git_cmd_with_selection(cursorpos, selected, opts, 'edit')
   else
     git_set_qf(selected, opts)
   end
 end
 
-function git_cmd_with_selection(selected, opts, cmd)
+-- TODO(kaihowl) test for vsplit, etc.
+function git_cmd_with_selection(cursorpos, selected, opts, cmd)
   local converted = sel_to_qf(selected, opts)
   for _, selection in ipairs(converted) do
     vim.cmd(cmd .. ' ' .. selection.filename)
+    vim.api.nvim_win_set_cursor(0, cursorpos)
   end
 end
 
@@ -337,16 +339,16 @@ function git_set_qf(selected, opts)
   vim.cmd("copen")
 end
 
-function git_split(selected, opts)
-  git_cmd_with_selection(selected, opts, 'Gdiffsplit')
+function git_split(cursorpos, selected, opts)
+  git_cmd_with_selection(cursorpos, selected, opts, 'Gdiffsplit')
 end
 
-function git_vsplit(selected, opts)
-  git_cmd_with_selection(selected, opts, 'Gvdiffsplit')
+function git_vsplit(cursorpos, selected, opts)
+  git_cmd_with_selection(cursorpos, selected, opts, 'Gvdiffsplit')
 end
 
-function git_tab(selected, opts)
-  git_cmd_with_selection(selected, opts, 'tabedit')
+function git_tab(cursorpos, selected, opts)
+  git_cmd_with_selection(cursorpos, selected, opts, 'tabedit')
 end
 
 -- Parse a line of the --summary from git log
@@ -368,6 +370,14 @@ end
 -- TODO(hoewelmk) empty select
 --   - !dirs not explicitly supported as rename support is expensive to implement
 function buffer_commits(opts)
+  local original_cursorpos = vim.api.nvim_win_get_cursor(0)
+
+  function curry_with_original_cursorpos(fun)
+    return function(...)
+      fun(original_cursorpos, ...)
+    end
+  end
+
   local line_range = nil
   if opts and opts.count ~= -1 then
     line_range = { startline = opts.line1, endline = opts.line2 }
@@ -404,7 +414,7 @@ function buffer_commits(opts)
     },
     preview = "if git rev-parse --quiet --verify --end-of-options {2}~1 > /dev/null; then git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}; else git show {2} -- {1}; fi",
     actions={
-      ['default'] = git_edit_or_qf,
+      ['default'] = curry_with_original_cursorpos(git_edit_or_qf),
       ['ctrl-s'] = git_split,
       ['ctrl-v'] = git_vsplit,
       ['ctrl-t'] = git_tab,
