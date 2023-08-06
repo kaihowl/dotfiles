@@ -362,7 +362,6 @@ function parse_rename_line(line)
 end
 
 -- Manually tested on
--- TODO(hoewelmk) not handled: no commits and preview without predecessor
 -- TODO(kaihowl) not handled: visual selection
 -- TODO(kaihowl) restoring cursor (both normal / visual mode)
 -- TODO(kaihowl) check spaces in file names
