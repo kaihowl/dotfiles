@@ -13,3 +13,5 @@
 ./ctags/install.sh 1691339620.9018364 5 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1691339621.6782331 1 os=ubuntu-20.04
+
+./ccache/install.sh 1691339626.9727972 5 os=ubuntu-20.04
