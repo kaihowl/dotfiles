@@ -34,19 +34,11 @@ let g:test_dirs = []
 function CheckScreen(pattern)
   " Needed to force display of preview in fzf
   redraw
-  let res = search(a:pattern, 'w')
-  " TODO(hoewelmk) add logging output when pattern fails to be found
-  if res != 0
-    echom 'Found pattern ' . a:pattern . ' on this line "' . getline(res) . '"'
-  endif
-  " TODO(hoewelmk) cleanup
-  call writefile(['waiting for ' . a:pattern ], '/tmp/log.file' , 'a')
-  call writefile(getline('^', '$'), '/tmp/log.file' , 'a')
-  return res != 0
+  return search(a:pattern, 'w') != 0
 endfunction
 
 function WaitForScreenContent(pattern)
-  call assert_equal(0, wait(10000, function('CheckScreen', [a:pattern])), 'Failed to wait for pattern "' . a:pattern . '"')
+  call assert_equal(0, wait(10000, function('CheckScreen', [a:pattern])), 'Failed to wait for pattern "' . a:pattern . "\", screen content:\n" . join(getline('&', '$'), "\n"))
 endfunction
 
 function WaitForTerminalContent(pattern)
@@ -326,7 +318,11 @@ function Test()
   call CleanUpDirs()
 
   if len(v:errors) != 0
-    echoerr v:errors
+    for error in v:errors
+      for line in split(error,"\n")
+        echoerr line
+      endfor
+    endfor
     cquit!
   endif
 
