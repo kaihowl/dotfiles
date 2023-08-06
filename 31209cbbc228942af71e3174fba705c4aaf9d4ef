@@ -9,3 +9,5 @@
 ./ccache/install.sh 1691322255.3662632 6 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1691322256.4992313 1 os=ubuntu-22.04
+
+./cmake/install.sh 1691322268.5023553 12 os=ubuntu-22.04
