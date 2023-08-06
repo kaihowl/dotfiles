@@ -300,7 +300,7 @@ function Test_SingleCommitPreview()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
-  call assert_equal(0, call writefile(['something'], 'testfile.log'))
+  call assert_equal(0, writefile(['something'], 'testfile.log'))
   call RunSystemCommand(['git', 'add', 'testfile.log'])
   call RunSystemCommand(['git', 'commit', '-m', 'first commit'])
 
