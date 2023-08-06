@@ -40,8 +40,8 @@ function CheckScreen(pattern)
     echom 'Found pattern ' . a:pattern . ' on this line "' . getline(res) . '"'
   endif
   " TODO(hoewelmk) cleanup
-  call writefile(['waiting for ' . a:pattern ], "/tmp/log.file" , 'a')
-  call writefile(getline('^', '$'), "/tmp/log.file" , 'a')
+  call writefile(['waiting for ' . a:pattern ], '/tmp/log.file' , 'a')
+  call writefile(getline('^', '$'), '/tmp/log.file' , 'a')
   return res != 0
 endfunction
 
@@ -102,7 +102,7 @@ function AfterStartup_WaitForInput_And_Select(id)
   " No clue why this must be an nvim_input call instead of feedkeys
   " usually, nvim_feedkeys requires a poke to the event loop which does not
   " work for me out of vimscript
-  call nvim_input("<cr>")
+  call nvim_input('<cr>')
 endfunction
 
 function AfterStartup_InputKeysForFirstSelection(id)
@@ -133,7 +133,7 @@ function Test_AfterStartup()
   call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
 
   call timer_start(50, funcref('AfterStartup_InputKeysForFirstSelection'))
-  call assert_equal(0, wait(10000, "g:done"), 'failed to wait for return from fzf')
+  call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
 endfunction
 
 function Test_NonGitDir()
