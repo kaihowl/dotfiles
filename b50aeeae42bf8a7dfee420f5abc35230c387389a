@@ -41,3 +41,5 @@
 ./ctags/install.sh 1691336798.9813085 5 os=ubuntu-22.04
 
 ./gdb/install.sh 1691336830.1149266 31 os=ubuntu-22.04
+
+./nvim/install.sh 1691336843.9414563 13 os=ubuntu-22.04
