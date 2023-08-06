@@ -19,3 +19,5 @@
 ./pyls/install.sh 1691347153.5518026 14 os=ubuntu-22.04
 
 ./rust/install.sh 1691347167.8826563 14 os=ubuntu-22.04
+
+./efm/install.sh 1691347168.7187543 1 os=ubuntu-22.04
