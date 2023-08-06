@@ -45,3 +45,5 @@
 ./vint/install.sh 1691336814.6802065 5 os=ubuntu-20.04
 
 install 1691336814.7902792 166 os=ubuntu-20.04
+
+test 1691336886.7197716 70 os=ubuntu-20.04
