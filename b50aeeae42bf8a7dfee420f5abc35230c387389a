@@ -17,3 +17,5 @@
 ./ripgrep/install.sh 1691336713.4594803 2 os=ubuntu-22.04
 
 ./pyls/install.sh 1691336727.7885253 14 os=ubuntu-22.04
+
+./rust/install.sh 1691336743.0059211 15 os=ubuntu-22.04
