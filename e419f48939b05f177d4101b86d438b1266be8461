@@ -43,3 +43,5 @@
 ./gdb/install.sh 1691339712.131772 31 os=ubuntu-22.04
 
 ./nvim/install.sh 1691339727.6935475 15 os=ubuntu-22.04
+
+install 1691339727.8426502 205 os=ubuntu-22.04
