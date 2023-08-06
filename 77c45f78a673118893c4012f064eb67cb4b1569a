@@ -5,3 +5,5 @@
 ./zoxide/install.sh 1691351649.1983054 2 os=ubuntu-20.04
 
 ./gdb/install.sh 1691351681.922268 32 os=ubuntu-20.04
+
+./colors/install.sh 1691351683.7432642 2 os=ubuntu-20.04
