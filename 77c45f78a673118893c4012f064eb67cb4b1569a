@@ -29,3 +29,5 @@
 ./tmux/install.sh 1691351676.7059402 0 os=ubuntu-22.04
 
 ./homebrew/install.sh 1691351676.8242927 0 os=ubuntu-22.04
+
+./alacritty/install.sh 1691351686.8485594 10 os=ubuntu-22.04
