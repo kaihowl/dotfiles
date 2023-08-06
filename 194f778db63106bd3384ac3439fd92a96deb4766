@@ -11,3 +11,5 @@
 ./shellcheck/install.sh 1691351962.6736162 1 os=ubuntu-22.04
 
 ./cmake/install.sh 1691351971.4541593 9 os=ubuntu-22.04
+
+./zoxide/install.sh 1691351972.398565 1 os=ubuntu-22.04
