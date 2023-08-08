@@ -364,8 +364,6 @@ function parse_rename_line(line)
 end
 
 -- Manually tested on
--- TODO(kaihowl) not handled: visual selection
--- TODO(kaihowl) restoring cursor (both normal / visual mode)
 -- TODO(kaihowl) check spaces in file names
 -- TODO(hoewelmk) empty select
 --   - !dirs not explicitly supported as rename support is expensive to implement
