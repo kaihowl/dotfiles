@@ -336,6 +336,40 @@ function Test_RestoreCursorPos()
   call nvim_feedkeys('i', 'tx!', v:false)
   call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
 endfunction
+
+function Test_VisualSelection()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['line1', 'line2', 'line3'], 'testfile.log'))
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  call assert_equal(0, writefile(['line1_changed', 'line2', 'line3'], 'testfile.log'))
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
+
+  call assert_equal(0, writefile(['line1_changed', 'line2', 'line3_changed'], 'testfile.log'))
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'third commit', '--no-verify', '--no-gpg-sign'])
+
+  edit testfile.log
+
+  call cursor(3,1)
+  norm! V
+
+  call feedkeys(',gl', 'tx')
+
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit should have been found for line selection')
+  let second_commit_line = search('second commit', 'w')
+  call assert_equal(0, second_commit_line, 'second commit should not have been found for line selection')
+  let third_commit_line = search('third commit', 'w')
+  call assert_notequal(0, third_commit_line, 'third commit should have been found for line selection')
+
+endfunction
   
 
 function Test()
