@@ -27,3 +27,5 @@
 ./system/install.sh 1691572047.2393017 7 os=ubuntu-22.04
 
 ./tmux/install.sh 1691572048.056113 0 os=ubuntu-22.04
+
+./homebrew/install.sh 1691572048.20295 0 os=ubuntu-22.04
