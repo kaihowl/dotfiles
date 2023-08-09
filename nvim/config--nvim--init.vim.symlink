@@ -259,6 +259,8 @@ let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 let g:fzf_history_dir = expand('~/.local/share/fzf-history')
 
 lua <<EOF
+
+local separator = ' '
 function commit_and_path()
   local fugitive_path = vim.fn.FugitiveFind()
   if vim.o.buftype ~= '' or fugitive_path == '' then
@@ -278,7 +280,7 @@ function make_git_log_command(commit, path, line_range)
   local opts = {
     'log',
     '--color',
-    '--pretty=tformat:%C(yellow)%h%Creset %C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
+    '--pretty=tformat:%C(yellow)%h%Creset' .. separator .. '%C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
     commit
   }
 
@@ -300,7 +302,7 @@ end
 local sel_to_qf = function(selected, _opts)
   local qf_list = {}
   for _, selection in ipairs(selected) do
-    local file, commit, text_offset = string.match(selection, "^([^:]*):(%x+) ()%(")
+    local file, commit, text_offset = string.match(selection, "^([^" .. separator .. "]*)" .. separator .. "(%x+)" .. separator .. "()%(")
     local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
     table.insert(qf_list, {
       filename = fugitive_path,
@@ -365,6 +367,7 @@ end
 
 -- Manually tested on
 -- TODO(kaihowl) check spaces in file names
+-- TODO(kaihowl) check for ':' in file name
 -- TODO(hoewelmk) empty select
 --   - !dirs not explicitly supported as rename support is expensive to implement
 function buffer_commits(opts)
@@ -405,12 +408,12 @@ function buffer_commits(opts)
         -- discard other summary lines
         return
       end
-      return parsing_state.filename .. ':' .. line
+      return parsing_state.filename .. separator .. line
     end,
     fzf_opts = {
-      ['--delimiter'] = '":| "',
+      ['--delimiter'] = '"' .. separator .. '"',
     },
-    preview = "if git rev-parse --quiet --verify --end-of-options {2}~1 > /dev/null; then git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}; else git show {2} -- {1}; fi",
+    preview = "if git rev-parse --quiet --verify --end-of-options {2}~1 > /dev/null; then git log --format=fuller -p --color --word-diff {2}~1..{2} -- '{1}'; else git show {2} -- '{1}'; fi",
     actions={
       ['default'] = curry_with_original_cursorpos(git_edit_or_qf),
       ['ctrl-s'] = git_split,
