@@ -11,3 +11,5 @@
 ./pyls/install.sh 1691571327.2874396 13 os=ubuntu-20.04
 
 ./ctags/install.sh 1691571331.6487103 4 os=ubuntu-20.04
+
+./shellcheck/install.sh 1691571332.4313426 1 os=ubuntu-20.04
