@@ -39,3 +39,5 @@
 ./vint/install.sh 1691572090.0357687 6 os=ubuntu-22.04
 
 ./ctags/install.sh 1691572096.4560087 6 os=ubuntu-22.04
+
+./gdb/install.sh 1691572124.9226139 28 os=ubuntu-22.04
