@@ -3,3 +3,5 @@
 ./git/install.sh 1691571289.7702615 3 os=ubuntu-22.04
 
 ./colors/install.sh 1691571291.1445258 2 os=ubuntu-22.04
+
+./ninja/install.sh 1691571296.0636647 4 os=ubuntu-22.04
