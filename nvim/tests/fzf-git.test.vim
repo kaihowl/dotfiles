@@ -368,7 +368,35 @@ function Test_VisualSelection()
   call assert_equal(0, second_commit_line, 'second commit should not have been found for line selection')
   let third_commit_line = search('third commit', 'w')
   call assert_notequal(0, third_commit_line, 'third commit should have been found for line selection')
+endfunction
 
+function Test_FileNameWithSpace()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something'], 'test file'))
+  call RunSystemCommand(['git', 'add', 'test file'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  call assert_equal(0, writefile(['something2'], 'test file'))
+  call RunSystemCommand(['git', 'add', 'test file'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
+
+  edit test\ file
+
+  " English language necessary to check for "fatal:" string
+  call setenv('LC_ALL', 'en_US.UTF8')
+
+  call feedkeys(',gl', 'tx')
+
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit is missing')
+  let second_commit_line = search('second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'second commit is missing')
+  let broken_preview = search('fatal:', 'w')
+  call assert_notequal(0, broken_preview, 'preview is broken')
 endfunction
   
 
