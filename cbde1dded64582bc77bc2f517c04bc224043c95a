@@ -5,3 +5,5 @@
 ./colors/install.sh 1691571291.1445258 2 os=ubuntu-22.04
 
 ./ninja/install.sh 1691571296.0636647 4 os=ubuntu-22.04
+
+./ccache/install.sh 1691571301.136385 5 os=ubuntu-22.04
