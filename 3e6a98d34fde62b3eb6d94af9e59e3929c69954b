@@ -45,3 +45,5 @@
 ./nvim/install.sh 1691571453.4207535 15 os=ubuntu-22.04
 
 install 1691571453.5582578 205 os=ubuntu-22.04
+
+test 1691571531.1478198 75 os=ubuntu-22.04
