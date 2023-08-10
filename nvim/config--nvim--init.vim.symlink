@@ -398,16 +398,23 @@ function buffer_commits(opts)
   local command = make_git_log_command(commit, abs_path, line_range)
   require'fzf-lua'.fzf_exec(command, {
     fn_transform = function(line)
-      if vim.startswith(line, ' rename') then
+      if vim.startswith(line, ' rename')
+         or vim.startswi(line, ' copy') then
+         TODO(kaihowl) must extend the rename line function to accept a different mode name
         local from, to = parse_rename_line(line)
         if parsing_state.filename == to then
           parsing_state.filename = from
         end
-        return -- not an output line
-      end
-      if line == '' or vim.startswith(line, ' ') then
-        -- discard other summary lines
         return
+      end
+      if line == '' 
+         or vim.startswith(line, ' create mode')
+         or vim.startswith(line, ' mode change') then
+        -- discard unintersting summary line
+        return
+      else
+        -- unexpected summary line
+        return 'unexpected summary line: ' .. line
       end
       return parsing_state.filename .. separator .. line
     end,
