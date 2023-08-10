@@ -398,11 +398,36 @@ function Test_FileNameWithSpace()
   let broken_preview = search('fatal:', 'w')
   call assert_notequal(0, broken_preview, 'preview is broken')
 endfunction
+
+function Test_CopiedFileFollow()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something', 'something2', 'something3'], 'firstfile'))
+  call RunSystemCommand(['git', 'add', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  call assert_equal(0, writefile(['something', 'something2', 'something3'], 'secondfile'))
+  call RunSystemCommand(['git', 'add', 'secondfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
+
+  edit secondfile
+
+  call feedkeys(',gl', 'tx')
+
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('firstfile.*first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'Could not find first commit with correct (copied-from) file name')
+
+  let second_commit_line = search('seconfile.*second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'COuld not find second commit with current file name')
+endfunction
   
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_'),
+  let tests = split(substitute(execute('function /^Test_CopiedFileFollow'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
