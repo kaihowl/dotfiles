@@ -144,8 +144,8 @@ function CheckFileInPast(id)
   let first_commit_line = search('first commit', 'w')
   call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
 
-  let first_commit_line = search('second commit', 'w')
-  call assert_equal(0, first_commit_line, 'second commit found in fzf window, despite viewing history _before_ this commit')
+  let second_commit_line = search('second commit', 'w')
+  call assert_equal(0, second_commit_line, 'second commit found in fzf window, despite viewing history _before_ this commit')
 
   let unrelated_commit_line = search('unrelated', 'w')
   call assert_equal(0, unrelated_commit_line, 'unrelated commit found in fzf window, despite viewing history of specific file')
