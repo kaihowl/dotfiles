@@ -1,3 +1,5 @@
 ./zsh/install.sh 1691918574.917425 18 os=ubuntu-22.04
 
 ./git/install.sh 1691918578.3160598 4 os=ubuntu-22.04
+
+./colors/install.sh 1691918579.6026065 1 os=ubuntu-22.04
