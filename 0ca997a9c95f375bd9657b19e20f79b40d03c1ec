@@ -31,3 +31,5 @@
 ./rust/install.sh 1691918683.2226708 2 os=ubuntu-20.04
 
 ./ninja/install.sh 1691918688.507603 5 os=ubuntu-20.04
+
+./efm/install.sh 1691918689.020457 0 os=ubuntu-20.04
