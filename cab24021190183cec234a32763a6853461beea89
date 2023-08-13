@@ -3,3 +3,5 @@
 ./system/install.sh 1691927042.6348178 5 os=ubuntu-20.04
 
 ./zoxide/install.sh 1691927043.561976 1 os=ubuntu-20.04
+
+./gdb/install.sh 1691927057.0852158 13 os=ubuntu-20.04
