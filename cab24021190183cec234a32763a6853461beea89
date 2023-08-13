@@ -27,3 +27,5 @@
 ./ripgrep/install.sh 1691927109.3114028 2 os=ubuntu-20.04
 
 ./clangd/install.sh 1691927129.342595 20 os=ubuntu-20.04
+
+./rust/install.sh 1691927136.6661406 7 os=ubuntu-20.04
