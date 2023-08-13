@@ -19,3 +19,5 @@
 ./homebrew/install.sh 1691918629.2702096 0 os=ubuntu-20.04
 
 ./cmake/install.sh 1691918640.4650514 11 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1691918647.765585 7 os=ubuntu-20.04
