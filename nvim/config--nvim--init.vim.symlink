@@ -358,7 +358,9 @@ end
 -- the terse 'somedir/{before => after}/somefile.txt (100%)'
 -- Returns the from_filename and to_filename.
 function parse_rename_line(line)
-  local prefix, left, right, suffix = string.match(line, "^ rename ([^{]*){?(.*) => ([^}]*)}?(.*) %(")
+  -- Due to missing regex alternative syntax '|', cheat with a character class
+  -- for "rename" vs "copy"
+  local prefix, left, right, suffix = string.match(line, "^ [renamecopy]* ([^{]*){?(.*) => ([^}]*)}?(.*) %(")
   if left == "" and suffix == "" then -- short form, no braces matched
     return prefix, right
   end
@@ -398,9 +400,9 @@ function buffer_commits(opts)
   local command = make_git_log_command(commit, abs_path, line_range)
   require'fzf-lua'.fzf_exec(command, {
     fn_transform = function(line)
-      if vim.startswith(line, ' rename')
-         or vim.startswi(line, ' copy') then
-         TODO(kaihowl) must extend the rename line function to accept a different mode name
+      -- Possible lines, see https://github.com/git/git/blob/07330a41d66a2c9589b585a3a24ecdcf19994f19/diff.c#L6091-L6119
+      if vim.startswith(line, ' rename') or vim.startswith(line, ' copy') then
+         --TODO(kaihowl) must extend the rename line function to accept a different mode name
         local from, to = parse_rename_line(line)
         if parsing_state.filename == to then
           parsing_state.filename = from
@@ -408,11 +410,12 @@ function buffer_commits(opts)
         return
       end
       if line == '' 
-         or vim.startswith(line, ' create mode')
-         or vim.startswith(line, ' mode change') then
+         or vim.startswith(line, ' create')
+         or vim.startswith(line, ' mode')
+         or vim.startswith(line, ' rewrite') then
         -- discard unintersting summary line
         return
-      else
+      elseif vim.startswith(line, ' ') then
         -- unexpected summary line
         return 'unexpected summary line: ' .. line
       end

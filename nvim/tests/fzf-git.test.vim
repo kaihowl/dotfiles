@@ -11,7 +11,15 @@ function test_parsing()
   expect_eq(from, "somefile.txt")
   expect_eq(to, "someother.txt")
 
+  local from, to = parse_rename_line(" copy somefile.txt => someother.txt (100%)")
+  expect_eq(from, "somefile.txt")
+  expect_eq(to, "someother.txt")
+
   local from, to = parse_rename_line(" rename {gdb => gdb2}/somefile.txt (90%)")
+  expect_eq(from, "gdb/somefile.txt")
+  expect_eq(to, "gdb2/somefile.txt")
+
+  local from, to = parse_rename_line(" copy {gdb => gdb2}/somefile.txt (90%)")
   expect_eq(from, "gdb/somefile.txt")
   expect_eq(to, "gdb2/somefile.txt")
 
@@ -19,7 +27,15 @@ function test_parsing()
   expect_eq(from, "prefix/gdb/somefile.txt")
   expect_eq(to, "prefix/gdb2/somefile.txt")
 
+  local from, to = parse_rename_line(" copy prefix/{gdb => gdb2}/somefile.txt (20%)")
+  expect_eq(from, "prefix/gdb/somefile.txt")
+  expect_eq(to, "prefix/gdb2/somefile.txt")
+
   local from, to = parse_rename_line(" rename prefix/{gdb.txt => gdb2.vim} (100%)")
+  expect_eq(from, "prefix/gdb.txt")
+  expect_eq(to, "prefix/gdb2.vim")
+
+  local from, to = parse_rename_line(" copy prefix/{gdb.txt => gdb2.vim} (100%)")
   expect_eq(from, "prefix/gdb.txt")
   expect_eq(to, "prefix/gdb2.vim")
 end
@@ -417,11 +433,19 @@ function Test_CopiedFileFollow()
 
   call WaitForFzfResults(2)
 
+  call nvim_input('ifile')
+
   let first_commit_line = search('firstfile.*first commit', 'w')
   call assert_notequal(0, first_commit_line, 'Could not find first commit with correct (copied-from) file name')
 
-  let second_commit_line = search('seconfile.*second commit', 'w')
-  call assert_notequal(0, second_commit_line, 'COuld not find second commit with current file name')
+  let second_commit_line = search('secondfile.*second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'Could not find second commit with current file name')
+
+
+  echoerr "screen content:\n" 
+  for line in getline('&', '$')
+    echoerr line
+  endfor
 endfunction
   
 
