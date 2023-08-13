@@ -33,3 +33,5 @@
 ./ninja/install.sh 1691918688.507603 5 os=ubuntu-20.04
 
 ./efm/install.sh 1691918689.020457 0 os=ubuntu-20.04
+
+./alacritty/install.sh 1691918701.6754363 12 os=ubuntu-20.04
