@@ -412,7 +412,13 @@ function Test_FileNameWithSpace()
   let second_commit_line = search('second commit', 'w')
   call assert_notequal(0, second_commit_line, 'second commit is missing')
   let broken_preview = search('fatal:', 'w')
-  call assert_notequal(0, broken_preview, 'preview is broken')
+  call assert_equal(0, broken_preview, 'preview is broken')
+  " TODO(hoewelmk) debug output
+  for line in getline('0', '$')
+    echomsg line
+  endfor
+  let working_preview = search('diff --git', 'w')
+  call assert_notequal(0, working_preview, 'did not find preview')
 endfunction
 
 " TODO(hoewelmk) unify the "hitenter" functions?
@@ -452,7 +458,7 @@ endfunction
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_'),
+  let tests = split(substitute(execute('function /^Test_FileNameWithSpace'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
