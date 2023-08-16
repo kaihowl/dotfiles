@@ -415,6 +415,11 @@ function Test_FileNameWithSpace()
   call assert_notequal(0, broken_preview, 'preview is broken')
 endfunction
 
+" TODO(hoewelmk) unify the "hitenter" functions?
+function CopiedFileFollow_HitEnter(id)
+  call nvim_input('i<cr>')
+endfunction
+
 function Test_CopiedFileFollow()
   call CdTestDir()
 
@@ -433,25 +438,21 @@ function Test_CopiedFileFollow()
 
   call WaitForFzfResults(2)
 
-  call nvim_input('ifile')
-
-  let first_commit_line = search('firstfile.*first commit', 'w')
+  let first_commit_line = search('first commit', 'w')
   call assert_notequal(0, first_commit_line, 'Could not find first commit with correct (copied-from) file name')
 
-  let second_commit_line = search('secondfile.*second commit', 'w')
+  let second_commit_line = search('second commit', 'w')
   call assert_notequal(0, second_commit_line, 'Could not find second commit with current file name')
 
+  call timer_start(50, funcref('CopiedFileFollow_HitEnter'))
+  call nvim_feedkeys('ifirst', 'tx!', v:false)
 
-  echoerr "screen content:\n" 
-  for line in getline('&', '$')
-    echoerr line
-  endfor
+  call assert_match('firstfile$', bufname(), 'Wrong file name (copied-from)')
 endfunction
-  
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_CopiedFileFollow'),
+  let tests = split(substitute(execute('function /^Test_'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
