@@ -457,7 +457,7 @@ endfunction
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_FileNameWithSpace'),
+  let tests = split(substitute(execute('function /^Test_'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
