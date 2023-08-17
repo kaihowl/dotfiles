@@ -400,7 +400,7 @@ function Test_FileNameWithSpace()
 
   edit test\ file
 
-  " English language necessary to check for "fatal:" string
+  " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
   call feedkeys(',gl', 'tx')
@@ -411,13 +411,12 @@ function Test_FileNameWithSpace()
   call assert_notequal(0, first_commit_line, 'first commit is missing')
   let second_commit_line = search('second commit', 'w')
   call assert_notequal(0, second_commit_line, 'second commit is missing')
+
+  call WaitForScreenContent('Author:')
+
   let broken_preview = search('fatal:', 'w')
   call assert_equal(0, broken_preview, 'preview is broken')
-  " TODO(hoewelmk) debug output
-  for line in getline('0', '$')
-    echomsg line
-  endfor
-  let working_preview = search('diff --git', 'w')
+  let working_preview = search('Author:', 'w')
   call assert_notequal(0, working_preview, 'did not find preview')
 endfunction
 
