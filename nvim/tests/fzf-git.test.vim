@@ -84,8 +84,6 @@ function RunSystemCommand(cmd)
   call assert_equal(0, v:shell_error, output)
 endfunction
 
-let g:done = v:false
-
 function AfterStartup_CheckSelectedCommit(id)
   call assert_equal(0, wait(10000, "&buftype != 'terminal'"), 'failed to wait for return from fzf')
 
@@ -117,6 +115,8 @@ function AfterStartup_InputKeysForFirstSelection(id)
 endfunction
 
 function Test_AfterStartup()
+  let g:done = v:false
+
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
@@ -331,6 +331,8 @@ function RestoreCursorPos_HitEnter(id)
 endfunction
 
 function Test_RestoreCursorPos()
+  let g:done = v:false
+
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
