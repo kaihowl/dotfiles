@@ -17,3 +17,5 @@
 ./vint/install.sh 1692531872.221911 6 os=ubuntu-22.04
 
 ./system/install.sh 1692531876.6525156 4 os=ubuntu-22.04
+
+./rust/install.sh 1692531878.8658247 2 os=ubuntu-22.04
