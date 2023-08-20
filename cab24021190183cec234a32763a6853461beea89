@@ -41,3 +41,5 @@
 ./efm/install.sh 1692531928.574931 0 os=ubuntu-22.04
 
 ./tmux/install.sh 1692531929.249493 1 os=ubuntu-22.04
+
+./alacritty/install.sh 1692531938.964659 9 os=ubuntu-22.04
