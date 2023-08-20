@@ -25,3 +25,5 @@
 ./fzf/install.sh 1692531883.722832 1 os=ubuntu-22.04
 
 ./gdb/install.sh 1692531893.2107315 10 os=ubuntu-22.04
+
+./ninja/install.sh 1692531897.5520458 4 os=ubuntu-22.04
