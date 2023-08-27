@@ -39,3 +39,5 @@
 ./ctags/install.sh 1693136744.0715063 3 os=ubuntu-22.04
 
 ./efm/install.sh 1693136744.567948 0 os=ubuntu-22.04
+
+./tmux/install.sh 1693136745.1577036 1 os=ubuntu-22.04
