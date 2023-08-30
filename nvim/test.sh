@@ -48,8 +48,6 @@ function run_vim_test {
 }
 
 echo "Check that plugins are installed"
-run_vim_test asyncrun-errorformat.test.vim
-run_vim_test asynctasks.test.vim
 run_vim_test completion.test.vim
 run_vim_test editorconfig.test.vim
 run_vim_test fzf-git.test.vim
@@ -63,6 +61,8 @@ run_vim_test sanitizer-errorformat.test.vim
 run_vim_test sneak.test.vim
 run_vim_test tagbar.test.vim
 run_vim_test t_comment.test.vim
+run_vim_test asyncrun-errorformat.test.vim
+run_vim_test asynctasks.test.vim
 
 echo "Check that git default folder detection works with a default"
 cd "$DOTS/"
