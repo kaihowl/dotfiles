@@ -367,8 +367,6 @@ function parse_renamecopy_line(line)
   return prefix .. left .. suffix, prefix .. right .. suffix
 end
 
--- Manually tested on
--- TODO(hoewelmk) empty select
 function buffer_commits(opts)
   local original_cursorpos = vim.api.nvim_win_get_cursor(0)
 
