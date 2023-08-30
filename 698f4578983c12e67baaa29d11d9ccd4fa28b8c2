@@ -37,3 +37,5 @@
 ./shellcheck/install.sh 1693421681.2396765 1 os=ubuntu-22.04
 
 ./ctags/install.sh 1693421685.35148 4 os=ubuntu-22.04
+
+./efm/install.sh 1693421686.1330397 1 os=ubuntu-22.04
