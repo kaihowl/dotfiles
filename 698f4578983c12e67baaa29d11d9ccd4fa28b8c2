@@ -43,3 +43,5 @@
 ./tmux/install.sh 1693421760.5676465 1 os=ubuntu-20.04
 
 ./vint/install.sh 1693421766.7083957 6 os=ubuntu-20.04
+
+install 1693421766.8370273 206 os=ubuntu-20.04
