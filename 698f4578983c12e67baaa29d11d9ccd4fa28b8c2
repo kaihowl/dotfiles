@@ -39,3 +39,5 @@
 ./fzf/install.sh 1693421754.5732613 2 os=ubuntu-20.04
 
 ./git/install.sh 1693421759.6738427 5 os=ubuntu-20.04
+
+./tmux/install.sh 1693421760.5676465 1 os=ubuntu-20.04
