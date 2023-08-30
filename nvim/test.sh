@@ -50,6 +50,7 @@ function run_vim_test {
 echo "Check that plugins are installed"
 run_vim_test completion.test.vim
 run_vim_test editorconfig.test.vim
+run_vim_test fzf-git.test.vim
 run_vim_test lsp-completion-cpp.test.vim
 run_vim_test lsp-completion-python.test.vim
 run_vim_test lsp-completion-rust.test.vim
