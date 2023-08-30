@@ -368,9 +368,6 @@ function parse_rename_line(line)
 end
 
 -- Manually tested on
--- TODO(kaihowl) changing file name does not work anymore
--- TODO(kaihowl) check spaces in file names
--- TODO(kaihowl) check for ':' in file name
 -- TODO(hoewelmk) empty select
 --   - !dirs not explicitly supported as rename support is expensive to implement
 function buffer_commits(opts)
