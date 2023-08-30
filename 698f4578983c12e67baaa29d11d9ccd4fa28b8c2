@@ -1,3 +1,5 @@
 ./zsh/install.sh 1693421572.2276862 19 os=ubuntu-22.04
 
 ./pyls/install.sh 1693421586.280477 14 os=ubuntu-22.04
+
+./zoxide/install.sh 1693421587.5717633 1 os=ubuntu-22.04
