@@ -21,3 +21,5 @@
 ./rust/install.sh 1693421636.559045 15 os=ubuntu-22.04
 
 ./git/install.sh 1693421640.3034446 4 os=ubuntu-22.04
+
+./fzf/install.sh 1693421642.1083243 2 os=ubuntu-22.04
