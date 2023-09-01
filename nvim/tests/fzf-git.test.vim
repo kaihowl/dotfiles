@@ -7,35 +7,35 @@ function expect_eq(expected, actual)
 end
 
 function test_parsing()
-  local from, to = parse_rename_line(" rename somefile.txt => someother.txt (100%)")
+  local from, to = parse_renamecopy_line(" rename somefile.txt => someother.txt (100%)")
   expect_eq(from, "somefile.txt")
   expect_eq(to, "someother.txt")
 
-  local from, to = parse_rename_line(" copy somefile.txt => someother.txt (100%)")
+  local from, to = parse_renamecopy_line(" copy somefile.txt => someother.txt (100%)")
   expect_eq(from, "somefile.txt")
   expect_eq(to, "someother.txt")
 
-  local from, to = parse_rename_line(" rename {gdb => gdb2}/somefile.txt (90%)")
+  local from, to = parse_renamecopy_line(" rename {gdb => gdb2}/somefile.txt (90%)")
   expect_eq(from, "gdb/somefile.txt")
   expect_eq(to, "gdb2/somefile.txt")
 
-  local from, to = parse_rename_line(" copy {gdb => gdb2}/somefile.txt (90%)")
+  local from, to = parse_renamecopy_line(" copy {gdb => gdb2}/somefile.txt (90%)")
   expect_eq(from, "gdb/somefile.txt")
   expect_eq(to, "gdb2/somefile.txt")
 
-  local from, to = parse_rename_line(" rename prefix/{gdb => gdb2}/somefile.txt (20%)")
+  local from, to = parse_renamecopy_line(" rename prefix/{gdb => gdb2}/somefile.txt (20%)")
   expect_eq(from, "prefix/gdb/somefile.txt")
   expect_eq(to, "prefix/gdb2/somefile.txt")
 
-  local from, to = parse_rename_line(" copy prefix/{gdb => gdb2}/somefile.txt (20%)")
+  local from, to = parse_renamecopy_line(" copy prefix/{gdb => gdb2}/somefile.txt (20%)")
   expect_eq(from, "prefix/gdb/somefile.txt")
   expect_eq(to, "prefix/gdb2/somefile.txt")
 
-  local from, to = parse_rename_line(" rename prefix/{gdb.txt => gdb2.vim} (100%)")
+  local from, to = parse_renamecopy_line(" rename prefix/{gdb.txt => gdb2.vim} (100%)")
   expect_eq(from, "prefix/gdb.txt")
   expect_eq(to, "prefix/gdb2.vim")
 
-  local from, to = parse_rename_line(" copy prefix/{gdb.txt => gdb2.vim} (100%)")
+  local from, to = parse_renamecopy_line(" copy prefix/{gdb.txt => gdb2.vim} (100%)")
   expect_eq(from, "prefix/gdb.txt")
   expect_eq(to, "prefix/gdb2.vim")
 end
