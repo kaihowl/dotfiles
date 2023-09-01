@@ -23,3 +23,5 @@
 ./virtualenvwrapper/install.sh 1693598102.7274413 6 os=ubuntu-20.04
 
 ./nvim/install.sh 1693598113.1098104 11 os=ubuntu-20.04
+
+./ripgrep/install.sh 1693598115.276104 2 os=ubuntu-20.04
