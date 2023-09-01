@@ -7,3 +7,5 @@
 ./gdb/install.sh 1693597731.9947643 13 os=ubuntu-20.04
 
 ./colors/install.sh 1693597733.4671333 1 os=ubuntu-20.04
+
+./pyls/install.sh 1693597746.1061475 13 os=ubuntu-20.04
