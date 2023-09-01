@@ -31,3 +31,5 @@
 ./clangd/install.sh 1693598603.329895 13 os=ubuntu-22.04
 
 ./colors/install.sh 1693598604.9512064 1 os=ubuntu-22.04
+
+./nvim/install.sh 1693598619.6390123 15 os=ubuntu-22.04
