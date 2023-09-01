@@ -13,3 +13,5 @@
 ./homebrew/install.sh 1693598053.0924425 0 os=ubuntu-22.04
 
 ./cmake/install.sh 1693598063.0948946 10 os=ubuntu-22.04
+
+./vint/install.sh 1693598068.5856829 5 os=ubuntu-22.04
