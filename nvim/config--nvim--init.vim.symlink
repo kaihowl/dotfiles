@@ -299,6 +299,13 @@ function make_git_log_command(commit, path, line_range)
   return vim.fn.FugitiveShellCommand(opts)
 end
 
+function make_git_preview_command()
+  local is_not_first_commit = vim.fn.FugitiveShellCommand({'rev-parse', '--quiet', '--verify', '--end-of-options', '{2}~1'})
+  local show_diff = vim.fn.FugitiveShellCommand({'log', '--format=fuller', '-p', '--color', '--word-diff', '{2}~1..{2}', '--', '{1}'})
+  local show_single_commit = vim.fn.FugitiveShellCommand({'show', '{2}', '--', '{1}'})
+  return "if " .. is_not_first_commit .. " > /dev/null; then " .. show_diff .. "; else " .. show_single_commit .. "; fi"
+end
+
 local sel_to_qf = function(selected, _opts)
   local qf_list = {}
   for _, selection in ipairs(selected) do
@@ -417,7 +424,7 @@ function buffer_commits(opts)
     fzf_opts = {
       ['--delimiter'] = '"' .. separator .. '"',
     },
-    preview = "if git rev-parse --quiet --verify --end-of-options {2}~1 > /dev/null; then git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}; else git show {2} -- {1}; fi",
+    preview = make_git_preview_command(),
     actions={
       ['default'] = curry_with_original_cursorpos(git_edit_or_qf),
       ['ctrl-s'] = git_split,
