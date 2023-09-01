@@ -35,3 +35,5 @@
 ./nvim/install.sh 1693598125.7721386 11 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1693598126.6155727 1 os=ubuntu-22.04
+
+./ctags/install.sh 1693598130.4775336 4 os=ubuntu-22.04
