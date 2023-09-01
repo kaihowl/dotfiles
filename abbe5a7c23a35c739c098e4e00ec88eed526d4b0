@@ -23,3 +23,5 @@
 ./git/install.sh 1693597277.28313 4 os=ubuntu-22.04
 
 ./fzf/install.sh 1693597278.861046 1 os=ubuntu-22.04
+
+./gdb/install.sh 1693597287.586783 9 os=ubuntu-22.04
