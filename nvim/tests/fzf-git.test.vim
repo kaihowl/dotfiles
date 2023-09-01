@@ -457,9 +457,37 @@ function Test_CopiedFileFollow()
   call assert_match('firstfile$', bufname(), 'Wrong file name (copied-from)')
 endfunction
 
+function Test_DifferentPwd()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something', 'something2', 'something3'], 'firstfile'))
+  call RunSystemCommand(['git', 'add', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  edit firstfile
+
+  " Go to different testdir than where current "firstfile" is located in
+  call CdTestDir()
+
+  " English language necessary to check for "fatal:" and "Author:" strings
+  call setenv('LC_ALL', 'en_US.UTF8')
+
+  call feedkeys(',gl', 'tx')
+
+  call WaitForFzfResults(1)
+
+  call WaitForScreenContent('Author:\|fatal:')
+
+  let broken_preview = search('fatal:', 'w')
+  call assert_equal(0, broken_preview, 'preview is broken')
+  let working_preview = search('Author:', 'w')
+  call assert_notequal(0, working_preview, 'did not find preview')
+endfunction
+
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_'),
+  let tests = split(substitute(execute('function /^Test_DifferentPwd'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
