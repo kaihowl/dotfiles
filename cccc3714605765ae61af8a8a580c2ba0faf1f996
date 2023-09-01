@@ -9,3 +9,5 @@
 ./virtualenvwrapper/install.sh 1693598525.214394 7 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1693598527.1663554 2 os=ubuntu-22.04
+
+./homebrew/install.sh 1693598527.3056567 0 os=ubuntu-22.04
