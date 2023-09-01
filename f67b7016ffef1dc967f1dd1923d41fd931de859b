@@ -43,3 +43,5 @@
 ./tmux/install.sh 1693598131.6760588 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1693598140.6865587 9 os=ubuntu-22.04
+
+install 1693598140.7933364 134 os=ubuntu-22.04
