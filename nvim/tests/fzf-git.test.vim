@@ -63,7 +63,7 @@ function WaitForTerminalContent(pattern)
 endfunction
 
 function WaitForFzfResults(num_results)
-  call WaitForTerminalContent('> .* < ' . a:num_results . '/')
+  call WaitForTerminalContent(' < ' . a:num_results . '/')
 endfunction
 
 function CdTestDir()
@@ -468,7 +468,7 @@ function Test_DifferentPwd()
   edit firstfile
 
   " Go to different testdir than where current "firstfile" is located in
-  cd "/"
+  call CdTestDir()
 
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
@@ -500,6 +500,16 @@ function Test()
     execute 'call ' . test_function
   endfor
 
-  " call CleanUpDirs()
+  call CleanUpDirs()
 
+  if len(v:errors) != 0
+    for error in v:errors
+      for line in split(error,"\n")
+        echoerr line
+      endfor
+    endfor
+    cquit!
+  endif
+
+  qall!
 endfunction
