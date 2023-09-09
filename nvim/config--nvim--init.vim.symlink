@@ -374,6 +374,14 @@ function parse_renamecopy_line(line)
   return prefix .. left .. suffix, prefix .. right .. suffix
 end
 
+function shortened_path(path, n_chars)
+  if #path <= n_chars then
+    return path
+  end
+
+  return require('fzf-lua.path').shorten(path, 1)
+end
+
 function buffer_commits(opts)
   local original_cursorpos = vim.api.nvim_win_get_cursor(0)
 
@@ -401,8 +409,7 @@ function buffer_commits(opts)
   local parsing_state = {filename = rel_path}
   local command = make_git_log_command(commit, abs_path, line_range)
   require'fzf-lua'.fzf_exec(command, {
-    -- requires test fix TODO(hoewelmk)
-    -- prompt = workspace_root .. '/',
+    prompt = shortened_path(workspace_root, 32) .. '/',
     fn_transform = function(line)
       -- Possible lines, see https://github.com/git/git/blob/07330a41d66a2c9589b585a3a24ecdcf19994f19/diff.c#L6091-L6119
       if vim.startswith(line, ' rename') or vim.startswith(line, ' copy') then
