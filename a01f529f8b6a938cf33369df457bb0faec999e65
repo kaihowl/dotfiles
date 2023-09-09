@@ -23,3 +23,5 @@
 ./ripgrep/install.sh 1694244304.393366 2 os=ubuntu-20.04
 
 ./ccache/install.sh 1694244308.7818565 4 os=ubuntu-20.04
+
+./colors/install.sh 1694244310.1748338 2 os=ubuntu-20.04
