@@ -457,6 +457,19 @@ function Test_CopiedFileFollow()
   call assert_match('firstfile$', bufname(), 'Wrong file name (copied-from)')
 endfunction
 
+function Check_DifferentPwd(id)
+  call WaitForFzfResults(1)
+
+  call WaitForScreenContent('Author:\|fatal:')
+
+  let broken_preview = search('fatal:', 'w')
+  call assert_equal(0, broken_preview, 'preview is broken')
+  let working_preview = search('Author:', 'w')
+  call assert_notequal(0, working_preview, 'did not find preview')
+
+  call nvim_input('i<cr>')
+endfunction
+
 function Test_DifferentPwd()
   call CdTestDir()
 
@@ -473,16 +486,15 @@ function Test_DifferentPwd()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call feedkeys(',gl', 'tx')
+  call timer_start(50, funcref('Check_DifferentPwd'))
+  call feedkeys(',gl', 'tx!')
 
-  call WaitForFzfResults(1)
+  " Explicitly use the HEAD version of the 'firstfile'
+  Gedit HEAD:%
 
-  call WaitForScreenContent('Author:\|fatal:')
+  call timer_start(50, funcref('Check_DifferentPwd'))
+  call feedkeys(',gl', 'tx!')
 
-  let broken_preview = search('fatal:', 'w')
-  call assert_equal(0, broken_preview, 'preview is broken')
-  let working_preview = search('Author:', 'w')
-  call assert_notequal(0, working_preview, 'did not find preview')
 endfunction
 
 function Test()
