@@ -3,14 +3,14 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-version=0.9.1
+version=0.9.2
 
 if [ "$(uname -s)" = "Darwin" ]; then
   download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos.tar.gz"
-  expect_hash="6f7de66c494d7b73cdf878f060dedd1b2d66a648a387a245aa2aec76a5b4c777"
+  expect_hash="da2e852e25325ddc568c9c828060221a03b79b4e9fc9b7eecff9a633830eb923"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-linux64.tar.gz"
-  expect_hash="6c083017304213c3a3efde8d332a52231b8df8206d35146942097c303ebf93d5"
+  expect_hash="fee870b6173f1da134281824a744ada91ef612723bd328683dc941ef16837ec5"
 fi
 
 file_name=nvim-${version}.tar.gz
