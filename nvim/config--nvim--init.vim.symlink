@@ -399,11 +399,12 @@ function buffer_commits(opts)
   -- for directory: {"HEAD", "/home/.../NERD_tree_1"}
   local comm_path = commit_and_path()
   local commit, abs_path = unpack(comm_path)
-  local rel_path = require'fzf-lua'.path.relative(abs_path or '', vim.loop.cwd())
+  local workspace_root = vim.fn.FugitiveWorkTree()
+  local rel_path = require'fzf-lua'.path.relative(abs_path or '', workspace_root)
   local parsing_state = {filename = rel_path}
   local command = make_git_log_command(commit, abs_path, line_range)
-  vim.notify("hoewelmk: " .. make_git_preview_command())
   require'fzf-lua'.fzf_exec(command, {
+    prompt = workspace_root .. '/',
     fn_transform = function(line)
       -- Possible lines, see https://github.com/git/git/blob/07330a41d66a2c9589b585a3a24ecdcf19994f19/diff.c#L6091-L6119
       if vim.startswith(line, ' rename') or vim.startswith(line, ' copy') then
