@@ -269,7 +269,10 @@ function commit_and_path()
   local parsed = vim.fn.FugitiveParse(fugitive_path)
   if parsed[2] ~= '' then -- we parsed a fugitive:// url
     local commit, path = unpack(vim.fn.split(parsed[1], ':'))
-    local retval= {commit or "HEAD", path or vim.fn.FugitiveWorkTree()}
+
+    local worktree = vim.fn.FugitiveWorkTree()
+    local abs_path = path and worktree .. '/' .. path or worktree
+    local retval= {commit or "HEAD", abs_path}
     return retval
   else
     return {"HEAD", fugitive_path}
