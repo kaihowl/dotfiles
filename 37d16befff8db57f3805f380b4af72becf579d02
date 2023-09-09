@@ -21,3 +21,5 @@
 ./cmake/install.sh 1694243894.3518631 10 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1694243896.8597407 2 os=ubuntu-20.04
+
+./ccache/install.sh 1694243901.4320827 5 os=ubuntu-20.04
