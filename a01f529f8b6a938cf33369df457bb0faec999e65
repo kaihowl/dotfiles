@@ -15,3 +15,5 @@
 ./cmake/install.sh 1694244271.0293846 10 os=ubuntu-22.04
 
 ./vint/install.sh 1694244276.7837636 5 os=ubuntu-22.04
+
+./system/install.sh 1694244280.8811405 4 os=ubuntu-22.04
