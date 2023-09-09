@@ -493,9 +493,12 @@ function Test()
                             \  'g'))
 
   for test_function in tests
+    " first to kill any open fzf windows
     %bwipe!
-
+    " second to actually kill remaining buffers
+    %bwipe!
     echom 'Testing ' . test_function
+
 
     execute 'call ' . test_function
   endfor
