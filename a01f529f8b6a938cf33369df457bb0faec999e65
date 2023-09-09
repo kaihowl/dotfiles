@@ -27,3 +27,5 @@
 ./gdb/install.sh 1694244299.1569803 9 os=ubuntu-22.04
 
 ./ninja/install.sh 1694244303.22414 4 os=ubuntu-22.04
+
+./clangd/install.sh 1694244314.3894923 11 os=ubuntu-22.04
