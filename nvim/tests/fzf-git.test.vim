@@ -202,7 +202,7 @@ function CheckFileChangingName(id)
   let unrelated_commit_line = search('unrelated commit', 'w')
   call assert_equal(0, unrelated_commit_line, 'unrelated commit in fzf window')
 
-  call feedkeys("\<esc>")
+  call nvim_input('<cr>')
 endfunction
 
 function Test_FileChangingName()
