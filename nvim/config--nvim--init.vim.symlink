@@ -269,8 +269,10 @@ function commit_and_path()
   local parsed = vim.fn.FugitiveParse(fugitive_path)
   if parsed[2] ~= '' then -- we parsed a fugitive:// url
     local commit, path = unpack(vim.fn.split(parsed[1], ':'))
-    local retval= {commit or "HEAD", path or vim.fn.FugitiveWorkTree()}
-    return retval
+
+    local worktree = vim.fn.FugitiveWorkTree()
+    local abs_path = path and worktree .. '/' .. path or worktree
+    return {commit or "HEAD", abs_path}
   else
     return {"HEAD", fugitive_path}
   end
@@ -294,9 +296,15 @@ function make_git_log_command(commit, path, line_range)
     table.insert(opts, path)
   end
 
-  vim.notify(vim.inspect(opts))
 
   return vim.fn.FugitiveShellCommand(opts)
+end
+
+function make_git_preview_command()
+  local is_not_first_commit = vim.fn.FugitiveShellCommand({'rev-parse', '--quiet', '--verify', '--end-of-options', '{2}~1'})
+  local show_diff = vim.fn.FugitiveShellCommand({'log', '--format=fuller', '-p', '--color', '--word-diff', '{2}~1..{2}'}) .. " -- {1}"
+  local show_single_commit = vim.fn.FugitiveShellCommand({'show', '{2}'}) .. " -- {1}"
+  return "if " .. is_not_first_commit .. " > /dev/null; then " .. show_diff .. "; else " .. show_single_commit .. "; fi"
 end
 
 local sel_to_qf = function(selected, _opts)
@@ -367,6 +375,14 @@ function parse_renamecopy_line(line)
   return prefix .. left .. suffix, prefix .. right .. suffix
 end
 
+function shortened_path(path, n_chars)
+  if #path <= n_chars then
+    return path
+  end
+
+  return require('fzf-lua.path').shorten(path, 1)
+end
+
 function buffer_commits(opts)
   local original_cursorpos = vim.api.nvim_win_get_cursor(0)
 
@@ -389,10 +405,12 @@ function buffer_commits(opts)
   -- for directory: {"HEAD", "/home/.../NERD_tree_1"}
   local comm_path = commit_and_path()
   local commit, abs_path = unpack(comm_path)
-  local rel_path = require'fzf-lua'.path.relative(abs_path or '', vim.loop.cwd())
+  local workspace_root = vim.fn.FugitiveWorkTree()
+  local rel_path = require'fzf-lua'.path.relative(abs_path or '', workspace_root)
   local parsing_state = {filename = rel_path}
   local command = make_git_log_command(commit, abs_path, line_range)
   require'fzf-lua'.fzf_exec(command, {
+    prompt = shortened_path(workspace_root, 32) .. '/',
     fn_transform = function(line)
       -- Possible lines, see https://github.com/git/git/blob/07330a41d66a2c9589b585a3a24ecdcf19994f19/diff.c#L6091-L6119
       if vim.startswith(line, ' rename') or vim.startswith(line, ' copy') then
@@ -402,7 +420,7 @@ function buffer_commits(opts)
         end
         return
       end
-      if line == '' 
+      if line == ''
          or vim.startswith(line, ' create')
          or vim.startswith(line, ' mode')
          or vim.startswith(line, ' rewrite') then
@@ -417,7 +435,7 @@ function buffer_commits(opts)
     fzf_opts = {
       ['--delimiter'] = '"' .. separator .. '"',
     },
-    preview = "if git rev-parse --quiet --verify --end-of-options {2}~1 > /dev/null; then git log --format=fuller -p --color --word-diff {2}~1..{2} -- {1}; else git show {2} -- {1}; fi",
+    preview = make_git_preview_command(),
     actions={
       ['default'] = curry_with_original_cursorpos(git_edit_or_qf),
       ['ctrl-s'] = git_split,

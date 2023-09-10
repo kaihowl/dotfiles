@@ -63,7 +63,7 @@ function WaitForTerminalContent(pattern)
 endfunction
 
 function WaitForFzfResults(num_results)
-  call WaitForTerminalContent('> .* < ' . a:num_results . '/')
+  call WaitForTerminalContent(' < ' . a:num_results . '/')
 endfunction
 
 function CdTestDir()
@@ -202,7 +202,7 @@ function CheckFileChangingName(id)
   let unrelated_commit_line = search('unrelated commit', 'w')
   call assert_equal(0, unrelated_commit_line, 'unrelated commit in fzf window')
 
-  call feedkeys("\<esc>")
+  call nvim_input('<cr>')
 endfunction
 
 function Test_FileChangingName()
@@ -457,6 +457,46 @@ function Test_CopiedFileFollow()
   call assert_match('firstfile$', bufname(), 'Wrong file name (copied-from)')
 endfunction
 
+function Check_DifferentPwd(id)
+  call WaitForFzfResults(1)
+
+  call WaitForScreenContent('Author:\|fatal:')
+
+  let broken_preview = search('fatal:', 'w')
+  call assert_equal(0, broken_preview, 'preview is broken')
+  let working_preview = search('Author:', 'w')
+  call assert_notequal(0, working_preview, 'did not find preview')
+
+  call nvim_input('i<cr>')
+endfunction
+
+function Test_DifferentPwd()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something', 'something2', 'something3'], 'firstfile'))
+  call RunSystemCommand(['git', 'add', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  edit firstfile
+
+  " Go to different testdir than where current "firstfile" is located in
+  call CdTestDir()
+
+  " English language necessary to check for "fatal:" and "Author:" strings
+  call setenv('LC_ALL', 'en_US.UTF8')
+
+  call timer_start(50, funcref('Check_DifferentPwd'))
+  call feedkeys(',gl', 'tx!')
+
+  " Explicitly use the HEAD version of the 'firstfile'
+  Gedit HEAD:%
+
+  call timer_start(50, funcref('Check_DifferentPwd'))
+  call feedkeys(',gl', 'tx!')
+
+endfunction
+
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
   let tests = split(substitute(execute('function /^Test_'),
@@ -465,8 +505,10 @@ function Test()
                             \  'g'))
 
   for test_function in tests
+    " first to kill any open fzf windows
     %bwipe!
-
+    " second to actually kill remaining buffers
+    %bwipe!
     echom 'Testing ' . test_function
 
     try
