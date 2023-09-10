@@ -11,3 +11,5 @@
 ./ripgrep/install.sh 1694366213.9687061 1 os=ubuntu-22.04
 
 ./homebrew/install.sh 1694366214.0852726 0 os=ubuntu-22.04
+
+./cmake/install.sh 1694366223.9323106 9 os=ubuntu-22.04
