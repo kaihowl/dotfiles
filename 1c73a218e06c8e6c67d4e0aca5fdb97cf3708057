@@ -11,3 +11,5 @@
 ./pyls/install.sh 1694365767.7137659 8 os=ubuntu-20.04
 
 ./efm/install.sh 1694365768.0639083 0 os=ubuntu-20.04
+
+./ninja/install.sh 1694365772.2760162 4 os=ubuntu-20.04
