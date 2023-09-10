@@ -457,7 +457,7 @@ function Test_CopiedFileFollow()
   call assert_match('firstfile$', bufname(), 'Wrong file name (copied-from)')
 endfunction
 
-function Check_DifferentPwd(id)
+function Check_Preview(id)
   call WaitForFzfResults(1)
 
   call WaitForScreenContent('Author:\|fatal:')
@@ -486,15 +486,44 @@ function Test_DifferentPwd()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call timer_start(50, funcref('Check_DifferentPwd'))
+  call timer_start(50, funcref('Check_Preview'))
   call feedkeys(',gl', 'tx!')
 
   " Explicitly use the HEAD version of the 'firstfile'
   Gedit HEAD:%
 
-  call timer_start(50, funcref('Check_DifferentPwd'))
+  call timer_start(50, funcref('Check_Preview'))
   call feedkeys(',gl', 'tx!')
 
+  " Explicitly use the staging version of the 'firstfile'
+  Gedit :0:%
+
+  call timer_start(50, funcref('Check_Preview'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
+" showing commit history of a buffer should still working on the staging
+" / etc. buffers that are extensions in fugitive with ":0", ":1", ":2", ":3"
+" Since those are not properly integrated in fugitive as well (e.g., copying
+" the commit hash with "y ctrl-g" leaves the special hashes unresolved.
+" Moreover, "0" references the staging area, which by design has no hash
+" associated.
+function Test_SpecialCommit()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something', 'something2', 'something3'], 'firstfile'))
+  call RunSystemCommand(['git', 'add', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  edit firstfile
+  Gedit :0:%
+
+  " English language necessary to check for "fatal:" and "Author:" strings
+  call setenv('LC_ALL', 'en_US.UTF8')
+
+  call timer_start(50, funcref('Check_Preview'))
+  call feedkeys(',gl', 'tx!')
 endfunction
 
 function Test()
