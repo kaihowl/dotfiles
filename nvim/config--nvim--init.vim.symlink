@@ -270,6 +270,13 @@ function commit_and_path()
   if parsed[2] ~= '' then -- we parsed a fugitive:// url
     local commit, path = unpack(vim.fn.split(parsed[1], ':'))
 
+    if string.match(commit, "^[0-3]$") then -- special fugitive commit
+      -- Reset to HEAD to match fugitive's gclog function's behavior.
+      -- There is no obvious, public function to restore the actual commit hash from.
+      -- For "0", there would not be a matching commit hash (other than HEAD anyhow).
+      commit = "HEAD"
+    end
+
     local worktree = vim.fn.FugitiveWorkTree()
     local abs_path = path and worktree .. '/' .. path or worktree
     return {commit or "HEAD", abs_path}
