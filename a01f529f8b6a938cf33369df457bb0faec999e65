@@ -3,3 +3,5 @@
 ./pyls/install.sh 1694346251.177185 16 os=ubuntu-22.04
 
 ./zoxide/install.sh 1694346252.7795334 1 os=ubuntu-22.04
+
+./ccache/install.sh 1694346257.6343198 5 os=ubuntu-22.04
