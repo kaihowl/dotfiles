@@ -33,3 +33,5 @@
 ./colors/install.sh 1694367497.5921166 2 os=ubuntu-22.04
 
 ./nvim/install.sh 1694367510.861339 13 os=ubuntu-22.04
+
+./shellcheck/install.sh 1694367511.8446493 1 os=ubuntu-22.04
