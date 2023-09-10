@@ -92,6 +92,14 @@ endif
 
 set completeopt=menu,menuone,noselect
 set shortmess+=c
+
+" Ensure that out-of-date disk images are detected when attempting changes,
+" and not when trying to write changes.
+augroup checkbeforewrite
+  autocmd!
+  autocmd InsertEnter * checktime
+augroup end
+
 "}}}
 
 "{{{ plugins
