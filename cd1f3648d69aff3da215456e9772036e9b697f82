@@ -45,3 +45,5 @@
 ./alacritty/install.sh 1694343992.2277117 11 os=ubuntu-22.04
 
 install 1694343992.3404927 129 os=ubuntu-22.04
+
+test 1694344069.4735053 76 os=ubuntu-22.04
