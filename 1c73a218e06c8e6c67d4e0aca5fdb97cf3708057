@@ -29,3 +29,5 @@
 ./ninja/install.sh 1694365788.0159733 3 os=ubuntu-22.04
 
 ./clangd/install.sh 1694365797.7159412 9 os=ubuntu-22.04
+
+./colors/install.sh 1694365799.0668406 1 os=ubuntu-22.04
