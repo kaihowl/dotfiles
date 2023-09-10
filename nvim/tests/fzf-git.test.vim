@@ -511,8 +511,15 @@ function Test()
     %bwipe!
     echom 'Testing ' . test_function
 
-
-    execute 'call ' . test_function
+    try
+      execute 'call ' . test_function
+    catch
+      call add( v:errors,
+              \   'Uncaught exception in test: '
+              \ . v:exception
+              \ . ' at '
+              \ . v:throwpoint )
+    endtry
   endfor
 
   call CleanUpDirs()
