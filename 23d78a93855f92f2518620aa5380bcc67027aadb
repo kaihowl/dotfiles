@@ -41,3 +41,5 @@
 ./tmux/install.sh 1694366328.3412929 1 os=ubuntu-20.04
 
 ./system/install.sh 1694366333.4086945 5 os=ubuntu-20.04
+
+./git/install.sh 1694366338.4929225 5 os=ubuntu-20.04
