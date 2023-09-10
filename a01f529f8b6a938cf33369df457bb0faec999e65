@@ -19,3 +19,5 @@
 ./system/install.sh 1694346293.5273745 5 os=ubuntu-22.04
 
 ./rust/install.sh 1694346295.7293315 2 os=ubuntu-22.04
+
+./git/install.sh 1694346300.4995809 5 os=ubuntu-22.04
