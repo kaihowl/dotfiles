@@ -11,3 +11,5 @@
 ./fzf/install.sh 1694951065.5095692 2 os=ubuntu-22.04
 
 ./rust/install.sh 1694951068.2264225 3 os=ubuntu-22.04
+
+./ctags/install.sh 1694951073.3580675 5 os=ubuntu-22.04
