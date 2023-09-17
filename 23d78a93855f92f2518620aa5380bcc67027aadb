@@ -13,3 +13,5 @@
 ./rust/install.sh 1694951068.2264225 3 os=ubuntu-22.04
 
 ./ctags/install.sh 1694951073.3580675 5 os=ubuntu-22.04
+
+./cmake/install.sh 1694951083.9234717 10 os=ubuntu-22.04
