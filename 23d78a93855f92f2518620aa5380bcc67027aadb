@@ -39,3 +39,5 @@
 ./gdb/install.sh 1694951150.2673893 18 os=ubuntu-22.04
 
 ./alacritty/install.sh 1694951161.7961252 11 os=ubuntu-22.04
+
+./homebrew/install.sh 1694951161.9298143 0 os=ubuntu-22.04
