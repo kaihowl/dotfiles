@@ -35,3 +35,5 @@
 ./colors/install.sh 1694951130.542832 2 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1694951132.4792922 2 os=ubuntu-22.04
+
+./gdb/install.sh 1694951150.2673893 18 os=ubuntu-22.04
