@@ -23,3 +23,5 @@
 ./shellcheck/install.sh 1694951094.5761235 1 os=ubuntu-22.04
 
 ./efm/install.sh 1694951095.424266 1 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1694951103.4623659 8 os=ubuntu-22.04
