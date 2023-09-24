@@ -31,3 +31,5 @@
 ./pyls/install.sh 1695555943.3331144 10 os=ubuntu-22.04
 
 ./zoxide/install.sh 1695555944.7633562 1 os=ubuntu-22.04
+
+./colors/install.sh 1695555946.5402186 2 os=ubuntu-22.04
