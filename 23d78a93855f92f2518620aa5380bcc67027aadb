@@ -29,3 +29,5 @@
 ./nvim/install.sh 1695555932.9926653 13 os=ubuntu-22.04
 
 ./pyls/install.sh 1695555943.3331144 10 os=ubuntu-22.04
+
+./zoxide/install.sh 1695555944.7633562 1 os=ubuntu-22.04
