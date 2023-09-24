@@ -17,3 +17,5 @@
 ./cmake/install.sh 1695555900.1765301 12 os=ubuntu-22.04
 
 ./system/install.sh 1695555904.929683 4 os=ubuntu-22.04
+
+./git/install.sh 1695555909.6017447 5 os=ubuntu-22.04
