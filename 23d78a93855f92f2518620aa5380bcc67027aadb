@@ -29,3 +29,5 @@
 ./rust/install.sh 1695567202.023955 14 os=ubuntu-20.04
 
 ./clangd/install.sh 1695567220.4334564 18 os=ubuntu-20.04
+
+./zoxide/install.sh 1695567221.755627 1 os=ubuntu-20.04
