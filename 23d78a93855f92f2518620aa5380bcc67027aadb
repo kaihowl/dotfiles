@@ -5,3 +5,5 @@
 ./tmux/install.sh 1695555850.8316996 0 os=ubuntu-22.04
 
 ./ninja/install.sh 1695555855.8199146 5 os=ubuntu-22.04
+
+./vint/install.sh 1695555866.1136947 10 os=ubuntu-22.04
