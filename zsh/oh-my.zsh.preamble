@@ -55,7 +55,7 @@ TIMER_FORMAT=[%d]
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux ssh-agent vundle docker timer)
+plugins=(git tmux ssh-agent vundle docker timer zsh-autosuggestions zsh-autocomplete)
 
 # Without this, a ssh-agent is started even when SSH_AUTH_SOCK is supplied
 zstyle :omz:plugins:ssh-agent agent-forwarding on

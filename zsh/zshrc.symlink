@@ -2,8 +2,9 @@ PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true ]]; then
     # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
     PS4=$'%D{%M%S%.} %N:%i> '
-    exec 3>&2 2>$HOME/tmp/startlog.$$
+    exec 3>&2 2> /tmp/startlog.$$
     setopt xtrace prompt_subst
+    zmodload zsh/zprof
 fi
 
 # Do not use dirname and `cd` as this costs about 10 ms of start up time,
@@ -62,4 +63,5 @@ unsetopt autocd
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
+    zprof
 fi
