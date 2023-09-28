@@ -34,7 +34,7 @@ do
 done
 
 # load oh-my-zsh (which does compinit)
-source $DOTS/zsh/oh-my.zsh.preamble
+# source $DOTS/zsh/oh-my.zsh.preamble
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Documents/repos/
