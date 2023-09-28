@@ -7,3 +7,5 @@
 ./gdb/install.sh 1695913372.3777266 13 os=ubuntu-20.04
 
 ./vint/install.sh 1695913376.639489 4 os=ubuntu-20.04
+
+./pyls/install.sh 1695913384.7703106 8 os=ubuntu-20.04
