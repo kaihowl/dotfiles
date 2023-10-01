@@ -1,1 +1,3 @@
 ./zsh/install.sh 1696160654.967407 22 os=macos-11
+
+./ctags/install.sh 1696160676.5563462 22 os=macos-11
