@@ -15,3 +15,5 @@
 ./zoxide/install.sh 1696160673.0516286 1 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1696160680.478632 7 os=ubuntu-22.04
+
+./alacritty/install.sh 1696160693.0491633 12 os=ubuntu-22.04
