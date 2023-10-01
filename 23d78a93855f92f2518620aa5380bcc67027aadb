@@ -39,3 +39,5 @@
 ./alacritty/install.sh 1696160734.2984755 11 os=ubuntu-20.04
 
 ./tmux/install.sh 1696160735.0081105 0 os=ubuntu-20.04
+
+./system/install.sh 1696160739.917502 4 os=ubuntu-20.04
