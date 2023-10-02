@@ -37,3 +37,5 @@
 ./efm/install.sh 1696265467.4309914 1 os=ubuntu-22.04
 
 ./system/install.sh 1696265472.1780553 5 os=ubuntu-22.04
+
+./shellcheck/install.sh 1696265473.1692379 1 os=ubuntu-22.04
