@@ -58,6 +58,11 @@ setup_gitconfig () {
 
     success 'gitconfig'
   fi
+  # Temporary work around: If gitconfig_credentials does not yet have the signingkey,
+  # add the old rsa default
+  if ! grep -q0 "signingkey" ~/.gitconfig_credentials; then
+    printf "[user]\n  signingkey = ~/.ssh/id_rsa" >> ~/.gitconfig_credentials
+  fi
 }
 
 link_files () {
