@@ -3,3 +3,5 @@
 ./pyls/install.sh 1696263976.1811438 13 os=ubuntu-22.04
 
 ./homebrew/install.sh 1696263976.2967868 0 os=ubuntu-22.04
+
+./ctags/install.sh 1696263980.0395706 3 os=ubuntu-22.04
