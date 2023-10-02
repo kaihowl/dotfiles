@@ -19,3 +19,5 @@
 ./osx/install.sh 1696265413.337107 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1696265423.909649 10 os=ubuntu-22.04
+
+./ripgrep/install.sh 1696265425.704529 2 os=ubuntu-22.04
