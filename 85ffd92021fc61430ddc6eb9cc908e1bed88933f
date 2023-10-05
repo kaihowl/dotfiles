@@ -5,3 +5,5 @@
 ./homebrew/install.sh 1696520927.6267757 0 os=ubuntu-22.04
 
 ./ctags/install.sh 1696520931.4366505 4 os=ubuntu-22.04
+
+./gdb/install.sh 1696520942.121529 11 os=ubuntu-22.04
