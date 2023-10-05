@@ -31,3 +31,5 @@
 ./clangd/install.sh 1696520618.790362 17 os=ubuntu-20.04
 
 ./zoxide/install.sh 1696520620.143122 2 os=ubuntu-20.04
+
+./osx/install.sh 1696520620.2839384 0 os=ubuntu-20.04
