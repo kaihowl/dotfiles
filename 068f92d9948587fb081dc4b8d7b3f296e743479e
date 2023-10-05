@@ -17,3 +17,5 @@
 ./virtualenvwrapper/install.sh 1696520525.1001687 6 os=ubuntu-22.04
 
 ./osx/install.sh 1696520525.2241793 0 os=ubuntu-22.04
+
+./alacritty/install.sh 1696520535.1923318 10 os=ubuntu-22.04
