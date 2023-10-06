@@ -43,3 +43,5 @@
 ./fzf/install.sh 1696603029.7151506 2 os=ubuntu-22.04
 
 ./p10k/install.sh 1696603031.4523668 2 os=ubuntu-22.04
+
+./ninja/install.sh 1696603036.2778828 5 os=ubuntu-22.04
