@@ -1,1 +1,3 @@
 ./zsh/install.sh 1696616984.6339567 19 os=ubuntu-20.04
+
+./nvim/install.sh 1696617000.9689667 16 os=ubuntu-20.04
