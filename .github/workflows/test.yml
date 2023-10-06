@@ -60,6 +60,8 @@ jobs:
           export HOMEBREW_NO_INSTALL_CLEANUP=1
           # Make `infocmp` for nvim healthcheck succeed
           export TERM=dumb
+          # Ignore potentially insecure directories on GitHub actions runner.
+          export ZSH_DISABLE_COMPFIX=true
           cd .dotfiles/
           ./script/ci.sh
       - name: Rename versions report

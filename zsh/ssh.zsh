@@ -1,0 +1,30 @@
+# shellcheck disable=all
+
+# Loaned and stripped down from zsh4humans
+
+# TODO(kaihowl) convert to autoload fpath thingamawomba?
+function start-ssh-add-identity() {
+  [[ -v commands[ssh-agent] ]] || return 0
+
+  function -ssh-agent-running() {
+    [[ -w $SSH_AUTH_SOCK ]] && builtin kill -0 -- $SSH_AGENT_PID 2>/dev/null
+  }
+
+  {
+    -ssh-agent-running && return
+    unset SSH_AGENT_PID SSH_AUTH_SOCK
+
+    local env_file=~/.ssh-agent-$EUID
+    [[ -r $env_file ]] && builtin source $env_file >/dev/null && -ssh-agent-running && return
+
+    local tmp=$env_file.tmp.$$
+    command ssh-agent -s >$tmp       || return
+    builtin source $tmp >/dev/null   || return
+    -ssh-agent-running               || return
+    mv -f -- $tmp $env_file          || return
+    ssh-add                          || return
+  } always {
+    builtin unfunction -- -ssh-agent-running
+  }
+}
+

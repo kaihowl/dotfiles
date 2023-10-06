@@ -1,25 +1,36 @@
-PROFILE_STARTUP=false
-if [[ "$PROFILE_STARTUP" == true ]]; then
-    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-    PS4=$'%D{%M%S%.} %N:%i> '
-    exec 3>&2 2>$HOME/tmp/startlog.$$
-    setopt xtrace prompt_subst
-fi
-
 # Do not use dirname and `cd` as this costs about 10 ms of start up time,
 # instead use these unreadable but fast builtins.
 # Get the canonical (A) parent directory (:h:h) of this source file (%)
 export DOTS=${${(%):-%x}:A:h:h}
 
-DISABLE_UPDATE_PROMPT="true"
+source "$DOTS/zsh/ssh.zsh"
+start-ssh-add-identity
+
+# Periodically (typically once a day), update from github
+source "$DOTS/script/check_for_upgrade.sh"
+
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2> "$HOME/tmp/startlog.$$"
+    setopt xtrace prompt_subst
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # Cache the brew prefix for other tools to pick up
 if [[ -z $BREW_PREFIX ]] && which brew &> /dev/null; then
   export BREW_PREFIX=$(brew --prefix)
 fi
 
-# Periodically (typically once a day), update from github
-source $DOTS/script/check_for_upgrade.sh
+# Emacs keybindings
+bindkey -e
 
 # all of our zsh files
 typeset -U config_files
@@ -33,12 +44,6 @@ do
   source $file
 done
 
-# load oh-my-zsh (which does compinit)
-source $DOTS/zsh/oh-my.zsh.preamble
-
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Documents/repos/
-
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
@@ -51,13 +56,31 @@ do
   source $file
 done
 
+# TODO(kaihowl) reorg?
 unset config_files
 
+# TODO(kaihowl) move to fzf zsh files?
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# We don't want this and oh-my-zsh has no way to turn it off
-# Hence, we brute-force this back
-unsetopt autocd
+autoload -U compinit
+
+if [[ "$ZSH_DISABLE_COMPFIX" != true ]]; then
+  compinit
+else
+  # If the user wants it, load from all found directories
+  compinit -u
+fi
+
+# TODO(kaihowl) to add
+# - z
+# - autosuggestions
+# - autocompletion
+# TODO(kaihowl) zoxide completion not working
+
+source ~/.powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
