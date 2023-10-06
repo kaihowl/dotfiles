@@ -1,3 +1,5 @@
 ./zsh/install.sh 1696616957.612401 11 os=ubuntu-22.04
 
 ./pyls/install.sh 1696616969.5687618 12 os=ubuntu-22.04
+
+./homebrew/install.sh 1696616969.6859813 0 os=ubuntu-22.04
