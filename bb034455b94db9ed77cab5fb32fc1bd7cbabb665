@@ -31,3 +31,5 @@
 ./nvim/install.sh 1696606421.51976 11 os=ubuntu-22.04
 
 ./rust/install.sh 1696606434.4471033 13 os=ubuntu-22.04
+
+./cmake/install.sh 1696606446.4559276 12 os=ubuntu-22.04
