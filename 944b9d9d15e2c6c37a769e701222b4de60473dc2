@@ -11,3 +11,5 @@
 ./git/install.sh 1696618094.0901346 5 os=ubuntu-22.04
 
 ./colors/install.sh 1696618094.702815 0 os=ubuntu-22.04
+
+./zoxide/install.sh 1696618096.0434651 1 os=ubuntu-22.04
