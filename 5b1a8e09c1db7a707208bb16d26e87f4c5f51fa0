@@ -47,3 +47,5 @@
 ./ninja/install.sh 1696606072.8830361 5 os=ubuntu-22.04
 
 ./vint/install.sh 1696606080.3147886 8 os=ubuntu-22.04
+
+install 1696606080.471859 216 os=ubuntu-22.04
