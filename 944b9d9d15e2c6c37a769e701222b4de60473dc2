@@ -33,3 +33,5 @@
 ./p10k/install.sh 1696618226.126434 0 os=macos-11
 
 ./colors/install.sh 1696618231.452854 5 os=macos-11
+
+./shellcheck/install.sh 1696618232.435721 1 os=macos-11
