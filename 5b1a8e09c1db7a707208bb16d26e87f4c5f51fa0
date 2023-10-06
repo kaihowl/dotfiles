@@ -5,3 +5,5 @@
 ./p10k/install.sh 1696605891.6347945 1 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1696605897.8519568 6 os=ubuntu-20.04
+
+./gdb/install.sh 1696605912.360645 15 os=ubuntu-20.04
