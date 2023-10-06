@@ -27,3 +27,5 @@
 ./colors/install.sh 1696616369.814759 1 os=ubuntu-20.04
 
 ./rust/install.sh 1696616382.0290008 12 os=ubuntu-20.04
+
+./clangd/install.sh 1696616396.6685565 14 os=ubuntu-20.04
