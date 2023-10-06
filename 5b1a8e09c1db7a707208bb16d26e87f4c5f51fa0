@@ -29,3 +29,5 @@
 ./ninja/install.sh 1696606018.410537 6 os=macos-11
 
 ./system/install.sh 1696606033.784439 15 os=macos-11
+
+./p10k/install.sh 1696606035.795709 2 os=macos-11
