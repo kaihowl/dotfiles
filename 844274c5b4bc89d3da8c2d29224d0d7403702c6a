@@ -23,3 +23,5 @@
 ./ripgrep/install.sh 1696688907.17909 3 os=ubuntu-20.04
 
 ./zsh-z/install.sh 1696688909.1408796 2 os=ubuntu-20.04
+
+./zsh-autocomplete/install.sh 1696688911.0034182 1 os=ubuntu-20.04
