@@ -45,3 +45,5 @@
 ./p10k/install.sh 1696683966.9489493 1 os=ubuntu-22.04
 
 ./ninja/install.sh 1696683972.6689255 6 os=ubuntu-22.04
+
+./vint/install.sh 1696683979.8375185 7 os=ubuntu-22.04
