@@ -77,13 +77,14 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # TODO(kaihowl) double check effect and use
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
 source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
 
+source ~/.zsh-z/zsh-z.plugin.zsh
+
+# Must come last, does the compinit for us
 if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
   zstyle '*:compinit' arguments -u
 fi
-
 source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
