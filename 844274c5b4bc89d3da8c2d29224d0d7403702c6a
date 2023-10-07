@@ -55,3 +55,5 @@
 ./zsh-autosuggestions/install.sh 1696688990.7889156 1 os=ubuntu-20.04
 
 install 1696688990.9305196 195 os=ubuntu-20.04
+
+test 1696689062.3185277 69 os=ubuntu-20.04
