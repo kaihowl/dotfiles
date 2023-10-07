@@ -25,3 +25,5 @@
 ./ripgrep/install.sh 1696686065.5079527 2 os=ubuntu-22.04
 
 ./tmux/install.sh 1696686066.3170455 1 os=ubuntu-22.04
+
+./ccache/install.sh 1696686071.0912766 4 os=ubuntu-22.04
