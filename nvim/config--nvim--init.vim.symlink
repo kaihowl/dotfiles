@@ -430,6 +430,7 @@ function buffer_commits(opts)
       if line == ''
          or vim.startswith(line, ' create')
          or vim.startswith(line, ' mode')
+         or vim.startswith(line, ' delete')
          or vim.startswith(line, ' rewrite') then
         -- discard unintersting summary line
         return
