@@ -25,3 +25,5 @@
 ./zsh-z/install.sh 1696688909.1408796 2 os=ubuntu-20.04
 
 ./zsh-autocomplete/install.sh 1696688911.0034182 1 os=ubuntu-20.04
+
+./ccache/install.sh 1696688916.4910605 5 os=ubuntu-20.04
