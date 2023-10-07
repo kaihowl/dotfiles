@@ -39,3 +39,5 @@
 ./homebrew/install.sh 1696684271.322368 0 os=ubuntu-20.04
 
 ./ctags/install.sh 1696684277.3036835 6 os=ubuntu-20.04
+
+./alacritty/install.sh 1696684289.7349157 12 os=ubuntu-20.04
