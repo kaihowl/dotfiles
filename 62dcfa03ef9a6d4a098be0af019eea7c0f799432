@@ -15,3 +15,5 @@
 ./ninja/install.sh 1696688517.305702 5 os=ubuntu-20.04
 
 ./fzf/install.sh 1696688519.4399302 2 os=ubuntu-20.04
+
+./shellcheck/install.sh 1696688520.2316523 1 os=ubuntu-20.04
