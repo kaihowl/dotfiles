@@ -32,6 +32,13 @@ fi
 # Emacs keybindings
 bindkey -e
 
+
+if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
+  zstyle '*:compinit' arguments -u
+fi
+
+source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTS/**/*.zsh)
@@ -61,15 +68,6 @@ unset config_files
 
 # TODO(kaihowl) move to fzf zsh files?
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-autoload -U compinit
-
-if [[ "$ZSH_DISABLE_COMPFIX" != true ]]; then
-  compinit
-else
-  # If the user wants it, load from all found directories
-  compinit -u
-fi
 
 # TODO(kaihowl) to add
 # - z
