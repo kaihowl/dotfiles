@@ -32,8 +32,6 @@ fi
 # Emacs keybindings
 bindkey -e
 
-
-
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTS/**/*.zsh)
@@ -83,9 +81,11 @@ source ~/.zsh-z/zsh-z.plugin.zsh
 
 # Must come last, does the compinit for us
 if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
-  zstyle '*:compinit' arguments -u
+  # zstyle '*:compinit' arguments -u
+  compinit -u
+else
+  source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
-source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # shift-tab reverse menu completion
 # shellcheck disable=SC2154
