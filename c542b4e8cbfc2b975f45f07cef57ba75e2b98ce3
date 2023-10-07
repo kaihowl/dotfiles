@@ -23,3 +23,5 @@
 ./zsh-p10k/install.sh 1696689128.997565 1 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1696689130.5745945 1 os=ubuntu-22.04
+
+./tmux/install.sh 1696689131.2656229 1 os=ubuntu-22.04
