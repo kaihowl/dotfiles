@@ -17,3 +17,5 @@
 ./fzf/install.sh 1696683794.9336035 1 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1696683795.5239296 1 os=ubuntu-20.04
+
+./cmake/install.sh 1696683803.922736 8 os=ubuntu-20.04
