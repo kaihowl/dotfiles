@@ -51,3 +51,5 @@
 ./zsh-p10k/install.sh 1696689205.10447 1 os=macos-11
 
 ./fzf/install.sh 1696689207.099312 1 os=macos-11
+
+./git/install.sh 1696689213.052219 5 os=macos-11
