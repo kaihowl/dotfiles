@@ -29,3 +29,5 @@
 ./clangd/install.sh 1696683912.7304995 13 os=ubuntu-22.04
 
 ./nvim/install.sh 1696683927.751471 15 os=ubuntu-22.04
+
+./rust/install.sh 1696683942.380822 15 os=ubuntu-22.04
