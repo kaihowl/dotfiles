@@ -47,3 +47,5 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 # Set standby to 90 minutes when on battery power
 echo "Trying to change battery standbydelay to 90 mins"
 sudo pmset -b standbydelay 5400
+
+defaults write org.gnucash.Gnucash AppleLanguages '(de)'
