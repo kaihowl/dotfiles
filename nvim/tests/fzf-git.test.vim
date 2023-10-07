@@ -457,8 +457,8 @@ function Test_CopiedFileFollow()
   call assert_match('firstfile$', bufname(), 'Wrong file name (copied-from)')
 endfunction
 
-function Check_Preview(id)
-  call WaitForFzfResults(1)
+function Check_Preview(num_results, id)
+  call WaitForFzfResults(a:num_results)
 
   call WaitForScreenContent('Author:\|fatal:')
 
@@ -466,6 +466,9 @@ function Check_Preview(id)
   call assert_equal(0, broken_preview, 'preview is broken')
   let working_preview = search('Author:', 'w')
   call assert_notequal(0, working_preview, 'did not find preview')
+
+  let unrecognized_line = search('unexpected summary', 'w')
+  call assert_equal(0, unrecognized_line, 'missing case handling')
 
   call nvim_input('i<cr>')
 endfunction
@@ -486,19 +489,33 @@ function Test_DifferentPwd()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 
   " Explicitly use the HEAD version of the 'firstfile'
   Gedit HEAD:%
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 
   " Explicitly use the staging version of the 'firstfile'
   Gedit :0:%
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
+  call feedkeys(',gl', 'tx!')
+endfunction
+
+function Test_DeletedFile()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something', 'something2', 'something3'], 'firstfile'))
+  call RunSystemCommand(['git', 'add', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+  call RunSystemCommand(['git', 'rm', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
+
+  call timer_start(50, {id -> Check_Preview(2, id)})
   call feedkeys(',gl', 'tx!')
 endfunction
 
@@ -522,7 +539,7 @@ function Test_SpecialCommit()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 endfunction
 
