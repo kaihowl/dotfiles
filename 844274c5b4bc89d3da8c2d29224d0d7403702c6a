@@ -51,3 +51,5 @@
 ./system/install.sh 1696688981.4649637 7 os=ubuntu-20.04
 
 ./git/install.sh 1696688989.070711 7 os=ubuntu-20.04
+
+./zsh-autosuggestions/install.sh 1696688990.7889156 1 os=ubuntu-20.04
