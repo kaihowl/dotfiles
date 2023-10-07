@@ -45,3 +45,5 @@
 ./fzf/install.sh 1696688425.2098167 2 os=ubuntu-22.04
 
 ./ninja/install.sh 1696688429.359607 4 os=ubuntu-22.04
+
+./vint/install.sh 1696688435.6084058 6 os=ubuntu-22.04
