@@ -25,3 +25,5 @@
 ./zsh-z/install.sh 1696689093.041877 1 os=macos-11
 
 ./zoxide/install.sh 1696689097.028706 3 os=macos-11
+
+./rust/install.sh 1696689111.1001012 13 os=macos-11
