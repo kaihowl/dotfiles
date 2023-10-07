@@ -87,6 +87,13 @@ if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
 fi
 source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
+# shift-tab reverse menu completion
+# shellcheck disable=SC2154
+if [[ -n "${terminfo[kcbt]}" ]]; then
+  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+  bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+fi
+
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
