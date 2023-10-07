@@ -33,11 +33,6 @@ fi
 bindkey -e
 
 
-if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
-  zstyle '*:compinit' arguments -u
-fi
-
-source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # all of our zsh files
 typeset -U config_files
@@ -84,6 +79,12 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
+
+if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
+  zstyle '*:compinit' arguments -u
+fi
+
+source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
