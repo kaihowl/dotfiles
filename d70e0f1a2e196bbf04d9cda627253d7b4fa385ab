@@ -19,3 +19,5 @@
 ./osx/install.sh 1696688550.961996 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1696688561.0482886 10 os=ubuntu-22.04
+
+./zsh-p10k/install.sh 1696688562.1602013 1 os=ubuntu-22.04
