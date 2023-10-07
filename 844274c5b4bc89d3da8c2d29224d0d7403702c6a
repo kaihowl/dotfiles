@@ -17,3 +17,5 @@
 ./osx/install.sh 1696689036.648936 0 os=macos-11
 
 ./zsh-autocomplete/install.sh 1696689041.722218 5 os=macos-11
+
+./nvim/install.sh 1696689073.303377 31 os=macos-11
