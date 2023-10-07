@@ -37,3 +37,5 @@
 ./osx/install.sh 1696683839.5773995 0 os=ubuntu-20.04
 
 ./homebrew/install.sh 1696683839.694045 0 os=ubuntu-20.04
+
+./ctags/install.sh 1696683844.5851934 5 os=ubuntu-20.04
