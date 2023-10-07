@@ -11,3 +11,5 @@
 ./zsh-autosuggestions/install.sh 1696688999.609568 5 os=macos-11
 
 ./clangd/install.sh 1696689030.0859132 30 os=macos-11
+
+./cmake/install.sh 1696689036.054101 5 os=macos-11
