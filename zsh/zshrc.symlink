@@ -82,6 +82,7 @@ source ~/.zsh-z/zsh-z.plugin.zsh
 # Must come last, does the compinit for us
 if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
   # zstyle '*:compinit' arguments -u
+  autoload -U compinit
   compinit -u
 else
   source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
