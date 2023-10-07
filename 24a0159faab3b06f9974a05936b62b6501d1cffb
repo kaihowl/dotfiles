@@ -27,3 +27,5 @@
 ./homebrew/install.sh 1696683875.024436 17 os=macos-11
 
 ./ninja/install.sh 1696683880.625025 5 os=macos-11
+
+./system/install.sh 1696683895.3330328 15 os=macos-11
