@@ -457,8 +457,8 @@ function Test_CopiedFileFollow()
   call assert_match('firstfile$', bufname(), 'Wrong file name (copied-from)')
 endfunction
 
-function Check_Preview(id)
-  call WaitForFzfResults(1)
+function Check_Preview(num_results, id)
+  call WaitForFzfResults(a:num_results)
 
   call WaitForScreenContent('Author:\|fatal:')
 
@@ -489,19 +489,19 @@ function Test_DifferentPwd()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 
   " Explicitly use the HEAD version of the 'firstfile'
   Gedit HEAD:%
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 
   " Explicitly use the staging version of the 'firstfile'
   Gedit :0:%
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 endfunction
 
@@ -515,7 +515,7 @@ function Test_DeletedFile()
   call RunSystemCommand(['git', 'rm', 'firstfile'])
   call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(2, id)})
   call feedkeys(',gl', 'tx!')
 endfunction
 
@@ -539,13 +539,13 @@ function Test_SpecialCommit()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call timer_start(50, funcref('Check_Preview'))
+  call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 endfunction
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_DeletedFile'),
+  let tests = split(substitute(execute('function /^Test_'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
