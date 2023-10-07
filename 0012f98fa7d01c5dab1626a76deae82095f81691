@@ -13,3 +13,5 @@
 ./colors/install.sh 1696686039.4052744 1 os=ubuntu-22.04
 
 ./zoxide/install.sh 1696686041.0210757 1 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1696686048.8034818 7 os=ubuntu-22.04
