@@ -90,7 +90,7 @@ link_dotfiles () {
 
     mkdir -p "$(dirname "$dest")"
 
-    if [ -f "$dest" ] || [ -d "$dest" ]
+    if [ -f "$dest" ] || [ -d "$dest" ] || [ -h "$dest" ]
     then
 
       overwrite=false
