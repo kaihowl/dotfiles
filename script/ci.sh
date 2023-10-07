@@ -69,9 +69,9 @@ ci_exit=$?
 set -e
 
 if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]]; then
-  echo $zsh_exit
-  echo $nvim_exit
-  echo $ci_exit
+  echo "zsh: $zsh_exit"
+  echo "nvim: $nvim_exit"
+  echo "ci: $ci_exit"
   exit 1
 fi
 
