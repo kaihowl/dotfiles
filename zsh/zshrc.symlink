@@ -82,6 +82,11 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# TODO(kaihowl) double check effect and use
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
+
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
