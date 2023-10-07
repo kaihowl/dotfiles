@@ -53,3 +53,5 @@
 ./vint/install.sh 1696688915.4801543 5 os=ubuntu-22.04
 
 ./zsh-autosuggestions/install.sh 1696688916.463251 1 os=ubuntu-22.04
+
+install 1696688916.5764484 131 os=ubuntu-22.04
