@@ -11,3 +11,5 @@
 ./zsh-autocomplete/install.sh 1696688827.6737285 1 os=ubuntu-22.04
 
 ./git/install.sh 1696688832.1303127 5 os=ubuntu-22.04
+
+./colors/install.sh 1696688832.7534535 0 os=ubuntu-22.04
