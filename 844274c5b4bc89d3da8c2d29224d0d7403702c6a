@@ -51,3 +51,5 @@
 ./ninja/install.sh 1696688909.9854286 3 os=ubuntu-22.04
 
 ./vint/install.sh 1696688915.4801543 5 os=ubuntu-22.04
+
+./zsh-autosuggestions/install.sh 1696688916.463251 1 os=ubuntu-22.04
