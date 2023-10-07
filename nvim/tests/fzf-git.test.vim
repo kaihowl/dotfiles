@@ -467,6 +467,9 @@ function Check_Preview(id)
   let working_preview = search('Author:', 'w')
   call assert_notequal(0, working_preview, 'did not find preview')
 
+  let unrecognized_line = search('unexpected summary', 'w')
+  call assert_equal(0, unrecognized_line, 'missing case handling')
+
   call nvim_input('i<cr>')
 endfunction
 
@@ -502,6 +505,20 @@ function Test_DifferentPwd()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function Test_DeletedFile()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something', 'something2', 'something3'], 'firstfile'))
+  call RunSystemCommand(['git', 'add', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+  call RunSystemCommand(['git', 'rm', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
+
+  call timer_start(50, funcref('Check_Preview'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
 " showing commit history of a buffer should still working on the staging
 " / etc. buffers that are extensions in fugitive with ":0", ":1", ":2", ":3"
 " Since those are not properly integrated in fugitive as well (e.g., copying
@@ -528,7 +545,7 @@ endfunction
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
-  let tests = split(substitute(execute('function /^Test_'),
+  let tests = split(substitute(execute('function /^Test_DeletedFile'),
                             \  'function \(\k*()\)',
                             \  '\1',
                             \  'g'))
