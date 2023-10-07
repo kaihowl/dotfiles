@@ -35,3 +35,5 @@
 ./rust/install.sh 1696687965.952605 15 os=ubuntu-22.04
 
 ./cmake/install.sh 1696687977.6955945 12 os=ubuntu-22.04
+
+./efm/install.sh 1696687978.5301828 1 os=ubuntu-22.04
