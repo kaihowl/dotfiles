@@ -7,3 +7,5 @@
 ./ctags/install.sh 1696688815.2848485 4 os=ubuntu-22.04
 
 ./gdb/install.sh 1696688826.5854158 11 os=ubuntu-22.04
+
+./zsh-autocomplete/install.sh 1696688827.6737285 1 os=ubuntu-22.04
