@@ -23,3 +23,5 @@
 ./ripgrep/install.sh 1696686066.7473605 3 os=ubuntu-20.04
 
 ./ccache/install.sh 1696686071.964281 5 os=ubuntu-20.04
+
+./zsh-p10k/install.sh 1696686073.576131 2 os=ubuntu-20.04
