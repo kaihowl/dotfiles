@@ -9,3 +9,5 @@
 ./vint/install.sh 1696683781.17693 5 os=ubuntu-20.04
 
 ./pyls/install.sh 1696683789.131649 8 os=ubuntu-20.04
+
+./efm/install.sh 1696683789.4904547 0 os=ubuntu-20.04
