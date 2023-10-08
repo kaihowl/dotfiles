@@ -25,3 +25,5 @@
 ./ccache/install.sh 1696771958.942518 5 os=ubuntu-20.04
 
 ./zsh-p10k/install.sh 1696771960.1163428 1 os=ubuntu-20.04
+
+./colors/install.sh 1696771960.258285 0 os=ubuntu-20.04
