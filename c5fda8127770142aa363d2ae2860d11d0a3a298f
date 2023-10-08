@@ -19,3 +19,5 @@
 ./shellcheck/install.sh 1696771938.006424 0 os=ubuntu-20.04
 
 ./cmake/install.sh 1696771950.2577808 12 os=ubuntu-20.04
+
+./ripgrep/install.sh 1696771953.2200143 3 os=ubuntu-20.04
