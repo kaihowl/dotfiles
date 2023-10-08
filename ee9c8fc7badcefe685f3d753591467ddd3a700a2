@@ -1,3 +1,5 @@
 ./zsh/install.sh 1696770133.3400645 12 os=ubuntu-20.04
 
 ./nvim/install.sh 1696770149.6478484 16 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1696770157.4358466 8 os=ubuntu-20.04
