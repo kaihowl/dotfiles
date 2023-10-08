@@ -59,9 +59,6 @@ done
 # TODO(kaihowl) reorg?
 unset config_files
 
-# TODO(kaihowl) move to fzf zsh files?
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # TODO(kaihowl) to add
 # - z
 # - autosuggestions
