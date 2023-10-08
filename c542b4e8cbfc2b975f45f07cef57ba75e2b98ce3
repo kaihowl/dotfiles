@@ -43,3 +43,5 @@
 ./shellcheck/install.sh 1696765545.9608884 0 os=ubuntu-22.04
 
 ./fzf/install.sh 1696765548.3190556 3 os=ubuntu-22.04
+
+./ninja/install.sh 1696765552.2384312 4 os=ubuntu-22.04
