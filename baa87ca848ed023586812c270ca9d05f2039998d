@@ -27,3 +27,5 @@
 ./zsh-p10k/install.sh 1696770164.297783 2 os=ubuntu-20.04
 
 ./colors/install.sh 1696770164.4187837 0 os=ubuntu-20.04
+
+./rust/install.sh 1696770176.936585 12 os=ubuntu-20.04
