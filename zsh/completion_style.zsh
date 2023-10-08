@@ -8,7 +8,8 @@ zstyle ':completion:*' menu yes select
 # shift-tab reverse menu completion
 # shellcheck disable=SC2154
 if [[ -n "${terminfo[kcbt]}" ]]; then
-  bindkey "${terminfo[kcbt]}" reverse-menu-complete
+  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+  bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 fi
 
 # Consider e.g. slashes to be word boundaries

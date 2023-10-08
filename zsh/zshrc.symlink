@@ -2,9 +2,10 @@
 # instead use these unreadable but fast builtins.
 # Get the canonical (A) parent directory (:h:h) of this source file (%)
 export DOTS=${${(%):-%x}:A:h:h}
+fpath=($DOTS/zsh $fpath)
 
-source "$DOTS/zsh/ssh.zsh"
-start-ssh-add-identity
+autoload -U start-ssh-and-add-identity
+start-ssh-and-add-identity
 
 # Periodically (typically once a day), update from github
 source "$DOTS/script/check_for_upgrade.sh"
@@ -44,11 +45,21 @@ do
   source $file
 done
 
+
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
   source $file
 done
+
+# Must come last, does the compinit for us
+if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
+  # zstyle '*:compinit' arguments -u
+  autoload -U compinit
+  compinit -u
+else
+  source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
+fi
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
@@ -56,31 +67,7 @@ do
   source $file
 done
 
-# TODO(kaihowl) reorg?
 unset config_files
-
-# TODO(kaihowl) move to fzf zsh files?
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-autoload -U compinit
-
-if [[ "$ZSH_DISABLE_COMPFIX" != true ]]; then
-  compinit
-else
-  # If the user wants it, load from all found directories
-  compinit -u
-fi
-
-# TODO(kaihowl) to add
-# - z
-# - autosuggestions
-# - autocompletion
-# TODO(kaihowl) zoxide completion not working
-
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace

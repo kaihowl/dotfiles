@@ -2,8 +2,7 @@
 
 # Loaned and stripped down from zsh4humans
 
-# TODO(kaihowl) convert to autoload fpath thingamawomba?
-function start-ssh-add-identity() {
+function start-ssh-and-add-identity() {
   [[ -v commands[ssh-agent] ]] || return 0
 
   function -ssh-agent-running() {
