@@ -3,3 +3,5 @@
 ./nvim/install.sh 1696782053.4199865 15 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1696782060.7879088 7 os=ubuntu-20.04
+
+./gdb/install.sh 1696782077.4137871 17 os=ubuntu-20.04
