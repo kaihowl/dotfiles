@@ -44,27 +44,6 @@ do
   source $file
 done
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
-
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
-
-# TODO(kaihowl) reorg?
-unset config_files
-
-# TODO(kaihowl) to add
-# - z
-# - autosuggestions
-# - autocompletion
-# TODO(kaihowl) zoxide completion not working
-
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -76,6 +55,12 @@ source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/.zsh-z/zsh-z.plugin.zsh
 
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
 # Must come last, does the compinit for us
 if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
   # zstyle '*:compinit' arguments -u
@@ -85,12 +70,15 @@ else
   source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
 
-# shift-tab reverse menu completion
-# shellcheck disable=SC2154
-if [[ -n "${terminfo[kcbt]}" ]]; then
-  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-  bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-fi
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+
+unset config_files
+
+# TODO(kaihowl) zoxide completion not working
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
