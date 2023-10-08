@@ -49,3 +49,5 @@
 ./git/install.sh 1696770222.47606 7 os=ubuntu-20.04
 
 install 1696770222.584406 160 os=ubuntu-20.04
+
+test 1696770287.5908866 62 os=ubuntu-20.04
