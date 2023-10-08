@@ -30,6 +30,11 @@ alias grm="git rm"
 alias grbu="git rebase @{u}"
 alias gru!="git reset --hard @{u} && gsmu"
 alias gdt="git difftool"
+alias gm="git merge"
+alias gma="git merge --abort"
+alias grbi="git rebase --interactive"
+alias grbc="git rebase --continue"
+alias grba="git rebase --abort"
 alias gmb="git merge-base"
 function delete_gone_local_branches() {
   git branch --format '%(refname:short) %(if) %(upstream) %(then) %(if) %(upstream:trackshort) %(then) KEEP %(else) [[[TRASH]]] %(end) %(else) KEEP %(end)' \
