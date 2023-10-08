@@ -47,3 +47,5 @@
 ./vint/install.sh 1696771955.0644283 5 os=ubuntu-22.04
 
 install 1696771955.179419 136 os=ubuntu-22.04
+
+test 1696772022.0599403 64 os=ubuntu-22.04
