@@ -9,3 +9,5 @@
 ./gdb/install.sh 1696781643.7114122 12 os=ubuntu-22.04
 
 ./git/install.sh 1696781649.6150591 6 os=ubuntu-22.04
+
+./colors/install.sh 1696781649.7453728 0 os=ubuntu-22.04
