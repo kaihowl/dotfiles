@@ -43,3 +43,5 @@
 ./system/install.sh 1696782167.7486787 5 os=ubuntu-20.04
 
 ./git/install.sh 1696782173.8531234 6 os=ubuntu-20.04
+
+install 1696782173.9670503 161 os=ubuntu-20.04
