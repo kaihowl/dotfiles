@@ -18,6 +18,11 @@ if ! command -v git > /dev/null; then
   "${SCRIPT_DIR}/../git/install.sh"
 fi
 
+if [ ! -d ~/.powerlevel10k ]; then
+  git clone https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k --depth=1
+fi
+(cd ~/.powerlevel10k && git pull --rebase)
+
 if [ ! -d ~/.zsh-autocomplete ]; then
   git clone https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh-autocomplete --depth=1
 fi
