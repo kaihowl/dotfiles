@@ -78,8 +78,6 @@ done
 
 unset config_files
 
-# TODO(kaihowl) zoxide completion not working
-
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
