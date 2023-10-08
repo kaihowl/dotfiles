@@ -19,3 +19,5 @@
 ./alacritty/install.sh 1696773061.4706247 10 os=ubuntu-22.04
 
 ./zsh-p10k/install.sh 1696773062.2675018 1 os=ubuntu-22.04
+
+./ripgrep/install.sh 1696773064.000771 1 os=ubuntu-22.04
