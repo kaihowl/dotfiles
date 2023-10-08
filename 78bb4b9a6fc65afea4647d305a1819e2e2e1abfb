@@ -15,3 +15,5 @@
 ./osx/install.sh 1696770168.025933 0 os=macos-11
 
 ./nvim/install.sh 1696770191.425429 23 os=macos-11
+
+./pyls/install.sh 1696770207.743584 16 os=macos-11
