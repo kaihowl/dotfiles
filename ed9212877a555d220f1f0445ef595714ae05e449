@@ -13,3 +13,5 @@
 ./colors/install.sh 1697381954.5136592 0 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1697381960.21692 6 os=ubuntu-22.04
+
+./osx/install.sh 1697381960.3312576 0 os=ubuntu-22.04
