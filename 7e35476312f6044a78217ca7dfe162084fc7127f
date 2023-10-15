@@ -25,3 +25,5 @@
 ./ccache/install.sh 1697381580.1217523 5 os=ubuntu-20.04
 
 ./colors/install.sh 1697381580.241714 0 os=ubuntu-20.04
+
+./rust/install.sh 1697381593.811404 13 os=ubuntu-20.04
