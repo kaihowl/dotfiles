@@ -1,1 +1,3 @@
 ./zsh/install.sh 1697370221.4020798 9 os=ubuntu-22.04
+
+./pyls/install.sh 1697370235.8047588 14 os=ubuntu-22.04
