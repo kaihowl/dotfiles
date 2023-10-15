@@ -533,7 +533,7 @@ function Test_VerticalSplit()
   call assert_equal('leaf', layout[1][0][0])
   call assert_equal('leaf', layout[1][1][0])
 
-  " Both buffers should be in diff mode
+  " Both windows should be in diff mode
   call assert_true(getwinvar(layout[1][0][1], '&diff'))
   call assert_true(getwinvar(layout[1][1][1], '&diff'))
 endfunction
