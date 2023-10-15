@@ -17,3 +17,5 @@
 ./nvim/install.sh 1697381600.648702 23 os=macos-11
 
 ./pyls/install.sh 1697381617.479329 17 os=macos-11
+
+./rust/install.sh 1697381630.870593 13 os=macos-11
