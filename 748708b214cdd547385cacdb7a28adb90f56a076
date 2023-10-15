@@ -19,3 +19,5 @@
 ./alacritty/install.sh 1697370278.656125 11 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1697370284.4283795 6 os=ubuntu-22.04
+
+./tmux/install.sh 1697370285.176263 1 os=ubuntu-22.04
