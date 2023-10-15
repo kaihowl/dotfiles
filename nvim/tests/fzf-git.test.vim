@@ -505,6 +505,39 @@ function Test_DifferentPwd()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function Test_VerticalSplit()
+  function Check_VerticalSplit(id)
+    call WaitForFzfResults(2)
+    call nvim_input('ifirst<c-v>')
+  endfunction
+
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call writefile(['something'], 'testfile.log')
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+  call writefile(['something', 'something2'], 'testfile.log')
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
+
+  edit testfile.log
+
+  call timer_start(50, funcref('Check_VerticalSplit'))
+  call feedkeys(',gl', 'tx!')
+
+  " Now we should have a vertical split
+  let layout = winlayout()
+  call assert_equal('row', layout[0])
+  call assert_equal(2, len(layout[1]))
+  call assert_equal('leaf', layout[1][0][0])
+  call assert_equal('leaf', layout[1][1][0])
+
+  " Both windows should be in diff mode
+  call assert_true(getwinvar(layout[1][0][1], '&diff'))
+  call assert_true(getwinvar(layout[1][1][1], '&diff'))
+endfunction
+
 function Test_DeletedFile()
   call CdTestDir()
 

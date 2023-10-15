@@ -446,9 +446,9 @@ function buffer_commits(opts)
     preview = make_git_preview_command(),
     actions={
       ['default'] = curry_with_original_cursorpos(git_edit_or_qf),
-      ['ctrl-s'] = git_split,
-      ['ctrl-v'] = git_vsplit,
-      ['ctrl-t'] = git_tab,
+      ['ctrl-s'] = curry_with_original_cursorpos(git_split),
+      ['ctrl-v'] = curry_with_original_cursorpos(git_vsplit),
+      ['ctrl-t'] = curry_with_original_cursorpos(git_tab),
   }})
 end
 
