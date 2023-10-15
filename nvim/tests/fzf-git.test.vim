@@ -528,14 +528,14 @@ function Test_VerticalSplit()
 
   " Now we should have a vertical split
   let layout = winlayout()
-  call assert_equal('col', layout[0])
+  call assert_equal('row', layout[0])
   call assert_equal(2, len(layout[1]))
   call assert_equal('leaf', layout[1][0][0])
   call assert_equal('leaf', layout[1][1][0])
 
   " Both buffers should be in diff mode
-  call assert_true(getbufvar(layout[1][0][1], '&diff'))
-  call assert_true(getbufvar(layout[1][1][1], '&diff'))
+  call assert_true(getwinvar(layout[1][0][1], '&diff'))
+  call assert_true(getwinvar(layout[1][1][1], '&diff'))
 endfunction
 
 function Test_DeletedFile()
