@@ -37,3 +37,5 @@
 ./ctags/install.sh 1697490636.6136103 7 os=ubuntu-20.04
 
 ./alacritty/install.sh 1697490650.9982586 14 os=ubuntu-20.04
+
+./tmux/install.sh 1697490651.8785338 0 os=ubuntu-20.04
