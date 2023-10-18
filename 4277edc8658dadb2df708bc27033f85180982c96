@@ -33,3 +33,5 @@
 ./cmake/install.sh 1697629494.6165292 9 os=ubuntu-22.04
 
 ./efm/install.sh 1697629495.3319051 1 os=ubuntu-22.04
+
+./system/install.sh 1697629499.7589147 4 os=ubuntu-22.04
