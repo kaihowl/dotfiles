@@ -4,9 +4,9 @@ set -e
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 if [ "$(uname)" == "Darwin" ]; then
-  version=16.0.2
+  version=17.0.3
   download_url="https://github.com/clangd/clangd/releases/download/${version}/clangd-mac-${version}.zip"
-  expect_hash="0c2d19e200e5a2ce1f10f7a7ade8e9c0ee57be306022a8b9eb0c79d0c8af1cdd"
+  expect_hash="7c311297ad28dd516ebcc3f902652cb729bbe34840806d2d5b1bebed1a9bba17"
 
   file_name=clangd-mac-${version}.zip
 
