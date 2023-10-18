@@ -23,3 +23,5 @@
 ./tmux/install.sh 1697629446.311988 1 os=ubuntu-22.04
 
 ./ccache/install.sh 1697629450.224816 4 os=ubuntu-22.04
+
+./clangd/install.sh 1697629460.6378882 10 os=ubuntu-22.04
