@@ -37,3 +37,5 @@
 ./system/install.sh 1697629499.7589147 4 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1697629500.5478098 1 os=ubuntu-22.04
+
+./fzf/install.sh 1697629502.1045747 2 os=ubuntu-22.04
