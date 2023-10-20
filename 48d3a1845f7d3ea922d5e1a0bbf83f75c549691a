@@ -27,3 +27,5 @@
 ./homebrew/install.sh 1697809806.4552538 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1697809816.7542706 10 os=ubuntu-22.04
+
+./rust/install.sh 1697809819.2647452 3 os=ubuntu-22.04
