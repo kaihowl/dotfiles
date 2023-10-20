@@ -5,3 +5,5 @@
 ./ninja/install.sh 1697809740.2907882 5 os=ubuntu-22.04
 
 ./efm/install.sh 1697809741.081394 0 os=ubuntu-22.04
+
+./osx/install.sh 1697809741.2053907 0 os=ubuntu-22.04
