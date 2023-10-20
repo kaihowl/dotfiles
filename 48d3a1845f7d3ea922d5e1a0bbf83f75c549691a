@@ -39,3 +39,5 @@
 ./shellcheck/install.sh 1697809843.939554 1 os=ubuntu-22.04
 
 ./git/install.sh 1697809849.9441278 6 os=ubuntu-22.04
+
+./colors/install.sh 1697809850.073555 0 os=ubuntu-22.04
