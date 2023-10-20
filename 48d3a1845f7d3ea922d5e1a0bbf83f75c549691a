@@ -33,3 +33,5 @@
 ./nvim/install.sh 1697809832.0196986 12 os=ubuntu-22.04
 
 ./ccache/install.sh 1697809836.2587326 4 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1697809842.93308 6 os=ubuntu-22.04
