@@ -24,6 +24,7 @@ alias gsp="git-stash-push"
 alias gstl='git stash list'
 alias gsts='git stash show'
 alias gsta="git stash push"
+alias gstp="git stash pop"
 alias gstaa="git stash --include-untracked"
 alias gstaaa="git stash --all"
 alias grm="git rm"
