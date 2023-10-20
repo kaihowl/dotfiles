@@ -17,3 +17,5 @@
 ./fzf/install.sh 1697809771.7382407 2 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1697809773.6460173 2 os=ubuntu-22.04
+
+./clangd/install.sh 1697809786.896135 13 os=ubuntu-22.04
