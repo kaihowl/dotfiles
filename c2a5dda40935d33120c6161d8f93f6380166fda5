@@ -31,3 +31,5 @@
 ./clangd/install.sh 1697809382.4785461 15 os=ubuntu-20.04
 
 ./osx/install.sh 1697809382.5968103 0 os=ubuntu-20.04
+
+./homebrew/install.sh 1697809382.7161744 0 os=ubuntu-20.04
