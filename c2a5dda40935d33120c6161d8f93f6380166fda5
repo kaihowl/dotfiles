@@ -43,3 +43,5 @@
 ./colors/install.sh 1697809444.9303298 0 os=ubuntu-22.04
 
 ./tmux/install.sh 1697809445.713697 1 os=ubuntu-22.04
+
+install 1697809445.8583608 162 os=ubuntu-22.04
