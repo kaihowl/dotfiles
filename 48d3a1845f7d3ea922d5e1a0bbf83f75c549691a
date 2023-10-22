@@ -23,3 +23,5 @@
 ./vint/install.sh 1697975077.4196494 6 os=ubuntu-22.04
 
 ./gdb/install.sh 1697975089.7033982 12 os=ubuntu-22.04
+
+./homebrew/install.sh 1697975089.823309 0 os=ubuntu-22.04
