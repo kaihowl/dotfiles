@@ -13,3 +13,5 @@
 ./system/install.sh 1697975042.6047955 4 os=ubuntu-22.04
 
 ./pyls/install.sh 1697975055.393488 13 os=ubuntu-22.04
+
+./fzf/install.sh 1697975056.8416479 1 os=ubuntu-22.04
