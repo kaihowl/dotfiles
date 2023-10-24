@@ -9,3 +9,5 @@
 ./osx/install.sh 1698136446.2119837 0 os=ubuntu-22.04
 
 ./cmake/install.sh 1698136455.3700345 9 os=ubuntu-22.04
+
+./system/install.sh 1698136459.116747 4 os=ubuntu-22.04
