@@ -1,1 +1,3 @@
 ./zsh/install.sh 1698136437.052001 13 os=ubuntu-22.04
+
+./ctags/install.sh 1698136441.0202277 3 os=ubuntu-22.04
