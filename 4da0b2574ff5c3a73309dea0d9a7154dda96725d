@@ -31,3 +31,5 @@
 ./rust/install.sh 1698137129.6705167 2 os=ubuntu-22.04
 
 ./nvim/install.sh 1698137143.0977814 13 os=ubuntu-22.04
+
+./ccache/install.sh 1698137147.7386372 4 os=ubuntu-22.04
