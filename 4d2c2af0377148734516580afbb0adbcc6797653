@@ -3,3 +3,5 @@
 ./ctags/install.sh 1698136441.0202277 3 os=ubuntu-22.04
 
 ./ninja/install.sh 1698136444.716467 3 os=ubuntu-22.04
+
+./efm/install.sh 1698136446.098876 2 os=ubuntu-22.04
