@@ -45,3 +45,5 @@
 ./tmux/install.sh 1698136550.0337 0 os=ubuntu-22.04
 
 install 1698136550.1415255 134 os=ubuntu-22.04
+
+test 1698136613.2732897 60 os=ubuntu-22.04
