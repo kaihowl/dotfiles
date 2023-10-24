@@ -5,3 +5,5 @@
 ./virtualenvwrapper/install.sh 1698136474.813414 6 os=ubuntu-20.04
 
 ./gdb/install.sh 1698136489.3026104 15 os=ubuntu-20.04
+
+./vint/install.sh 1698136494.1619883 5 os=ubuntu-20.04
