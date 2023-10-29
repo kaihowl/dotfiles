@@ -43,3 +43,5 @@
 ./fzf/install.sh 1698579938.3093092 2 os=ubuntu-22.04
 
 ./tmux/install.sh 1698579938.9714687 0 os=ubuntu-22.04
+
+install 1698579939.086667 130 os=ubuntu-22.04
