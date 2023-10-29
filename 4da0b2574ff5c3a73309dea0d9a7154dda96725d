@@ -11,3 +11,5 @@
 ./shellcheck/install.sh 1698579852.829955 1 os=ubuntu-22.04
 
 ./nvim/install.sh 1698579868.7082899 16 os=ubuntu-22.04
+
+./ninja/install.sh 1698579872.7452512 4 os=ubuntu-22.04
