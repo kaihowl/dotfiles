@@ -33,3 +33,5 @@
 ./osx/install.sh 1698579919.5412872 0 os=ubuntu-22.04
 
 ./alacritty/install.sh 1698579929.7571807 10 os=ubuntu-22.04
+
+./ctags/install.sh 1698579933.673967 4 os=ubuntu-22.04
