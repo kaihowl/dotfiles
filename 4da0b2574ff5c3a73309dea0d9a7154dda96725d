@@ -23,3 +23,5 @@
 ./ripgrep/install.sh 1698579897.9835439 1 os=ubuntu-22.04
 
 ./pyls/install.sh 1698579907.4466603 10 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1698579913.7387433 6 os=ubuntu-22.04
