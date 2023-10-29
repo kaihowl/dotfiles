@@ -7,3 +7,5 @@
 ./git/install.sh 1698579847.637183 5 os=ubuntu-22.04
 
 ./ccache/install.sh 1698579851.6611314 4 os=ubuntu-22.04
+
+./shellcheck/install.sh 1698579852.829955 1 os=ubuntu-22.04
