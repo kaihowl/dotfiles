@@ -3,3 +3,5 @@
 ./clangd/install.sh 1698579838.1432245 11 os=ubuntu-22.04
 
 ./system/install.sh 1698579842.556156 4 os=ubuntu-22.04
+
+./git/install.sh 1698579847.637183 5 os=ubuntu-22.04
