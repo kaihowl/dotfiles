@@ -103,6 +103,8 @@ Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTreeC
 
 Plug 'stevearc/oil.nvim'
 
+Plug 'vim-scripts/linediff.vim'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -1213,5 +1215,10 @@ endfunction
 
 command! -complete=file -nargs=1 -bang Cfile call <SID>load_file('c', <bang>0, <f-args>)
 command! -complete=file -nargs=1 -bang Lfile call <SID>load_file('l', <bang>0, <f-args>)
+"}}}
+
+"{{{ linediff
+vnoremap <leader>gd :Linediff<cr>
+"}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
