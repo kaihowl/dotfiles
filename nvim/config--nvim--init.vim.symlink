@@ -1215,5 +1215,10 @@ endfunction
 
 command! -complete=file -nargs=1 -bang Cfile call <SID>load_file('c', <bang>0, <f-args>)
 command! -complete=file -nargs=1 -bang Lfile call <SID>load_file('l', <bang>0, <f-args>)
+"}}}
+
+"{{{ linediff
+vnoremap <leader>gd :Linediff<cr>
+"}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
