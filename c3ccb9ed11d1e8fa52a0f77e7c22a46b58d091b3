@@ -3,3 +3,5 @@
 ./rust/install.sh 1699184644.1392994 2 os=ubuntu-20.04
 
 ./git/install.sh 1699184650.1023781 6 os=ubuntu-20.04
+
+./ripgrep/install.sh 1699184652.9768114 2 os=ubuntu-20.04
