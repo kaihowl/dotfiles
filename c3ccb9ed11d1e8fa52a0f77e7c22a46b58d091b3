@@ -27,3 +27,5 @@
 ./nvim/install.sh 1699184725.388426 16 os=ubuntu-22.04
 
 ./vint/install.sh 1699184732.1600049 7 os=ubuntu-22.04
+
+./ninja/install.sh 1699184736.7764866 4 os=ubuntu-22.04
