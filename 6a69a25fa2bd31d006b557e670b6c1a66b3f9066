@@ -13,3 +13,5 @@
 ./ctags/install.sh 1699439756.4127822 3 os=ubuntu-22.04
 
 ./system/install.sh 1699439759.1916223 3 os=ubuntu-22.04
+
+./gdb/install.sh 1699439766.2723734 7 os=ubuntu-22.04
