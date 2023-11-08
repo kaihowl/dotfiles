@@ -31,3 +31,5 @@
 ./ninja/install.sh 1699439551.0017793 2 os=ubuntu-22.04
 
 ./cmake/install.sh 1699439557.3488367 6 os=ubuntu-22.04
+
+./colors/install.sh 1699439557.4500675 0 os=ubuntu-22.04
