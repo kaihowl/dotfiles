@@ -19,3 +19,5 @@
 ./homebrew/install.sh 1699439766.3642352 0 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1699439770.6687799 4 os=ubuntu-22.04
+
+./fzf/install.sh 1699439771.7404895 1 os=ubuntu-22.04
