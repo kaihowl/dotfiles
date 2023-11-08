@@ -17,3 +17,5 @@
 ./vint/install.sh 1699439821.6554844 8 os=ubuntu-20.04
 
 ./osx/install.sh 1699439821.7774246 0 os=ubuntu-20.04
+
+./ninja/install.sh 1699439826.5472276 5 os=ubuntu-20.04
