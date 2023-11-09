@@ -43,3 +43,5 @@
 ./gdb/install.sh 1699525104.1611493 18 os=ubuntu-20.04
 
 ./tmux/install.sh 1699525104.6455212 0 os=ubuntu-20.04
+
+install 1699525104.7229753 115 os=ubuntu-20.04
