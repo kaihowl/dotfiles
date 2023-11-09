@@ -28,11 +28,10 @@ if [[ $(wc -l < "$health_file") -eq 0 ]]; then
 fi
 cat "$health_file"
 # Find all errors but exclude the optional node provider failure
-# TODO(kaihowl) #703
-# if grep -ie 'error' "$health_file" | grep -vie 'node -v'; then
-#   echo "Found errors in health file"
-#   exit 1
-# fi
+if grep -ie 'error' "$health_file" | grep -vie 'node -v'; then
+  echo "Found errors in health file"
+  exit 1
+fi
 
 echo "Check that all test scripts are called afterwards in this script"
 found_tests=$(find "$(realpath "$(dirname "$0")")" -name '*.test.vim' | wc -l)
