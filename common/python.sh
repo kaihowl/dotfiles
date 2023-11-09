@@ -13,7 +13,10 @@ function ensure_python_installed() {
   else
     # The apple xcode python is broken. Use brew's python version instead.
     source "${SCRIPT_DIR}/brew.sh"
-    brew_install python
+    # TODO(hoewelmk) workaround for #703
+    brew unlink python@3.12 || true
+    brew_install python@3.11
+    brew link python@3.11
   fi
 }
 
