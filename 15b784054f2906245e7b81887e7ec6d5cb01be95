@@ -37,3 +37,5 @@
 ./ripgrep/install.sh 1699525134.100297 2 os=ubuntu-22.04
 
 ./alacritty/install.sh 1699525149.1554122 15 os=ubuntu-22.04
+
+./rust/install.sh 1699525151.6440146 2 os=ubuntu-22.04
