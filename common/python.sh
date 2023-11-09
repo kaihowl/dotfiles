@@ -29,7 +29,7 @@ function install_in_virtualenv() {
   # Major difference, it does not seed wheel (needed by pynvim) into the
   # virtualenv. This is done manually including an upgrade of pip and
   # setuptools.
-  python3 -m venv --upgrade ~/.virtualenvs/dotfiles-run
+  python3.11 -m venv --upgrade ~/.virtualenvs/dotfiles-run
   # Must run independently as wheel is a non-declared dependency of some packages.
   ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade pip setuptools wheel
   ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade "$*"
