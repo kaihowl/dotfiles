@@ -1,3 +1,5 @@
 ./zsh/install.sh 1699565531.7269316 11 os=ubuntu-20.04
 
 ./rust/install.sh 1699565533.172416 2 os=ubuntu-20.04
+
+./git/install.sh 1699565538.7783105 5 os=ubuntu-20.04
