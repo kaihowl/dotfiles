@@ -35,3 +35,5 @@
 ./efm/install.sh 1699525074.3049538 1 os=ubuntu-20.04
 
 ./cmake/install.sh 1699525082.54212 8 os=ubuntu-20.04
+
+./ctags/install.sh 1699525085.5018296 3 os=ubuntu-20.04
