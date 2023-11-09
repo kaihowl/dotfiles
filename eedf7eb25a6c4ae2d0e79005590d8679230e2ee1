@@ -23,3 +23,5 @@
 ./pyls/install.sh 1699538941.9920585 9 os=ubuntu-20.04
 
 ./clangd/install.sh 1699538959.3722706 17 os=ubuntu-20.04
+
+./nvim/install.sh 1699538972.614948 13 os=ubuntu-20.04
