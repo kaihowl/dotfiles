@@ -37,3 +37,5 @@
 ./cmake/install.sh 1699538994.5709367 13 os=ubuntu-20.04
 
 ./ctags/install.sh 1699539000.6742027 6 os=ubuntu-20.04
+
+./shellcheck/install.sh 1699539001.5301893 1 os=ubuntu-20.04
