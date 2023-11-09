@@ -9,7 +9,7 @@ function ensure_python_installed() {
     source "${SCRIPT_DIR}/apt.sh"
     # venv is needed as Ubuntu 22.04 otherwise has no ensurepip and venv fails.
     # Install all of these packages as a sane baseline.
-    apt_install --no-install-recommends python3.11 python3-pip python3-dev python3-venv
+    apt_install --no-install-recommends python3.11 python3.11-pip python3.11-dev python3.11-venv
   else
     # The apple xcode python is broken. Use brew's python version instead.
     source "${SCRIPT_DIR}/brew.sh"
