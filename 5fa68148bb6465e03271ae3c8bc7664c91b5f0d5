@@ -19,3 +19,5 @@
 ./pyls/install.sh 1699567178.0765162 22 os=macos-12
 
 ./rust/install.sh 1699567203.615704 25 os=macos-12
+
+./efm/install.sh 1699567205.420903 2 os=macos-12
