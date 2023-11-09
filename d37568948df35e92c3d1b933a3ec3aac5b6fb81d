@@ -7,3 +7,5 @@
 ./shellcheck/install.sh 1699524462.7542675 0 os=ubuntu-22.04
 
 ./tmux/install.sh 1699524463.299478 1 os=ubuntu-22.04
+
+./ccache/install.sh 1699524466.879513 3 os=ubuntu-22.04
