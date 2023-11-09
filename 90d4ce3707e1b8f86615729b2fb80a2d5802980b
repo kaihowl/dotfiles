@@ -35,3 +35,5 @@
 ./colors/install.sh 1699566419.705304 0 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1699566421.5988562 2 os=ubuntu-22.04
+
+./alacritty/install.sh 1699566434.206845 13 os=ubuntu-22.04
