@@ -33,3 +33,5 @@
 ./homebrew/install.sh 1699566334.1903489 0 os=ubuntu-20.04
 
 ./efm/install.sh 1699566334.5107408 0 os=ubuntu-20.04
+
+./cmake/install.sh 1699566340.9075918 6 os=ubuntu-20.04
