@@ -15,3 +15,5 @@
 ./system/install.sh 1699605536.260583 4 os=ubuntu-22.04
 
 ./gdb/install.sh 1699605544.8369234 8 os=ubuntu-22.04
+
+./homebrew/install.sh 1699605544.9547353 0 os=ubuntu-22.04
