@@ -41,3 +41,5 @@
 ./rust/install.sh 1699610736.9377234 1 os=ubuntu-22.04
 
 ./clangd/install.sh 1699610749.984342 13 os=ubuntu-22.04
+
+./osx/install.sh 1699610750.0795856 1 os=ubuntu-22.04
