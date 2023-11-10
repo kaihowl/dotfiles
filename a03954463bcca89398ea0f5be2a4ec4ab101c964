@@ -29,3 +29,5 @@
 ./fzf/install.sh 1699606065.5378714 2 os=ubuntu-20.04
 
 ./ccache/install.sh 1699606068.7872646 3 os=ubuntu-20.04
+
+./homebrew/install.sh 1699606068.8730888 0 os=ubuntu-20.04
