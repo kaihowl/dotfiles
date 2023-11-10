@@ -19,3 +19,5 @@
 ./osx/install.sh 1699605564.5719151 0 os=ubuntu-20.04
 
 ./ninja/install.sh 1699605569.5224504 5 os=ubuntu-20.04
+
+./pyls/install.sh 1699605578.205624 9 os=ubuntu-20.04
