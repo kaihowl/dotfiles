@@ -13,12 +13,21 @@ function ensure_python_installed() {
   else
     # The apple xcode python is broken. Use brew's python version instead.
     source "${SCRIPT_DIR}/brew.sh"
-    brew_install python
+    # TODO(hoewelmk) workaround for #703
+    brew unlink python@3.12 || true
+    brew_install python@3.11
+    brew link python@3.11
   fi
 }
 
 function install_in_virtualenv() {
   ensure_python_installed
+  local python
+  if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+    python=python
+  else
+    python=python3.11
+  fi
   # Using venv instead of virtualenv as homebrews virtualenv is completely
   # separate from its python. I.e., it is not installed as a site package.
   # Installing virtualenv globally defeats the purpose of having venvs in the
@@ -26,7 +35,7 @@ function install_in_virtualenv() {
   # Major difference, it does not seed wheel (needed by pynvim) into the
   # virtualenv. This is done manually including an upgrade of pip and
   # setuptools.
-  python3 -m venv ~/.virtualenvs/dotfiles-run
+  $python -m venv --upgrade ~/.virtualenvs/dotfiles-run
   # Must run independently as wheel is a non-declared dependency of some packages.
   ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade pip setuptools wheel
   ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade "$*"
