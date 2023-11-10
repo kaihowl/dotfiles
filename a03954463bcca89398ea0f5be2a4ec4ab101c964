@@ -17,3 +17,5 @@
 ./gdb/install.sh 1699606027.1556299 8 os=ubuntu-22.04
 
 ./homebrew/install.sh 1699606027.2502954 0 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1699606031.8292964 4 os=ubuntu-22.04
