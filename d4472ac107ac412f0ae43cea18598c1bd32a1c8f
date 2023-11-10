@@ -21,3 +21,5 @@
 ./virtualenvwrapper/install.sh 1699610344.2907379 7 os=ubuntu-22.04
 
 ./fzf/install.sh 1699610346.462461 2 os=ubuntu-22.04
+
+./efm/install.sh 1699610347.342904 1 os=ubuntu-22.04
