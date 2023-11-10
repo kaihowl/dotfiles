@@ -25,3 +25,5 @@
 ./efm/install.sh 1699607654.5797358 0 os=ubuntu-22.04
 
 ./nvim/install.sh 1699607664.1450298 10 os=ubuntu-22.04
+
+./vint/install.sh 1699607668.397756 4 os=ubuntu-22.04
