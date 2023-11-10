@@ -27,3 +27,5 @@
 ./nvim/install.sh 1699605606.8843877 12 os=ubuntu-20.04
 
 ./fzf/install.sh 1699605608.204381 2 os=ubuntu-20.04
+
+./ccache/install.sh 1699605613.2211893 5 os=ubuntu-20.04
