@@ -23,3 +23,5 @@
 ./fzf/install.sh 1699605627.5095315 3 os=ubuntu-22.04
 
 ./efm/install.sh 1699605628.552815 1 os=ubuntu-22.04
+
+./nvim/install.sh 1699605642.9753451 14 os=ubuntu-22.04
