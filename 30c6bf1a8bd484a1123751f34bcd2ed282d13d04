@@ -3,3 +3,5 @@
 ./git/install.sh 1699608855.0891638 5 os=ubuntu-22.04
 
 ./pyls/install.sh 1699608865.0685983 9 os=ubuntu-22.04
+
+./shellcheck/install.sh 1699608865.676966 0 os=ubuntu-22.04
