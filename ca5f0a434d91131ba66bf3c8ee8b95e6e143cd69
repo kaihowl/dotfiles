@@ -33,3 +33,5 @@
 ./cmake/install.sh 1699735349.5265183 7 os=ubuntu-22.04
 
 ./colors/install.sh 1699735349.6261055 0 os=ubuntu-22.04
+
+./ripgrep/install.sh 1699735350.9398823 1 os=ubuntu-22.04
