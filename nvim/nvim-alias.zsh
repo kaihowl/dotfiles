@@ -1,1 +1,1 @@
-alias vim="TERM='' nvim"
+alias vim=nvim
