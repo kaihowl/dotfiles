@@ -2,10 +2,12 @@
 "{{{ misc options, sane defaults
 set modelines=1
 
+" Rely on 'native' Lua plugins.
 let g:loaded_python_provider = 0
-" let g:loaded_python3_provider = 1
-let g:virtualenv = '~/.virtualenvs/dotfiles-run/bin'
-let g:python3_host_prog = g:virtualenv.'/python3'
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
 
 set lazyredraw
 
@@ -1024,7 +1026,8 @@ configs.clangd.setup{root_dir=function(fname)
 
 configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
-local pylsp_binary = vim.api.nvim_eval("expand(g:virtualenv)").."/pylsp"
+local virtualenv = '~/.virtualenvs/dotfiles-run/bin'
+local pylsp_binary = vim.api.nvim_eval("expand('".. virtualenv .. "/pylsp')")
 configs.pylsp.setup{cmd={pylsp_binary}, on_attach=on_attach, capabilities=capabilities}
 
 configs.efm.setup {
