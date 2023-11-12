@@ -1184,9 +1184,11 @@ augroup END
 "}}}
 
 "{{{ Oil
+if !exists('g:first_time_startup')
 lua <<EOF
 require('oil').setup({default_file_explorer = false})
 EOF
+endif
 "}}}
 
 "{{{ Thread Sanitizer Error Format
