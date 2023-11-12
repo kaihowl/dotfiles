@@ -31,3 +31,5 @@
 ./ccache/install.sh 1699795477.615852 5 os=ubuntu-20.04
 
 ./homebrew/install.sh 1699795477.7348983 0 os=ubuntu-20.04
+
+./efm/install.sh 1699795478.0621016 0 os=ubuntu-20.04
