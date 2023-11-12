@@ -5,3 +5,5 @@
 ./pyls/install.sh 1699786309.1382911 10 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1699786309.692449 0 os=ubuntu-22.04
+
+./tmux/install.sh 1699786310.1837635 1 os=ubuntu-22.04
