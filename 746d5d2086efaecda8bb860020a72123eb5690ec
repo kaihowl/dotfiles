@@ -9,3 +9,5 @@
 ./tmux/install.sh 1699785763.3825927 1 os=ubuntu-22.04
 
 ./ccache/install.sh 1699785766.645613 3 os=ubuntu-22.04
+
+./ctags/install.sh 1699785769.79771 3 os=ubuntu-22.04
