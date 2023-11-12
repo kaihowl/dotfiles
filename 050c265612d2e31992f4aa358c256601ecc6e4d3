@@ -25,3 +25,5 @@
 ./clangd/install.sh 1699786345.9086747 11 os=ubuntu-20.04
 
 ./nvim/install.sh 1699786350.2171042 5 os=ubuntu-20.04
+
+./fzf/install.sh 1699786351.545488 1 os=ubuntu-20.04
