@@ -1,3 +1,5 @@
 ./zsh/install.sh 1699795491.932318 6 os=ubuntu-22.04
 
 ./git/install.sh 1699795496.4338818 5 os=ubuntu-22.04
+
+./pyls/install.sh 1699795508.8472233 12 os=ubuntu-22.04
