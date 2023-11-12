@@ -41,3 +41,5 @@
 ./shellcheck/install.sh 1699795734.7791736 0 os=ubuntu-20.04
 
 ./gdb/install.sh 1699795750.7360487 16 os=ubuntu-20.04
+
+./tmux/install.sh 1699795751.254167 1 os=ubuntu-20.04
