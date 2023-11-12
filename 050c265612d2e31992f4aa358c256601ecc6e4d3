@@ -29,3 +29,5 @@
 ./vint/install.sh 1699786340.1374457 4 os=ubuntu-22.04
 
 ./ninja/install.sh 1699786342.8318295 2 os=ubuntu-22.04
+
+./cmake/install.sh 1699786349.0857065 7 os=ubuntu-22.04
