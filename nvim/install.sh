@@ -27,9 +27,6 @@ tar -C ~/.nvim --extract -z -f "$(cache_path "${file_name}")" --strip-components
 script_dir=$(dirname "$0")
 . "${script_dir}/path.zsh"
 
-source "${SCRIPT_DIR}/../common/python.sh"
-install_in_virtualenv pynvim
-
 # update packages in Plug
 # install plug if not already installed
 plug_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim

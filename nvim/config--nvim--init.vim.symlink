@@ -2,10 +2,12 @@
 "{{{ misc options, sane defaults
 set modelines=1
 
+" Rely on 'native' Lua plugins.
 let g:loaded_python_provider = 0
-" let g:loaded_python3_provider = 1
-let g:virtualenv = '~/.virtualenvs/dotfiles-run/bin'
-let g:python3_host_prog = g:virtualenv.'/python3'
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
 
 set lazyredraw
 
@@ -102,6 +104,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTreeCWD'] }
 
 Plug 'stevearc/oil.nvim'
+
+Plug 'vim-scripts/linediff.vim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
@@ -1022,7 +1026,8 @@ configs.clangd.setup{root_dir=function(fname)
 
 configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
-local pylsp_binary = vim.api.nvim_eval("expand(g:virtualenv)").."/pylsp"
+local virtualenv = '~/.virtualenvs/dotfiles-run/bin'
+local pylsp_binary = vim.api.nvim_eval("expand('".. virtualenv .. "/pylsp')")
 configs.pylsp.setup{cmd={pylsp_binary}, on_attach=on_attach, capabilities=capabilities}
 
 configs.efm.setup {
@@ -1179,9 +1184,11 @@ augroup END
 "}}}
 
 "{{{ Oil
+if !exists('g:first_time_startup')
 lua <<EOF
 require('oil').setup({default_file_explorer = false})
 EOF
+endif
 "}}}
 
 "{{{ Thread Sanitizer Error Format
@@ -1213,5 +1220,10 @@ endfunction
 
 command! -complete=file -nargs=1 -bang Cfile call <SID>load_file('c', <bang>0, <f-args>)
 command! -complete=file -nargs=1 -bang Lfile call <SID>load_file('l', <bang>0, <f-args>)
+"}}}
+
+"{{{ linediff
+vnoremap <leader>gd :Linediff<cr>
+"}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
