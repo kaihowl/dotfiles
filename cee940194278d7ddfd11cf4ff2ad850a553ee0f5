@@ -45,3 +45,5 @@
 ./osx/install.sh 1700053002.3289473 0 os=ubuntu-22.04
 
 install 1700053002.4158642 113 os=ubuntu-22.04
+
+test 1700053064.899799 59 os=ubuntu-22.04
