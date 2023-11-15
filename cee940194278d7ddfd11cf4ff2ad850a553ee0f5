@@ -15,3 +15,5 @@
 ./alacritty/install.sh 1700052940.1674187 13 os=ubuntu-20.04
 
 ./vint/install.sh 1700052949.728992 9 os=ubuntu-20.04
+
+./osx/install.sh 1700052949.8097582 0 os=ubuntu-20.04
