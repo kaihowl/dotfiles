@@ -5,3 +5,5 @@
 ./git/install.sh 1700052916.6507132 4 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1700052918.423257 2 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1700052924.0213714 5 os=ubuntu-20.04
