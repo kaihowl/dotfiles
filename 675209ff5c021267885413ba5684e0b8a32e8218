@@ -15,3 +15,5 @@
 ./osx/install.sh 1700999039.677563 0 os=ubuntu-22.04
 
 ./rust/install.sh 1700999048.0080237 8 os=ubuntu-22.04
+
+./cmake/install.sh 1700999054.7646706 6 os=ubuntu-22.04
