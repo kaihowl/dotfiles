@@ -27,3 +27,5 @@
 ./homebrew/install.sh 1700999067.5354142 0 os=ubuntu-22.04
 
 ./colors/install.sh 1700999067.6356661 0 os=ubuntu-22.04
+
+./efm/install.sh 1700999068.2092571 1 os=ubuntu-22.04
