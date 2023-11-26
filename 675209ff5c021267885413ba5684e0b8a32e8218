@@ -7,3 +7,5 @@
 ./pyls/install.sh 1700999026.7686026 9 os=ubuntu-22.04
 
 ./ccache/install.sh 1700999029.9914508 3 os=ubuntu-22.04
+
+./nvim/install.sh 1700999034.7861454 4 os=ubuntu-22.04
