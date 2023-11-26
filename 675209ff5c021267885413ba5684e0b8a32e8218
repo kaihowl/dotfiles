@@ -39,3 +39,5 @@
 ./shellcheck/install.sh 1700999078.3894267 1 os=ubuntu-22.04
 
 ./alacritty/install.sh 1700999085.406022 7 os=ubuntu-22.04
+
+./fzf/install.sh 1700999086.8850698 1 os=ubuntu-22.04
