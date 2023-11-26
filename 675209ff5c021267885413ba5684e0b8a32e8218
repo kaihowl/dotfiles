@@ -39,3 +39,5 @@
 ./ctags/install.sh 1700999088.3971503 3 os=ubuntu-20.04
 
 ./shellcheck/install.sh 1700999088.871888 0 os=ubuntu-20.04
+
+./gdb/install.sh 1700999102.7690568 14 os=ubuntu-20.04
