@@ -29,3 +29,5 @@
 ./colors/install.sh 1700999067.6356661 0 os=ubuntu-22.04
 
 ./efm/install.sh 1700999068.2092571 1 os=ubuntu-22.04
+
+./system/install.sh 1700999071.379511 3 os=ubuntu-22.04
