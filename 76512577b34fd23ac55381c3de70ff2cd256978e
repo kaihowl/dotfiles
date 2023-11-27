@@ -11,3 +11,5 @@
 ./colors/install.sh 1701084798.0736625 1 os=ubuntu-20.04
 
 ./system/install.sh 1701084800.9416633 2 os=ubuntu-20.04
+
+./alacritty/install.sh 1701084808.4770632 8 os=ubuntu-20.04
