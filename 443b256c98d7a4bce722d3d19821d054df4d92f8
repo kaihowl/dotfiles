@@ -33,3 +33,5 @@
 ./system/install.sh 1701085186.4551568 3 os=ubuntu-22.04
 
 ./ninja/install.sh 1701085189.6447864 3 os=ubuntu-22.04
+
+./ctags/install.sh 1701085192.9024916 3 os=ubuntu-22.04
