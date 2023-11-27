@@ -23,3 +23,5 @@
 ./tmux/install.sh 1701085174.2826123 1 os=ubuntu-22.04
 
 ./clangd/install.sh 1701085182.4791977 8 os=ubuntu-22.04
+
+./homebrew/install.sh 1701085182.5730236 0 os=ubuntu-22.04
