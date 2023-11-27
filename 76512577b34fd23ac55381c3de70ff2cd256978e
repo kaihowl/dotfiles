@@ -5,3 +5,5 @@
 ./ripgrep/install.sh 1701084776.484151 1 os=ubuntu-22.04
 
 ./pyls/install.sh 1701084786.0414953 9 os=ubuntu-22.04
+
+./ccache/install.sh 1701084789.3031383 3 os=ubuntu-22.04
