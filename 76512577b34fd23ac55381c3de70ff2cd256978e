@@ -41,3 +41,5 @@
 ./alacritty/install.sh 1701084850.1632383 12 os=ubuntu-22.04
 
 ./fzf/install.sh 1701084851.327578 1 os=ubuntu-22.04
+
+./git/install.sh 1701084858.926726 7 os=ubuntu-22.04
