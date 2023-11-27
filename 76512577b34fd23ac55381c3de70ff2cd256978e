@@ -7,3 +7,5 @@
 ./ripgrep/install.sh 1701084793.447103 2 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1701084797.9875307 4 os=ubuntu-20.04
+
+./colors/install.sh 1701084798.0736625 1 os=ubuntu-20.04
