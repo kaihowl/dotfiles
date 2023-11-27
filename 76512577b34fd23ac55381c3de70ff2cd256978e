@@ -9,3 +9,5 @@
 ./virtualenvwrapper/install.sh 1701084797.9875307 4 os=ubuntu-20.04
 
 ./colors/install.sh 1701084798.0736625 1 os=ubuntu-20.04
+
+./system/install.sh 1701084800.9416633 2 os=ubuntu-20.04
