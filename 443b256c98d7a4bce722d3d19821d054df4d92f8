@@ -1,3 +1,5 @@
 ./zsh/install.sh 1701085122.2314491 9 os=ubuntu-22.04
 
 ./gdb/install.sh 1701085130.1761532 8 os=ubuntu-22.04
+
+./ripgrep/install.sh 1701085131.6630507 1 os=ubuntu-22.04
