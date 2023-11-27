@@ -45,3 +45,5 @@
 ./git/install.sh 1701084858.926726 7 os=ubuntu-22.04
 
 install 1701084859.0196946 106 os=ubuntu-22.04
+
+test 1701084913.2344935 52 os=ubuntu-22.04
