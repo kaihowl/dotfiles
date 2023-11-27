@@ -37,3 +37,5 @@
 ./ctags/install.sh 1701084838.1059685 4 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1701084838.6436374 0 os=ubuntu-22.04
+
+./alacritty/install.sh 1701084850.1632383 12 os=ubuntu-22.04
