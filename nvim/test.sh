@@ -20,16 +20,22 @@ fi
 
 echo "Check health for errors"
 health_file=$(mktemp)
+process_file=$(mktemp)
 trap 'rm -rf $health_file' EXIT
-nvim --headless +checkhealth "+write! $health_file" +qa!
+nvim --headless +checkhealth "+write! $health_file" +qa! &> "$process_file"
 if [[ $(wc -l < "$health_file") -eq 0 ]]; then
   echo "Health output is empty"
   exit 1
 fi
+echo "----- health -----"
 cat "$health_file"
-# Find all errors but exclude the optional node provider failure
-if grep -ie 'error' "$health_file" | grep -vie 'node -v'; then
-  echo "Found errors in health file"
+echo "----- process -----"
+cat "$process_file"
+echo "----- end -----"
+
+# Find all errors
+if grep -ie 'error' "$health_file" "$process_file"; then
+  echo "Found errors in health or process file"
   exit 1
 fi
 

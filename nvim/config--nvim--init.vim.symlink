@@ -514,6 +514,7 @@ endif
 nnoremap <leader>s :FzfLua files<cr>
 nnoremap <leader>d :FzfLua buffers<cr>
 nnoremap <leader>f<space> :FzfLua<space>
+nnoremap <leader>fr :FzfLua resume<cr>
 nnoremap <leader>fc :FzfLua changes<cr>
 nnoremap <leader>fj :FzfLua jumps<cr>
 nnoremap <leader>fb :FzfLua git_branches<cr>
