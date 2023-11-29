@@ -11,3 +11,5 @@
 ./nvim/install.sh 1701252743.9415765 8 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1701252749.311596 6 os=ubuntu-22.04
+
+./osx/install.sh 1701252749.4025214 0 os=ubuntu-22.04
