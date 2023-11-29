@@ -19,3 +19,5 @@
 ./cmake/install.sh 1701253124.8010492 6 os=ubuntu-22.04
 
 ./vint/install.sh 1701253128.94184 4 os=ubuntu-22.04
+
+./tmux/install.sh 1701253129.4172518 1 os=ubuntu-22.04
