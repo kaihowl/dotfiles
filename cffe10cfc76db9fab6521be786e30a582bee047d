@@ -3,3 +3,5 @@
 ./gdb/install.sh 1701253085.9035623 7 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1701253087.2375963 2 os=ubuntu-22.04
+
+./pyls/install.sh 1701253097.0858846 10 os=ubuntu-22.04
