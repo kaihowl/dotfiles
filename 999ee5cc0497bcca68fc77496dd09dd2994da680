@@ -25,3 +25,5 @@
 ./clangd/install.sh 1701252779.278744 8 os=ubuntu-22.04
 
 ./homebrew/install.sh 1701252779.3758342 0 os=ubuntu-22.04
+
+./colors/install.sh 1701252779.4772701 0 os=ubuntu-22.04
