@@ -21,3 +21,5 @@
 ./vint/install.sh 1701603849.0863109 5 os=ubuntu-22.04
 
 ./tmux/install.sh 1701603849.5526621 0 os=ubuntu-22.04
+
+./clangd/install.sh 1701603857.6039793 8 os=ubuntu-22.04
