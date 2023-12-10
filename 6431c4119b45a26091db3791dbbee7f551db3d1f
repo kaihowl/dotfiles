@@ -27,3 +27,5 @@
 ./efm/install.sh 1702204056.3282897 1 os=ubuntu-22.04
 
 ./colors/install.sh 1702204056.428497 0 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1702204061.2458692 5 os=ubuntu-22.04
