@@ -5,3 +5,5 @@
 ./nvim/install.sh 1702204006.4315035 5 os=ubuntu-22.04
 
 ./gdb/install.sh 1702204016.5233243 10 os=ubuntu-22.04
+
+./ninja/install.sh 1702204019.6051779 3 os=ubuntu-22.04
