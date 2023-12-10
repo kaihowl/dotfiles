@@ -17,3 +17,5 @@
 ./osx/install.sh 1702204032.2036433 0 os=ubuntu-20.04
 
 ./vint/install.sh 1702204038.1953707 6 os=ubuntu-20.04
+
+./rust/install.sh 1702204046.6698248 8 os=ubuntu-20.04
