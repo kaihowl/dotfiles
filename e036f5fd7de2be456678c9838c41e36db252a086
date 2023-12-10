@@ -11,3 +11,5 @@
 ./gdb/install.sh 1702203656.946855 29 os=ubuntu-20.04
 
 ./clangd/install.sh 1702203667.0162985 10 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1702203672.3357344 5 os=ubuntu-20.04
