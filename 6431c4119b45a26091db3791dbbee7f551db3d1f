@@ -23,3 +23,5 @@
 ./alacritty/install.sh 1702208673.9756093 7 os=ubuntu-20.04
 
 ./homebrew/install.sh 1702208674.0577128 0 os=ubuntu-20.04
+
+./shellcheck/install.sh 1702208674.4830525 0 os=ubuntu-20.04
