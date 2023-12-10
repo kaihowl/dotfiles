@@ -37,3 +37,5 @@
 ./git/install.sh 1702208683.2571232 3 os=ubuntu-22.04
 
 ./rust/install.sh 1702208691.324805 8 os=ubuntu-22.04
+
+./osx/install.sh 1702208691.4159892 0 os=ubuntu-22.04
