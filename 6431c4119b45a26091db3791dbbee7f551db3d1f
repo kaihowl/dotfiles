@@ -13,3 +13,5 @@
 ./clangd/install.sh 1702208645.2124367 11 os=ubuntu-22.04
 
 ./ccache/install.sh 1702208648.5559418 3 os=ubuntu-22.04
+
+./alacritty/install.sh 1702208655.3483822 7 os=ubuntu-22.04
