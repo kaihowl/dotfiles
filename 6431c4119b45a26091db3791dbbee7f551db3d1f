@@ -37,3 +37,5 @@
 ./git/install.sh 1702208693.3409073 6 os=ubuntu-20.04
 
 ./ctags/install.sh 1702208696.9993744 3 os=ubuntu-20.04
+
+./ninja/install.sh 1702208700.906415 3 os=ubuntu-20.04
