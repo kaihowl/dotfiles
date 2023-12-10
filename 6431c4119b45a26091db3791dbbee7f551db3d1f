@@ -1,1 +1,3 @@
 ./zsh/install.sh 1702208613.716011 6 os=ubuntu-22.04
+
+./homebrew/install.sh 1702208613.8083668 0 os=ubuntu-22.04
