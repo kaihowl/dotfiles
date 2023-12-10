@@ -21,3 +21,5 @@
 ./rust/install.sh 1702203689.3321695 10 os=ubuntu-20.04
 
 ./alacritty/install.sh 1702203697.748181 8 os=ubuntu-20.04
+
+./homebrew/install.sh 1702203697.8303666 0 os=ubuntu-20.04
