@@ -29,3 +29,5 @@
 ./system/install.sh 1702208677.872702 3 os=ubuntu-20.04
 
 ./cmake/install.sh 1702208685.987163 8 os=ubuntu-20.04
+
+./colors/install.sh 1702208686.0726552 1 os=ubuntu-20.04
