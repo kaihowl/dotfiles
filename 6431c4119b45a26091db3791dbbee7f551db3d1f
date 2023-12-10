@@ -27,3 +27,5 @@
 ./shellcheck/install.sh 1702208674.4830525 0 os=ubuntu-20.04
 
 ./system/install.sh 1702208677.872702 3 os=ubuntu-20.04
+
+./cmake/install.sh 1702208685.987163 8 os=ubuntu-20.04
