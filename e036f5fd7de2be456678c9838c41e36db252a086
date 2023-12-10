@@ -43,3 +43,5 @@
 ./pyls/install.sh 1702203679.9214668 8 os=ubuntu-22.04
 
 ./ctags/install.sh 1702203683.3077264 4 os=ubuntu-22.04
+
+install 1702203683.3964617 114 os=ubuntu-22.04
