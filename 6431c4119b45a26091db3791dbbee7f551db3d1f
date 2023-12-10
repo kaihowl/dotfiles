@@ -13,3 +13,5 @@
 ./clangd/install.sh 1702204027.316686 12 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1702204032.1233356 5 os=ubuntu-20.04
+
+./osx/install.sh 1702204032.2036433 0 os=ubuntu-20.04
