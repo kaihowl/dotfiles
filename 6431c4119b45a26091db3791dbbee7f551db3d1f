@@ -39,3 +39,5 @@
 ./rust/install.sh 1702204081.41119 9 os=ubuntu-22.04
 
 ./osx/install.sh 1702204081.5032918 0 os=ubuntu-22.04
+
+./pyls/install.sh 1702204090.6351297 9 os=ubuntu-22.04
