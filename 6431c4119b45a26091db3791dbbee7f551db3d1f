@@ -9,3 +9,5 @@
 ./tmux/install.sh 1702208626.2960632 1 os=ubuntu-20.04
 
 ./gdb/install.sh 1702208636.7861037 10 os=ubuntu-20.04
+
+./clangd/install.sh 1702208647.3883603 11 os=ubuntu-20.04
