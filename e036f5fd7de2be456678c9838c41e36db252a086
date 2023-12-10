@@ -45,3 +45,5 @@
 ./efm/install.sh 1702203756.195001 1 os=ubuntu-20.04
 
 install 1702203756.2733932 184 os=ubuntu-20.04
+
+test 1702203818.426656 60 os=ubuntu-20.04
