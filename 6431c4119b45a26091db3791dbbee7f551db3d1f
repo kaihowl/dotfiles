@@ -19,3 +19,5 @@
 ./shellcheck/install.sh 1702204045.4238725 1 os=ubuntu-22.04
 
 ./cmake/install.sh 1702204052.316951 7 os=ubuntu-22.04
+
+./tmux/install.sh 1702204052.8012233 0 os=ubuntu-22.04
