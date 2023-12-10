@@ -19,3 +19,5 @@
 ./vint/install.sh 1702208658.6401932 6 os=ubuntu-20.04
 
 ./rust/install.sh 1702208666.790619 8 os=ubuntu-20.04
+
+./alacritty/install.sh 1702208673.9756093 7 os=ubuntu-20.04
