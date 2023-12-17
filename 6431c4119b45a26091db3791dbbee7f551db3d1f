@@ -1,3 +1,5 @@
 ./zsh/install.sh 1702813417.1398213 10 os=ubuntu-22.04
 
 ./efm/install.sh 1702813417.8579152 0 os=ubuntu-22.04
+
+./system/install.sh 1702813421.1038637 4 os=ubuntu-22.04
