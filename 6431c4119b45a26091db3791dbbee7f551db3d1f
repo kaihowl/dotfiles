@@ -3,3 +3,5 @@
 ./efm/install.sh 1702813417.8579152 0 os=ubuntu-22.04
 
 ./system/install.sh 1702813421.1038637 4 os=ubuntu-22.04
+
+./ninja/install.sh 1702813424.4657063 3 os=ubuntu-22.04
