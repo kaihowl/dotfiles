@@ -25,3 +25,5 @@
 ./ripgrep/install.sh 1702813443.0457673 1 os=ubuntu-20.04
 
 ./virtualenvwrapper/install.sh 1702813447.599498 4 os=ubuntu-20.04
+
+./alacritty/install.sh 1702813454.5934975 7 os=ubuntu-20.04
