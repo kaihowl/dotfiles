@@ -29,3 +29,5 @@
 ./ripgrep/install.sh 1702813457.6675177 2 os=ubuntu-22.04
 
 ./clangd/install.sh 1702813472.0524187 14 os=ubuntu-22.04
+
+./colors/install.sh 1702813472.1527796 0 os=ubuntu-22.04
