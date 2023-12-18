@@ -7,3 +7,4 @@
 0 ./homebrew/install.sh 1702923225.7371066 0.0 os=ubuntu-20.04
 0 ./colors/install.sh 1702923225.7484882 0.0 os=ubuntu-20.04
 0 ./vint/install.sh 1702923232.0049076 7.0 os=ubuntu-20.04
+0 ./pyls/install.sh 1702923238.1809564 6.0 os=ubuntu-20.04
