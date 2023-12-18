@@ -8,3 +8,4 @@
 ./tmux/install.sh 1702914084.7543004 0.0 os=ubuntu-22.04
 ./rust/install.sh 1702914086.3425412 2.0 os=ubuntu-22.04
 ./gdb/install.sh 1702914098.7139275 12.0 os=ubuntu-22.04
+./homebrew/install.sh 1702914098.7311559 0.0 os=ubuntu-22.04
