@@ -11,3 +11,4 @@
 0 ./homebrew/install.sh 1702918873.2288616 0.0 os=ubuntu-22.04
 0 ./osx/install.sh 1702918873.2399802 0.0 os=ubuntu-22.04
 0 ./ctags/install.sh 1702918876.4473844 3.0 os=ubuntu-22.04
+0 ./ccache/install.sh 1702918879.7959898 3.0 os=ubuntu-22.04
