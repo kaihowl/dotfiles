@@ -7,3 +7,4 @@
 ./cmake/install.sh 1702914125.168174 5.0 os=macos-12
 ./osx/install.sh 1702914125.307307 0.0 os=macos-12
 ./nvim/install.sh 1702914134.078805 9.0 os=macos-12
+./pyls/install.sh 1702914163.938411 29.0 os=macos-12
