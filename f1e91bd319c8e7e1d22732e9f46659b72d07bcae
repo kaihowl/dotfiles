@@ -22,3 +22,4 @@
 0 ./clangd/install.sh 1702923284.4394386 10.0 os=ubuntu-20.04
 0 ./git/install.sh 1702923287.586908 3.0 os=ubuntu-20.04
 0 install 1702923287.5907261 88.0 os=ubuntu-20.04
+0 test 1702923345.4535542 56.0 os=ubuntu-20.04
