@@ -19,3 +19,4 @@
 0 ./vint/install.sh 1702923298.263802 8.0 os=ubuntu-22.04
 0 ./virtualenvwrapper/install.sh 1702923303.9905775 5.0 os=ubuntu-22.04
 0 ./pyls/install.sh 1702923310.1481252 7.0 os=ubuntu-22.04
+0 ./alacritty/install.sh 1702923319.1824605 9.0 os=ubuntu-22.04
