@@ -17,3 +17,4 @@
 0 ./colors/install.sh 1702923288.987896 0.0 os=ubuntu-22.04
 0 ./fzf/install.sh 1702923290.8194005 2.0 os=ubuntu-22.04
 0 ./vint/install.sh 1702923298.263802 8.0 os=ubuntu-22.04
+0 ./virtualenvwrapper/install.sh 1702923303.9905775 5.0 os=ubuntu-22.04
