@@ -6,3 +6,4 @@
 0 ./clangd/install.sh 1702923259.073263 3.0 os=macos-12
 0 ./cmake/install.sh 1702923262.968621 3.0 os=macos-12
 0 ./osx/install.sh 1702923262.998055 0.0 os=macos-12
+0 ./nvim/install.sh 1702923271.452465 8.0 os=macos-12
