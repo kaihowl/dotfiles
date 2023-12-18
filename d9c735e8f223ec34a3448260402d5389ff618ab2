@@ -18,3 +18,4 @@
 0 ./fzf/install.sh 1702918893.5186105 1.0 os=ubuntu-22.04
 0 ./vint/install.sh 1702918900.7788599 7.0 os=ubuntu-22.04
 0 ./virtualenvwrapper/install.sh 1702918905.9887364 5.0 os=ubuntu-22.04
+0 ./pyls/install.sh 1702918912.9511206 7.0 os=ubuntu-22.04
