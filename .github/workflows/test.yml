@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: '.dotfiles'
-          fetch-depth: 41
+          fetch-depth: 40
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
@@ -84,7 +84,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 41
+          fetch-depth: 40
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
       - name: use commit name as report name
@@ -100,7 +100,7 @@ jobs:
         run: |
           mkdir -p ~/.git-perf/
           pushd ~/.git-perf
-          curl -L https://github.com/kaihowl/git-perf/releases/download/0.0.4/gitperf-0.0.4-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
+          curl -L https://github.com/kaihowl/git-perf/releases/download/0.11.0/gitperf-0.11.0-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
           popd
           ~/.git-perf/git-perf pull
           mkdir reports/
