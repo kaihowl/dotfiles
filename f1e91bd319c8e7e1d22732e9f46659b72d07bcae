@@ -12,3 +12,4 @@
 0 ./osx/install.sh 1702923269.986916 0.0 os=ubuntu-22.04
 0 ./ctags/install.sh 1702923273.491565 4.0 os=ubuntu-22.04
 0 ./ccache/install.sh 1702923276.6032152 3.0 os=ubuntu-22.04
+0 ./ripgrep/install.sh 1702923278.1805258 2.0 os=ubuntu-22.04
