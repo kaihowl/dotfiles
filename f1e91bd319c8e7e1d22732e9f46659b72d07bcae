@@ -5,3 +5,4 @@
 0 ./ccache/install.sh 1702923222.6672215 3.0 os=ubuntu-20.04
 0 ./ctags/install.sh 1702923225.7298498 3.0 os=ubuntu-20.04
 0 ./homebrew/install.sh 1702923225.7371066 0.0 os=ubuntu-20.04
+0 ./colors/install.sh 1702923225.7484882 0.0 os=ubuntu-20.04
