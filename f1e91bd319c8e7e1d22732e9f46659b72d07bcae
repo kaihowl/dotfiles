@@ -11,3 +11,4 @@
 0 ./system/install.sh 1702923240.999027 2.0 os=ubuntu-20.04
 0 ./efm/install.sh 1702923241.3161483 0.0 os=ubuntu-20.04
 0 ./ripgrep/install.sh 1702923242.9335837 1.0 os=ubuntu-20.04
+0 ./virtualenvwrapper/install.sh 1702923247.4509592 5.0 os=ubuntu-20.04
