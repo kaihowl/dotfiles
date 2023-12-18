@@ -17,3 +17,4 @@
 0 ./shellcheck/install.sh 1702919016.764065 1.0 os=macos-12
 0 ./tmux/install.sh 1702919022.796984 6.0 os=macos-12
 0 ./vint/install.sh 1702919035.235325 13.0 os=macos-12
+0 ./virtualenvwrapper/install.sh 1702919046.980434 11.0 os=macos-12
