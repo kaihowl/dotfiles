@@ -1,3 +1,4 @@
 0 ./zsh/install.sh 1702923233.1236112 20.0 os=ubuntu-22.04
 0 ./efm/install.sh 1702923234.070078 1.0 os=ubuntu-22.04
 0 ./system/install.sh 1702923237.1668823 3.0 os=ubuntu-22.04
+0 ./ninja/install.sh 1702923240.0725222 3.0 os=ubuntu-22.04
