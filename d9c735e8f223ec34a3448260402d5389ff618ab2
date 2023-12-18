@@ -19,3 +19,4 @@
 0 ./cmake/install.sh 1702918932.0875452 14.0 os=ubuntu-20.04
 0 ./shellcheck/install.sh 1702918932.8505516 0.0 os=ubuntu-20.04
 0 ./osx/install.sh 1702918932.8569977 0.0 os=ubuntu-20.04
+0 ./clangd/install.sh 1702918942.819864 10.0 os=ubuntu-20.04
