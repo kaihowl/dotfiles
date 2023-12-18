@@ -16,3 +16,4 @@
 0 ./fzf/install.sh 1702923255.5787027 1.0 os=ubuntu-20.04
 0 ./gdb/install.sh 1702923264.658561 9.0 os=ubuntu-20.04
 0 ./ninja/install.sh 1702923267.547675 3.0 os=ubuntu-20.04
+0 ./cmake/install.sh 1702923274.1844368 7.0 os=ubuntu-20.04
