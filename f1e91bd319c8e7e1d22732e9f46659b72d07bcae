@@ -1,3 +1,4 @@
 0 ./zsh/install.sh 1702923213.9319153 8.0 os=ubuntu-20.04
 0 ./tmux/install.sh 1702923214.3620276 1.0 os=ubuntu-20.04
 0 ./nvim/install.sh 1702923218.6043618 4.0 os=ubuntu-20.04
+0 ./rust/install.sh 1702923219.794349 1.0 os=ubuntu-20.04
