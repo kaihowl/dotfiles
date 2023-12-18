@@ -12,3 +12,4 @@
 ./efm/install.sh 1702914167.88339 0.0 os=macos-12
 ./homebrew/install.sh 1702914184.485802 17.0 os=macos-12
 ./ninja/install.sh 1702914189.636476 5.0 os=macos-12
+./system/install.sh 1702914202.316808 13.0 os=macos-12
