@@ -10,3 +10,4 @@
 0 ./pyls/install.sh 1702923295.662496 24.0 os=macos-12
 0 ./rust/install.sh 1702923315.608496 20.0 os=macos-12
 0 ./efm/install.sh 1702923316.28296 1.0 os=macos-12
+0 ./homebrew/install.sh 1702923332.447297 16.0 os=macos-12
