@@ -10,3 +10,4 @@
 0 ./gdb/install.sh 1702923269.9638603 8.0 os=ubuntu-22.04
 0 ./homebrew/install.sh 1702923269.9763503 0.0 os=ubuntu-22.04
 0 ./osx/install.sh 1702923269.986916 0.0 os=ubuntu-22.04
+0 ./ctags/install.sh 1702923273.491565 4.0 os=ubuntu-22.04
