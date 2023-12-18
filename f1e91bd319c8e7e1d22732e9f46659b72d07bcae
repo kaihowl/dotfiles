@@ -14,3 +14,4 @@
 0 ./ccache/install.sh 1702923276.6032152 3.0 os=ubuntu-22.04
 0 ./ripgrep/install.sh 1702923278.1805258 2.0 os=ubuntu-22.04
 0 ./clangd/install.sh 1702923288.9680312 10.0 os=ubuntu-22.04
+0 ./colors/install.sh 1702923288.987896 0.0 os=ubuntu-22.04
