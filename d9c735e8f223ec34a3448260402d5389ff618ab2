@@ -17,3 +17,4 @@
 0 ./gdb/install.sh 1702918915.6088142 13.0 os=ubuntu-20.04
 0 ./ninja/install.sh 1702918918.5315301 3.0 os=ubuntu-20.04
 0 ./cmake/install.sh 1702918932.0875452 14.0 os=ubuntu-20.04
+0 ./shellcheck/install.sh 1702918932.8505516 0.0 os=ubuntu-20.04
