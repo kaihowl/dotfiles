@@ -2,3 +2,4 @@
 0 ./ctags/install.sh 1702918888.383242 9.0 os=macos-12
 0 ./alacritty/install.sh 1702918909.37503 21.0 os=macos-12
 0 ./ccache/install.sh 1702918921.4575 12.0 os=macos-12
+0 ./gdb/install.sh 1702918921.506192 0.0 os=macos-12
