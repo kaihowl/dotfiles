@@ -2,26 +2,27 @@
 #
 # bootstrap installs things.
 
-DOTFILES_ROOT="$(pwd)"
-
 set -e
+
+SCRIPT_DIR=$(dirname "$0")
+DOTFILES_ROOT=$(unset CDPATH; cd "$SCRIPT_DIR"/.. > /dev/null; pwd -P)
 
 echo ''
 
 info () {
-  printf "  [ \033[00;34m..\033[0m ] %s" "$1"
+  printf "  [ \033[00;34m..\033[0m ] %s\n" "$1"
 }
 
 user () {
-  printf "\r  [ \033[0;33m?\033[0m ] %s " "$1"
+  printf "  [ \033[0;33m?\033[0m ] %s\n" "$1"
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+  printf "\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+  printf "\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
   echo ''
   exit
 }
@@ -37,16 +38,18 @@ setup_gitconfig () {
       git_credential='osxkeychain'
     fi
 
+    preset_user=$(git config --get user.name || true)
     user ' - What is your github author name?'
-    if [[ "$CI" == "true" ]]; then
-       git_authorname='my_ci_user'
+    if [[ -n "${preset_user}" ]]; then
+       git_authorname=$preset_user
     else
       read -re git_authorname
     fi
 
+    preset_email=$(git config --get user.email || true)
     user ' - What is your github author email?'
-    if [[ "$CI" == "true" ]]; then
-      git_authoremail='ci@example.com'
+    if [[ -n "${preset_email}" ]]; then
+      git_authoremail=$preset_email
     else
       read -re git_authoremail
     fi
@@ -55,6 +58,11 @@ setup_gitconfig () {
 
     success 'gitconfig'
   fi
+  # Temporary work around: If gitconfig_credentials does not yet have the signingkey,
+  # add the old rsa default
+  if ! grep -q0 "signingkey" ~/.gitconfig_credentials; then
+    printf "[user]\n  signingkey = ~/.ssh/id_rsa" >> ~/.gitconfig_credentials
+  fi
 }
 
 link_files () {
@@ -62,12 +70,16 @@ link_files () {
   success "linked $1 to $2"
 }
 
-install_dotfiles () {
+link_dotfiles () {
   info 'installing dotfiles'
 
   overwrite_all=false
   backup_all=false
   skip_all=false
+
+  if [[ "${CODESPACES}" == "true" ]] || [[ "${CI}" == "true" ]] || [[ "${DOTS_UPGRADE}" == "true" ]]; then
+    backup_all=true
+  fi
 
   # shellcheck disable=SC2044
   for source in $(find "$DOTFILES_ROOT" -maxdepth 2 -name \*.symlink)
@@ -78,7 +90,7 @@ install_dotfiles () {
 
     mkdir -p "$(dirname "$dest")"
 
-    if [ -f "$dest" ] || [ -d "$dest" ]
+    if [ -f "$dest" ] || [ -d "$dest" ] || [ -h "$dest" ]
     then
 
       overwrite=false
@@ -88,11 +100,7 @@ install_dotfiles () {
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
         user "File already exists: ${filename_with_dir}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-	if [[ "$CI" == "true" ]]; then
-	  action="O"
-	else
-          read -rn 1 action
-	fi
+        read -rn 1 action
 
         case "$action" in
           o )
@@ -139,19 +147,21 @@ install_dotfiles () {
 }
 
 setup_gitconfig
-install_dotfiles
+link_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "setting mac-specific settings\n"
-  if bash bin/dots;
+  info "setting mac-specific settings"
+  if "${DOTFILES_ROOT}/osx/set-defaults.sh"
   then
     success "mac settings configured"
   else
     fail "error setting mac-specific settings"
   fi
 fi
+
+"${DOTFILES_ROOT}/script/install"
 
 echo ''
 echo '  All installed!'

@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-set -x
+
 # Sets reasonable OS X defaults.
 #
 # Or, in other words, set shit how I like in OS X.
@@ -34,16 +34,18 @@ defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Hide Safari's bookmark bar.
-defaults write com.apple.Safari ShowFavoritesBar -bool false
+sudo defaults write com.apple.Safari ShowFavoritesBar -bool false
 
 # Set up Safari for development.
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+sudo defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+sudo defaults write com.apple.Safari IncludeDevelopMenu -bool true
+sudo defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+sudo defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Prolong the time to set macbook to deeper sleep
 # Set standby to 90 minutes when on battery power
 echo "Trying to change battery standbydelay to 90 mins"
 sudo pmset -b standbydelay 5400
+
+defaults write org.gnucash.Gnucash AppleLanguages '(de)'

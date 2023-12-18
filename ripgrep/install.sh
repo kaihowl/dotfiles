@@ -1,20 +1,22 @@
 #!/bin/bash
 set -e
+
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
 if [ "$(uname)" == "Darwin" ]; then
-  source "$DOTS/common/brew.sh"
+  source "${SCRIPT_DIR}/../common/brew.sh"
   brew_install ripgrep
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "$DOTS/common/apt.sh"
+  source "${SCRIPT_DIR}/../common/apt.sh"
   apt_install curl
-  tmpfile=$(mktemp)
-  # shellcheck disable=SC2064
-  trap "rm -rf ${tmpfile}" EXIT
-  curl -Lo "${tmpfile}" https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-  expect_hash="6d78bed13722019cb4f9d0cf366715e2dcd589f4cf91897efb28216a6bb319f1"
-  actual_hash="$(shasum -a 256 "${tmpfile}" | cut -d' ' -f 1)"
-  if [[ "$expect_hash" != "$actual_hash" ]]; then
-    echo "shasum mismatch for ripgrep. Aborting."
-    exit 1
-  fi
-  sudo dpkg -i "${tmpfile}"
+
+  source "${SCRIPT_DIR}/../common/download.sh"
+
+  version=14.0.1
+  file_name=ripgrep_${version}
+  download_url=https://github.com/BurntSushi/ripgrep/releases/download/${version}/ripgrep_${version}-1_amd64.deb
+  expect_hash="ab0de69388fde06c872525918572105beed6cee657d08a943e1c98c52a4a5139"
+
+  cache_file "$file_name" "$download_url" "$expect_hash"
+  sudo dpkg -i "$(cache_path "${file_name}")"
 fi

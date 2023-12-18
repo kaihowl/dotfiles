@@ -1,5 +1,5 @@
 #!/bin/zsh -i
-set -eux
+set -eu
 set -o pipefail
 
 if [ $# != 1 ]; then

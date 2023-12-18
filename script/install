@@ -1,21 +1,18 @@
 #!/bin/bash
 set -e
-set -x
-
-source common/perf_stubs.sh
-
-# Run all dotfiles installers.
-export DOTS=$HOME/.dotfiles
 
 cd "$(dirname "$0")"/..
 
+source common/perf_stubs.sh
+
 if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo apt-get update
+  source common/apt.sh
+  apt_update
 fi
 
 if [[ "$(uname)" == *"Darwin"* ]] && [[ "$(xcode-select -p)" == *"CommandLineTools"* ]]; then
   # Full XCode is for example needed to compile pynvim's greenlet
-  echo -e "Running \e[32mFull XCode install needed\e[0m"
+  printf "Running \e[32mFull XCode install needed\e[0m"
   exit 1
 fi
 
@@ -29,7 +26,7 @@ fi
 installers=$(find . -name zsh -prune -o -name install.sh -print)
 installers="./zsh/install.sh $installers"
 for installer in ${installers}; do
-  echo -e "Running \e[32m${installer}\e[0m"
+  printf "Running \e[32m%s\e[0m" "${installer}"
   START=$(date +%s)
   sh -c "${installer}"
   END=$(date +%s)

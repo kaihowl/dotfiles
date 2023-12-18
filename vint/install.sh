@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
-source "$DOTS/common/python.sh"
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
+source "${SCRIPT_DIR}/../common/python.sh"
 install_in_virtualenv "vim-vint"
 

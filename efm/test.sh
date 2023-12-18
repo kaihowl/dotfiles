@@ -4,6 +4,9 @@ set -e
 echo "Check if efm-langserver is on path"
 which efm-langserver
 
+echo "Check if efm-langserver is runnable"
+efm-langserver -v
+
 echo "Check if efm-langserver is user-installed one"
 actual_path=$(realpath "$(which efm-langserver)")
 if [[ "${actual_path}" != $(realpath ~/.efm/)* ]]; then

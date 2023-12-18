@@ -1,32 +1,31 @@
 #!/bin/bash
-set -ex
+set -e
+
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
+version=0.9.4
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-macos.tar.gz"
-  expect_hash="52efab6794653ff6346b3a94d991c086b93837f95eeed467cb3769a3c65088ea"
+  download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos.tar.gz"
+  expect_hash="86136acbc959abd164b7c1177707d3a8784a81b158380cf3493b1b5f1d9ed88a"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.tar.gz"
-  expect_hash="a901b8815d1c0a26104bcbe405e1aa308f364f98d9dc7daa58c70114def60a29"
+  download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-linux64.tar.gz"
+  expect_hash="dbf4eae83647ca5c3ce1cd86939542a7b6ae49cd78884f3b4236f4f248e5d447"
 fi
 
-tmpfile=$(mktemp)
-# shellcheck disable=SC2064
-trap "rm -rf ${tmpfile}" EXIT
-curl -Lo "${tmpfile}" "${download_url}"
-actual_hash="$(shasum -a 256 "${tmpfile}" | cut -d' ' -f 1)"
-if [[ "$expect_hash" != "$actual_hash" ]]; then
-  echo "shasum mismatch for nvim. Aborting."
-  exit 1
-fi
+file_name=nvim-${version}.tar.gz
+
+source "${SCRIPT_DIR}/../common/download.sh"
+cache_file "$file_name" "$download_url" "$expect_hash"
+
+# Ensure a clean install with no left behind files
+rm -rf ~/.nvim
 mkdir -p ~/.nvim
-tar -C ~/.nvim --extract -z -f "${tmpfile}" --strip-components 1
+tar -C ~/.nvim --extract -z -f "$(cache_path "${file_name}")" --strip-components 1
 
 # Make freshly installed nvim available in path
 script_dir=$(dirname "$0")
 . "${script_dir}/path.zsh"
-
-source "$DOTS/common/python.sh"
-install_in_virtualenv pynvim
 
 # update packages in Plug
 # install plug if not already installed

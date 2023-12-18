@@ -1,8 +1,11 @@
 #!/bin/zsh -i
-set -ex
+set -euo pipefail
 
 echo "Check if nvim is available"
 which nvim
+
+echo "Check if nvim is runnable"
+nvim --version
 
 echo "Check if vim alias is set"
 which vim
@@ -17,12 +20,22 @@ fi
 
 echo "Check health for errors"
 health_file=$(mktemp)
+process_file=$(mktemp)
 trap 'rm -rf $health_file' EXIT
-nvim --headless +checkhealth "+write $health_file" +qa
+nvim --headless +checkhealth "+write! $health_file" +qa! &> "$process_file"
+if [[ $(wc -l < "$health_file") -eq 0 ]]; then
+  echo "Health output is empty"
+  exit 1
+fi
+echo "----- health -----"
 cat "$health_file"
-# Find all errors but exclude the optional node provider failure
-if grep -ie 'error' "$health_file" | grep -vie 'node -v'; then
-  echo "Found errors in health file"
+echo "----- process -----"
+cat "$process_file"
+echo "----- end -----"
+
+# Find all errors
+if grep -ie 'error' "$health_file" "$process_file"; then
+  echo "Found errors in health or process file"
   exit 1
 fi
 
@@ -37,21 +50,25 @@ fi
 
 function run_vim_test {
   echo "Running $1"
-  (set -ex && cd "$DOTS/nvim/tests" && nvim --headless -c "source $DOTS/nvim/tests/test-support.vim" -c "source $DOTS/nvim/tests/$1" -c "call RunTest()")
+  (set -e && cd "$DOTS/nvim/tests" && nvim --headless -c "source $DOTS/nvim/tests/test-support.vim" -c "source $DOTS/nvim/tests/$1" -c "call RunTest()")
 }
 
 echo "Check that plugins are installed"
 run_vim_test completion.test.vim
 run_vim_test editorconfig.test.vim
-run_vim_test lsp-completion.test.vim
+run_vim_test fzf-git.test.vim
+run_vim_test lsp-completion-cpp.test.vim
+run_vim_test lsp-completion-python.test.vim
+run_vim_test lsp-completion-rust.test.vim
 run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
 run_vim_test restorecurpos.test.vim
-run_vim_test ripgrep.test.vim
+run_vim_test sanitizer-errorformat.test.vim
 run_vim_test sneak.test.vim
 run_vim_test tagbar.test.vim
 run_vim_test t_comment.test.vim
 run_vim_test asyncrun-errorformat.test.vim
+run_vim_test asynctasks.test.vim
 
 echo "Check that git default folder detection works with a default"
 cd "$DOTS/"
@@ -69,7 +86,7 @@ cd "source"
 git init
 touch a
 git add a
-git commit -m 'test'
+git commit --no-gpg-sign -m 'test'
 git branch -M specialdefault
 cd ..
 git clone "source" "target"
@@ -88,14 +105,14 @@ cd "source"
 git init
 touch a
 git add a
-git commit -m 'test'
+git commit --no-gpg-sign -m 'test'
 git branch -M specialdefault
 cd ..
 mkdir modules
 cd modules
 git init
 git -c protocol.file.allow=always submodule add ../source
-git commit -m 'test'
+git commit --no-gpg-sign -m 'test'
 # pwd == main repo but open file in submodule
 output=$(nvim --headless -c 'call stdioopen({})' -c "edit source/a" -c 'call chansend(1, Get_default_branch())' -c 'quit')
 if [[ "$output" != *"origin/specialdefault" ]]; then

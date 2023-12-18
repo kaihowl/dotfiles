@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Inspiration: https://askubuntu.com/a/375031
+# Instead of using DPkg::Lock::Timeout, which only works for the dpkg front end lock (/var/lib/dpkg/lock-frontend). This will also handle the /var/lib/apt/lists/lock in case of an update.
+# Since we usually install software after an update of the index, we wait for both locks even if this is not strictly necessary.
+# As this was intended to wait for packagekitd to finish operation after start up, I am ignoring the TOCTOU issue of this approach.
+
+function wait_on_lock {
+  lock=$1
+  i=0
+  tput sc
+  while fuser "$lock" >/dev/null 2>&1 ; do
+      case $((i % 4)) in
+          0 ) j="-" ;;
+          1 ) j="\\" ;;
+          2 ) j="|" ;;
+          3 ) j="/" ;;
+      esac
+      tput rc
+      echo -en "\r[$j] Waiting for $lock..."
+      sleep 0.5
+      ((i=i+1))
+  done
+}
+
+wait_on_lock /var/lib/dpkg/lock
+wait_on_lock /var/lib/apt/lists/lock

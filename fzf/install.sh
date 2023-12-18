@@ -1,7 +1,7 @@
 #!/bin/bash
-set -ex
+set -e
 
-cd "$(dirname "$0")"
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 if ! which zsh; then
   printf '\033[0;31m%s\033[0m\n' 'Please install zsh first.'
@@ -9,10 +9,15 @@ if ! which zsh; then
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
-  source "$DOTS/common/brew.sh"
-  brew_install curl wget
+  source "${SCRIPT_DIR}/../common/brew.sh"
+  if ! which curl > /dev/null; then
+    brew_install curl
+  fi
+  if ! which wget > /dev/null; then
+    brew_install wget
+  fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "$DOTS/common/apt.sh"
+  source "${SCRIPT_DIR}/../common/apt.sh"
   apt_install wget curl git
 fi
 

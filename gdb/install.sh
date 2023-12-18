@@ -1,14 +1,17 @@
 #!/bin/bash
-set -ex
+set -e
+
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 if [ "$(uname)" == "Darwin" ]; then
   # Do nothing
   exit 0
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "$DOTS/common/apt.sh"
+  source "${SCRIPT_DIR}/../common/apt.sh"
   # This will break if it is a different version used for the standard library.
   # We have a test to detect this.
   codename=$(lsb_release -cs)
+  apt_add_repo ubuntu-toolchain-test https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu ::codename:: 60C317803A41BA51845E371A1E9377A2BA9EF27F
   if [[ "$codename" == *"focal"* ]]; then
     apt_install clang gdb libstdc++6-10-dbg
   elif [[ "$codename" == *"jammy"* ]]; then
@@ -19,5 +22,5 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
     apt-cache depends libstdc++6 | sed -n "s/.*Replaces: \(.*\)$/\1/p"
     exit 1
   fi
-  
+
 fi

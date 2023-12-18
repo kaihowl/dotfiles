@@ -1,4 +1,6 @@
 function Test()
+  " Do not rely on default |commentstring|
+  set filetype=cpp
   call feedkeys('ivoid main() {}', 'x')
   call feedkeys('0w', 'x')
   " Comment out the word main

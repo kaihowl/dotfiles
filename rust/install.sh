@@ -1,24 +1,18 @@
 #!/bin/bash
-set -ex
+set -e
 
-if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://static.rust-lang.org/rustup/dist/x86_64-apple-darwin/rustup-init"
-  expect_hash="a45f826cdf2509dae65d53a52372736f54412cf92471dc8dba1299ef0885a03e"
-elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  download_url="https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-musl/rustup-init"
-  expect_hash="95427cb0592e32ed39c8bd522fe2a40a746ba07afb8149f91e936cddb4d6eeac"
-fi
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-tmpdir=$(mktemp -d)
-rustupinit=${tmpdir}/rustup-init
-# shellcheck disable=SC2064
-trap "rm -rf ${tmpdir}" EXIT
-curl -Lo "${rustupinit}" "${download_url}"
-actual_hash="$(shasum -a 256 "${rustupinit}" | cut -d' ' -f 1)"
-if [[ "$expect_hash" != "$actual_hash" ]]; then
-  echo "shasum mismatch for shellcheck. Aborting."
-  exit 1
-fi
+version=2
+download_url="https://sh.rustup.rs"
+expect_hash="be3535b3033ff5e0ecc4d589a35d3656f681332f860c5fd6684859970165ddcc"
+
+file_name=rustup-sh-${version}
+
+source "${SCRIPT_DIR}/../common/download.sh"
+cache_file "$file_name" "$download_url" "$expect_hash"
+
+rustupinit="$(cache_path "${file_name}")"
 chmod +x "${rustupinit}"
 "${rustupinit}" -y --verbose --component rust-analyzer
 # shellcheck disable=SC1091

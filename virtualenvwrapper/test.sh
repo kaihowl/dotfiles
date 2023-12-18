@@ -1,4 +1,4 @@
-#!/bin/zsh -lix
+#!/bin/zsh -li
 # Deliberately not set -e as the virtualenvwrapper functions inherit this.
 # I could not get the test to pass with it activated. If the actual expectations
 # of this test are not met, the test will still reliably fail, though.
@@ -14,10 +14,23 @@ if ! which mkvirtualenv; then
   exit 1
 fi
 
-echo "Check if 'workon' is available"
+echo "Check if 'mkvirtualenv' is runnable"
+which mkvirtualenv
+# Cannot use --version as that returns unclean by default.
+if ! mkvirtualenv --help; then
+  echo "Failed to run mkvirtualenv"
+  exit 1
+fi
 
+echo "Check if 'workon' is available"
 if ! which workon; then
   echo "Failed to find workon";
+  exit 1
+fi
+
+echo "Check if 'workon' is runnable"
+if ! workon -h; then
+  echo "Failed to run workon";
   exit 1
 fi
 

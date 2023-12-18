@@ -12,10 +12,8 @@ Run this:
 ```sh
 git clone https://github.com/kaihowl/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-# Actual sourcing/linking of dotfiles
+# Actual sourcing/linking of dotfiles and installation
 script/bootstrap
-# Optionally, install packages
-script/install
 # Optionally, run the tests
 script/test
 ```
@@ -25,11 +23,6 @@ Everything is configured and tweaked within `~/.dotfiles`.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
-
-`dots` is a simple script that installs some dependencies, sets sane OS X
-defaults, and so on. Tweak this script, and occasionally run `dots` from
-time to time to keep your environment fresh and up-to-date. You can find
-this script in `bin/`.
 
 ## guidelines
 

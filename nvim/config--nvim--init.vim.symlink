@@ -2,10 +2,12 @@
 "{{{ misc options, sane defaults
 set modelines=1
 
+" Rely on 'native' Lua plugins.
 let g:loaded_python_provider = 0
-" let g:loaded_python3_provider = 1
-let g:virtualenv = '~/.virtualenvs/dotfiles-run/bin'
-let g:python3_host_prog = g:virtualenv.'/python3'
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
 
 set lazyredraw
 
@@ -69,8 +71,6 @@ set colorcolumn=81
 set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
-set pastetoggle=<leader>p
-
 " Allow to delete old characters in insert mode
 " Also needed that latex-suite will be able to delete placeholders
 set backspace=2
@@ -103,6 +103,10 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTreeCWD'] }
 
+Plug 'stevearc/oil.nvim'
+
+Plug 'vim-scripts/linediff.vim'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -133,7 +137,7 @@ Plug 'tpope/vim-abolish'
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'godlygeek/tabular'
@@ -148,12 +152,11 @@ Plug 'morhetz/gruvbox'
 Plug 'folke/tokyonight.nvim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'kaiuri/nvim-juliana'
 
 " Fugitive browse handlers
 Plug 'tommcdo/vim-fubitive' " Bitbucket
 Plug 'tpope/vim-rhubarb' " Github
-
-Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tomtom/tcomment_vim'
 
@@ -180,14 +183,14 @@ end
 
 "}}}
 
-"{{{ vim-indent-guides
-" Enable indent guides per default
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'fzf']
-"}}}
+" {{{indent-blankline
+lua <<EOF
+require("ibl").setup { }
+EOF
+" }}}
 
 "{{{ vim-trailing-whitespace
-let g:extra_whitespace_ignored_filetypes = ['help', 'nerdtree', 'fzf']
+let g:extra_whitespace_ignored_filetypes = ['help', 'fzf']
 "}}}
 
 "{{{ helper functions
@@ -212,19 +215,12 @@ command! -nargs=1 RestoreCurPos
 
 "{{{ fugitive
 function s:diff_to_default_branch()
-  let defaultbranch = Get_default_branch()
+  let defaultbranch = <sid>get_diff_file_master_merge()
   exe 'Gvdiffsplit ' . defaultbranch
 endfunction
 
 " Fugitive mappings
 nnoremap <leader>gs :G<cr>
-
-nnoremap <leader>gl :0Gclog --after='6 months ago'<cr>
-nnoremap <leader>gL :0Gclog<cr>
-" Gclog with a range already restores the cursor position on the expected
-" chunk. This is superior to just retaining the current cursor position.
-vnoremap <leader>gl :Gclog --after='6 months ago'<cr>
-vnoremap <leader>gL :Gclog<cr>
 
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gm :call <sid>diff_to_default_branch()<cr>
@@ -266,6 +262,209 @@ let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 "{{{ fzf-lua
 let g:fzf_history_dir = expand('~/.local/share/fzf-history')
 
+lua <<EOF
+
+local separator = ' '
+function commit_and_path()
+  local fugitive_path = vim.fn.FugitiveFind()
+  if vim.o.buftype ~= '' or fugitive_path == '' then
+    return {"HEAD", "."}
+  end
+  local parsed = vim.fn.FugitiveParse(fugitive_path)
+  if parsed[2] ~= '' then -- we parsed a fugitive:// url
+    local commit, path = unpack(vim.fn.split(parsed[1], ':'))
+
+    if string.match(commit, "^[0-3]$") then -- special fugitive commit
+      -- Reset to HEAD to match fugitive's gclog function's behavior.
+      -- There is no obvious, public function to restore the actual commit hash from.
+      -- For "0", there would not be a matching commit hash (other than HEAD anyhow).
+      commit = "HEAD"
+    end
+
+    local worktree = vim.fn.FugitiveWorkTree()
+    local abs_path = path and worktree .. '/' .. path or worktree
+    return {commit or "HEAD", abs_path}
+  else
+    return {"HEAD", fugitive_path}
+  end
+end
+
+function make_git_log_command(commit, path, line_range)
+  local opts = {
+    'log',
+    '--color',
+    '--pretty=tformat:%C(yellow)%h%Creset' .. separator .. '%C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
+    commit
+  }
+
+  if line_range then
+    table.insert(opts, '--no-patch')
+    table.insert(opts, '-L' .. line_range.startline .. ',' .. line_range.endline .. ':' .. path)
+  else
+    table.insert(opts, '--follow')
+    table.insert(opts, '--summary')
+    table.insert(opts, '--')
+    table.insert(opts, path)
+  end
+
+
+  return vim.fn.FugitiveShellCommand(opts)
+end
+
+function make_git_preview_command()
+  local is_not_first_commit = vim.fn.FugitiveShellCommand({'rev-parse', '--quiet', '--verify', '--end-of-options', '{2}~1'})
+  local show_diff = vim.fn.FugitiveShellCommand({'log', '--format=fuller', '-p', '--color', '--word-diff', '{2}~1..{2}'}) .. " -- {1}"
+  local show_single_commit = vim.fn.FugitiveShellCommand({'show', '{2}'}) .. " -- {1}"
+  return "if " .. is_not_first_commit .. " > /dev/null; then " .. show_diff .. "; else " .. show_single_commit .. "; fi"
+end
+
+local sel_to_qf = function(selected, _opts)
+  local qf_list = {}
+  for _, selection in ipairs(selected) do
+    local file, commit, text_offset = string.match(selection, "^([^" .. separator .. "]*)" .. separator .. "(%x+)" .. separator .. "()%(")
+    local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
+    table.insert(qf_list, {
+      filename = fugitive_path,
+      lnum = 1,
+      col = 1,
+      text = string.sub(selection, text_offset)
+    })
+  end
+  return qf_list
+end
+
+function git_edit_or_qf(cursorpos, selected, opts, is_loclist)
+  if #selected == 1 then
+    git_cmd_with_selection(cursorpos, selected, opts, 'edit')
+  else
+    git_set_qf(selected, opts)
+  end
+end
+
+-- TODO(kaihowl) test for vsplit, etc.
+function git_cmd_with_selection(cursorpos, selected, opts, cmd)
+  local converted = sel_to_qf(selected, opts)
+  for _, selection in ipairs(converted) do
+    vim.cmd(cmd .. ' ' .. selection.filename)
+    vim.api.nvim_win_set_cursor(0, cursorpos)
+  end
+end
+
+function git_set_qf(selected, opts)
+  local converted = sel_to_qf(selected, opts)
+  vim.fn.setqflist({}, " ", {
+    nr = "$",
+    items = converted,
+    title = opts.__resume_data.last_query,
+  })
+  vim.cmd("copen")
+end
+
+function git_split(cursorpos, selected, opts)
+  git_cmd_with_selection(cursorpos, selected, opts, 'Gdiffsplit')
+end
+
+function git_vsplit(cursorpos, selected, opts)
+  git_cmd_with_selection(cursorpos, selected, opts, 'Gvdiffsplit')
+end
+
+function git_tab(cursorpos, selected, opts)
+  git_cmd_with_selection(cursorpos, selected, opts, 'tabedit')
+end
+
+-- Parse a line of the --summary from git log
+-- Could be of form 'before.txt => after.txt (100%)' OR
+-- the terse 'somedir/{before => after}/somefile.txt (100%)'
+-- Returns the from_filename and to_filename.
+function parse_renamecopy_line(line)
+  -- Due to missing regex alternative syntax '|', cheat with a character class
+  -- for "rename" vs "copy"
+  local prefix, left, right, suffix = string.match(line, "^ [renamecopy]* ([^{]*){?(.*) => ([^}]*)}?(.*) %(")
+  if left == "" and suffix == "" then -- short form, no braces matched
+    return prefix, right
+  end
+  return prefix .. left .. suffix, prefix .. right .. suffix
+end
+
+function shortened_path(path, n_chars)
+  if #path <= n_chars then
+    return path
+  end
+
+  return require('fzf-lua.path').shorten(path, 1)
+end
+
+function buffer_commits(opts)
+  local original_cursorpos = vim.api.nvim_win_get_cursor(0)
+
+  function curry_with_original_cursorpos(fun)
+    return function(...)
+      fun(original_cursorpos, ...)
+    end
+  end
+
+  local line_range = nil
+  if opts and opts.count ~= -1 then
+    line_range = { startline = opts.line1, endline = opts.line2 }
+  end
+
+  if #vim.fn.FugitiveGitDir() == 0 then
+    vim.notify("Not in a git directory. Aborting.", vim.log.levels.WARN)
+    return
+  end
+  -- for git status / non-file buffer: {}
+  -- for directory: {"HEAD", "/home/.../NERD_tree_1"}
+  local comm_path = commit_and_path()
+  local commit, abs_path = unpack(comm_path)
+  local workspace_root = vim.fn.FugitiveWorkTree()
+  local rel_path = require'fzf-lua'.path.relative(abs_path or '', workspace_root)
+  local parsing_state = {filename = rel_path}
+  local command = make_git_log_command(commit, abs_path, line_range)
+  require'fzf-lua'.fzf_exec(command, {
+    prompt = shortened_path(workspace_root, 32) .. '/',
+    fn_transform = function(line)
+      -- Possible lines, see https://github.com/git/git/blob/07330a41d66a2c9589b585a3a24ecdcf19994f19/diff.c#L6091-L6119
+      if vim.startswith(line, ' rename') or vim.startswith(line, ' copy') then
+        local from, to = parse_renamecopy_line(line)
+        if parsing_state.filename == to then
+          parsing_state.filename = from
+        end
+        return
+      end
+      if line == ''
+         or vim.startswith(line, ' create')
+         or vim.startswith(line, ' mode')
+         or vim.startswith(line, ' delete')
+         or vim.startswith(line, ' rewrite') then
+        -- discard unintersting summary line
+        return
+      elseif vim.startswith(line, ' ') then
+        -- unexpected summary line
+        return 'unexpected summary line: ' .. line
+      end
+      return parsing_state.filename .. separator .. line
+    end,
+    fzf_opts = {
+      ['--delimiter'] = '"' .. separator .. '"',
+    },
+    preview = make_git_preview_command(),
+    actions={
+      ['default'] = curry_with_original_cursorpos(git_edit_or_qf),
+      ['ctrl-s'] = curry_with_original_cursorpos(git_split),
+      ['ctrl-v'] = curry_with_original_cursorpos(git_vsplit),
+      ['ctrl-t'] = curry_with_original_cursorpos(git_tab),
+  }})
+end
+
+vim.api.nvim_create_user_command('BufferCommits',
+  buffer_commits,
+  { range = -1 })
+
+EOF
+
+nnoremap <leader>gl :BufferCommits<cr>
+vnoremap <leader>gl :BufferCommits<cr>
+
 " Create dirs
 if !isdirectory(g:fzf_history_dir)
   call mkdir(g:fzf_history_dir, 'p')
@@ -275,36 +474,39 @@ if !exists('g:first_time_startup')
 lua <<EOF
 require('fzf-lua').setup{
   winopts = {
-    split = 'botright new'
+    preview = {
+      layout = 'vertical',
+    }
   },
   fzf_opts = {
     -- Remove default reverse layout to get prompt at bottom
      ['--layout']      = false,
-     ['--history']     = vim.g.fzf_history_dir .. '/' .. 'history'
+     ['--history']     = vim.g.fzf_history_dir .. '/' .. 'history',
+     ['--keep-right']  = '',
   },
   grep= {
     rg_opts = '--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512',
   },
   files = {
     rg_opts = '--hidden --files --color=never --glob ""',
-    winopts = {
-      preview = {
-        hidden = 'hidden',
-      },
-    },
   },
   buffers = {
-    winopts = {
-      preview = {
-        hidden = 'hidden',
-      },
-    },
   },
   git = {
     branches = {
       cmd = "git branch --color --sort=-committerdate",
+      cwd = "%:p:h"
     }
-  }
+  },
+  lsp = {
+    jump_to_single_result = true,
+  },
+  previewers = {
+    builtin = {
+      -- Show full file name and not just tail
+      title_fnamemodify = function(s) return s end,
+    },
+  },
 }
 EOF
 endif
@@ -312,10 +514,15 @@ endif
 nnoremap <leader>s :FzfLua files<cr>
 nnoremap <leader>d :FzfLua buffers<cr>
 nnoremap <leader>f<space> :FzfLua<space>
+nnoremap <leader>fr :FzfLua resume<cr>
 nnoremap <leader>fc :FzfLua changes<cr>
 nnoremap <leader>fj :FzfLua jumps<cr>
 nnoremap <leader>fb :FzfLua git_branches<cr>
 nnoremap <leader>R :FzfLua live_grep<cr>
+" Set no_esc=true to pass \b as boundary markers and not backspace. A cword is
+" unlikely to require escaping.
+nnoremap <leader>rr :lua require('fzf-lua').grep({search = "\\b"..vim.fn.expand('<cword>').."\\b", no_esc = true})<cr>
+vnoremap <leader>rr :lua require('fzf-lua').grep_visual({})<cr>
 "}}}
 
 "{{{ mode escaping
@@ -337,12 +544,59 @@ augroup END
 "}}}
 
 "{{{ asynctasks / asyncrun
-nnoremap <leader>mm :AsyncTaskLast<cr>
-nnoremap <leader>mx :AsyncStop<cr>
-nnoremap <leader>M :AsyncTaskEdit<cr>
-nnoremap <leader>m<space> :AsyncTask<space>
+
+" Call asynctask with pwd: for submodules with individual task files, only the
+" task file from the current working directory should count.
+
+function! SimpleAsyncTaskComplete(Arg, Ignore1, Ignore2)
+  return join(map(asynctasks#list('.'), 'v:val["name"]'), "\n")
+endfunction
+
+function! SimpleAsyncTaskLast()
+  if g:asynctasks_last ==# ''
+    echoerr 'no task history'
+    return -1
+  endif
+  call asynctasks#start('', g:asynctasks_last, '.')
+endfunction
+
+function! SimpleAsyncTask(taskname)
+  let g:asynctasks_last = a:taskname
+  call asynctasks#start('', a:taskname, '.')
+endfunction
+
+function! SimpleAsyncStop()
+  AsyncStop
+  let original_splitright = &splitright
+  vert copen
+  wincmd =
+  let &splitright = original_splitright
+  call cursor(1,1)
+  call search('error:')
+  call feedkeys("\<cr>", 'tx')
+endfunction
+
+" TODO(kaihowl) this loses the templating functionality
+function! SimpleAsyncTaskEdit()
+  edit .tasks
+endfunction
+
+command! -bang -nargs=* -range=0 -complete=custom,SimpleAsyncTaskComplete SimpleAsyncTask
+			\ call SimpleAsyncTask(<q-args>)
+command! -bang -nargs=* -range=0 SimpleAsyncTaskLast
+			\ call SimpleAsyncTaskLast()
+command! -bang -nargs=0 -range=0 SimpleAsyncTaskEdit
+			\ call SimpleAsyncTaskEdit()
+command! -bang -nargs=0 -range=0 SimpleAsyncStop
+			\ call SimpleAsyncStop()
+
+nnoremap <leader>mm :SimpleAsyncTaskLast<cr>
+nnoremap <leader>mx :SimpleAsyncStop<cr>
+nnoremap <leader>M :SimpleAsyncTaskEdit<cr>
+nnoremap <leader>m<space> :SimpleAsyncTask<space>
 
 let g:asynctasks_term_pos = 'tab' " Run terminal tasks in new, internal tab window
+let g:asyncrun_auto = 'make'
 let g:asynctasks_confirm = 0 " Do not confirm filename when edit task config file
 let g:asynctasks_template = {}
 let g:asynctasks_template.cpp = [
@@ -353,6 +607,14 @@ let g:asynctasks_template.cpp = [
 augroup asynctasks
   autocmd!
   autocmd User AsyncRunStart set splitright | vert copen | wincmd = | wincmd p | set nosplitright
+augroup END
+
+augroup CleanUpMatchAll
+  autocmd!
+  " We do not want the local errorformat to drop all non matched lines
+  " Otherwise, asyncrun will not show the output.
+  " Fixes #367
+  autocmd FileType * setlocal errorformat-=%-G%.%#
 augroup END
 "}}}
 
@@ -467,42 +729,6 @@ nnoremap <leader>o :TagbarOpen fj<cr>
 let g:tagbar_show_linenumbers=-1
 "}}}
 
-"{{{ rg
-" Set smart case for rg
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden
-  let &grepformat='%f:%l:%c:%m'
-endif
-
-fun! s:Grep(txt, bang)
-  if empty(a:txt)
-    let needle = expand('<cword>')
-  else
-    let needle =  a:txt
-  endif
-  " Escape vim command mode special chars.
-  " Borrowed from mileszs/ack.vim.
-  let needle = escape(needle, '|#%')
-  " And escape full search string for shell usage.
-  " Unless passing <bang>, then allow for passing arguments.
-  if a:bang !=# '!'
-    let needle = shellescape(needle)
-  endif
-  silent! execute 'grep! ' . needle
-  copen
-endfun
-
-fun! s:GrepCurrentWord()
-  call s:Grep('-w ' . expand('<cword>'), '!')
-endfun
-
-command! -bang -nargs=* Rg :call s:Grep(<q-args>, '<bang>')
-command! RgCurrentWord :call s:GrepCurrentWord()
-
-noremap <leader>rr :RgCurrentWord<cr>
-noremap <leader>r<space> :Rg<space>
-"}}}
-
 "{{{ filetypes
 " Add yaml file type for salt sls files
 augroup salt_ft
@@ -536,6 +762,10 @@ augroup commit
 augroup END
 
 fun! s:commit_type()
+  " Redraw added to make neovim/neovim#14565 a dormant fault
+  " Otherwise, opening the commit message buffer and entering insert mode in
+  " quick succession will lead to a segfault.
+  redraw
   call complete(1, ['fix: ', 'feat: ', 'refactor: ', 'docs: ', 'test: ', 'ci: ', 'chore: ', 'perf: '])
   nunmap <buffer> i
   return ''
@@ -543,6 +773,8 @@ endfun
 "}}}
 
 "{{{ diffopt
+" Generally enable the second stage diff added in nvim 0.9
+set diffopt+=linematch:60
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
 function! s:toggle_iwhite(opt)
@@ -712,17 +944,16 @@ augroup END
 "}}}
 
 "{{{ Todo functionality
-function! s:GetUser()
+function! GetTodoUserName()
   return trim(system('id -un'))
 endfunction
 
 function! s:SearchForToDo()
-  let user = <sid>GetUser()
-  execute ':Rg todo.'.user
+  lua require('fzf-lua').grep({search = 'todo(' .. vim.fn.GetTodoUserName()}) 
 endfunction
 
 function! s:GenerateToDo()
-  let user = <sid>GetUser()
+  let user = GetTodoUserName()
   return 'TODO(' . user . ')'
 endfunction
 
@@ -755,24 +986,26 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gD', '<cmd> lua require("fzf-lua").lsp_declarations()<cr>', opts)
+  buf_set_keymap('n', 'gd', '<cmd> lua require("fzf-lua").lsp_definitions()<cr>', opts)
+  buf_set_keymap('n', '<c-]>', '<cmd> lua require("fzf-lua").lsp_definitions()<cr>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd> lua require("fzf-lua").lsp_implementations()<cr>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>D', '<cmd> lua require("fzf-lua").lsp_typedefs()<cr>', opts)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<leader>ca', '<cmd> lua require("fzf-lua").lsp_code_actions()<cr>', opts)
+  buf_set_keymap('n', 'gr', '<cmd> lua require("fzf-lua").lsp_references()<cr>', opts)
   buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<leader>q', '<cmd> lua require("fzf-lua").diagnostics_document()<cr>', opts)
+  buf_set_keymap('n', '<leader>Q', '<cmd> lua require("fzf-lua").diagnostics_workspace()<cr>', opts)
+  buf_set_keymap('n', '<leader>fd', '<cmd> lua require("fzf-lua").lsp_document_symbols()<cr>', opts)
+  buf_set_keymap('n', '<leader>fD', '<cmd> lua require("fzf-lua").lsp_workspace_symbols()<cr>', opts)
 end
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
@@ -794,7 +1027,8 @@ configs.clangd.setup{root_dir=function(fname)
 
 configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
-local pylsp_binary = vim.api.nvim_eval("expand(g:virtualenv)").."/pylsp"
+local virtualenv = '~/.virtualenvs/dotfiles-run/bin'
+local pylsp_binary = vim.api.nvim_eval("expand('".. virtualenv .. "/pylsp')")
 configs.pylsp.setup{cmd={pylsp_binary}, on_attach=on_attach, capabilities=capabilities}
 
 configs.efm.setup {
@@ -880,7 +1114,17 @@ cmp.setup {
     { name = 'buffer',
       option = {
         get_bufnrs = function()
-          return vim.api.nvim_list_bufs()
+          local bufs = {}
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            bufs[vim.api.nvim_win_get_buf(win)] = true
+          end
+          local is_small_buf = function(index, buf)
+            local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
+            return byte_size <= 1024*1024 -- 1 Megabyte max
+          end
+
+          local all_visible_bufs = vim.tbl_keys(bufs)
+          return vim.fn.filter(all_visible_bufs, is_small_buf)
         end
       }
     },
@@ -931,13 +1175,56 @@ nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <M-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 "}}}
-"
-augroup CleanUpMatchAll
+
+"{{{ treesitter
+" # Workaround from https://github.com/neovim/neovim/issues/20456
+augroup TreeSitterVim
   autocmd!
-  " We do not want the local errorformat to drop all non matched lines
-  " Otherwise, asyncrun will not show the output.
-  " Fixes #367
-  autocmd FileType * setlocal errorformat-=%-G%.%#
+  autocmd FileType vim lua vim.treesitter.start()
 augroup END
+"}}}
+
+"{{{ Oil
+if !exists('g:first_time_startup')
+lua <<EOF
+require('oil').setup({default_file_explorer = false})
+EOF
+endif
+"}}}
+
+"{{{ Thread Sanitizer Error Format
+augroup ThreadSanitizer
+  autocmd!
+  " Example:
+  " ==784292==Hint: address points to the zero page.
+  "     #0 0x50ae06 in fun() /tmp/tmp.sH5TtCAT35/sanitizer.cpp:3:6
+  "     #1 0x50ae33 in main /tmp/tmp.sH5TtCAT35/sanitizer.cpp:7:3
+  "     #2 0x7f4c11792082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+  "     #3 0x4194ed in _start (/tmp/tmp.sH5TtCAT35/sanitizer+0x4194ed) 
+  " Without column
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l
+  " With column
+  autocmd QuickFixCmdPre * setlocal errorformat^=%.%#\ #%n\ %.%#\ in\ %m\ %f:%l:%c
+augroup END
+"}}}
+
+"{{{ quickfix reload
+" Stolen from https://www.reddit.com/r/vim/comments/9iwr41/store_quickfix_list_as_a_file_and_load_it/
+
+function! s:load_file(type, bang, file) abort
+    let l:efm = &l:efm
+    let &l:errorformat = "%-G%f:%l: All of '%#%.depend'%.%#,%f%.%l col %c%. %m"
+    let l:cmd = a:bang ? 'getfile' : 'file'
+    exec a:type.l:cmd.' '.a:file
+    let &l:efm = l:efm
+endfunction
+
+command! -complete=file -nargs=1 -bang Cfile call <SID>load_file('c', <bang>0, <f-args>)
+command! -complete=file -nargs=1 -bang Lfile call <SID>load_file('l', <bang>0, <f-args>)
+"}}}
+
+"{{{ linediff
+vnoremap <leader>gd :Linediff<cr>
+"}}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0

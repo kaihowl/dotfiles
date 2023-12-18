@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-set -x
 
 function identity() {
   "$@"
@@ -35,10 +34,8 @@ function decorate() {
 source common/perf.sh
 CI_START=$(date +%s)
 
-"${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
-
 INSTALL_START=$(date +%s)
-"${stdbuf[@]}" ./script/install > >(decorate) 2>&1
+"${stdbuf[@]}" ./script/bootstrap > >(decorate) 2>&1
 INSTALL_END=$(date +%s)
 INSTALL_DURATION=$((INSTALL_END - INSTALL_START))
 add_measurement install $INSTALL_DURATION
@@ -72,9 +69,9 @@ ci_exit=$?
 set -e
 
 if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]]; then
-  echo $zsh_exit
-  echo $nvim_exit
-  echo $ci_exit
+  echo "zsh: $zsh_exit"
+  echo "nvim: $nvim_exit"
+  echo "ci: $ci_exit"
   exit 1
 fi
 
