@@ -14,3 +14,4 @@
 0 ./virtualenvwrapper/install.sh 1702923247.4509592 5.0 os=ubuntu-20.04
 0 ./alacritty/install.sh 1702923254.3677921 7.0 os=ubuntu-20.04
 0 ./fzf/install.sh 1702923255.5787027 1.0 os=ubuntu-20.04
+0 ./gdb/install.sh 1702923264.658561 9.0 os=ubuntu-20.04
