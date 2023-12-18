@@ -11,3 +11,4 @@
 0 ./rust/install.sh 1702918978.66076 8.0 os=macos-12
 0 ./efm/install.sh 1702918979.207442 1.0 os=macos-12
 0 ./homebrew/install.sh 1702918996.87919 17.0 os=macos-12
+0 ./ninja/install.sh 1702919002.422184 6.0 os=macos-12
