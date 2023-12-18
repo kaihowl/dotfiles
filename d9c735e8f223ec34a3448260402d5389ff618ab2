@@ -13,3 +13,4 @@
 0 ./ripgrep/install.sh 1702918884.783895 2.0 os=ubuntu-20.04
 0 ./virtualenvwrapper/install.sh 1702918890.056664 6.0 os=ubuntu-20.04
 0 ./alacritty/install.sh 1702918900.2991383 10.0 os=ubuntu-20.04
+0 ./fzf/install.sh 1702918902.4203172 2.0 os=ubuntu-20.04
