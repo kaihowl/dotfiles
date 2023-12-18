@@ -14,3 +14,4 @@
 0 ./ninja/install.sh 1702923337.599843 5.0 os=macos-12
 0 ./system/install.sh 1702923350.528036 13.0 os=macos-12
 0 ./colors/install.sh 1702923350.601056 0.0 os=macos-12
+0 ./shellcheck/install.sh 1702923351.633556 1.0 os=macos-12
