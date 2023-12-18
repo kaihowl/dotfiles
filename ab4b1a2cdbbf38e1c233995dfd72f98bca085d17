@@ -21,3 +21,4 @@
 ./ripgrep/install.sh 1702914237.421543 6.0 os=macos-12
 ./fzf/install.sh 1702914239.333614 2.0 os=macos-12
 ./git/install.sh 1702914244.050151 5.0 os=macos-12
+install 1702914244.069984 179.0 os=macos-12
