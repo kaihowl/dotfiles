@@ -5,3 +5,4 @@
 0 ./cmake/install.sh 1702918859.807846 8.0 os=ubuntu-22.04
 0 ./shellcheck/install.sh 1702918860.381216 1.0 os=ubuntu-22.04
 0 ./git/install.sh 1702918863.4249914 3.0 os=ubuntu-22.04
+0 ./tmux/install.sh 1702918863.9046001 0.0 os=ubuntu-22.04
