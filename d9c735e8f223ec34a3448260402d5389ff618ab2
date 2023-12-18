@@ -20,3 +20,4 @@
 0 ./virtualenvwrapper/install.sh 1702918905.9887364 5.0 os=ubuntu-22.04
 0 ./pyls/install.sh 1702918912.9511206 7.0 os=ubuntu-22.04
 0 ./alacritty/install.sh 1702918921.5460865 9.0 os=ubuntu-22.04
+0 ./nvim/install.sh 1702918926.3979836 5.0 os=ubuntu-22.04
