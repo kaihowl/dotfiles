@@ -4,3 +4,4 @@
 0 ./ccache/install.sh 1702918921.4575 12.0 os=macos-12
 0 ./gdb/install.sh 1702918921.506192 0.0 os=macos-12
 0 ./clangd/install.sh 1702918925.418561 4.0 os=macos-12
+0 ./cmake/install.sh 1702918931.064437 6.0 os=macos-12
