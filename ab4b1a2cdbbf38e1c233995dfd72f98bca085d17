@@ -6,3 +6,4 @@
 ./shellcheck/install.sh 1702914081.4223542 1.0 os=ubuntu-22.04
 ./git/install.sh 1702914084.348976 3.0 os=ubuntu-22.04
 ./tmux/install.sh 1702914084.7543004 0.0 os=ubuntu-22.04
+./rust/install.sh 1702914086.3425412 2.0 os=ubuntu-22.04
