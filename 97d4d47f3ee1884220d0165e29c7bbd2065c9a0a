@@ -12,3 +12,4 @@
 0 ./efm/install.sh 1703070891.5081027 0.0 os=ubuntu-20.04
 0 ./ripgrep/install.sh 1703070893.191498 2.0 os=ubuntu-20.04
 0 ./virtualenvwrapper/install.sh 1703070897.661014 4.0 os=ubuntu-20.04
+0 ./alacritty/install.sh 1703070905.051693 8.0 os=ubuntu-20.04
