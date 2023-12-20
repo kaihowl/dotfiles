@@ -20,3 +20,4 @@
 0 ./shellcheck/install.sh 1703070940.0937653 1.0 os=ubuntu-20.04
 0 ./osx/install.sh 1703070940.1001527 0.0 os=ubuntu-20.04
 0 ./clangd/install.sh 1703070950.474332 10.0 os=ubuntu-20.04
+0 ./git/install.sh 1703070954.0836759 4.0 os=ubuntu-20.04
