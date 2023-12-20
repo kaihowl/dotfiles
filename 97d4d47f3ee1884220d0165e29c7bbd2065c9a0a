@@ -3,3 +3,4 @@
 0 ./nvim/install.sh 1703070868.3468225 4.0 os=ubuntu-20.04
 0 ./rust/install.sh 1703070869.7562606 1.0 os=ubuntu-20.04
 0 ./ccache/install.sh 1703070872.6418018 3.0 os=ubuntu-20.04
+0 ./ctags/install.sh 1703070875.604707 3.0 os=ubuntu-20.04
