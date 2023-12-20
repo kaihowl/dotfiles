@@ -2,3 +2,4 @@
 0 ./efm/install.sh 1703070861.809238 0.0 os=ubuntu-22.04
 0 ./system/install.sh 1703070864.6541061 3.0 os=ubuntu-22.04
 0 ./ninja/install.sh 1703070867.4695432 3.0 os=ubuntu-22.04
+0 ./cmake/install.sh 1703070877.9003751 10.0 os=ubuntu-22.04
