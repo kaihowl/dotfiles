@@ -3,3 +3,4 @@
 0 ./alacritty/install.sh 1703070893.217769 14.0 os=macos-12
 0 ./ccache/install.sh 1703070898.819887 5.0 os=macos-12
 0 ./gdb/install.sh 1703070898.850807 0.0 os=macos-12
+0 ./clangd/install.sh 1703070901.18499 3.0 os=macos-12
