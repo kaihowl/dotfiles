@@ -31,3 +31,5 @@
 ./fzf/install.sh 1703418252.2856066 1 os=ubuntu-20.04
 
 ./gdb/install.sh 1703418260.5812776 8 os=ubuntu-20.04
+
+./ninja/install.sh 1703418263.3570542 3 os=ubuntu-20.04
