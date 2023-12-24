@@ -15,3 +15,5 @@
 ./colors/install.sh 1703418224.0257392 0 os=ubuntu-20.04
 
 ./vint/install.sh 1703418230.0817456 6 os=ubuntu-20.04
+
+./pyls/install.sh 1703418235.8853319 5 os=ubuntu-20.04
