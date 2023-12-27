@@ -13,3 +13,5 @@
 ./homebrew/install.sh 1703695242.2494552 0 os=ubuntu-20.04
 
 ./colors/install.sh 1703695242.3383625 0 os=ubuntu-20.04
+
+./vint/install.sh 1703695248.5961895 6 os=ubuntu-20.04
