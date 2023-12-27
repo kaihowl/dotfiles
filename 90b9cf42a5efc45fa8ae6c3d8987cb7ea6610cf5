@@ -41,3 +41,5 @@
 ./pyls/install.sh 1703695775.3168511 7 os=ubuntu-22.04
 
 ./alacritty/install.sh 1703695782.3913908 7 os=ubuntu-22.04
+
+./nvim/install.sh 1703695787.170155 5 os=ubuntu-22.04
