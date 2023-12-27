@@ -41,3 +41,5 @@
 ./osx/install.sh 1703695293.2252827 0 os=ubuntu-20.04
 
 ./clangd/install.sh 1703695303.2560012 10 os=ubuntu-20.04
+
+./git/install.sh 1703695306.5771456 3 os=ubuntu-20.04
