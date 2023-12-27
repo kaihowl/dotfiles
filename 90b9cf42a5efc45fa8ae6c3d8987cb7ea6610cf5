@@ -11,3 +11,5 @@
 ./ctags/install.sh 1703695713.5678558 3 os=ubuntu-20.04
 
 ./homebrew/install.sh 1703695713.6501787 0 os=ubuntu-20.04
+
+./colors/install.sh 1703695713.736655 0 os=ubuntu-20.04
