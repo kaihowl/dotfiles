@@ -29,3 +29,5 @@
 ./alacritty/install.sh 1703695741.0372522 6 os=ubuntu-20.04
 
 ./fzf/install.sh 1703695742.004441 0 os=ubuntu-20.04
+
+./gdb/install.sh 1703695750.6260247 8 os=ubuntu-20.04
