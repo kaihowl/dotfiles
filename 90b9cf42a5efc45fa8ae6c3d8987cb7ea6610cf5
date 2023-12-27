@@ -9,3 +9,5 @@
 ./cmake/install.sh 1703695714.258658 7 os=ubuntu-22.04
 
 ./shellcheck/install.sh 1703695714.890951 0 os=ubuntu-22.04
+
+./git/install.sh 1703695718.034563 3 os=ubuntu-22.04
