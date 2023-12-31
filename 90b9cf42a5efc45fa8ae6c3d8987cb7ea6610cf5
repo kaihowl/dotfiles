@@ -27,3 +27,5 @@
 ./virtualenvwrapper/install.sh 1704023056.2299633 5 os=ubuntu-20.04
 
 ./alacritty/install.sh 1704023064.2539515 8 os=ubuntu-20.04
+
+./fzf/install.sh 1704023065.5223706 1 os=ubuntu-20.04
