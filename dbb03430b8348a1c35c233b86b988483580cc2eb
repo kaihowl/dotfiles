@@ -11,3 +11,5 @@
 ./shellcheck/install.sh 1704034756.5349255 1 os=ubuntu-22.04
 
 ./git/install.sh 1704034759.3847482 3 os=ubuntu-22.04
+
+./tmux/install.sh 1704034759.8601701 0 os=ubuntu-22.04
