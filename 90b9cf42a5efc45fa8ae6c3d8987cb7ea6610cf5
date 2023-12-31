@@ -33,3 +33,5 @@
 ./gdb/install.sh 1704023074.0800078 9 os=ubuntu-20.04
 
 ./ninja/install.sh 1704023076.9902654 2 os=ubuntu-20.04
+
+./cmake/install.sh 1704023083.3119543 6 os=ubuntu-20.04
