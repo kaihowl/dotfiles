@@ -15,3 +15,5 @@
 ./tmux/install.sh 1704034305.0854523 1 os=ubuntu-22.04
 
 ./rust/install.sh 1704034313.9413626 8 os=ubuntu-22.04
+
+./gdb/install.sh 1704034323.2066653 10 os=ubuntu-22.04
