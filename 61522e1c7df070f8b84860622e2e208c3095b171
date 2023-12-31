@@ -33,3 +33,5 @@
 ./shellcheck/install.sh 1704039348.2150102 1 os=macos-12
 
 ./tmux/install.sh 1704039352.676141 4 os=macos-12
+
+./vint/install.sh 1704039360.98596 8 os=macos-12
