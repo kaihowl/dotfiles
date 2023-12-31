@@ -27,3 +27,5 @@
 ./ccache/install.sh 1704034330.2019134 4 os=ubuntu-22.04
 
 ./ripgrep/install.sh 1704034332.0951579 2 os=ubuntu-22.04
+
+./clangd/install.sh 1704034343.2231443 11 os=ubuntu-22.04
