@@ -23,3 +23,5 @@
 ./osx/install.sh 1704034323.395483 0 os=ubuntu-22.04
 
 ./ctags/install.sh 1704034326.5016873 3 os=ubuntu-22.04
+
+./ccache/install.sh 1704034330.2019134 4 os=ubuntu-22.04
