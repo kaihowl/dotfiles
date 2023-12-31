@@ -19,3 +19,5 @@
 ./pyls/install.sh 1704023046.9874744 6 os=ubuntu-20.04
 
 ./system/install.sh 1704023049.7244902 3 os=ubuntu-20.04
+
+./efm/install.sh 1704023050.1385508 1 os=ubuntu-20.04
