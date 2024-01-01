@@ -31,3 +31,5 @@
 ./colors/install.sh 1704125831.2010748 0 os=macos-12
 
 ./shellcheck/install.sh 1704125832.3497112 1 os=macos-12
+
+./tmux/install.sh 1704125836.89215 4 os=macos-12
