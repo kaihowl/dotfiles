@@ -37,3 +37,5 @@
 ./vint/install.sh 1704126074.678556 6 os=ubuntu-22.04
 
 ./virtualenvwrapper/install.sh 1704126079.3271558 5 os=ubuntu-22.04
+
+./pyls/install.sh 1704126085.6735983 6 os=ubuntu-22.04
