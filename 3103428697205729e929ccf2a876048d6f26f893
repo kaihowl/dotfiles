@@ -1,3 +1,5 @@
 ./zsh/install.sh 1704126023.449323 10 os=ubuntu-20.04
 
 ./tmux/install.sh 1704126023.9401383 0 os=ubuntu-20.04
+
+./nvim/install.sh 1704126029.3607934 6 os=ubuntu-20.04
