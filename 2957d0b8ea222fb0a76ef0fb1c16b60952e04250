@@ -3,3 +3,5 @@
 ./tmux/install.sh 1704125687.609711 0 os=ubuntu-20.04
 
 ./nvim/install.sh 1704125693.2368808 6 os=ubuntu-20.04
+
+./rust/install.sh 1704125701.3651497 8 os=ubuntu-20.04
