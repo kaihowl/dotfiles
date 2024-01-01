@@ -35,3 +35,5 @@
 ./fzf/install.sh 1704126068.018502 1 os=ubuntu-22.04
 
 ./vint/install.sh 1704126074.678556 6 os=ubuntu-22.04
+
+./virtualenvwrapper/install.sh 1704126079.3271558 5 os=ubuntu-22.04
