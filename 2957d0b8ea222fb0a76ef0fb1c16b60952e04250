@@ -5,3 +5,5 @@
 ./nvim/install.sh 1704125693.2368808 6 os=ubuntu-20.04
 
 ./rust/install.sh 1704125701.3651497 8 os=ubuntu-20.04
+
+./ccache/install.sh 1704125704.2915916 3 os=ubuntu-20.04
