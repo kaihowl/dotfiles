@@ -33,3 +33,5 @@
 ./colors/install.sh 1704126066.9826493 0 os=ubuntu-22.04
 
 ./fzf/install.sh 1704126068.018502 1 os=ubuntu-22.04
+
+./vint/install.sh 1704126074.678556 6 os=ubuntu-22.04
