@@ -13,3 +13,5 @@
 ./git/install.sh 1704126033.5250697 3 os=ubuntu-22.04
 
 ./tmux/install.sh 1704126034.0175576 0 os=ubuntu-22.04
+
+./rust/install.sh 1704126042.4431336 8 os=ubuntu-22.04
