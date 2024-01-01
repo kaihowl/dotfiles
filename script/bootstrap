@@ -27,6 +27,10 @@ fail () {
   exit
 }
 
+remove_outdated_files () {
+  rm -rf ~/.config/alacritty/alacritty.yml ~/.color/alacritty.yml && success "Removed outdated alacritty config files"
+}
+
 setup_gitconfig () {
   if ! [ -f ~/.gitconfig_credentials ]
   then
@@ -148,6 +152,7 @@ link_dotfiles () {
 
 setup_gitconfig
 link_dotfiles
+remove_outdated_files
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
