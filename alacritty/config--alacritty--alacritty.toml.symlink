@@ -1,5 +1,4 @@
-enable_experimental_conpty_backend = false
-import = ["/Users/kaihowl/.color/alacritty.toml"]
+import = ["~/.color/alacritty.toml"]
 live_config_reload = true
 working_directory = "None"
 
@@ -19,7 +18,6 @@ unfocused_hollow = true
 log_level = "Warn"
 persistent_logging = false
 print_events = false
-ref_test = false
 render_timer = false
 
 [font]
@@ -575,12 +573,6 @@ hide_when_typing = false
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
-
-[mouse.double_click]
-threshold = 300
-
-[mouse.triple_click]
-threshold = 300
 
 [scrolling]
 history = 10000
