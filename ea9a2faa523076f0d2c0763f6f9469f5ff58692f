@@ -23,3 +23,5 @@
 ./efm/install.sh 1704188210.512598 0 os=ubuntu-20.04
 
 ./ripgrep/install.sh 1704188212.0359764 1 os=ubuntu-20.04
+
+./virtualenvwrapper/install.sh 1704188216.354322 4 os=ubuntu-20.04
