@@ -11,3 +11,5 @@
 ./clangd/install.sh 1704190414.393327 3 os=macos-12
 
 ./cmake/install.sh 1704190418.120553 3 os=macos-12
+
+./osx/install.sh 1704190418.284291 0 os=macos-12
