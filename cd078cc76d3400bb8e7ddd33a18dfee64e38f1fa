@@ -21,3 +21,5 @@
 ./homebrew/install.sh 1704190395.558757 0 os=ubuntu-22.04
 
 ./osx/install.sh 1704190395.649303 0 os=ubuntu-22.04
+
+./ctags/install.sh 1704190398.4052403 3 os=ubuntu-22.04
