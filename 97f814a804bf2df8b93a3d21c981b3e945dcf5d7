@@ -9,3 +9,5 @@
 ./ccache/install.sh 1704188111.187333 3 os=ubuntu-20.04
 
 ./ctags/install.sh 1704188114.058682 2 os=ubuntu-20.04
+
+./homebrew/install.sh 1704188114.1420648 0 os=ubuntu-20.04
