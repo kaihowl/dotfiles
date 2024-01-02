@@ -17,3 +17,5 @@
 ./vint/install.sh 1704188458.4210649 6 os=ubuntu-20.04
 
 ./pyls/install.sh 1704188465.1634789 7 os=ubuntu-20.04
+
+./system/install.sh 1704188468.1230865 3 os=ubuntu-20.04
