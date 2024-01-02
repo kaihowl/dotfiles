@@ -17,3 +17,5 @@
 ./rust/install.sh 1704190386.9871857 8 os=ubuntu-22.04
 
 ./gdb/install.sh 1704190395.4659057 9 os=ubuntu-22.04
+
+./homebrew/install.sh 1704190395.558757 0 os=ubuntu-22.04
