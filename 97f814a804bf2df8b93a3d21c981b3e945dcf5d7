@@ -45,3 +45,5 @@
 ./git/install.sh 1704188287.07779 3 os=macos-12
 
 install 1704188287.225711 178 os=macos-12
+
+test 1704188357.3811781 64 os=macos-12
