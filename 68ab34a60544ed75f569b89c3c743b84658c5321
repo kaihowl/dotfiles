@@ -7,3 +7,5 @@
 ./rust/install.sh 1704188445.7594213 11 os=ubuntu-20.04
 
 ./ccache/install.sh 1704188448.8938558 3 os=ubuntu-20.04
+
+./ctags/install.sh 1704188452.0085976 3 os=ubuntu-20.04
