@@ -43,3 +43,5 @@
 ./clangd/install.sh 1704188513.6039305 10 os=ubuntu-20.04
 
 ./git/install.sh 1704188516.8678064 3 os=ubuntu-20.04
+
+install 1704188516.9475276 101 os=ubuntu-20.04
