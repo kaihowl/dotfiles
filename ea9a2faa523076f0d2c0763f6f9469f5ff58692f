@@ -25,3 +25,5 @@
 ./ctags/install.sh 1704188201.4454942 3 os=ubuntu-22.04
 
 ./ccache/install.sh 1704188204.605715 3 os=ubuntu-22.04
+
+./ripgrep/install.sh 1704188206.467043 2 os=ubuntu-22.04
