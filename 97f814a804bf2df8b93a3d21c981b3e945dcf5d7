@@ -39,3 +39,5 @@
 ./shellcheck/install.sh 1704188160.7551234 0 os=ubuntu-20.04
 
 ./osx/install.sh 1704188160.8361208 0 os=ubuntu-20.04
+
+./clangd/install.sh 1704188171.2108612 11 os=ubuntu-20.04
