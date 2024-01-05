@@ -21,7 +21,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
     sudo apt-get update
     sudo rm -rf /usr/share/keyrings/kitware-archive-keyring.gpg
     apt_install kitware-archive-keyring
-    rm -rf "$list_name"
+    sudo rm -rf "$list_name"
   fi
   apt_add_repo_with_keyfile kitware https://apt.kitware.com/ubuntu ::codename:: /usr/share/keyrings/kitware-archive-keyring.gpg
   apt_install cmake
