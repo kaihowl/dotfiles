@@ -44,7 +44,7 @@ jobs:
           path: '.dotfiles'
           fetch-depth: 40
       - name: Install git-perf
-        uses: ./dotfiles/.github/actions/install-gitperf
+        uses: ./.dotfiles/.github/actions/install-gitperf
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
@@ -98,7 +98,7 @@ jobs:
         run: |
           echo "REPORT_NAME=${GITHUB_REF_SLUG}" >> $GITHUB_ENV
       - name: Install git-perf
-        uses: ./dotfiles/.github/actions/install-gitperf
+        uses: ./.github/actions/install-gitperf
       - name: report
         shell: bash
         run: |
