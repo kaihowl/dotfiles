@@ -39,3 +39,5 @@
 ./virtualenvwrapper/install.sh 1704493499.4123523 5 os=ubuntu-22.04
 
 ./pyls/install.sh 1704493506.2312775 7 os=ubuntu-22.04
+
+./alacritty/install.sh 1704493513.312348 7 os=ubuntu-22.04
