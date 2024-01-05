@@ -43,12 +43,12 @@ jobs:
         with:
           path: '.dotfiles'
           fetch-depth: 40
+      - name: Install git-perf
+        uses: ./.github/actions/install-gitperf
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
           git config --global user.name "git-perf"
-      - name: Install git-perf
-        uses: ./.github/actions/install-gitperf
       - name: Install and test
         env:
           VERSION_RUNNER_OS: ${{ matrix.os }}
