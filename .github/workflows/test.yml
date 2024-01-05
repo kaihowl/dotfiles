@@ -47,6 +47,8 @@ jobs:
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
           git config --global user.name "git-perf"
+      - name: Install git-perf
+        uses: ./.github/actions/install-gitperf.yml
       - name: Install and test
         env:
           VERSION_RUNNER_OS: ${{ matrix.os }}
