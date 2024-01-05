@@ -17,5 +17,5 @@ runs:
           exit 1
         fi
         curl -L "$gitperf_url" | tar -xz --strip-components=1
-        echo 'export PATH="$HOME/.git-perf:$PATH"' >> $GITHUB_PATH
+        echo '$HOME/.git-perf:$PATH' >> $GITHUB_PATH
       shell: bash

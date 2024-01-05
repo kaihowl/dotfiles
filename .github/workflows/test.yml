@@ -46,6 +46,7 @@ jobs:
       - name: Install git-perf
         uses: ./.dotfiles/.github/actions/install-gitperf
       - run: |
+          echo $PATH
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
           git config --global user.name "git-perf"
