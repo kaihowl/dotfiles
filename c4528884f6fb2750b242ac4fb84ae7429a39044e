@@ -5,3 +5,5 @@
 ./system/install.sh 1704492769.823949 2 os=ubuntu-22.04
 
 ./ninja/install.sh 1704492772.6832669 3 os=ubuntu-22.04
+
+./cmake/install.sh 1704492784.820346 12 os=ubuntu-22.04
