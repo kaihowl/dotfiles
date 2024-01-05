@@ -2,6 +2,9 @@
 set -e
 
 function add_measurement {
+  # Needed as the -e is not preserved in _called_ scripts
+  set -e
+
   if [[ $# -ne 2 ]]; then
     echo "Expected name and value for add_measurement"
     false
@@ -14,6 +17,9 @@ function add_measurement {
 }
 
 function run_measurement {
+  # Needed as the -e is not preserved in _called_ scripts
+  set -e
+
   echo $#
   if [[ $# -lt 2 ]]; then
     echo "Expected name and command for run_measurement"
@@ -25,6 +31,9 @@ function run_measurement {
 }
 
 function publish_measurements {
+  # Needed as the -e is not preserved in _called_ scripts
+  set -e
+
   git perf push
 }
 
