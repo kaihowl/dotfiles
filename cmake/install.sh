@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 
 set -o pipefail
 
@@ -26,4 +26,3 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   apt_add_repo_with_keyfile kitware https://apt.kitware.com/ubuntu ::codename:: /usr/share/keyrings/kitware-archive-keyring.gpg
   apt_install cmake
 fi
-
