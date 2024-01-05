@@ -1,0 +1,23 @@
+name: Install git-perf
+
+on: [workflow_dispatch]
+
+jobs:
+  install-git-perf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install git-perf
+        run: |
+          mkdir -p ~/.git-perf/
+          pushd ~/.git-perf
+          os=$(uname -s)
+          if [ $os = "Linux" ]; then
+            gitperf_url="https://github.com/kaihowl/git-perf/releases/download/0.14.0/gitperf-0.14.0-x86_64-unknown-linux-musl.tar.gz"
+          elif [ $os = "Darwin" ]; then
+            gitperf_url="https://github.com/kaihowl/git-perf/releases/download/0.14.0/gitperf-0.14.0-x86_64-apple-darwin.tar.gz"
+          else
+            echo "Unsupported OS"
+            exit 1
+          fi
+          curl -L "$gitperf_url" | tar -xz --strip-components=1
+          echo 'export PATH="$HOME/.git-perf:$PATH"' >> $GITHUB_ENV

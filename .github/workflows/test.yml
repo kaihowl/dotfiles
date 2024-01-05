@@ -95,16 +95,12 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         run: |
           echo "REPORT_NAME=${GITHUB_REF_SLUG}" >> $GITHUB_ENV
+      - name: Install git-perf
+        uses: ./.github/actions/install-gitperf.yml
       - name: report
         shell: bash
         run: |
-          mkdir -p ~/.git-perf/
-          pushd ~/.git-perf
-          curl -L https://github.com/kaihowl/git-perf/releases/download/0.14.0/gitperf-0.14.0-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1
-          popd
-          ~/.git-perf/git-perf pull
-          mkdir reports/
-          ~/.git-perf/git-perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
+          git perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
       - name: Publish new perf reports
         uses: peaceiris/actions-gh-pages@v3
         with:
