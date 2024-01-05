@@ -31,3 +31,5 @@
 ./clangd/install.sh 1704492821.8913593 10 os=ubuntu-22.04
 
 ./colors/install.sh 1704492821.9921715 0 os=ubuntu-22.04
+
+./fzf/install.sh 1704492823.057346 0 os=ubuntu-22.04
