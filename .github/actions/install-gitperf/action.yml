@@ -1,9 +1,14 @@
 name: 'Install git-perf'
 description: 'Install git-perf binary'
+outputs:
+  git-perf-path:
+    description: 'Path containing the git-perf binary'
+    value: ${{ steps.install.outputs.path }}
 runs:
   using: "composite"
   steps:
-    - run: |
+    - id: install
+      run: |
         mkdir -p ~/.git-perf/
         pushd ~/.git-perf
         os=$(uname -s)
@@ -17,5 +22,5 @@ runs:
           exit 1
         fi
         curl -L "$gitperf_url" | tar -xz --strip-components=1
-        echo '$HOME/.git-perf:$PATH' >> $GITHUB_PATH
+        echo 'git-perf-path=$HOME/.git-perf' >> $GITHUB_OUTPUT
       shell: bash
