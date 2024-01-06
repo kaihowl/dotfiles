@@ -50,6 +50,7 @@ jobs:
         run: echo "${{ steps.git-perf.outputs.git-perf-path }}" >> $GITHUB_PATH
       - run: |
           echo $PATH
+          git perf --version
           # TODO(kaihowl)
           exit 1
           cd .dotfiles/
