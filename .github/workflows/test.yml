@@ -103,6 +103,7 @@ jobs:
         shell: bash
         run: |
           git perf pull
+          mkdir reports/
           git perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
       - name: Publish new perf reports
         uses: peaceiris/actions-gh-pages@v3
