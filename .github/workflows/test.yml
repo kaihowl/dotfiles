@@ -44,10 +44,7 @@ jobs:
           path: '.dotfiles'
           fetch-depth: 40
       - name: Install git-perf
-        id: git-perf
         uses: ./.dotfiles/.github/actions/install-gitperf
-      - name: Add git-perf to path
-        run: echo "${{ steps.git-perf.outputs.git-perf-path }}" >> $GITHUB_PATH
       - run: |
           echo $PATH
           git perf --version
