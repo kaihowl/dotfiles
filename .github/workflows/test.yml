@@ -43,6 +43,8 @@ jobs:
         with:
           path: '.dotfiles'
           fetch-depth: 40
+      - name: Install git-perf
+        uses: ./.dotfiles/.github/actions/install-gitperf
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
@@ -95,11 +97,11 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         run: |
           echo "REPORT_NAME=${GITHUB_REF_SLUG}" >> $GITHUB_ENV
+      - name: Install git-perf
+        uses: ./.github/actions/install-gitperf
       - name: report
         shell: bash
         run: |
-          export PATH=~/.local/bin:$PATH
-          python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
           git perf pull
           mkdir reports/
           git perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
