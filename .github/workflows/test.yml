@@ -44,9 +44,14 @@ jobs:
           path: '.dotfiles'
           fetch-depth: 40
       - name: Install git-perf
+        id: git-perf
         uses: ./.dotfiles/.github/actions/install-gitperf
+      - name: Add git-perf to path
+        run: echo "${{ steps.git-perf.outputs.git-perf-path }}" >> $GITHUB_PATH
       - run: |
           echo $PATH
+          # TODO(kaihowl)
+          exit 1
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
           git config --global user.name "git-perf"
