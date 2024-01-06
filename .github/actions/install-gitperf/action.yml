@@ -3,7 +3,7 @@ description: 'Install git-perf binary'
 outputs:
   git-perf-path:
     description: 'Path containing the git-perf binary'
-    value: ${{ steps.install.outputs.path }}
+    value: ${{ steps.install.outputs.git-perf-path }}
 runs:
   using: "composite"
   steps:
