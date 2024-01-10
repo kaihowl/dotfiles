@@ -43,6 +43,8 @@ jobs:
         with:
           path: '.dotfiles'
           fetch-depth: 40
+      - name: Install git-perf
+        uses: kaihowl/git-perf/.github/actions/install-git-perf@add-report-action
 
   report:
     name: git-perf
