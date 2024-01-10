@@ -83,4 +83,4 @@ jobs:
     name: git-perf
     needs: test
     if: always()
-    uses: kaihowl/git-perf/workflows/report.yml@add-report-action
+    uses: kaihowl/git-perf/.github/workflows/report.yml@add-report-action
