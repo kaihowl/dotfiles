@@ -44,7 +44,7 @@ jobs:
           path: '.dotfiles'
           fetch-depth: 40
       - name: Install git-perf
-        uses: ./.dotfiles/.github/actions/install-gitperf
+        uses: kaihowl/git-perf/.github/actions/install@master
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
@@ -79,52 +79,9 @@ jobs:
           path: .dotfiles/versions-*.txt
           if-no-files-found: error
   report:
+    name: git-perf
     needs: build
-    concurrency: gh-pages-concurrency # keep_files==True uses last writer wins
     if: always()
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 40
-      - name: Inject slug/short variables
-        uses: rlespinasse/github-slug-action@v4
-      - name: use commit name as report name
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          echo "REPORT_NAME=${{github.sha}}" >> $GITHUB_ENV
-      - name: use branch name as report name
-        if: ${{ github.event_name == 'push' }}
-        run: |
-          echo "REPORT_NAME=${GITHUB_REF_SLUG}" >> $GITHUB_ENV
-      - name: Install git-perf
-        uses: ./.github/actions/install-gitperf
-      - name: report
-        shell: bash
-        run: |
-          git perf pull
-          mkdir reports/
-          git perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
-      - name: Publish new perf reports
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports
-          keep_files: true
-      - uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const { REPORT_NAME } = process.env
-            const pages = await github.rest.repos.getPages({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            })
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `⏱  [Performance Results](${pages.data.html_url}/${REPORT_NAME}.html)`
-              })
-
+    uses: kaihowl/git-perf/.github/workflows/report.yml@master
+    with:
+      additional-args: '-s os'
