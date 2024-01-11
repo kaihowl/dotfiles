@@ -44,7 +44,7 @@ jobs:
           path: '.dotfiles'
           fetch-depth: 40
       - name: Install git-perf
-        uses: kaihowl/git-perf/.github/actions/install@add-report-action
+        uses: kaihowl/git-perf/.github/actions/install@master
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
@@ -82,6 +82,6 @@ jobs:
     name: git-perf
     needs: build
     if: always()
-    uses: kaihowl/git-perf/.github/workflows/report.yml@add-report-action
+    uses: kaihowl/git-perf/.github/workflows/report.yml@master
     with:
       additional-args: '-s os'
