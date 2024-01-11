@@ -51,3 +51,5 @@ jobs:
     needs: build
     if: always()
     uses: kaihowl/git-perf/.github/workflows/report.yml@add-report-action
+    with:
+      additional-args: '-s os'
