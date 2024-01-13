@@ -16,7 +16,8 @@ _change_color() {
             "onehalf[clean, vibrant color scheme]" \
             "papercolor[colors inspired by google's material colorscheme]" \
             "gruvbox[retro color scheme]" \
-            "juliana[clear contrast, no light support]"
+            "juliana[clear contrast, no light support]" \
+            "github[github themed, no light support]"
           ;;
   esac
 }
