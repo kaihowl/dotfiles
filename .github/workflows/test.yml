@@ -4,6 +4,10 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+  pages: write
+
 on:
   push:
     branches:
