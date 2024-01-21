@@ -19,6 +19,7 @@ on:
       - master
   schedule:
     - cron: 41 14 * * *
+  workflow_dispatch:
 jobs:
   lint:
       runs-on: ubuntu-latest
