@@ -141,6 +141,32 @@ function Test_AfterStartup()
   call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
 endfunction
 
+function Check_InGitCommitMsg(id)
+  call WaitForFzfResults(1)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  call nvim_input('<esc>')
+endfunction
+
+function Test_InGitCommitMsg()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call writefile(['something'], 'testfile.log')
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+  call writefile(['something', 'something2'], 'testfile.log')
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+
+  " Workaround for COMMIT_EDITMSG file / commit works asynchronously
+  exe 'edit ' . FugitiveGitDir() . '/SPECIAL_FILE'
+
+  call timer_start(50, funcref('Check_InGitCommitMsg'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
 function Test_NonGitDir()
   call CdTestDir()
 
