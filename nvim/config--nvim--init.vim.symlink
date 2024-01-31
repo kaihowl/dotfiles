@@ -357,7 +357,7 @@ function git_set_qf(selected, opts)
   vim.fn.setqflist({}, " ", {
     nr = "$",
     items = converted,
-    title = opts.__resume_data.last_query,
+    title = require('fzf-lua').get_last_query()
   })
   vim.cmd("copen")
 end
