@@ -268,7 +268,8 @@ lua <<EOF
 local separator = ' '
 function commit_and_path()
   local fugitive_path = vim.fn.FugitiveFind()
-  if vim.o.buftype ~= '' or fugitive_path == '' then
+  local is_special_git_file = vim.startswith(fugitive_path, vim.fn.FugitiveGitDir())
+  if vim.o.buftype ~= '' or fugitive_path == '' or is_special_git_file then
     return {"HEAD", "."}
   end
   local parsed = vim.fn.FugitiveParse(fugitive_path)
