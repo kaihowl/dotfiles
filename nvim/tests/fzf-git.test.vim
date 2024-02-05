@@ -602,7 +602,7 @@ function Test_InGitCommitMsg()
   call feedkeys(',gl', 'tx!')
 endfunction
 
-function Check_InGitHubFiles()
+function Check_InGitHubFiles(id)
   call WaitForFzfResults(1)
 
   let first_commit_line = search('first commit', 'w')
@@ -629,7 +629,8 @@ function Test_InGitHubFiles()
   call writefile(['something'], 'otherfile.log')
   call RunSystemCommand(['git', 'add', 'otherfile.log'])
 
-  edit .github/testfile.log
+
+  exec 'edit .github/testfile.log'
 
   call timer_start(50, funcref('Check_InGitHubFiles'))
   call feedkeys(',gl', 'tx!')
