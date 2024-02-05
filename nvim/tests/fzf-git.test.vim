@@ -141,32 +141,6 @@ function Test_AfterStartup()
   call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
 endfunction
 
-function Check_InGitCommitMsg(id)
-  call WaitForFzfResults(1)
-
-  let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
-
-  call nvim_input('<esc>')
-endfunction
-
-function Test_InGitCommitMsg()
-  call CdTestDir()
-
-  call RunSystemCommand(['git', 'init'])
-  call writefile(['something'], 'testfile.log')
-  call RunSystemCommand(['git', 'add', 'testfile.log'])
-  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
-  call writefile(['something', 'something2'], 'testfile.log')
-  call RunSystemCommand(['git', 'add', 'testfile.log'])
-
-  " Workaround for COMMIT_EDITMSG file / commit works asynchronously
-  exe 'edit ' . FugitiveGitDir() . '/SPECIAL_FILE'
-
-  call timer_start(50, funcref('Check_InGitCommitMsg'))
-  call feedkeys(',gl', 'tx!')
-endfunction
-
 function Test_NonGitDir()
   call CdTestDir()
 
@@ -601,6 +575,67 @@ function Test_SpecialCommit()
   call timer_start(50, {id -> Check_Preview(1, id)})
   call feedkeys(',gl', 'tx!')
 endfunction
+
+function Check_InGitCommitMsg(id)
+  call WaitForFzfResults(1)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  call nvim_input('<esc>')
+endfunction
+
+function Test_InGitCommitMsg()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call writefile(['something'], 'testfile.log')
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+  call writefile(['something', 'something2'], 'testfile.log')
+  call RunSystemCommand(['git', 'add', 'testfile.log'])
+
+  " Workaround for COMMIT_EDITMSG file / commit works asynchronously
+  exe 'edit ' . FugitiveGitDir() . '/SPECIAL_FILE'
+
+  call timer_start(50, funcref('Check_InGitCommitMsg'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
+function Check_InGitHubFiles(id)
+  call WaitForFzfResults(1)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  let second_commit_line = search('second commit', 'w')
+  call assert_equal(0, second_commit_line, 'second commit found in fzf window')
+
+  call nvim_input('<esc>')
+endfunction
+
+" The Test_InGitCommitMsg ensures that history default to the full repository
+" when a file in the .git folder like the COMMIT_EDITMSG is opened.
+" This test ensures that files in the .github/ folder (same prefix) are
+" exempt.
+function Test_InGitHubFiles()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call mkdir('.github')
+  call writefile(['something'], '.github/testfile.log')
+  call RunSystemCommand(['git', 'add', '.github/testfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+  call writefile(['something'], 'otherfile.log')
+  call RunSystemCommand(['git', 'add', 'otherfile.log'])
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
+
+  exec 'edit .github/testfile.log'
+
+  call timer_start(50, funcref('Check_InGitHubFiles'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
