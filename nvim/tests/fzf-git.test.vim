@@ -628,7 +628,7 @@ function Test_InGitHubFiles()
   call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
   call writefile(['something'], 'otherfile.log')
   call RunSystemCommand(['git', 'add', 'otherfile.log'])
-
+  call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
 
   exec 'edit .github/testfile.log'
 
