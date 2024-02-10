@@ -172,16 +172,19 @@ Plug 'gaving/vim-textobj-argument'
 call plug#end()
 " }}}
 
-"{{{ color
-if !exists('g:first_time_startup')
-  exe 'source ' . expand('~/.color/') . 'color.vim'
-
-  augroup color
-    autocmd!
-    autocmd FocusGained * exe 'source ' . expand('~/.color/') .  'color.vim'
-  augroup END
+" {{{ early return for bootstrapping
+if exists('g:first_time_startup')
+  finish
 end
+" }}}
 
+"{{{ color
+exe 'source ' . expand('~/.color/') . 'color.vim'
+
+augroup color
+  autocmd!
+  autocmd FocusGained * exe 'source ' . expand('~/.color/') .  'color.vim'
+augroup END
 "}}}
 
 " {{{indent-blankline
@@ -472,7 +475,6 @@ if !isdirectory(g:fzf_history_dir)
   call mkdir(g:fzf_history_dir, 'p')
 endif
 
-if !exists('g:first_time_startup')
 lua <<EOF
 require('fzf-lua').setup{
   winopts = {
@@ -511,7 +513,6 @@ require('fzf-lua').setup{
   },
 }
 EOF
-endif
 
 nnoremap <leader>s :FzfLua files<cr>
 nnoremap <leader>d :FzfLua buffers<cr>
@@ -897,9 +898,7 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
-if !exists('g:first_time_startup')
-  set statusline+=\ %{%FormattedAsyncRun()%}
-endif
+set statusline+=\ %{%FormattedAsyncRun()%}
 "}}}
 
 "{{{ NerdTree
@@ -968,7 +967,6 @@ let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
 "}}}
 
 "{{{ lsp + vsnip config
-if !exists('g:first_time_startup')
 lua <<EOF
 local configs = require('lspconfig')
 -- This is grabbing into internals of lspconfig. If this breaks, this is on me.
@@ -1145,7 +1143,6 @@ cmp.setup {
   }
 }
 EOF
-endif
 "}}}
 
 "{{{ vsnip
@@ -1187,11 +1184,9 @@ augroup END
 "}}}
 
 "{{{ Oil
-if !exists('g:first_time_startup')
 lua <<EOF
 require('oil').setup({default_file_explorer = false})
 EOF
-endif
 "}}}
 
 "{{{ Thread Sanitizer Error Format
