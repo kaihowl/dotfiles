@@ -164,6 +164,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 
+Plug 'stevearc/overseer.nvim'
+
 Plug 'ibhagwan/fzf-lua'
 
 Plug 'gaving/vim-textobj-argument'
@@ -1223,5 +1225,11 @@ command! -complete=file -nargs=1 -bang Lfile call <SID>load_file('l', <bang>0, <
 "{{{ linediff
 vnoremap <leader>gd :Linediff<cr>
 "}}}
+
+" {{{ overseer
+lua <<EOF
+require('overseer').setup()
+EOF
+" }}}
 
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
