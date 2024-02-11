@@ -4,6 +4,11 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+  pages: write
+  pull-requests: write
+
 on:
   push:
     branches:
@@ -14,11 +19,13 @@ on:
       - master
   schedule:
     - cron: 41 11 * * 0
+  workflow_dispatch:
+
 jobs:
   lint:
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
@@ -34,15 +41,17 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04, macos-11]
+        os: [ubuntu-22.04, macos-12]
       fail-fast: false
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: '.dotfiles'
           fetch-depth: 40
+      - name: Install git-perf
+        uses: kaihowl/git-perf/.github/actions/install@master
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
@@ -60,6 +69,8 @@ jobs:
           export HOMEBREW_NO_INSTALL_CLEANUP=1
           # Make `infocmp` for nvim healthcheck succeed
           export TERM=dumb
+          # Ignore potentially insecure directories on GitHub actions runner.
+          export ZSH_DISABLE_COMPFIX=true
           cd .dotfiles/
           ./script/ci.sh
       - name: Rename versions report
@@ -68,59 +79,16 @@ jobs:
           cd .dotfiles/
           mv versions.txt versions-${{matrix.os}}.txt
       - name: Archive version report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: versions-report-${{matrix.os}}
           path: .dotfiles/versions-*.txt
           if-no-files-found: error
   report:
+    name: git-perf
     needs: build
-    concurrency: gh-pages-concurrency # keep_files==True uses last writer wins
     if: always()
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 40
-      - name: Inject slug/short variables
-        uses: rlespinasse/github-slug-action@v4
-      - name: use commit name as report name
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          echo "REPORT_NAME=${{github.sha}}" >> $GITHUB_ENV
-      - name: use branch name as report name
-        if: ${{ github.event_name == 'push' }}
-        run: |
-          echo "REPORT_NAME=${GITHUB_REF_SLUG}" >> $GITHUB_ENV
-      - name: report
-        shell: bash
-        run: |
-          export PATH=~/.local/bin:$PATH
-          python3 -m pip install git+https://github.com/kaihowl/git-perf.git@latest
-          git perf pull
-          mkdir reports/
-          git perf report -n 40 -o reports/${{env.REPORT_NAME}}.html -s os
-      - name: Publish new perf reports
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports
-          keep_files: true
-      - uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const { REPORT_NAME } = process.env
-            const pages = await github.rest.repos.getPages({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            })
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `⏱  [Performance Results](${pages.data.html_url}/${REPORT_NAME}.html)`
-              })
-
+    uses: kaihowl/git-perf/.github/workflows/report.yml@master
+    with:
+      additional-args: '-s os'

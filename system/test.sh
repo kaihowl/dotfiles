@@ -27,9 +27,3 @@ which htop
 
 echo "Check if htop is runnable"
 htop --version
-
-echo "Check if lnav is available"
-which lnav
-
-echo "Check if lnav is runnable"
-lnav -V

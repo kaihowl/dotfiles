@@ -3,14 +3,14 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-version=0.9.0
+version=0.9.5
 
 if [ "$(uname -s)" = "Darwin" ]; then
   download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos.tar.gz"
-  expect_hash="ba571c320c9ba98f1f78a9656b0b1fd21aa5833a61054f377c15c09366b96aca"
+  expect_hash="19d2366e0d6da001583bd0b8a3db59f69ce3dda5fa41f3064c6778cef3edd34c"
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-linux64.tar.gz"
-  expect_hash="fa93f06bec111fea6f316f186b96e19ba289a2dca2d0731e23597398b7397c8f"
+  expect_hash="44ee395d9b5f8a14be8ec00d3b8ead34e18fe6461e40c9c8c50e6956d643b6ca"
 fi
 
 file_name=nvim-${version}.tar.gz
@@ -26,9 +26,6 @@ tar -C ~/.nvim --extract -z -f "$(cache_path "${file_name}")" --strip-components
 # Make freshly installed nvim available in path
 script_dir=$(dirname "$0")
 . "${script_dir}/path.zsh"
-
-source "${SCRIPT_DIR}/../common/python.sh"
-install_in_virtualenv pynvim
 
 # update packages in Plug
 # install plug if not already installed

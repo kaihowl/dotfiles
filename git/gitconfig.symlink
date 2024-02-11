@@ -53,7 +53,5 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = master
-[user]
-	signingkey = ~/.ssh/id_rsa
 [commit]
 	gpgsign = true

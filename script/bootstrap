@@ -10,21 +10,25 @@ DOTFILES_ROOT=$(unset CDPATH; cd "$SCRIPT_DIR"/.. > /dev/null; pwd -P)
 echo ''
 
 info () {
-  printf "  [ \033[00;34m..\033[0m ] %s" "$1"
+  printf "  [ \033[00;34m..\033[0m ] %s\n" "$1"
 }
 
 user () {
-  printf "\r  [ \033[0;33m?\033[0m ] %s " "$1"
+  printf "  [ \033[0;33m?\033[0m ] %s\n" "$1"
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+  printf "\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+  printf "\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
   echo ''
   exit
+}
+
+remove_outdated_files () {
+  rm -rf ~/.config/alacritty/alacritty.yml ~/.color/alacritty.yml && success "Removed outdated alacritty config files"
 }
 
 setup_gitconfig () {
@@ -58,6 +62,11 @@ setup_gitconfig () {
 
     success 'gitconfig'
   fi
+  # Temporary work around: If gitconfig_credentials does not yet have the signingkey,
+  # add the old rsa default
+  if ! grep -q0 "signingkey" ~/.gitconfig_credentials; then
+    printf "[user]\n  signingkey = ~/.ssh/id_rsa" >> ~/.gitconfig_credentials
+  fi
 }
 
 link_files () {
@@ -85,7 +94,7 @@ link_dotfiles () {
 
     mkdir -p "$(dirname "$dest")"
 
-    if [ -f "$dest" ] || [ -d "$dest" ]
+    if [ -f "$dest" ] || [ -d "$dest" ] || [ -h "$dest" ]
     then
 
       overwrite=false
@@ -143,11 +152,12 @@ link_dotfiles () {
 
 setup_gitconfig
 link_dotfiles
+remove_outdated_files
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "setting mac-specific settings\n"
+  info "setting mac-specific settings"
   if "${DOTFILES_ROOT}/osx/set-defaults.sh"
   then
     success "mac settings configured"

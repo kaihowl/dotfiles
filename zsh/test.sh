@@ -1,4 +1,4 @@
-#!/bin/zsh -i
+#!/bin/zsh
 set -e
 
 echo "Test that start up and basic user input to shell work without errors"
@@ -6,5 +6,8 @@ echo "Test that start up and basic user input to shell work without errors"
 # sh:1: url-quote-magic: function definition file not found
 expect -c "strace 4" "$DOTS/zsh/userinput.test.expect"
 
+# shellcheck disable=SC1090
+source ~/.zshrc
+
 echo "Check that ctrl-z is registered"
-bindkey | grep -i '\^Z'
+bindkey | grep -i '^"\^Z'

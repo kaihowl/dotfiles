@@ -3,8 +3,6 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-cd "$(dirname "$0")"
-
 if ! which zsh; then
   printf '\033[0;31m%s\033[0m\n' 'Please install zsh first.'
   exit 1

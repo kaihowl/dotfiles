@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+set -o pipefail
+
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -8,10 +10,19 @@ if [ "$(uname)" == "Darwin" ]; then
   brew_install cmake
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # install latest
-  # NOTE This explicitly forgoes using the kitware-archive-keyring for automatic key rotation.
-  # For uniformity with other packages, we will manually rotate the key.
   source "${SCRIPT_DIR}/../common/apt.sh"
-  apt_add_repo kitware https://apt.kitware.com/ubuntu ::codename:: f41e5eaee6993e4dec254b3542d5a192b819c5da
+  # bootstrap automatic key rotation
+  if ! [[ -f /usr/share/keyrings/kitware-archive-keyring.gpg ]]; then
+    apt_install wget
+    list_name=/etc/apt/sources.list.d/temp_kitware.list
+    trap 'sudo rm -rf $list_name' EXIT
+    wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null
+    echo "deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ $(lsb_release -c -s) main" | sudo tee "$list_name" >/dev/null
+    sudo apt-get update
+    sudo rm -rf /usr/share/keyrings/kitware-archive-keyring.gpg
+    apt_install kitware-archive-keyring
+    sudo rm -rf "$list_name"
+  fi
+  apt_add_repo_with_keyfile kitware https://apt.kitware.com/ubuntu ::codename:: /usr/share/keyrings/kitware-archive-keyring.gpg
   apt_install cmake
 fi
-

@@ -22,8 +22,18 @@ function ensure_brew_installed() {
 
 function brew_install() {
   ensure_brew_installed
-  # Install and upgrade if already installed (this is done by `install` if HOMEBREW_NO_INSTALL_UPGRADE is not set)
-  brew install "$@"
+
+  # Use last argv as name
+  # TODO This does not work if formulae / casks are supplied inter-mixed.
+  for name in "$@"; do :; done
+
+  if brew list --cask "$name" > /dev/null 2>&1; then
+    # name is CASK and it is installed
+    brew upgrade "$name"
+  else
+    # Install (FORMULA or CASK) or upgrade (only FORMULA) if already installed (this is done by `install` if HOMEBREW_NO_INSTALL_UPGRADE is not set)
+    brew install "$@"
+  fi
 }
 
 function brew_remove() {

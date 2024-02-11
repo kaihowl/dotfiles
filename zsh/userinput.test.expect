@@ -2,7 +2,7 @@
 set timeout 10
 
 spawn zsh "-i";
-expect "➜";
+expect "❯";
 
 # Clear up input with ctrl-w
 send "\x17";
@@ -10,14 +10,13 @@ send "\x17";
 # Flush buffer
 expect "*"
 
-# Load script start up and ignore potentially insecure directories on GitHub
-# actions runner.
-send "export ZSH_DISABLE_COMPFIX=true; source ~/.zshrc\r";
+# Load script start up once more.
+send "source ~/.zshrc\r";
 
 expect {
   ":*:*\r" {puts "Found possible errors in output"; exit 1}
   "compinit: initialization aborted";
-  expect "➜";
+  expect "❯";
 }
 
 # Clear up input with ctrl-w
