@@ -907,6 +907,7 @@ set statusline+=\ %{%FormattedAsyncRun()%}
 
 "{{{ Carbon
 lua <<EOF
+-- Ensure that out-of-pwd directories can still reveal their file correctly.
 function OpenParent()
   local parent = vim.fn.expand("%:p:h")
   local cwd = vim.fn.getcwd()
