@@ -911,7 +911,7 @@ function OpenParent()
   local parent = vim.fn.expand("%:p:h")
   local cwd = vim.fn.getcwd()
   local root = cwd
-  if not (parent == '') and not vim.startswith(parent, cwd) then
+  if not (parent == '') and not vim.startswith(parent .. '/', cwd) then
     root = parent
   end
   local fargs = {}
