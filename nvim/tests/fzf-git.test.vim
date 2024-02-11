@@ -422,6 +422,39 @@ function Test_FileNameWithSpace()
   call assert_notequal(0, working_preview, 'did not find preview')
 endfunction
 
+function CheckTestFileNameWithLeadingDash(id)
+  call WaitForFzfResults(1)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit is missing')
+
+  call WaitForScreenContent('Author:')
+
+  let broken_preview = search('fatal:', 'w')
+  call assert_equal(0, broken_preview, 'preview is broken')
+  let working_preview = search('Author:', 'w')
+  call assert_notequal(0, working_preview, 'did not find preview')
+
+  call nvim_input('<esc>')
+endfunction
+
+function Test_FileNameWithLeadingDash()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call assert_equal(0, writefile(['something'], '-test'))
+  call RunSystemCommand(['git', 'add', './-test'])
+  call RunSystemCommand(['git', 'commit', '-m', 'first commit', '--no-verify', '--no-gpg-sign'])
+
+  edit ./-test
+
+  " English language necessary to check for "fatal:" and "Author:" strings
+  call setenv('LC_ALL', 'en_US.UTF8')
+
+  call timer_start(50, funcref('CheckTestFileNameWithLeadingDash'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
 " TODO(hoewelmk) unify the "hitenter" functions?
 function CopiedFileFollow_HitEnter(id)
   call nvim_input('i<cr>')
