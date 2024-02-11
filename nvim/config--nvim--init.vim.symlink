@@ -105,7 +105,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " - auto update based on file system watchers
 " - intuitive addition of new files / directories
 " - performance
-Plug 'SidOfc/carbon.nvim', { 'tag': 'insanity' }
+Plug 'SidOfc/carbon.nvim'
 
 Plug 'stevearc/oil.nvim'
 
