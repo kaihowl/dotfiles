@@ -23,6 +23,7 @@ tags.lock
 /compile_commands.json
 /find_all_symbols_db.yaml
 /.tasks
+/Justfile
 .svo
 .svp
 .svq

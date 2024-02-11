@@ -8,6 +8,8 @@ cd "$(dirname "$0")"
 
 version=1.23.0
 
+# TODO(kaihowl) vim syntax highlighting for justfile
+
 if [ "$(uname)" == "Darwin" ]; then
   source $DOTS/common/brew.sh
   brew_install just
