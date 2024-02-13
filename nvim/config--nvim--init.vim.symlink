@@ -455,6 +455,7 @@ function buffer_commits(opts)
     end,
     fzf_opts = {
       ['--delimiter'] = '"' .. separator .. '"',
+      ['--no-sort'] = "",
     },
     preview = make_git_preview_command(),
     actions={
