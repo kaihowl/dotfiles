@@ -454,7 +454,7 @@ function buffer_commits(opts)
       return parsing_state.filename .. separator .. line
     end,
     fzf_opts = {
-      ['--delimiter'] = '"' .. separator .. '"',
+      ['--delimiter'] = separator,
       ['--no-sort'] = "",
     },
     preview = make_git_preview_command(),
