@@ -426,7 +426,7 @@ function buffer_commits(opts)
   local comm_path = commit_and_path()
   local commit, abs_path = unpack(comm_path)
   local workspace_root = vim.fn.FugitiveWorkTree()
-  local rel_path = require'fzf-lua'.path.normalize(abs_path or '', workspace_root)
+  local rel_path = require'fzf-lua'.path.relative_to(abs_path or '', workspace_root)
   local parsing_state = {filename = rel_path}
   local command = make_git_log_command(commit, abs_path, line_range)
   require'fzf-lua'.fzf_exec(command, {
