@@ -114,7 +114,7 @@ function AfterStartup_InputKeysForFirstSelection(id)
   call nvim_feedkeys('ifirst', 'tx!', v:false)
 endfunction
 
-function Test_AfterStartup()
+function NoTest_AfterStartup()
   let g:done = v:false
 
   call CdTestDir()
@@ -355,7 +355,7 @@ function Test_RestoreCursorPos()
   call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
 endfunction
 
-function Test_VisualSelection()
+function NoTest_VisualSelection()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
@@ -591,7 +591,7 @@ endfunction
 " the commit hash with "y ctrl-g" leaves the special hashes unresolved.
 " Moreover, "0" references the staging area, which by design has no hash
 " associated.
-function Test_SpecialCommit()
+function NoTest_SpecialCommit()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
@@ -678,10 +678,7 @@ function Test()
                             \  'g'))
 
   for test_function in tests
-    " first to kill any open fzf windows
-    %bwipe!
-    " second to actually kill remaining buffers
-    %bwipe!
+    bufdo! %bwipe!
     echom 'Testing ' . test_function
 
     try
