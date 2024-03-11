@@ -109,14 +109,19 @@ function AfterStartup_WaitForInput_And_Select(id)
   call nvim_input('<cr>')
 endfunction
 
-function AfterStartup_InputKeysForFirstSelection(id)
-  call timer_start(50, funcref('AfterStartup_WaitForInput_And_Select'))
-  call nvim_feedkeys('ifirst', 'tx!', v:false)
+function Check_AfterStartup(id)
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  let second_commit_line = search('second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
+
+  call nvim_input('ifirst<cr>')
 endfunction
 
-function NoTest_AfterStartup()
-  let g:done = v:false
-
+function Test_AfterStartup()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
@@ -127,18 +132,8 @@ function NoTest_AfterStartup()
   call RunSystemCommand(['git', 'add', 'testfile.log'])
   call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
 
-  call feedkeys(',gl', 'tx')
-
-  call WaitForFzfResults(2)
-
-  let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
-
-  let second_commit_line = search('second commit', 'w')
-  call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
-
-  call timer_start(50, funcref('AfterStartup_InputKeysForFirstSelection'))
-  call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
+  call timer_start(50, funcref('Check_AfterStartup'))
+  call feedkeys(',gl', 'tx!')
 endfunction
 
 function Test_NonGitDir()
