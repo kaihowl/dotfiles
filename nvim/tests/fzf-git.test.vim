@@ -109,14 +109,19 @@ function AfterStartup_WaitForInput_And_Select(id)
   call nvim_input('<cr>')
 endfunction
 
-function AfterStartup_InputKeysForFirstSelection(id)
-  call timer_start(50, funcref('AfterStartup_WaitForInput_And_Select'))
-  call nvim_feedkeys('ifirst', 'tx!', v:false)
+function Check_AfterStartup(id)
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
+
+  let second_commit_line = search('second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
+
+  call nvim_input('ifirst<cr>')
 endfunction
 
-function NoTest_AfterStartup()
-  let g:done = v:false
-
+function Test_AfterStartup()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
@@ -127,18 +132,8 @@ function NoTest_AfterStartup()
   call RunSystemCommand(['git', 'add', 'testfile.log'])
   call RunSystemCommand(['git', 'commit', '-m', 'second commit', '--no-verify', '--no-gpg-sign'])
 
-  call feedkeys(',gl', 'tx')
-
-  call WaitForFzfResults(2)
-
-  let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit not found in fzf window')
-
-  let second_commit_line = search('second commit', 'w')
-  call assert_notequal(0, second_commit_line, 'second commit not found in fzf window')
-
-  call timer_start(50, funcref('AfterStartup_InputKeysForFirstSelection'))
-  call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
+  call timer_start(50, funcref('Check_AfterStartup'))
+  call feedkeys(',gl', 'tx!')
 endfunction
 
 function Test_NonGitDir()
@@ -355,7 +350,20 @@ function Test_RestoreCursorPos()
   call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
 endfunction
 
-function NoTest_VisualSelection()
+function Check_VisualSelection(id)
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit should have been found for line selection')
+  let second_commit_line = search('second commit', 'w')
+  call assert_equal(0, second_commit_line, 'second commit should not have been found for line selection')
+  let third_commit_line = search('third commit', 'w')
+  call assert_notequal(0, third_commit_line, 'third commit should have been found for line selection')
+
+  call nvim_input('<esc>')
+endfunction
+
+function Test_VisualSelection()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
@@ -376,18 +384,29 @@ function NoTest_VisualSelection()
   call cursor(3,1)
   norm! V
 
-  call feedkeys(',gl', 'tx')
+  call timer_start(50, funcref('Check_VisualSelection'))
+  call feedkeys(',gl', 'tx!')
+endfunction
 
+function Check_FileNameWithSpace(id)
   call WaitForFzfResults(2)
 
   let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit should have been found for line selection')
+  call assert_notequal(0, first_commit_line, 'first commit is missing')
   let second_commit_line = search('second commit', 'w')
-  call assert_equal(0, second_commit_line, 'second commit should not have been found for line selection')
-  let third_commit_line = search('third commit', 'w')
-  call assert_notequal(0, third_commit_line, 'third commit should have been found for line selection')
+  call assert_notequal(0, second_commit_line, 'second commit is missing')
+
+  call WaitForScreenContent('Author:')
+
+  let broken_preview = search('fatal:', 'w')
+  call assert_equal(0, broken_preview, 'preview is broken')
+  let working_preview = search('Author:', 'w')
+  call assert_notequal(0, working_preview, 'did not find preview')
+
+  call nvim_input('<esc>')
 endfunction
 
+" TODO(kaihowl) problem test case
 function Test_FileNameWithSpace()
   call CdTestDir()
 
@@ -405,21 +424,8 @@ function Test_FileNameWithSpace()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call feedkeys(',gl', 'tx')
-
-  call WaitForFzfResults(2)
-
-  let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit is missing')
-  let second_commit_line = search('second commit', 'w')
-  call assert_notequal(0, second_commit_line, 'second commit is missing')
-
-  call WaitForScreenContent('Author:')
-
-  let broken_preview = search('fatal:', 'w')
-  call assert_equal(0, broken_preview, 'preview is broken')
-  let working_preview = search('Author:', 'w')
-  call assert_notequal(0, working_preview, 'did not find preview')
+  call timer_start(50, funcref('Check_FileNameWithSpace'))
+  call feedkeys(',gl', 'tx!')
 endfunction
 
 function CheckTestFileNameWithLeadingDash(id)
@@ -591,7 +597,7 @@ endfunction
 " the commit hash with "y ctrl-g" leaves the special hashes unresolved.
 " Moreover, "0" references the staging area, which by design has no hash
 " associated.
-function NoTest_SpecialCommit()
+function Test_SpecialCommit()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
