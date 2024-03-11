@@ -3,9 +3,9 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-version=2
+version=3
 download_url="https://sh.rustup.rs"
-expect_hash="be3535b3033ff5e0ecc4d589a35d3656f681332f860c5fd6684859970165ddcc"
+expect_hash="7b826d2c84318cf44897da29225cb9bc0b4e859b05568b5979bf2cc264840d05"
 
 file_name=rustup-sh-${version}
 
