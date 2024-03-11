@@ -350,7 +350,20 @@ function Test_RestoreCursorPos()
   call assert_equal(0, wait(10000, 'g:done'), 'failed to wait for return from fzf')
 endfunction
 
-function NoTest_VisualSelection()
+function Check_VisualSelection(id)
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit should have been found for line selection')
+  let second_commit_line = search('second commit', 'w')
+  call assert_equal(0, second_commit_line, 'second commit should not have been found for line selection')
+  let third_commit_line = search('third commit', 'w')
+  call assert_notequal(0, third_commit_line, 'third commit should have been found for line selection')
+
+  call nvim_input('<esc>')
+endfunction
+
+function Test_VisualSelection()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
@@ -371,16 +384,8 @@ function NoTest_VisualSelection()
   call cursor(3,1)
   norm! V
 
-  call feedkeys(',gl', 'tx')
-
-  call WaitForFzfResults(2)
-
-  let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit should have been found for line selection')
-  let second_commit_line = search('second commit', 'w')
-  call assert_equal(0, second_commit_line, 'second commit should not have been found for line selection')
-  let third_commit_line = search('third commit', 'w')
-  call assert_notequal(0, third_commit_line, 'third commit should have been found for line selection')
+  call timer_start(50, funcref('Check_VisualSelection'))
+  call feedkeys(',gl', 'tx!')
 endfunction
 
 function Check_FileNameWithSpace(id)
