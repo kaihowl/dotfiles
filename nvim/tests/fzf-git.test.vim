@@ -388,6 +388,25 @@ function NoTest_VisualSelection()
   call assert_notequal(0, third_commit_line, 'third commit should have been found for line selection')
 endfunction
 
+function Check_FileNameWithSpace(id)
+  call WaitForFzfResults(2)
+
+  let first_commit_line = search('first commit', 'w')
+  call assert_notequal(0, first_commit_line, 'first commit is missing')
+  let second_commit_line = search('second commit', 'w')
+  call assert_notequal(0, second_commit_line, 'second commit is missing')
+
+  call WaitForScreenContent('Author:')
+
+  let broken_preview = search('fatal:', 'w')
+  call assert_equal(0, broken_preview, 'preview is broken')
+  let working_preview = search('Author:', 'w')
+  call assert_notequal(0, working_preview, 'did not find preview')
+
+  call nvim_input('<esc>')
+endfunction
+
+" TODO(kaihowl) problem test case
 function Test_FileNameWithSpace()
   call CdTestDir()
 
@@ -405,21 +424,8 @@ function Test_FileNameWithSpace()
   " English language necessary to check for "fatal:" and "Author:" strings
   call setenv('LC_ALL', 'en_US.UTF8')
 
-  call feedkeys(',gl', 'tx')
-
-  call WaitForFzfResults(2)
-
-  let first_commit_line = search('first commit', 'w')
-  call assert_notequal(0, first_commit_line, 'first commit is missing')
-  let second_commit_line = search('second commit', 'w')
-  call assert_notequal(0, second_commit_line, 'second commit is missing')
-
-  call WaitForScreenContent('Author:')
-
-  let broken_preview = search('fatal:', 'w')
-  call assert_equal(0, broken_preview, 'preview is broken')
-  let working_preview = search('Author:', 'w')
-  call assert_notequal(0, working_preview, 'did not find preview')
+  call timer_start(50, funcref('Check_FileNameWithSpace'))
+  call feedkeys(',gl', 'tx!')
 endfunction
 
 function CheckTestFileNameWithLeadingDash(id)
@@ -591,7 +597,7 @@ endfunction
 " the commit hash with "y ctrl-g" leaves the special hashes unresolved.
 " Moreover, "0" references the staging area, which by design has no hash
 " associated.
-function NoTest_SpecialCommit()
+function Test_SpecialCommit()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
