@@ -15,7 +15,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/koalaman/shellcheck/releases/download/v${version}/shellcheck-v${version}.linux.x86_64.tar.xz"
-  expect_hash="6c881ab0698e4e6ea235245f22832860544f17ba386442fe7e9d629f8cbedf87]"
+  expect_hash="6c881ab0698e4e6ea235245f22832860544f17ba386442fe7e9d629f8cbedf87"
 fi
 
 file_name=shellcheck-v${version}.tar.xz
