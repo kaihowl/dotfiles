@@ -30,4 +30,5 @@ function install_in_virtualenv() {
   # Must run independently as wheel is a non-declared dependency of some packages.
   ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade pip setuptools wheel
   ~/.virtualenvs/dotfiles-run/bin/python3 -m pip install --upgrade "$*"
+  deactivate
 }
