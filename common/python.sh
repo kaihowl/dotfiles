@@ -2,17 +2,17 @@
 
 set -e
 
-SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null; pwd -P)
-
 function ensure_python_installed() {
+  local script_dir
+  script_dir=$(unset CDPATH; cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null; pwd -P)
   if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-    source "${SCRIPT_DIR}/apt.sh"
+    source "${script_dir}/apt.sh"
     # venv is needed as Ubuntu 22.04 otherwise has no ensurepip and venv fails.
     # Install all of these packages as a sane baseline.
     apt_install --no-install-recommends python3-pip python3-dev python3-venv
   else
     # The apple xcode python is broken. Use brew's python version instead.
-    source "${SCRIPT_DIR}/brew.sh"
+    source "${script_dir}/brew.sh"
     brew_install python
   fi
 }
