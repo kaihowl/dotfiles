@@ -99,16 +99,6 @@ function AfterStartup_CheckSelectedCommit(id)
   let g:done = v:true
 endfunction
 
-function AfterStartup_WaitForInput_And_Select(id)
-  call WaitForScreenContent('> .*first')
-
-  call timer_start(50, funcref('AfterStartup_CheckSelectedCommit'))
-  " No clue why this must be an nvim_input call instead of feedkeys
-  " usually, nvim_feedkeys requires a poke to the event loop which does not
-  " work for me out of vimscript
-  call nvim_input('<cr>')
-endfunction
-
 function Check_AfterStartup(id)
   call WaitForFzfResults(2)
 
