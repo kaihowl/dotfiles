@@ -675,6 +675,40 @@ function Test_InGitHubFiles()
   call feedkeys(',gl', 'tx!')
 endfunction
 
+function Check_NoSortStep2(id)
+  call WaitForScreenContent('commit.*<.*/')  " 'commit' entered on prompt
+
+  let correct_order = search('commit title.*\n.*commit title with a longer word', 'w')
+  call assert_notequal(0, correct_order, 'order of commits incorrect')
+
+  call nvim_input('<esc>')
+endfunction
+
+function Check_NoSort(id)
+  call WaitForFzfResults(2)
+
+  call timer_start(50, funcref('Check_NoSortStep2'))
+  call nvim_input('commit')
+endfunction
+
+function Test_NoSort()
+  call CdTestDir()
+
+  call RunSystemCommand(['git', 'init'])
+  call writefile(['something'], 'firstfile')
+  call RunSystemCommand(['git', 'add', 'firstfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'commit title', '--no-verify', '--no-gpg-sign'])
+  call writefile(['something'], 'secondfile')
+  call RunSystemCommand(['git', 'add', 'secondfile'])
+  call RunSystemCommand(['git', 'commit', '-m', 'commit title with a longer word', '--no-verify', '--no-gpg-sign'])
+
+  " The second, later commit still matches the word "commit". But as the first
+  " commit has has a short length the default tie breaker will sort it first.
+  " Without --no-sort, the commits will be swapped in order.
+  call timer_start(50, funcref('Check_NoSort'))
+  call feedkeys(',gl', 'tx!')
+endfunction
+
 
 function Test()
   " Source https://vimways.org/2019/a-test-to-attest-to/
