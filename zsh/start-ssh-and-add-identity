@@ -16,12 +16,17 @@ function start-ssh-and-add-identity() {
     local env_file=~/.ssh-agent-$EUID
     [[ -r $env_file ]] && builtin source $env_file >/dev/null && -ssh-agent-running && return
 
+    extra_opts=()
+    if [[ "$(uname)" == "Darwin" ]]; then
+      local extra_opts=("--apple-use-keychain")
+    fi
+
     local tmp=$env_file.tmp.$$
     command ssh-agent -s >$tmp       || return
     builtin source $tmp >/dev/null   || return
     -ssh-agent-running               || return
     mv -f -- $tmp $env_file          || return
-    ssh-add                          || return
+    ssh-add ${extra_opts[@]}         || return
   } always {
     builtin unfunction -- -ssh-agent-running
   }
