@@ -10,3 +10,6 @@ for t in $tests; do
   printf "Running \e[32m%s\e[0m" "${t}"
   zsh -c -i "${t}"
 done
+
+# check for missing licenses
+./script/license_check.py
