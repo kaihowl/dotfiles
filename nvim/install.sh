@@ -3,14 +3,19 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-version=0.9.5
+version=0.10.0
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos.tar.gz"
-  expect_hash="19d2366e0d6da001583bd0b8a3db59f69ce3dda5fa41f3064c6778cef3edd34c"
+  if [ "$(uname -m)" = "arm64" ]; then
+    download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos-arm64.tar.gz"
+    expect_hash="e00452adbe1e90fb8c2d9bd41855b3f585bf6e2db31b9c35456d6253b0a152dd"
+  else
+    download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos-x86_64.tar.gz"
+    expect_hash="ac4dc050f83e8537cfad3cbaf61ca4e5870ed30a7d0187cdaa33f8fa421aca1f"
+  fi
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-linux64.tar.gz"
-  expect_hash="44ee395d9b5f8a14be8ec00d3b8ead34e18fe6461e40c9c8c50e6956d643b6ca"
+  expect_hash="be1f0988d0de71c375982b87b86cd28d2bab35ece8285abe3b0aac57604dfc5a"
 fi
 
 file_name=nvim-${version}.tar.gz
