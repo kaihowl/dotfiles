@@ -3,9 +3,10 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-version=3
+version=4
 download_url="https://sh.rustup.rs"
-expect_hash="7b826d2c84318cf44897da29225cb9bc0b4e859b05568b5979bf2cc264840d05"
+# Compare with https://github.com/rust-lang/rustup/blob/master/rustup-init.sh
+expect_hash="32a680a84cf76014915b3f8aa44e3e40731f3af92cd45eb0fcc6264fd257c428"
 
 file_name=rustup-sh-${version}
 
