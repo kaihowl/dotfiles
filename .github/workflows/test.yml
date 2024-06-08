@@ -14,6 +14,7 @@ on:
     branches:
       - master
       - build/*
+      - kaihowl/stack
   pull_request:
     branches:
       - master
@@ -37,6 +38,42 @@ jobs:
         env:
           SHELLCHECK_OPTS: -s bash
 
+  # TOOD add a stand in build, maybe alpine?
+  # rhel needs a license server after all
+  # as a stand in for centos7:
+  # centos7 is EOL and the yum mirrors are no longer available
+  # rhel-build:
+  #   timeout-minutes: 20
+  #   runs-on: ubuntu-latest
+  #   container: redhat/ubi8:latest
+  #
+  #   steps:
+  #     - name: install git 
+  #       shell: bash
+  #       run: yum install -y git  
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         path: '.dotfiles'
+  #         fetch-depth: 40
+  #     - name: Install and test
+  #       shell: bash
+  #       run: |
+  #         echo "pwd test.yml start: $(pwd)"
+  #         yum install -y xz
+  #         cd .dotfiles && ./script/rhel_build.sh
+  #     - name: Rename versions report
+  #       if: always()
+  #       run: |
+  #         cd .dotfiles/
+  #         mv versions.txt versions-${{matrix.os}}.txt
+  #     - name: Archive version report
+  #       uses: actions/upload-artifact@v4
+  #       if: always()
+  #       with:
+  #         name: versions-report-${{matrix.os}}
+  #         path: .dotfiles/versions-*.txt
+  #         if-no-files-found: error
+  #
   build:
     timeout-minutes: 20
     strategy:
