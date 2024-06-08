@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Run all test scripts
 
 cd "$(dirname "$0")"/.. || exit 1
@@ -31,8 +30,15 @@ for t in "${tests[@]}"; do
   fi
 done
 
+
 if [[ $failed_tests -ne 0 ]]; then
     echo "FOUND ${failed_tests} FAILED TESTS"
+    exit 1
+fi
+
+# check for missing licenses
+if ! ./script/license_check.py; then
+    echo "License check failed"
     exit 1
 fi
 
