@@ -31,7 +31,10 @@ function decorate() {
     -e "s/^.*${word_begin}[eE][rR][rR][oO][rR]${word_end}.*$/::error:: &/"
 }
 
-source common/perf.sh
+if [ -z $GIT_PERF_DISABLED ]; then
+  source common/perf.sh
+fi
+
 CI_START=$(date +%s)
 
 INSTALL_START=$(date +%s)
@@ -59,14 +62,16 @@ add_measurement ci $CI_DURATION
 
 publish_measurements
 
-set +e
-git perf audit -n 40 -m nvim -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
-nvim_exit=$?
-git perf audit -n 40 -m zsh -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
-zsh_exit=$?
-git perf audit -n 40 -m ci -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
-ci_exit=$?
-set -e
+if [ -z $GIT_PERF_DISABLED ]; then
+  set +e
+  git perf audit -n 40 -m nvim -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
+  nvim_exit=$?
+  git perf audit -n 40 -m zsh -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
+  zsh_exit=$?
+  git perf audit -n 40 -m ci -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
+  ci_exit=$?
+  set -e
+fi
 
 if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]]; then
   echo "zsh: $zsh_exit"
