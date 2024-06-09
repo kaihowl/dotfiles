@@ -33,6 +33,9 @@ function decorate() {
 
 if [ -z $GIT_PERF_DISABLED ]; then
   source common/perf.sh
+else
+  git config user.email "git-perf@example.com"
+  git config user.name "git-perf"
 fi
 
 CI_START=$(date +%s)

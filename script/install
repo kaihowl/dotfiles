@@ -5,10 +5,17 @@ cd "$(dirname "$0")"/..
 
 source common/perf_stubs.sh
 
-if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source common/apt.sh
-  apt_update
+if [[ "$(uname)" == "Linux" ]]; then
+  if [ -f /etc/centos-release ]; then
+    # perl-Digest-SHA for shasum command
+    yum install -y epel-release perl-Digest-SHA which
+    yum repolist
+  elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+    source common/apt.sh
+    apt_update
+  fi
 fi
+
 
 if [[ "$(uname)" == *"Darwin"* ]] && [[ "$(xcode-select -p)" == *"CommandLineTools"* ]]; then
   # Full XCode is for example needed to compile pynvim's greenlet

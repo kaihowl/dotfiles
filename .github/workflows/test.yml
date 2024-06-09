@@ -54,6 +54,7 @@ jobs:
         run: |
           export GIT_PERF_DISABLED=true
           env
+          yum install -y git
           # TODO Check centos
           export XDG_CONFIG_HOME=~/.config
           # Make `infocmp` for nvim healthcheck succeed

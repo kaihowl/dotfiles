@@ -6,6 +6,9 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 if [ "$(uname)" == "Darwin" ]; then
   # Do nothing
   exit 0
+elif [ -f /etc/centos-release ]; then
+  yum install -y clang gdb
+  echo Partial centos support for gdb debugging
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "${SCRIPT_DIR}/../common/apt.sh"
   # This will break if it is a different version used for the standard library.

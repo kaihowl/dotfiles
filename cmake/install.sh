@@ -8,6 +8,9 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 if [ "$(uname)" == "Darwin" ]; then
   source "${SCRIPT_DIR}/../common/brew.sh"
   brew_install cmake
+elif [ -f /etc/centos-release ]; then
+  yum install -y cmake
+  echo Partial cmake support for centos
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # install latest
   source "${SCRIPT_DIR}/../common/apt.sh"
