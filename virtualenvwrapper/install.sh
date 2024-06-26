@@ -11,10 +11,6 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   apt_install python3-virtualenvwrapper
 fi
 
-# Not using in place editing as macOS and GNU sed
-# have incompatible -i options.
-touch ~/.zprofile
-sed "/^export VIRTUALENVWRAPPER_PYTHON.*$/d" ~/.zprofile > ~/.zprofilenew
+source "${SCRIPT_DIR}/../common/utilities.sh"
 # Using "sudo which" to bypass any user PATH prefixed python versions
-echo "export VIRTUALENVWRAPPER_PYTHON=$(sudo which python3)" >> ~/.zprofilenew
-mv ~/.zprofilenew ~/.zprofile
+sed_replace_in_file ~/.zprofile "^export VIRTUALENVWRAPPER_PYTHON.*$" "export VIRTUALENVWRAPPER_PYTHON=$(sudo which python3)"
