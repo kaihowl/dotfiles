@@ -52,6 +52,7 @@ jobs:
       - name: Install and test
         shell: bash
         run: |
+          set -x
           export GIT_PERF_DISABLED=true
           env
           yum install -y git
