@@ -23,6 +23,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
+        commentChar = ";"
 [apply]
         whitespace = warn
 [mergetool]
