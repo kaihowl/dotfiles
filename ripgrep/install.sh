@@ -12,10 +12,10 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
 
   source "${SCRIPT_DIR}/../common/download.sh"
 
-  version=14.1.0
+  version=14.1.1
   file_name=ripgrep_${version}
   download_url=https://github.com/BurntSushi/ripgrep/releases/download/${version}/ripgrep_${version}-1_amd64.deb
-  expect_hash="78953d5a1c97cb363de0098ff73a7ef33fcae014abd4d62f0da490fe3f58ee94"
+  expect_hash="2f0c732ef166b4f7be7190d4012d60b3f8467bdd6f795c0598817bd2ac1706ae"
 
   cache_file "$file_name" "$download_url" "$expect_hash"
   sudo dpkg -i "$(cache_path "${file_name}")"
