@@ -28,6 +28,13 @@ cat "${SCRIPT_DIR}/../schemes/${color[-1]}_${background[-1]}.toml" > ~/.color/al
 vim_colorscheme=${color[-1]}
 if [[ $vim_colorscheme = onehalf ]]; then
   vim_colorscheme="onehalf${background[-1]}"
+elif [[ $vim_colorscheme = tokyonight ]]; then
+  if [[ ${background[-1]} = dark ]]; then
+    color_daytime='storm'
+  else
+    color_daytime='day'
+  fi
+  vim_colorscheme="tokyonight-${color_daytime}"
 fi
 
 cat - > ~/.color/color.vim <<EOF
