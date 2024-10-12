@@ -6,7 +6,7 @@ cmp-buffer	MIT
 cmp-nvim-lsp	MIT
 cmp-vsnip	MIT
 edge	MIT
-fzf-lua	AGPL-3.0-only
+fzf-lua	MIT
 github.vim	MIT
 gruvbox	MIT
 indent-blankline.nvim	MIT
