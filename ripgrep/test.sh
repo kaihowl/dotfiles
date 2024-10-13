@@ -1,4 +1,4 @@
-#!/bin/zsh -i
+#!/bin/zsh -il
 set -e
 
 echo "Check if ripgrep is available"
