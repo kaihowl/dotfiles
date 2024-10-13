@@ -27,9 +27,8 @@ fi
 # invocations automatically after a certain time has passed.
 
 if ! [[ -x nix ]]; then
-  curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
-  cat /home/runner/.bash_profile
-  bash -i -c 'source /home/runner/.bash_profile; nix-shell -p nix-info --run "nix-info -m"'
+  curl -L https://nixos.org/nix/install | sh -s -- --daemon
+  bash -il -c 'nix-shell -p nix-info --run "nix-info -m"'
 fi
 
 # find the installers and run them iteratively
