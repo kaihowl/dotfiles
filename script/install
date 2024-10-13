@@ -28,6 +28,7 @@ fi
 
 if ! [[ -x nix ]]; then
   curl -L https://nixos.org/nix/install | sh -s -- --daemon
+  zsh -i -c 'nix-shell -p nix-info --run "nix-info -m"'
 fi
 
 # find the installers and run them iteratively
