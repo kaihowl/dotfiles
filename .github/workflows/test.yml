@@ -53,7 +53,7 @@ jobs:
       - name: Install and test
         shell: bash
         run: |
-          cd ~/.dotfiles && ./script/rhel_build.sh
+          cd .dotfiles && ./script/rhel_build.sh
       - name: Rename versions report
         if: always()
         run: |
