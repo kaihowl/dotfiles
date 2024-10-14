@@ -43,14 +43,14 @@ jobs:
     runs-on: ubuntu-latest
     # TODO deprecated
     container: centos:7
+    env:
+      # actions/checkout#1809
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+      ACTIONS_RUNNER_FORCED_INTERNAL_NODE_VERSION: node16
+      ACTIONS_RUNNER_FORCE_ACTIONS_NODE_VERSION: node16
 
     steps:
       - uses: actions/checkout@v3
-        env:
-          # actions/checkout#1809
-          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-          ACTIONS_RUNNER_FORCED_INTERNAL_NODE_VERSION: node16
-          ACTIONS_RUNNER_FORCE_ACTIONS_NODE_VERSION: node16
         with:
           path: '.dotfiles'
           fetch-depth: 40
