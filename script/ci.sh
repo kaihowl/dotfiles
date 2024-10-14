@@ -31,7 +31,7 @@ function decorate() {
     -e "s/^.*${word_begin}[eE][rR][rR][oO][rR]${word_end}.*$/::error:: &/"
 }
 
-if [ -z $GIT_PERF_DISABLED ]; then
+if [ -z "$GIT_PERF_DISABLED" ]; then
   source common/perf.sh
 else
   git status
@@ -66,7 +66,7 @@ add_measurement ci $CI_DURATION
 
 publish_measurements
 
-if [ -z $GIT_PERF_DISABLED ]; then
+if [ -z "$GIT_PERF_DISABLED" ]; then
   set +e
   git perf audit -n 40 -m nvim -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
   nvim_exit=$?
