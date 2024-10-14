@@ -57,6 +57,7 @@ jobs:
         shell: bash
         run: |
           echo "pwd test.yml start: $(pwd)"
+          yum install -y xz
           cd .dotfiles && ./script/rhel_build.sh
       - name: Rename versions report
         if: always()
