@@ -38,16 +38,12 @@ jobs:
         env:
           SHELLCHECK_OPTS: -s bash
 
-  centos-build:
+  # as a stand in for centos7:
+  # centos7 is EOL and the yum mirrors are no longer available
+  rhel-build:
     timeout-minutes: 20
     runs-on: ubuntu-latest
-    # TODO deprecated
-    container: centos:7
-    env:
-      # actions/checkout#1809
-      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-      ACTIONS_RUNNER_FORCED_INTERNAL_NODE_VERSION: node16
-      ACTIONS_RUNNER_FORCE_ACTIONS_NODE_VERSION: node16
+    container: redhat/ubi8:latest
 
     steps:
       - uses: actions/checkout@v3
