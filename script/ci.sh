@@ -35,6 +35,7 @@ if [ -z $GIT_PERF_DISABLED ]; then
   source common/perf.sh
 else
   pwd
+  ls .git
   git status
   git config user.email "git-perf@example.com"
   git config user.name "git-perf"
