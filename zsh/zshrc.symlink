@@ -12,6 +12,10 @@ fi
 
 fpath=($DOTS/zsh $fpath)
 
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 autoload -U start-ssh-and-add-identity
 start-ssh-and-add-identity
 
