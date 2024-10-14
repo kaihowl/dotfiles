@@ -46,6 +46,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        env:
+          # actions/checkout#1809
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
         with:
           path: '.dotfiles'
           fetch-depth: 40
