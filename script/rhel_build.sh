@@ -12,6 +12,4 @@ export TERM=dumb
 # Ignore potentially insecure directories on GitHub actions runner.
 export ZSH_DISABLE_COMPFIX=true
 pwd
-cd .dotfiles/
-pwd
 ./script/ci.sh
