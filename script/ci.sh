@@ -2,6 +2,8 @@
 
 set -ex
 
+echo "pwd ci.sh start: $(pwd)"
+
 function identity() {
   "$@"
 }
@@ -34,7 +36,7 @@ function decorate() {
 if [ -z $GIT_PERF_DISABLED ]; then
   source common/perf.sh
 else
-  pwd
+  echo "pwd ci.sh else branch: $(pwd)"
   ls .git
   git status
   git config user.email "git-perf@example.com"
