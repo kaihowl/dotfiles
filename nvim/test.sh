@@ -16,7 +16,7 @@ efm-langserver -v
 
 echo "Check if nvim is user-installed one"
 actual_path=$(realpath "$(which nvim)")
-if [[ "${actual_path}" != $(realpath ~/.nvim/bin)* ]]; then
+if [[ "${actual_path}" != /nix/store/* ]]; then
   echo "Actual Path: $actual_path"
   echo Expected to be in ~/.nvim/bin instead
   exit 1
