@@ -11,7 +11,8 @@ echo "Check if vim alias is set"
 which vim
 
 echo "Check if efm is available"
-which efm
+which efm-langserver
+efm-langserver -v
 
 echo "Check if nvim is user-installed one"
 actual_path=$(realpath "$(which nvim)")
