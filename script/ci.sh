@@ -59,6 +59,10 @@ TEST_END=$(date +%s)
 TEST_DURATION=$((TEST_END - TEST_START))
 add_measurement test $TEST_DURATION
 
+ls -lah ~/
+ls -lah ~/.nix-profile
+ls -lah ~/.nix-profile/bin
+~/.nix-profile/bin/nvim --version
 run_measurement ~/.nix-profile/bin/nvim +qall
 run_measurement zsh zsh -i -c 'exit'
 
