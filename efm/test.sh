@@ -9,7 +9,7 @@ efm-langserver -v
 
 echo "Check if efm-langserver is user-installed one"
 actual_path=$(realpath "$(which efm-langserver)")
-if [[ "${actual_path}" =~ /nix/store/.* ]]; then
+if [[ ${actual_path} != /nix/store/* ]]; then
   echo "Actual Path: $actual_path"
   echo Expected to be managed by nix
   exit 1
