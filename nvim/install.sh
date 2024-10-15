@@ -13,7 +13,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
     download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos-x86_64.tar.gz"
     expect_hash="dd88c86164e6fb34ee364c4a2b42c6a1832890003ae7c9c733032697d92cf7a6"
   fi
-elif [[ -f /etc/centos-release || "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+elif [[ -f /etc/redhat-release || "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   download_url="https://github.com/neovim/neovim/releases/download/v${version}/nvim-linux64.tar.gz"
   expect_hash="4867de01a17f6083f902f8aa5215b40b0ed3a36e83cc0293de3f11708f1f9793"
 fi

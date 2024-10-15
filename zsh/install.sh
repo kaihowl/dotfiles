@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 if [ "$(uname -s)" = "Darwin" ]; then
   source "${SCRIPT_DIR}/../common/brew.sh"
   brew_install zsh
-elif [ -f /etc/centos-release ]; then
+elif [ -f /etc/redhat-release ]; then
   yum install -y zsh
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   source "${SCRIPT_DIR}/../common/apt.sh"

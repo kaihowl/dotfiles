@@ -6,7 +6,7 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 if [ "$(uname)" == "Darwin" ]; then
   source "${SCRIPT_DIR}/../common/brew.sh"
   brew_install alacritty
-elif [ -f /etc/centos-release ]; then
+elif [ -f /etc/redhat-release ]; then
   echo No alacritty support on centos
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo snap remove alacritty || true

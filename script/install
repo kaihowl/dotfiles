@@ -6,7 +6,7 @@ cd "$(dirname "$0")"/..
 source common/perf_stubs.sh
 
 if [[ "$(uname)" == "Linux" ]]; then
-  if [ -f /etc/centos-release ]; then
+  if [ -f /etc/redhat-release ]; then
     # perl-Digest-SHA for shasum command
     yum install -y epel-release perl-Digest-SHA which
     yum repolist
