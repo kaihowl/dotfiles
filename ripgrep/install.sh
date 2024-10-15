@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-nix-env --install ripgrep
+/nix/var/nix/profiles/default/bin/nix-env --install ripgrep

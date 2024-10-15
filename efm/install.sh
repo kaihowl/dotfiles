@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-nix-env --install efm-langserver
+/nix/var/nix/profiles/default/bin/nix-env --install efm-langserver
