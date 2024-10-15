@@ -10,6 +10,9 @@ nvim --version
 echo "Check if vim alias is set"
 which vim
 
+echo "Check if efm is available"
+which efm
+
 echo "Check if nvim is user-installed one"
 actual_path=$(realpath "$(which nvim)")
 if [[ "${actual_path}" != $(realpath ~/.nvim/bin)* ]]; then
