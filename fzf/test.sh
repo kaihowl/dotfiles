@@ -4,6 +4,14 @@ set -e
 echo "Checking whether fzf is on path"
 which fzf
 
+echo "Check if fzf is nix controlled"
+actual_path=$(realpath "$(which fzf)")
+if [[ "${actual_path}" != /nix/store/* ]]; then
+  echo "Actual Path: $actual_path"
+  echo Expected fzf to be managed by nix
+  exit 1
+fi
+
 echo "Check if fzf is runnable"
 fzf --version
 
