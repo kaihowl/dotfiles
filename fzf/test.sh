@@ -15,5 +15,8 @@ fi
 echo "Check if fzf is runnable"
 fzf --version
 
+echo "Check that ctrl-t is registered for fzf"
+bindkey | grep -i '"\^T".*fzf'
+
 echo "Check that ctrl-xo is registered"
 bindkey | grep -i '\^X\^O'
