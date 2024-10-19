@@ -5,7 +5,16 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 cd "$(dirname "$0")"
 
-/nix/var/nix/profiles/default/bin/nix-env --install zsh expect
+if [ "$(uname -s)" = "Darwin" ]; then
+  source "${SCRIPT_DIR}/../common/brew.sh"
+  brew_install zsh
+elif [ -f /etc/redhat-release ]; then
+  yum install -y zsh
+elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+  source "${SCRIPT_DIR}/../common/apt.sh"
+  # Install 'expect' for testing
+  apt_install zsh expect
+fi
 
 if ! command -v git > /dev/null; then
   "${SCRIPT_DIR}/../git/install.sh"
@@ -36,11 +45,11 @@ if [ ! -d ~/.zsh-z ]; then
 fi
 (cd ~/.zsh-z && git pull --rebase)
 
-if (grep -q '/bin/zsh' /etc/shells) && which zsh; then
+if (grep -q '/bin/zsh' /etc/shells) && [[ -x /bin/zsh ]]; then
   if [[ "${CI}" == "true" ]]; then
     echo "Running on CI, not changing login shell"
   else
-    # Allow for unattended upgrade / might fail on linux as only shell in /etc/shells.
+    # Allow for unattended upgrade
     sudo chsh -s "$(which zsh)" "$(whoami)"
   fi
 fi
