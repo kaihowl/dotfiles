@@ -1,6 +1,4 @@
 #!/bin/bash
-set -eu
-set -o pipefail
 
 if [ $# != 1 ]; then
   echo Missing output file argument
