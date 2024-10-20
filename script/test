@@ -1,4 +1,6 @@
-#!/usr/bin/env zsh -ie
+#!/usr/bin/env zsh
+
+set -e
 
 # Run all test scripts
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh -i
+#!/usr/bin/env zsh
 set -e
 
 echo "Check if vim-vint is on path"

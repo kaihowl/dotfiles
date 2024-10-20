@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh -il
+#!/usr/bin/env zsh
 set -e
 
 echo "Check if ripgrep is available"
