@@ -12,6 +12,13 @@ echo "output to $output_file"
 
 echo "" > "$output_file"
 
+# TODO use nix-env reporting
+
+# Need to have proper PATH
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "brew installed:" >> "$output_file"
   brew info --installed --json | jq '.[] | .name + "@" + .installed[0].version' | tee -a "$output_file"
