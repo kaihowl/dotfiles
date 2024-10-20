@@ -5,6 +5,7 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 # TODO hack bring in PATH
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  # shellcheck disable=SC1091
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 

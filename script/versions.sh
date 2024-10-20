@@ -16,6 +16,7 @@ echo "" > "$output_file"
 
 # Need to have proper PATH
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  # shellcheck disable=SC1091
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
