@@ -1,7 +1,15 @@
 #!/bin/bash
 set -e
 
-/nix/var/nix/profiles/default/bin/nix-env --install python312Packages.virtualenvwrapper
+SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  source "${SCRIPT_DIR}/../common/brew.sh"
+  brew_install virtualenvwrapper
+elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+  source "${SCRIPT_DIR}/../common/apt.sh"
+  apt_install python3-virtualenvwrapper
+fi
 
 source "${SCRIPT_DIR}/../common/utilities.sh"
 # Using "sudo which" to bypass any user PATH prefixed python versions
