@@ -2,7 +2,7 @@
 
 # Run all test scripts
 
-cd "$(dirname "$0")"/..
+cd "$(dirname "$0")"/.. || exit 1
 
 # Needed to bring the correct PATH in place such that the /usr/bin/env shebang
 # for the test scripts finds a working zsh
@@ -11,8 +11,12 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 # find all test scripts and run them
-tests=("${(@f)$(find . -name "test.sh")}")
-for t in $tests; do
+tests=()
+while IFS= read -r -d '' test; do
+    tests+=("$test")
+done < <(find . -type f -name 'test.sh' -print0)
+
+for t in "${tests[@]}"; do
   printf "Running \e[32m%s\e[0m" "${t}"
   zsh -c -i -l "${t}"
 done
