@@ -60,7 +60,7 @@ TEST_DURATION=$((TEST_END - TEST_START))
 add_measurement test $TEST_DURATION
 
 run_measurement nvim ~/.nix-profile/bin/nvim +qall
-run_measurement zsh zsh -i -c 'exit'
+run_measurement zsh ~/.nix-profile/bin/zsh -i -c 'exit'
 
 CI_END=$(date +%s)
 CI_DURATION=$((CI_END - CI_START))
