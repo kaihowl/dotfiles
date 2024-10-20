@@ -1,4 +1,4 @@
-#!/bin/zsh -i
+#!/usr/bin/env zsh -i
 set -eu
 set -o pipefail
 

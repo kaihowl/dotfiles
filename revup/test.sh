@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 set -e
 
 echo "Check that 'revup' is on the path"

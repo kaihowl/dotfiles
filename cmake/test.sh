@@ -1,4 +1,4 @@
-#!/bin/zsh -i
+#!/usr/bin/env zsh -i
 set -e
 
 echo "Check if cmake is available"

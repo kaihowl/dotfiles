@@ -1,4 +1,4 @@
-#!/bin/zsh -i
+#!/usr/bin/env zsh -i
 set -euo pipefail
 
 echo "Check if nvim is available"

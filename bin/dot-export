@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 old_pwd=$(pwd)
 cd "$DOTS" || exit 1
