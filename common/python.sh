@@ -18,7 +18,7 @@ function ensure_python_installed() {
 }
 
 function install_in_named_virtualenv() {
-  local name
+  local venvname
   venvname=$1
   shift
 
