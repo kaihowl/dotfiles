@@ -1,12 +1,25 @@
-#!/bin/zsh -ie
+#!/bin/bash
 
 # Run all test scripts
 
-cd "$(dirname "$0")"/..
+cd "$(dirname "$0")"/.. || exit 1
 
 # find all test scripts and run them
-tests=("${(@f)$(find . -name "test.sh")}")
-for t in $tests; do
+tests=()
+while IFS= read -r -d '' test; do
+    tests+=("$test")
+done < <(find . -type f -name 'test.sh' -print0)
+
+failed_tests=0
+for t in "${tests[@]}"; do
   printf "Running \e[32m%s\e[0m" "${t}"
-  zsh -c -i "${t}"
+  if ! zsh -i -l "${t}"; then
+      echo "ERROR: TEST ${t} FAILED"
+      ((failed_tests+=1))
+  fi
 done
+
+if [[ $failed_tests -ne 0 ]]; then
+    echo "FOUND ${failed_tests} FAILED TESTS"
+    exit 1
+fi
