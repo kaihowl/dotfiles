@@ -1,4 +1,4 @@
-#!/bin/zsh -i
+#!/usr/bin/env zsh
 set -e
 
 echo "Check if shellcheck is on path"
