@@ -1,12 +1,17 @@
 # shellcheck disable=all
 
 # Loaned and stripped down from zsh4humans
+# Changed and adopted based on https://stackoverflow.com/a/48509425
+# The original approach did not work with ssh auth forwarding; the SSH_AGENT_PID
+# is not guaranteed to be set in that case.
 
 function start-ssh-and-add-identity() {
   [[ -v commands[ssh-agent] ]] || return 0
+  [[ -v commands[ssh-add] ]] || return 0
 
   function -ssh-agent-running() {
-    [[ -w $SSH_AUTH_SOCK ]] && builtin kill -0 -- $SSH_AGENT_PID 2>/dev/null
+    ssh-add -l &> /dev/null
+    [[ $? -ne 2 ]]
   }
 
   {
