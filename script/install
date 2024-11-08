@@ -26,7 +26,7 @@ fi
 installers=$(find . -name zsh -prune -o -name install.sh -print)
 installers="./zsh/install.sh $installers"
 for installer in ${installers}; do
-  printf "Running \e[32m%s\e[0m" "${installer}"
+  printf "Running \e[32m%s\e[0m\n" "${installer}"
   START=$(date +%s)
   sh -c "${installer}"
   END=$(date +%s)
