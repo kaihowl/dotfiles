@@ -3,6 +3,31 @@ set -e
 
 cd "$(dirname "$0")"/..
 
+# Disable SELinux: nix won't install with it + invocation of nix on CentOS9
+# leads to job control stopping the script.
+# Install everything without SELinux, afterwards enable SELinux again.
+selinux_state=Permissive
+
+if which getenforce; then
+  selinux_state=$(sudo getenforce)
+fi
+
+if [[ ${selinux_state} == Enforcing ]]; then
+  echo "Disabling SELinux"
+  sudo setenforce Permissive
+fi
+
+function restore_selinux() {
+  if which getenforce; then
+    if [[ $selinux_state == Enforcing ]]; then
+      echo "Enabling (Restoring) SELinux"
+      sudo setenforce Enforcing
+    fi
+  fi
+}
+
+trap restore_selinux EXIT
+
 source common/perf_stubs.sh
 
 if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
