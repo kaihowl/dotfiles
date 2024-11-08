@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env -S zsh -il
 set -e
 
 echo "Checking whether fzf is on path"
