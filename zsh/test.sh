@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env -S zsh -il
 set -e
 
 echo "Test that start up and basic user input to shell work without errors"
