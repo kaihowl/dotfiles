@@ -13,6 +13,10 @@ function darwin_version() {
 }
 
 # Replace a given pattern in a file with the given replacement.
+# Args:
+#   - file
+#   - search (partial line)
+#   - replacement (full line)
 # If the line does not exist, append it.
 # If the line existed, move it to the end of the file.
 function sed_replace_in_file() {
