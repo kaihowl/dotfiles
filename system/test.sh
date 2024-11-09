@@ -1,14 +1,11 @@
 #!/usr/bin/env -S zsh -il
 set -e
 
-source "$DOTS/common/utilities.sh"
-if [ "$(uname)" != "Darwin" ] || ! version_less_than "$(darwin_version)" 11.0.0 ; then
-  echo "Check if ncdu is available"
-  which ncdu
+echo "Check if ncdu is available"
+which ncdu
 
-  echo "Check if ncdu is runnable"
-  ncdu --version
-fi
+echo "Check if ncdu is runnable"
+ncdu --version
 
 echo "Check if tree is available"
 which tree
@@ -27,3 +24,11 @@ which htop
 
 echo "Check if htop is runnable"
 htop --version
+
+echo "Check if python3 is nix controlled"
+actual_path=$(realpath "$(which python3)")
+if [[ "${actual_path}" != /nix/store/* ]]; then
+  echo "Actual Path: $actual_path"
+  echo Expected python3 to be managed by nix
+  exit 1
+fi

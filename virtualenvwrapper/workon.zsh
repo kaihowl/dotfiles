@@ -1,18 +1,14 @@
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-# Missing expansion of VIRTUALENVWRAPPER_PYTHON
-# This needs to be specific to each platform, i.e., where python3 sits.
-# Set this instead in your .zprofile if not set by install.sh automatically.
+# Set explicitly, even if we expect this python3 to be the first python3 on the PATH already
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.nix-profile/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.nix-profile/bin/virtualenv
 
-macos_virtualenv_scripts=$HOMEBREW_PREFIX/bin
-ubuntu_virtualenv_scripts=/usr/share/virtualenvwrapper
+nix_virtualenv_scripts=~/.nix-profile/bin
 lazy_wrapper=virtualenvwrapper_lazy.sh
-if [ -f "${macos_virtualenv_scripts}/${lazy_wrapper}" ]; then
+if [ -f "${nix_virtualenv_scripts}/${lazy_wrapper}" ]; then
   # shellcheck disable=SC1090
-  source "${macos_virtualenv_scripts}/${lazy_wrapper}"
-elif [ -f "${ubuntu_virtualenv_scripts}/${lazy_wrapper}" ]; then
-  # shellcheck disable=SC1090
-  source "${ubuntu_virtualenv_scripts}/${lazy_wrapper}"
+  source "${nix_virtualenv_scripts}/${lazy_wrapper}"
 else
   echo -e "Could not find virtualenvwrapper_lazy"
 fi

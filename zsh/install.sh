@@ -5,19 +5,6 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 cd "$(dirname "$0")"
 
-if [ "$(uname -s)" = "Darwin" ]; then
-  source "${SCRIPT_DIR}/../common/brew.sh"
-  brew_install zsh
-elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source "${SCRIPT_DIR}/../common/apt.sh"
-  # Install 'expect' for testing
-  apt_install zsh expect
-fi
-
-if ! command -v git > /dev/null; then
-  "${SCRIPT_DIR}/../git/install.sh"
-fi
-
 if [ ! -d ~/.powerlevel10k ]; then
   git clone https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k --depth=1
 fi
@@ -42,7 +29,6 @@ if [ ! -d ~/.zsh-z ]; then
   git clone https://github.com/agkozak/zsh-z.git ~/.zsh-z --depth=1
 fi
 (cd ~/.zsh-z && git pull --rebase)
-
 
 # Replace `chsh` with a fail-safe profile/exec dance:
 # When /bin/sh -> /bin/bash or /bin/zsh are the default shells on the system,

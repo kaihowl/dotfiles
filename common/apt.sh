@@ -19,11 +19,6 @@ function apt_install() {
   sudo apt-get -o DPkg::Lock::Timeout=-1 install --upgrade -y "$@"
 }
 
-function apt_remove() {
-  wait_for_apt
-  sudo apt-get remove -y "$@"
-}
-
 function apt_add_repo_with_keyfile() {
   local name
   name=$1

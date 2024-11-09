@@ -10,8 +10,10 @@ clangd --version
 echo "Check that clangd can be started"
 clangd --help > /dev/null
 
-echo "Check that clangd is installed from llvm apt repo (Ubuntu-only)"
-if [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  apt-cache policy clangd
-  apt-cache policy clangd | grep -F '**' -A1 | grep -F apt.llvm.org
+echo "Check that clangd is nix managed"
+actual_path=$(realpath "$(which clangd)")
+if [[ "${actual_path}" != /nix/store/* ]]; then
+  echo "Actual Path: $actual_path"
+  echo Expected clangd to be managed by nix
+  exit 1
 fi

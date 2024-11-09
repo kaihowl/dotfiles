@@ -6,6 +6,14 @@ if [ "$(uname)" == "Darwin" ]; then
   exit 0
 fi
 
+echo "Check if gdb is nix controlled"
+actual_path=$(realpath "$(which gdb)")
+if [[ "${actual_path}" != /nix/store/* ]]; then
+  echo "Actual Path: $actual_path"
+  echo Expected gdb to be managed by nix
+  exit 1
+fi
+
 # Example output:
 #   GNU gdb (Ubuntu 10.2-0ubuntu1~20.04~1) 10.2
 version=$(gdb --version | awk 'NR==1 {print $(NF)}')

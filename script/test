@@ -4,6 +4,13 @@
 
 cd "$(dirname "$0")"/.. || exit 1
 
+# Needed to bring the correct PATH in place such that the /usr/bin/env shebang
+# for the test scripts finds a working zsh
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  # shellcheck disable=SC1090,SC1091
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # find all test scripts and run them
 tests=()
 while IFS= read -r -d '' test; do

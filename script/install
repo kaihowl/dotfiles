@@ -30,19 +30,25 @@ trap restore_selinux EXIT
 
 source common/perf_stubs.sh
 
-if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  source common/apt.sh
-  apt_update
-fi
-
 if [[ "$(uname)" == *"Darwin"* ]] && [[ "$(xcode-select -p)" == *"CommandLineTools"* ]]; then
   # Full XCode is for example needed to compile pynvim's greenlet
   printf "Running \e[32mFull XCode install needed\e[0m"
   exit 1
 fi
 
-# No explicit update for homebrew, there are enough update and cleanup
-# invocations automatically after a certain time has passed.
+if ! [ -f /nix/var/nix/profiles/default/bin/nix ]; then
+  curl -L https://nixos.org/nix/install | sh -s -- --daemon
+fi
+
+# Instantiate the home-manager flake
+# TODO(kaihowl) remove impurity again
+bash -il -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#myprofile'
+# This will make the nix-env invocations in the install files fail
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  # shellcheck disable=SC1090,SC1091
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
 
 # find the installers and run them iteratively
 # Run zsh install first
