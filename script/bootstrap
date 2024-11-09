@@ -154,7 +154,6 @@ setup_gitconfig
 link_dotfiles
 remove_outdated_files
 
-# If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "setting mac-specific settings"
