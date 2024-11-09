@@ -8,14 +8,12 @@
 echo "Check: VIRTUALENVWRAPPER_PYTHON: ${VIRTUALENVWRAPPER_PYTHON}"
 
 echo "Check if 'mkvirtualenv' is available"
-which mkvirtualenv
 if ! which mkvirtualenv; then
   echo "Failed to find mkvirtualenv"
   exit 1
 fi
 
 echo "Check if 'mkvirtualenv' is runnable"
-which mkvirtualenv
 # Cannot use --version as that returns unclean by default.
 if ! mkvirtualenv --help; then
   echo "Failed to run mkvirtualenv"
