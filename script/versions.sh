@@ -1,6 +1,4 @@
-#!/bin/zsh -i
-set -eu
-set -o pipefail
+#!/bin/bash
 
 if [ $# != 1 ]; then
   echo Missing output file argument
@@ -12,13 +10,12 @@ echo "output to $output_file"
 
 echo "" > "$output_file"
 
-if [[ "$(uname)" == "Darwin" ]]; then
-  echo "brew installed:" >> "$output_file"
-  brew info --installed --json | jq '.[] | .name + "@" + .installed[0].version' | tee -a "$output_file"
-elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  echo "apt installed:" >> "$output_file"
-  # Not using `apt list --installed` as apt does not have a stable interface
-  dpkg-query --show | tee -a "$output_file"
+# TODO use nix-env reporting
+
+# Need to have proper PATH
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  # shellcheck disable=SC1091
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
 tmp_file=$(mktemp)
@@ -27,4 +24,5 @@ nvim --headless "+PlugSnapshot! $tmp_file" +qall
 
 { echo "nvim plugins installed:"; cat "$tmp_file"; } >> "$output_file"
 
-{ echo "pip packages installed:"; python3 -m pip list; } >> "$output_file"
+# TODO(kaihowl) not needed on generic python, maybe for the virtualenvs created?
+# { echo "pip packages installed:"; python3 -m pip list; } >> "$output_file"

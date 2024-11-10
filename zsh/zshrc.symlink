@@ -12,6 +12,10 @@ fi
 
 fpath=($DOTS/zsh $fpath)
 
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 autoload -U start-ssh-and-add-identity
 start-ssh-and-add-identity
 
@@ -31,11 +35,6 @@ fi
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Cache the brew prefix for other tools to pick up
-if [[ -z $BREW_PREFIX ]] && which brew &> /dev/null; then
-  export BREW_PREFIX=$(brew --prefix)
 fi
 
 # Emacs keybindings

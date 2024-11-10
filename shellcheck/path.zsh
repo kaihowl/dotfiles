@@ -1,1 +1,0 @@
-export PATH=~/.shellcheck:$PATH

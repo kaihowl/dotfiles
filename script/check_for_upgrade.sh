@@ -13,7 +13,7 @@ function _update_dots_update() {
 }
 
 function _upgrade_dots() {
-  /usr/bin/env DOTS="$DOTS" /bin/zsh -c "flock -E 250 -n '$DOTS/script/upgrade.sh.lock' -c '$DOTS/script/upgrade.sh'"
+  /usr/bin/env DOTS="$DOTS" zsh -c "flock -E 250 -n '$DOTS/script/upgrade.sh.lock' -c '$DOTS/script/upgrade.sh'"
   if [ $? -eq 250 ]; then
     printf '\033[0;93m%s\033[0m\n' 'Upgrade already running. Skipping this invocation.'
     return 1

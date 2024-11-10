@@ -10,9 +10,9 @@ if [[ "$(lsb_release -i 2> /dev/null)" == *"Ubuntu"* ]]; then
   codename=$(lsb_release -cs)
   apt_add_repo ubuntu-toolchain-test https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu ::codename:: 60C317803A41BA51845E371A1E9377A2BA9EF27F
   if [[ "$codename" == *"focal"* ]]; then
-    apt_install clang gdb libstdc++6-10-dbg
+    apt_install clang libstdc++6-10-dbg
   elif [[ "$codename" == *"jammy"* ]]; then
-    apt_install clang gdb libstdc++6-12-dbg
+    apt_install clang libstdc++6-12-dbg
   else
     echo "Unsupported Ubuntu version $codename"
     echo "Maybe the following command will point to the correct version"
