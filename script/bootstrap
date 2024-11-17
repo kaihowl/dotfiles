@@ -66,6 +66,9 @@ setup_gitconfig () {
 
 link_files () {
   ln -s "$1" "$2"
+  # Reduce permissions on symlink (and thereby worktree file).
+  # Tools like revup complain if the permissions are too wide.
+  chmod 0600 "$2"
   success "linked $1 to $2"
 }
 
