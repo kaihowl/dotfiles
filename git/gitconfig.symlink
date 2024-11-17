@@ -45,6 +45,8 @@
   prune = true
 [gpg]
 	format = ssh
+[gpg.ssh]
+  defaultKeyCommand = ssh-add -L
 [rerere]
 	enabled = true
 [filter "lfs"]
