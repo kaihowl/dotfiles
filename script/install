@@ -45,15 +45,22 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
-bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#myprofile'
-# No explicit update for homebrew, there are enough update and cleanup
-# invocations automatically after a certain time has passed.
+if [[ $DOTFILES_PROFILE == minimal ]]; then
+  bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#minimal'
+else
+  bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#full'
+fi
 
 # find the installers and run them iteratively
 # Run zsh install first
 # If there are more dependencies between installers in the future,
 # this needs to be expanded.
-installers=$(find . -name zsh -prune -o -name install.sh -print)
+if [[ $DOTFILES_PROFILE == minimal ]]; then
+  installers="./nvim/install.sh ./pyls/install.sh ./colors/install.sh ./vint/install.sh ./revup/install.sh"
+else
+  installers=$(find . -name zsh -prune -o -name install.sh -print)
+fi
+
 installers="./zsh/install.sh $installers"
 for installer in ${installers}; do
   printf "Running \e[32m%s\e[0m\n" "${installer}"

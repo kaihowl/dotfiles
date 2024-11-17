@@ -20,9 +20,14 @@
       pkgs-unstable = import nixpkg-unstable { inherit system; };
     in {
       homeConfigurations = {
-        myprofile = home-manager.lib.homeManagerConfiguration {
+        full = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {inherit pkgs-unstable;};
+          extraSpecialArgs = {inherit pkgs-unstable; profile="full";};
+          modules = [ ./home.nix ];
+        };
+        minimal = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {inherit pkgs-unstable; profile="minimal";};
           modules = [ ./home.nix ];
         };
       };
