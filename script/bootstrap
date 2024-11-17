@@ -36,12 +36,6 @@ setup_gitconfig () {
   then
     info 'setup gitconfig'
 
-    git_credential='cache'
-    if [ "$(uname -s)" == "Darwin" ]
-    then
-      git_credential='osxkeychain'
-    fi
-
     preset_user=$(git config --get user.name || true)
     user ' - What is your github author name?'
     if [[ -n "${preset_user}" ]]; then
@@ -58,7 +52,7 @@ setup_gitconfig () {
       read -re git_authoremail
     fi
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig_credentials.example > ~/.gitconfig_credentials
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig_credentials.example > ~/.gitconfig_credentials
 
     success 'gitconfig'
   fi

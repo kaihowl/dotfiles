@@ -10,6 +10,7 @@
       efm-langserver
       fzf
       git
+      git-credential-manager
       ninja
       neovim-unwrapped
       ripgrep
