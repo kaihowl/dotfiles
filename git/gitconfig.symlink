@@ -1,5 +1,8 @@
 [include]
         path = .gitconfig_credentials
+[credential]
+# This was introduced primarily to be the default way for revup to fetch the token.
+        helper = "!~/.nix-profile/bin/git-credential-manager"
 [alias]
         co = checkout
         promote = !$DOTS/bin/git-promote
