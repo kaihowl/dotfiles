@@ -5,7 +5,6 @@ let minimal-packages = with pkgs; [
       fzf
       git
       git-credential-manager
-      neovim-unwrapped
       ripgrep
       shellcheck
       tmux
@@ -42,7 +41,18 @@ in
     # TODO(kaihowl) remove impurity again?
     username = builtins.getEnv "USER";
     homeDirectory = /. + (builtins.getEnv "HOME");
-
     stateVersion = "24.05";
+  };
+
+  programs = {
+    neovim = {
+      enable = true;
+      plugins= with pkgs.vimPlugins; [
+        nvim-lspconfig
+      ];
+      withNodeJs = false;
+      withPython3 = true;
+      withRuby = false;
+    };
   };
 }
