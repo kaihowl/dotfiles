@@ -16,9 +16,26 @@ fi
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
-original_url=$(git --work-tree "$SCRIPT_DIR" remote get-url origin)
+export GIT_DIR=${SCRIPT_DIR}/../.git
+
+if [ -z "$(git status --porcelain)" ]; then
+  echo "Git directory is clean."
+else
+  echo "Git directory is dirty."
+  exit 1
+fi
+
+LOCAL_BRANCH=$(git rev-parse HEAD)
+REMOTE_BRANCH=$(git rev-parse @{u})
+if [ "$LOCAL_BRANCH" != "$REMOTE_BRANCH" ]; then
+  echo "Unpushed commits detected."
+  exit 1
+fi
+
+original_url=$(git remote get-url origin)
 
 ssh "$target_spec" "/bin/true"
 rsync ~/./.gitconfig_credentials "$target_spec:~/.gitconfig_credentials"
 rsync ~/./.color/current "$target_spec:~/.color/current" --rsync-path "mkdir -p ~/.color && rsync"
 ssh -tA "$target_spec" "git clone '$original_url' ~/.dotfiles; cd ~/.dotfiles && DOTFILES_PROFILE=minimal ./script/bootstrap"
+echo "Done. Final cleanup."
