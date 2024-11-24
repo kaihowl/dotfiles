@@ -1204,4 +1204,45 @@ command! -complete=file -nargs=1 -bang Lfile call <SID>load_file('l', <bang>0, <
 vnoremap <leader>gd :Linediff<cr>
 "}}}
 
+"{{{ revup amend / upload
+lua <<EOF
+
+revup_bin = "~/.virtualenvs/revup/bin/revup"
+
+function revup_amend(opts)
+  command = revup_bin .. " toolkit list-topics"
+  require'fzf-lua'.fzf_exec(command, {
+    actions = {
+          -- Define an action for when an item is selected
+          ["default"] = function(selected)
+            -- Run `revup amend` with the selected item
+            local topic = selected[1]  -- `selected` is a table; get the first selected item
+            if topic then
+              -- Use Vim's system to run the shell command
+              vim.api.nvim_command("terminal " .. revup_bin .. " amend " .. vim.fn.shellescape(topic))
+            end
+          end
+    }}
+  )
+end
+
+function revup_upload(opts)
+  vim.api.nvim_command("terminal " .. revup_bin .. " upload")
+end
+
+
+vim.api.nvim_create_user_command('RevupAmend',
+  revup_amend,
+  { range = -1 })
+
+vim.api.nvim_create_user_command('RevupUpload',
+  revup_upload,
+  { range = -1 })
+
+EOF
+
+nnoremap <leader>gr :RevupAmend<cr>
+nnoremap <leader>gR :RevupUpload<cr>
+"}}}
+
 " vi: ft=vim : fen : fdm=marker : fmr={{{,}}} : fdl=0
