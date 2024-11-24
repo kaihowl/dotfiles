@@ -7,12 +7,13 @@ let minimal-packages = with pkgs; [
       git-credential-manager
       ripgrep
       shellcheck
+      gcm-helper
       tmux
       zsh expect
       python3
       python3Packages.virtualenv
       python3Packages.virtualenvwrapper
-      python3Packages.pip
+      netcat
       # support tooling
       tree jq htop
       pkgs-unstable.ncdu
@@ -54,5 +55,18 @@ in
       withPython3 = true;
       withRuby = false;
     };
+
+    # TODO(kaihowl) cannot use:;
+    # ssh.enable = true;
+    # since the address is not an absolute path
+    # we unfortunately produce an invalid ssh_config file
+    # ssh.matchBlocks = {
+    #   "*" = {
+    #     localForwards = [{
+    #       bind.address = "~/.gcm.socket";
+    #       host.address = "~/.gcm.socket";
+    #     }];
+    #   };
+    # };
   };
 }

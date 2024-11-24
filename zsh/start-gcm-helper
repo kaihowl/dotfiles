@@ -1,0 +1,23 @@
+# shellcheck disable=all
+
+function start-gcm-helper() {
+  function -gcm-helper-running {
+    # Using nc has this has quick startup and execuction
+    # fuser / lsof / gcm-client are all slower.
+    socket=~/.gcm.socket
+    if [[ -n $GCM_SOCKET ]]; then
+      socket=$GCM_SOCKET
+    fi
+
+    echo "args=ping\n" | nc -U "$socket" -N &> /dev/null
+  }
+
+  {
+    -gcm-helper-running && return
+
+    gcm-server
+  } always {
+    builtin unfunction -- -gcm-helper-running
+  }
+}
+
