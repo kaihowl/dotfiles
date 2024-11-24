@@ -34,8 +34,8 @@ fi
 
 original_url=$(git remote get-url origin)
 
-ssh "$target_spec" "/bin/true"
+ssh "$target_spec" "yum install -y git"
 rsync ~/./.gitconfig_credentials "$target_spec:~/.gitconfig_credentials"
 rsync ~/./.color/current "$target_spec:~/.color/current" --rsync-path "mkdir -p ~/.color && rsync"
-ssh -tA "$target_spec" "git clone '$original_url' ~/.dotfiles; cd ~/.dotfiles && DOTFILES_PROFILE=minimal ./script/bootstrap"
+ssh -tA "$target_spec" "git clone -b kaihowl/stack '$original_url' ~/.dotfiles; cd ~/.dotfiles && DOTFILES_PROFILE=minimal ./script/bootstrap"
 echo "Done. Final cleanup."
