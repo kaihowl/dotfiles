@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+
+import socket
+import subprocess
+import shutil
+import daemon
+from daemon.pidfile import PIDLockFile
+import sys
+import os.path
+import logging
+import argparse
+
+
+def handle_client(client_socket):
+    args = None
+    input_data = []
+
+    while True:
+        # Receive data from the client
+        data = client_socket.recv(1024)
+        if not data:  # Connection closed by the client
+            break
+
+        # Decode and process the received lines
+        lines = data.decode().splitlines()
+        for line in lines:
+            logging.info(f"processing line: {line}")
+            if line.startswith("args="):
+                # Start a new round when "args=" is encountered
+                args = line[len("args=") :].strip()
+                input_data = []  # Reset input data for the new round
+                if args == "ping":
+                    client_socket.sendall("pong".encode())
+                    args = ""
+                logging.info(f"starting new round with args: {args}")
+            elif line.strip() == "":
+                logging.info("found empty line")
+                # Empty line indicates the end of a round
+                if args:
+                    if args not in ["get", "store", "erase"]:
+                        logging.error(f"Unexpected arg {args} received")
+                        args = None
+                        input_data = []
+                        continue
+                    # Call git-credential with the collected input_data
+                    logging.info(f"len input_data: {len(input_data)}")
+                    logging.info(input_data)
+                    textdata = "\n".join(input_data) + " \n"
+                    try:
+                        logging.info(f"textdata data: {textdata}")
+                        logging.info(f"args: {args}")
+                        result = subprocess.run(
+                            # TODO check for args in valid set
+                            [
+                                shutil.which("git-credential-manager"),
+                                args,
+                            ],
+                            input="\n".join(input_data) + "\n",
+                            text=True,
+                            capture_output=True,
+                            check=True,
+                        )
+                        logging.info(f"Received output")
+                        # Send the output of git-credential back to the client
+                        client_socket.sendall(result.stdout.encode())
+                    except subprocess.CalledProcessError as e:
+                        # Handle errors from git-credential
+                        error_message = f"Error: {e.stderr.strip()}\n"
+                        client_socket.sendall(error_message.encode())
+                # Reset for the next round
+                args = None
+                input_data = []
+            else:
+                # Collect input data
+                logging.info(f"collecting {line.strip()}")
+                input_data.append(line.strip())
+
+
+def remove_socket_file(socket_file):
+    try:
+        os.unlink(socket_file)
+    except OSError:
+        if os.path.exists(socket_file):
+            raise
+
+
+def git_credential_server():
+    logging.basicConfig(
+        format="%(asctime)s %(levelname)-8s %(message)s",
+        level=logging.INFO,
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    socket_file = os.path.expanduser("~/.gcm.socket")
+    bind_failure = False
+
+    try:
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as server_socket:
+            server_socket.bind(socket_file)
+            server_socket.listen(1)
+            logging.info(f"Git-credential server listening on socket {socket_file}...")
+
+            while True:
+                client_socket, client_address = server_socket.accept()
+                logging.info(f"Connection from {client_address}")
+                with client_socket:
+                    handle_client(client_socket)
+    except OSError:
+        bind_failure = True
+        logging.info("Failed to bind to socket. Already running? Stale socket?")
+        sys.exit(1)
+    finally:
+        if not bind_failure:
+            remove_socket_file(socket_file)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-fg", "--foreground", action="store_true")
+    args = parser.parse_args()
+
+    if args.foreground:
+        git_credential_server()
+    else:
+        pidfile_path = os.path.expanduser("~/.gcm.pid")
+
+        pidfile = PIDLockFile(pidfile_path)
+
+        # TODO(kaihowl) rolling log file?
+        with open(os.path.expanduser("~/.gcm-server.log"), "w+") as logfile:
+            if not pidfile.is_locked():
+                with daemon.DaemonContext(pidfile=pidfile, stderr=logfile):
+                    git_credential_server()

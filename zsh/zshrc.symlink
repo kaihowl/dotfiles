@@ -6,6 +6,14 @@ export DOTS=${${(%):-%x}:A:h:h}
 # Ensure running in tmux
 if [ ! -v TMUX ]; then
   if tmux new-session -s "$(hostname -f)_dev.$$"; then
+    # This returns on exit from the spawned session only
+      case $(ps -o comm= -p "$PPID") in
+          sshd|*/sshd)
+            if [[ -n $GCM_SOCKET ]]; then
+              rm -f "$GCM_SOCKET"
+            fi
+            ;;
+      esac
     exit
   fi
 fi
@@ -19,6 +27,9 @@ fi
 autoload -U start-ssh-and-add-identity
 start-ssh-and-add-identity
 
+autoload -U start-gcm-helper
+start-gcm-helper
+
 # Periodically (typically once a day), update from github
 source "$DOTS/script/check_for_upgrade.sh"
 
@@ -29,6 +40,8 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     exec 3>&2 2> "$HOME/tmp/startlog.$$"
     setopt xtrace prompt_subst
 fi
+
+autoload -U fix-ssh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

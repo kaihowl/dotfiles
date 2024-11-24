@@ -1,0 +1,2 @@
+# Directory symlink containing a `nix flake build` result
+/result

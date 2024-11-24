@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+import socket
+import sys
+import os.path
+
+
+def main():
+    # Define the path to the Unix socket
+    socket_path = os.path.expanduser("~/.gcm.socket")
+
+    if "GCM_SOCKET" in os.environ:
+        socket_path = os.environ["GCM_SOCKET"]
+
+    # Collect arguments and standard input
+    args = " ".join(sys.argv[1:])
+    stdin_content = sys.stdin.read()
+
+    # Create the payload to send
+    payload = f"args={args}\n{stdin_content}\n"
+
+    try:
+        # Create a Unix socket
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client_socket:
+            # Connect to the Unix socket
+            client_socket.connect(socket_path)
+
+            # Send the payload
+            client_socket.sendall(payload.encode("utf-8"))
+
+            # Optionally, receive and print the response
+            response = client_socket.recv(1024)
+            print(response.decode("utf-8"))
+
+    except FileNotFoundError:
+        print(f"Error: Unix socket at {socket_path} not found.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()  #
