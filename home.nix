@@ -9,7 +9,12 @@ let minimal-packages = with pkgs; [
       shellcheck
       gcm-helper
       tmux
-      zsh expect
+      zsh
+      zsh-powerlevel10k
+      zsh-autocomplete
+      zsh-autosuggestions
+      zsh-z
+      expect # Needed for testing
       python3
       python3Packages.virtualenv
       python3Packages.virtualenvwrapper
