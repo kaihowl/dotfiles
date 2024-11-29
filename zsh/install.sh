@@ -20,11 +20,6 @@ if [ ! -d ~/.zsh-autosuggestions ]; then
 fi
 (cd ~/.zsh-autosuggestions && git pull --rebase)
 
-if [ ! -d ~/.powerlevel10k ]; then
-  git clone https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k --depth=1
-fi
-(cd ~/.powerlevel10k && git pull --rebase)
-
 if [ ! -d ~/.zsh-z ]; then
   git clone https://github.com/agkozak/zsh-z.git ~/.zsh-z --depth=1
 fi
