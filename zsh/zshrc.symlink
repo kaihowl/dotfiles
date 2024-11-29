@@ -84,7 +84,7 @@ if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
   autoload -U compinit
   compinit -u
 else
-  source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  source ~/.nix-profile/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
 
 # load everything but the path and completion files
