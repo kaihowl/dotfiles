@@ -56,6 +56,7 @@ minimal-packages = with pkgs; [
       python3Packages.virtualenvwrapper
       python-lsp-server-with-plugins
       netcat
+      vim-vint
       # Needs to be at least 0.3.0 to support token by git-credentials
       pkgs-unstable.revup
       # support tooling
