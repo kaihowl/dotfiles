@@ -1203,7 +1203,7 @@ vnoremap <leader>gd :Linediff<cr>
 "{{{ revup amend / upload
 lua <<EOF
 
-revup_bin = "~/.virtualenvs/revup/bin/revup"
+revup_bin = vim.fn.exepath("revup")
 
 function revup_amend(opts)
   command = revup_bin .. " toolkit list-topics"
