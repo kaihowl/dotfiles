@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 # Shamelessly copied from oh my zsh
+upstream_branch=$(git rev-parse --abbrev-ref --symbolic-full-name '@{u}' || echo 'NO BRANCH') 
+if [[ $upstream_branch != 'origin/master' ]]; then
+  printf '\033[0;31m%s\033[0m\n' 'Not on master branch. Failing auto update.'
+  exit 0
+fi
+
 
 printf '\033[0;34m%s\033[0m\n' "Upgrading Dotfiles"
 
