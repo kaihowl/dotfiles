@@ -56,7 +56,7 @@ fi
 # If there are more dependencies between installers in the future,
 # this needs to be expanded.
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  installers="./nvim/install.sh ./pyls/install.sh ./colors/install.sh ./vint/install.sh ./revup/install.sh"
+  installers="./nvim/install.sh ./colors/install.sh"
 else
   installers=$(find . -name zsh -prune -o -name install.sh -print)
 fi
