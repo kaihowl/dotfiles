@@ -1007,10 +1007,6 @@ configs.clangd.setup{root_dir=function(fname)
 
 configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
-local virtualenv = '~/.virtualenvs/dotfiles-run/bin'
-local pylsp_binary = vim.api.nvim_eval("expand('".. virtualenv .. "/pylsp')")
-configs.pylsp.setup{cmd={pylsp_binary}, on_attach=on_attach, capabilities=capabilities}
-
 configs.efm.setup {
     -- Fallback to cwd in case of hitting a fugitive buffer
     root_dir=function(fname)
