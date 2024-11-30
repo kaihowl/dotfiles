@@ -1,5 +1,41 @@
 { lib, pkgs, pkgs-unstable, profile, ... }:
-let minimal-packages = with pkgs; [
+let
+  # Use the existing python-lsp-server and extend its runtime environment
+  python-lsp-server-with-plugins = pkgs.stdenvNoCC.mkDerivation rec {
+    name = "python-lsp-server-with-plugins";
+    src = null; # No source required, just wrapping
+
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+
+    buildInputs = with pkgs.python3Packages; [
+      python-lsp-server
+      # rest is "all"
+      autopep8
+      flake8
+      mccabe
+      pycodestyle
+      pydocstyle
+      pyflakes
+      pylint
+      rope
+      toml
+      whatthepatch
+      yapf
+      # external plugin
+      python-lsp-black
+    ];
+
+    unpackPhase = ":";
+
+    # Only expose pylsp.
+    installPhase = ''
+      mkdir -p $out/bin
+      cp ${pkgs.python3Packages.python-lsp-server}/bin/pylsp $out/bin/
+      wrapProgram $out/bin/pylsp \
+        --prefix PYTHONPATH : ${pkgs.python3.pkgs.makePythonPath buildInputs}
+    '';
+};
+minimal-packages = with pkgs; [
       universal-ctags
       efm-langserver
       fzf
@@ -18,6 +54,7 @@ let minimal-packages = with pkgs; [
       python3
       python3Packages.virtualenv
       python3Packages.virtualenvwrapper
+      python-lsp-server-with-plugins
       netcat
       # support tooling
       tree jq htop
