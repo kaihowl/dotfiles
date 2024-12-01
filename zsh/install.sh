@@ -3,6 +3,11 @@ set -e
 
 SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
+# TODO(kaihowl) hack, otherwise tests don't run on CI.
+if [[ "${CI}" == "true" ]]; then
+  exit 0
+fi
+
 # Replace `chsh` with a fail-safe profile/exec dance:
 # When /bin/sh -> /bin/bash or /bin/zsh are the default shells on the system,
 # starting a login shell with source ~/.bash_profile or ~/.zprofile respectively.
