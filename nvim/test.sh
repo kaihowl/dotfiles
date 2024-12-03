@@ -52,9 +52,14 @@ if [[ found_tests -ne registered_tests ]]; then
   exit 1
 fi
 
+failed_tests=0
+
 function run_vim_test {
   echo "Running $1"
-  (set -e && cd "$DOTS/nvim/tests" && nvim --headless -c "source $DOTS/nvim/tests/test-support.vim" -c "source $DOTS/nvim/tests/$1" -c "call RunTest()")
+  if ! (set -e && cd "$DOTS/nvim/tests" && nvim --headless -c "source $DOTS/nvim/tests/test-support.vim" -c "source $DOTS/nvim/tests/$1" -c "call RunTest()"); then
+    echo "error: test $1 failed"
+    ((failed_tests+=1))
+  fi
 }
 
 echo "Check that plugins are installed"
@@ -79,6 +84,11 @@ run_vim_test tagbar.test.vim
 run_vim_test t_comment.test.vim
 run_vim_test asyncrun-errorformat.test.vim
 run_vim_test asynctasks.test.vim
+
+if [[ $failed_tests -ne 0 ]]; then
+  echo "Found $failed_tests test(s)"
+  exit 1
+fi
 
 echo "Check that git default folder detection works with a default"
 cd "$DOTS/"
