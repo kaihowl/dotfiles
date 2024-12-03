@@ -59,11 +59,11 @@ add_measurement ci $CI_DURATION
 publish_measurements
 
 set +e
-git perf audit -n 40 -m nvim -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
+audit_measurements nvim
 nvim_exit=$?
-git perf audit -n 40 -m zsh -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
+audit_measurements zsh
 zsh_exit=$?
-git perf audit -n 40 -m ci -s "os=${VERSION_RUNNER_OS}" --min-measurements 10
+audit_measurements ci
 ci_exit=$?
 set -e
 
