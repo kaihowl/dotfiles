@@ -36,20 +36,10 @@ if [[ "$(uname)" == *"Darwin"* ]] && [[ "$(xcode-select -p)" == *"CommandLineToo
   exit 1
 fi
 
-if ! [ -f /nix/var/nix/profiles/default/bin/nix ]; then
-  curl -L https://nixos.org/nix/install | sh -s -- --daemon
-fi
-
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  # shellcheck disable=SC1090,SC1091
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-
-if [[ $DOTFILES_PROFILE == minimal ]]; then
-  bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#minimal'
-else
-  bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#full'
-fi
+# TODO(kaihowl) hack
+# Already make all nix-installed binaries available
+# Used by zsh installer and by colors installer.
+export PATH=~/.nix-profile/bin:$PATH
 
 # find the installers and run them iteratively
 # Run zsh install first
@@ -58,10 +48,10 @@ fi
 if [[ $DOTFILES_PROFILE == minimal ]]; then
   installers="./nvim/install.sh ./colors/install.sh"
 else
-  installers=$(find . -name zsh -prune -o -name install.sh -print)
+  installers=$(find . -name nix -prune -o -name install.sh -print)
 fi
 
-installers="./zsh/install.sh $installers"
+installers="./nix/install.sh $installers"
 for installer in ${installers}; do
   printf "Running \e[32m%s\e[0m\n" "${installer}"
   START=$(date +%s)
