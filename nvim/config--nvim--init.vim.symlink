@@ -993,17 +993,20 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Get compile_commands.json based on current working directory in case there are multiple available, e.g., conan workspaces with the workspace vs the single package build
 -- Supply an invalid dir to clangd in case that no compile_commands.json can be found in the current working dir. This restores the original behavior.
-configs.clangd.setup{root_dir=function(fname)
-    return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
-  end,
-  cmd={'clangd','--completion-style=detailed', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
-  capabilities=capabilities,
-  on_attach=function(client, bufnr)
-    local opts = { noremap=true, silent=true }
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gh', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
-    on_attach(client, bufnr)
-  end
-}
+
+if (os.getenv('DOTS_PROFILE') or 'full') == 'full' then
+  configs.clangd.setup{root_dir=function(fname)
+      return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
+    end,
+    cmd={'clangd','--completion-style=detailed', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
+    capabilities=capabilities,
+    on_attach=function(client, bufnr)
+      local opts = { noremap=true, silent=true }
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gh', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
+      on_attach(client, bufnr)
+    end
+  }
+end
 
 configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
 
@@ -1024,19 +1027,22 @@ configs.efm.setup {
     filetypes = {'sh', 'zsh', 'vim'},
 }
 
-require('rust-tools').setup {
-  server = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      ["rust-analyzer"] = {
-        checkOnSave = {
-          command = "clippy"
+if (os.getenv('DOTS_PROFILE') or 'full') == 'full' then
+  require('rust-tools').setup {
+    server = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = {
+            command = "clippy"
+          }
         }
       }
     }
   }
-}
+end
+
 -- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))

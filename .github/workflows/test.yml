@@ -41,7 +41,13 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-        os: [ubuntu-22.04, macos-latest]
+        include:
+          - os: ubuntu-22.04
+            profile: full
+          - os: ubuntu-22.04
+            profile: minimal
+          - os: macos-latest
+            profile: full
       fail-fast: false
     runs-on: ${{ matrix.os }}
 
@@ -59,6 +65,7 @@ jobs:
       - name: Install and test
         env:
           VERSION_RUNNER_OS: ${{ matrix.os }}
+          DOTFILES_PROFILE: ${{ matrix.profile }}
         shell: bash
         run: |
           env
@@ -75,13 +82,13 @@ jobs:
         if: always()
         run: |
           cd .dotfiles/
-          mv versions.txt versions-${{matrix.os}}.txt
+          mv versions.txt versions-${{matrix.os}}-${{matrix.profile}}.txt
       - name: Archive version report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           include-hidden-files: true
-          name: versions-report-${{matrix.os}}
+          name: versions-report-${{matrix.os}}-${{matrix.profile}}
           path: .dotfiles/versions-*.txt
           if-no-files-found: error
   report:
