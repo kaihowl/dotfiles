@@ -1151,14 +1151,6 @@ nnoremap <M-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 "}}}
 
-"{{{ treesitter
-" # Workaround from https://github.com/neovim/neovim/issues/20456
-augroup TreeSitterVim
-  autocmd!
-  autocmd FileType vim lua vim.treesitter.start()
-augroup END
-"}}}
-
 "{{{ Oil
 lua <<EOF
 require('oil').setup({default_file_explorer = false})
