@@ -65,12 +65,15 @@ audit_measurements zsh
 zsh_exit=$?
 audit_measurements ci
 ci_exit=$?
+audit_measurements test
+test_exit=$?
 set -e
 
 if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]]; then
   echo "zsh: $zsh_exit"
   echo "nvim: $nvim_exit"
   echo "ci: $ci_exit"
+  echo "test: $test_exit"
   exit 1
 fi
 
