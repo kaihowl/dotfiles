@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+cd "$(dirname "$0")"/..
+source common/perf_stubs.sh
+
 if ! [ -f /nix/var/nix/profiles/default/bin/nix ]; then
   curl -L https://nixos.org/nix/install | sh -s -- --daemon
 fi
@@ -15,3 +18,6 @@ if [[ $DOTFILES_PROFILE == minimal ]]; then
 else
   bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#full'
 fi
+
+closure_size=$(nix path-info -S ~/.nix-profile/ | awk '{print $2}')
+add_measurement 'nix-closure-size' "$closure_size"
