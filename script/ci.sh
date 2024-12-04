@@ -67,13 +67,16 @@ audit_measurements ci
 ci_exit=$?
 audit_measurements test
 test_exit=$?
+audit_measurements nix-closure-size
+closure_size_exit=$?
 set -e
 
-if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]]; then
+if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]] || [[ $test_exit -ne 0 ]] || [[ $closure_size_exit -ne 0 ]]; then
   echo "zsh: $zsh_exit"
   echo "nvim: $nvim_exit"
   echo "ci: $ci_exit"
   echo "test: $test_exit"
+  echo "nix-closure-size: $closure_size_exit"
   exit 1
 fi
 
