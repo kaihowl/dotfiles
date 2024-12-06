@@ -1,0 +1,11 @@
+Match user root
+  RemoteForward /root/.gcm.socket %d/.gcm.socket
+  ControlPath ~/.ssh/controlmasters/%r@%h:%p
+  ControlMaster auto
+  ControlPersist 10m
+
+Match !user root
+  RemoteForward /home/%r/.gcm.socket %d/.gcm.socket 
+  ControlPath ~/.ssh/controlmasters/%r@%h:%p
+  ControlMaster auto
+  ControlPersist 10m
