@@ -994,7 +994,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Get compile_commands.json based on current working directory in case there are multiple available, e.g., conan workspaces with the workspace vs the single package build
 -- Supply an invalid dir to clangd in case that no compile_commands.json can be found in the current working dir. This restores the original behavior.
 
-if (os.getenv('DOTS_PROFILE') or 'full') == 'full' then
+if (os.getenv('DOTFILES_PROFILE') or 'full') == 'full' then
   configs.clangd.setup{root_dir=function(fname)
       return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
     end,
@@ -1027,7 +1027,7 @@ configs.efm.setup {
     filetypes = {'sh', 'zsh', 'vim'},
 }
 
-if (os.getenv('DOTS_PROFILE') or 'full') == 'full' then
+if (os.getenv('DOTFILES_PROFILE') or 'full') == 'full' then
   require('rust-tools').setup {
     server = {
       on_attach = on_attach,

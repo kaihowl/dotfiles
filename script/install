@@ -43,16 +43,21 @@ export PATH=~/.nix-profile/bin:$PATH
 
 source common/utilities.sh
 
+if [[ -f ~/.dots-profile ]]; then
+  # shellcheck disable=SC1090
+  . ~/.dots-profile
+fi
+
 # find the installers and run them iteratively
 # Run zsh install first
 # If there are more dependencies between installers in the future,
 # this needs to be expanded.
 if [[ $DOTFILES_PROFILE == minimal ]]; then
   installers="./nvim/install.sh ./colors/install.sh ./zsh/install.sh"
-  sed_replace_in_file ~/.zprofile "# dots-profile" "export DOTS_PROFILE=minimal # dots-profile"
+  sed_replace_in_file ~/.zprofile "# dots-profile" "export DOTFILES_PROFILE=minimal # dots-profile"
 else
   installers=$(find . -name nix -prune -o -name install.sh -print)
-  sed_replace_in_file ~/.zprofile "# dots-profile" "export DOTS_PROFILE=full # dots-profile"
+  sed_replace_in_file ~/.zprofile "# dots-profile" "export DOTFILES_PROFILE=full # dots-profile"
 fi
 
 installers="./nix/install.sh $installers"
