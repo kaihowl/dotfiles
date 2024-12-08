@@ -1,14 +1,5 @@
 Match user root
   RemoteForward /root/.gcm.socket %d/.gcm.socket
-  # This does not always work and depends on the openssh version
-  # (and server settings)?
-  # This is why we have the additional unlink in the zlogout file.
-  StreamLocalBindUnlink yes
 
 Match !user root
   RemoteForward /home/%r/.gcm.socket %d/.gcm.socket 
-  # This does not always work and depends on the openssh version
-  # (and server settings)?
-  # This is why we have the additional unlink in the zlogout file.
-  StreamLocalBindUnlink yes
-
