@@ -26,7 +26,7 @@ else
 fi
 
 LOCAL_BRANCH=$(git rev-parse HEAD)
-REMOTE_BRANCH=$(git rev-parse @{u})
+REMOTE_BRANCH=$(git rev-parse '@{u}')
 if [ "$LOCAL_BRANCH" != "$REMOTE_BRANCH" ]; then
   echo "Unpushed commits detected."
   exit 1
