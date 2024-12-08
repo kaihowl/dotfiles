@@ -1,4 +1,5 @@
 Match user root
+  # TODO(kaihowl) Must create path
   RemoteForward /root/.gcm.socket %d/.gcm.socket
   ControlPath ~/.ssh/controlmasters/%r@%h:%p
   ControlMaster auto
