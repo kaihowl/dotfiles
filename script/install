@@ -53,7 +53,7 @@ fi
 # If there are more dependencies between installers in the future,
 # this needs to be expanded.
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  installers="./nvim/install.sh ./colors/install.sh ./zsh/install.sh"
+  installers="./nvim/install.sh ./colors/install.sh ./zsh/install.sh ./ssh/install.sh"
   sed_replace_in_file ~/.zprofile "# dots-profile" "export DOTFILES_PROFILE=minimal # dots-profile"
 else
   installers=$(find . -name nix -prune -o -name install.sh -print)
