@@ -111,7 +111,6 @@ Plug 'stevearc/oil.nvim'
 
 Plug 'vim-scripts/linediff.vim'
 
-Plug 'simrat39/rust-tools.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'udalov/kotlin-vim'
