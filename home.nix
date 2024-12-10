@@ -98,6 +98,7 @@ in
         rust-tools-nvim
         plenary-nvim
         kotlin-vim
+        markdown-preview-nvim
       ];
       withNodeJs = false;
       withPython3 = true;
