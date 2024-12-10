@@ -111,8 +111,6 @@ Plug 'stevearc/oil.nvim'
 
 Plug 'vim-scripts/linediff.vim'
 
-Plug 'nvim-lua/plenary.nvim'
-
 Plug 'udalov/kotlin-vim'
 "
 " If you don't have nodejs and yarn
