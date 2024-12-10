@@ -96,6 +96,7 @@ in
       plugins= with pkgs.vimPlugins; [
         nvim-lspconfig
         rust-tools-nvim
+        plenary-nvim
       ];
       withNodeJs = false;
       withPython3 = true;
