@@ -97,6 +97,7 @@ in
         nvim-lspconfig
         rust-tools-nvim
         plenary-nvim
+        kotlin-vim
       ];
       withNodeJs = false;
       withPython3 = true;
