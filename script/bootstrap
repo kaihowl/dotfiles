@@ -52,7 +52,8 @@ setup_gitconfig () {
       read -re git_authoremail
     fi
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig_credentials.example > ~/.gitconfig_credentials
+    git config --global user.name "$git_authorname"
+    git config --global user.email "$git_authoremail"
 
     success 'gitconfig'
   fi
