@@ -243,6 +243,47 @@ augroup END
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 
 "}}}
+"
+"{{{ omnifunc for revup topic
+function! OmniTopicSlug(findstart, base)
+  " Get the current line and determine behavior based on its prefix
+  let l:current_line = getline('.')
+  if l:current_line =~# '^topic:'
+    if a:findstart
+      " Return the start position for completion
+      return col('.')
+    endif
+
+    " Get the first line of the file
+    let l:first_line = getline(1)
+
+    " Generate a slug from the first line
+    let l:slug = substitute(l:first_line, '\s\+', '-', 'g')
+    let l:slug = substitute(l:slug, '[^a-zA-Z0-9-]', '', 'g')
+    let l:slug = tolower(l:slug)
+
+    " Return the slug for completion output
+    return [l:slug]
+  elseif l:current_line =~# '^relative:'
+    if a:findstart
+      " Return the start position for completion
+      return col('.')
+    endif
+
+    " Call external command to list topics
+    let l:topics = split(system('revup toolkit list-topics'), '\n')
+    return l:topics
+  else
+    return call('rhubarb#complete', [a:findstart, a:base])
+  endif
+endfunction
+" Set the omnifunc for gitcommit files
+
+augroup revup_complete
+  autocmd!
+  autocmd FileType gitcommit setlocal omnifunc=OmniTopicSlug
+augroup END
+"}}}
 
 "{{{ fzf-lua
 let g:fzf_history_dir = expand('~/.local/share/fzf-history')
