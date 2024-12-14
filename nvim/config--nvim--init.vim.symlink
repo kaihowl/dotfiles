@@ -121,11 +121,6 @@ Plug 'hrsh7th/vim-vsnip-integ'
 
 Plug 'kaihowl/vim-indent-sentence'
 
-Plug 'sainnhe/edge'
-Plug 'morhetz/gruvbox'
-Plug 'folke/tokyonight.nvim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'kaiuri/nvim-juliana'
 Plug '1612492/github.vim'
 

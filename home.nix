@@ -112,6 +112,12 @@ in
         vim-gitgutter
         tagbar
         vim-addon-local-vimrc
+        # Color schemes
+        edge
+        gruvbox
+        tokyonight-nvim
+        onehalf
+        papercolor-theme
       ];
       withNodeJs = false;
       withPython3 = true;

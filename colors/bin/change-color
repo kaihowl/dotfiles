@@ -8,7 +8,7 @@ mkdir -p ~/.color
 
 
 background=(dark)
-color=(edge)
+color=(gruvbox)
 
 if [[ -f ~/.color/current ]]; then
   IFS=":" read -r color background  < ~/.color/current
