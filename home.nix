@@ -104,6 +104,8 @@ in
         vim-repeat
         vim-surround
         vim-abolish
+        indent-blankline-nvim
+        vim-trailing-whitespace
       ];
       withNodeJs = false;
       withPython3 = true;
