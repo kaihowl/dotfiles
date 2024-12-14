@@ -121,15 +121,6 @@ Plug 'hrsh7th/vim-vsnip-integ'
 
 Plug 'kaihowl/vim-indent-sentence'
 
-Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'godlygeek/tabular'
-Plug 'justinmk/vim-sneak'
-Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
-
-Plug 'MarcWeber/vim-addon-local-vimrc'
-
 Plug 'sainnhe/edge'
 Plug 'morhetz/gruvbox'
 Plug 'folke/tokyonight.nvim'

@@ -106,6 +106,12 @@ in
         vim-abolish
         indent-blankline-nvim
         vim-trailing-whitespace
+        vim-tmux-navigator
+        tabular
+        vim-sneak
+        vim-gitgutter
+        tagbar
+        vim-addon-local-vimrc
       ];
       withNodeJs = false;
       withPython3 = true;
