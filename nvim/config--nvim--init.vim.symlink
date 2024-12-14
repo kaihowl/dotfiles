@@ -245,8 +245,6 @@ augroup END
 " Git mapping for finding conflict markers
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 
-" configure vim-fubitive GBrowse handler for bitbucket
-let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 "}}}
 
 "{{{ fzf-lua
