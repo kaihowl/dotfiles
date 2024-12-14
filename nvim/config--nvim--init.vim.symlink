@@ -123,9 +123,6 @@ Plug 'kaihowl/vim-indent-sentence'
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'bronson/vim-trailing-whitespace'
-
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-gitgutter'
