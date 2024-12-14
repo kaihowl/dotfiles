@@ -99,6 +99,11 @@ in
         plenary-nvim
         kotlin-vim
         markdown-preview-nvim
+        vim-fugitive
+        vim-unimpaired
+        vim-repeat
+        vim-surround
+        vim-abolish
       ];
       withNodeJs = false;
       withPython3 = true;

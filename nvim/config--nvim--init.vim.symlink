@@ -121,12 +121,6 @@ Plug 'hrsh7th/vim-vsnip-integ'
 
 Plug 'kaihowl/vim-indent-sentence'
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-abolish'
-
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
