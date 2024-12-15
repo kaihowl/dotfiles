@@ -113,6 +113,8 @@ in
         vim-gitgutter
         tagbar
         vim-addon-local-vimrc
+        asyncrun-vim
+        asynctasks-vim
         # Color schemes
         edge
         gruvbox

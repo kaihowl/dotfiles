@@ -118,9 +118,6 @@ Plug '1612492/github.vim'
 
 Plug 'tomtom/tcomment_vim'
 
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
-
 Plug 'ibhagwan/fzf-lua'
 
 Plug 'gaving/vim-textobj-argument'
