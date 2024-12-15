@@ -133,8 +133,20 @@ in
             repo = "nvim-juliana";
             rev = "881d1a85d33f744b6b851a210becb3194da8e2a6";
             # Determine with
-            # nix-prefetch-url --unpack https://github.com/kaiuri/nvim-juliana/archive/881d1a85d33f744b6b851a210becb3194da8e2a6.tar.gz;
-            sha256 = "0hw18bxwjkv3s2d814v3avmakvvm4a1f22n5xc87iayw8zsyn0kk"; # Replace with the actual SHA-256
+            # nix-prefetch-url --unpack https://github.com/kaiuri/nvim-juliana/archive/881d1a85d33f744b6b851a210becb3194da8e2a6.tar.gz
+            sha256 = "0hw18bxwjkv3s2d814v3avmakvvm4a1f22n5xc87iayw8zsyn0kk";
+          };
+         })
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "github.vim"; # Color scheme for github
+          version = "2022-04-03";
+          src = pkgs.fetchFromGitHub {
+            owner = "1612492";
+            repo = "github.vim";
+            rev = "35368f952bda654b82d69c2770510696c781ac32";
+            # Determine with
+            # nix-prefetch-url --unpack https://github.com/1612492/github.vim/archive/35368f952bda654b82d69c2770510696c781ac32.tar.gz
+            sha256 = "0qaqwmfs6bs3idlrcqajcj66cw2vz0pxdpd70js9nj5028dwkirh";
           };
          })
 
