@@ -161,6 +161,19 @@ in
           };
          })
 
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "vim-indent-sentence"; # Color scheme for github
+          version = "2014-09-04";
+          src = pkgs.fetchFromGitHub {
+            owner = "kaihowl";
+            repo = "vim-indent-sentence";
+            rev = "87069e15148ad0f27e7b070bc7e123da6050e147";
+            # Determine with
+            # nix-prefetch-url --unpack https://github.com/kaihowl/vim-indent-sentence/archive/87069e15148ad0f27e7b070bc7e123da6050e147.tar.gz
+            sha256 = "1qg8c2fcgvv200ibdmm37yr57js99mci5xavdlxmb5nrjp88amld";
+          };
+         })
+
         # Color schemes
         edge
         gruvbox
