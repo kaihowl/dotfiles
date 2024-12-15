@@ -195,7 +195,7 @@ augroup END
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 
 "}}}
-"
+
 "{{{ omnifunc for revup topic
 function! OmniTopicSlug(findstart, base)
   " Get the current line and determine behavior based on its prefix
