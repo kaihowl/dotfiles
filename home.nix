@@ -115,12 +115,16 @@ in
         vim-addon-local-vimrc
         asyncrun-vim
         asynctasks-vim
+        fzf-lua
+        tcomment_vim
+
         # Color schemes
         edge
         gruvbox
         tokyonight-nvim
         onehalf
         papercolor-theme
+
         # Completion plugins
         nvim-cmp
         cmp-nvim-lsp
