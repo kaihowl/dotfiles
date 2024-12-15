@@ -135,6 +135,19 @@ in
           };
          })
 
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "oil-nvim"; # Color scheme for github
+          version = "2.13.0";
+          src = pkgs.fetchFromGitHub {
+            owner = "stevearc";
+            repo = "oil.nvim";
+            rev = "50c4bd4ee216f08907f64d0295c0663a69e58ffb";
+            # Determine with
+            # nix-prefetch-url --unpack https://github.com/stevearc/oil.nvim/archive/50c4bd4ee216f08907f64d0295c0663a69e58ffb.tar.gz
+            sha256 = "0zp4i4gg1xm4vpxv1jp1hr4i49h5xq04sbgqm7q0a82b586j4y2y";
+          };
+         })
+
         # Color schemes
         edge
         gruvbox
