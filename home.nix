@@ -174,6 +174,19 @@ in
           };
          })
 
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "vim-textobj-argument"; # Color scheme for github
+          version = "2013-02-23";
+          src = pkgs.fetchFromGitHub {
+            owner = "gaving";
+            repo = "vim-textobj-argument";
+            rev = "179a8d42e73df72ba32d6c641f4edc0def59e0cb";
+            # Determine with
+            # nix-prefetch-url --unpack https://github.com/gaving/vim-textobj-argument/archive/179a8d42e73df72ba32d6c641f4edc0def59e0cb.tar.gz
+            sha256 = "18dngkm98rwyjxzjidpqzz7hcq600akyd1j6m2aybcazg73is6pp";
+          };
+         })
+
         # Color schemes
         edge
         gruvbox
