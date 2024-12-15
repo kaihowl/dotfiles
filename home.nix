@@ -118,6 +118,13 @@ in
         tokyonight-nvim
         onehalf
         papercolor-theme
+        # Completion plugins
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-vsnip
+        vim-vsnip
+        vim-vsnip-integ
       ];
       withNodeJs = false;
       withPython3 = true;
