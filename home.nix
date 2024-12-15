@@ -118,6 +118,23 @@ in
         fzf-lua
         tcomment_vim
 
+        # Carbon offers:
+        # - auto update based on file system watchers
+        # - intuitive addition of new files / directories
+        # - performance
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "cabon-nvim"; # Color scheme for github
+          version = "0.20.2";
+          src = pkgs.fetchFromGitHub {
+            owner = "SidOfc";
+            repo = "carbon.nvim";
+            rev = "44885f9ef558566640c37edc0eceb30a0dcddc48";
+            # Determine with
+            # nix-prefetch-url --unpack https://github.com/SidOfc/carbon.nvim/archive/44885f9ef558566640c37edc0eceb30a0dcddc48.tar.gz
+            sha256 = "0zk4vlmimmrw0hd02lxmch563lf9gv05a3n03qq00g1nh892fim9";
+          };
+         })
+
         # Color schemes
         edge
         gruvbox
