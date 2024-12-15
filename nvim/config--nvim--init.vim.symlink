@@ -116,10 +116,6 @@ Plug 'kaihowl/vim-indent-sentence'
 Plug 'kaiuri/nvim-juliana'
 Plug '1612492/github.vim'
 
-Plug 'tomtom/tcomment_vim'
-
-Plug 'ibhagwan/fzf-lua'
-
 Plug 'gaving/vim-textobj-argument'
 
 " the plug#end automatically calls "filetype plugin indent on" and "syntax enable"
