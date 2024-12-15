@@ -113,8 +113,6 @@ Plug 'vim-scripts/linediff.vim'
 
 Plug 'kaihowl/vim-indent-sentence'
 
-Plug '1612492/github.vim'
-
 Plug 'gaving/vim-textobj-argument'
 
 " the plug#end automatically calls "filetype plugin indent on" and "syntax enable"
