@@ -58,25 +58,35 @@ add_measurement ci $CI_DURATION
 
 publish_measurements
 
-set +e
-audit_measurements nvim
-nvim_exit=$?
-audit_measurements zsh
-zsh_exit=$?
-audit_measurements ci
-ci_exit=$?
-audit_measurements test
-test_exit=$?
-audit_measurements nix-closure-size
-closure_size_exit=$?
-set -e
+audit_failed=false
 
-if [[ $zsh_exit -ne 0 ]] || [[ $nvim_exit -ne 0 ]] || [[ $ci_exit -ne 0 ]] || [[ $test_exit -ne 0 ]] || [[ $closure_size_exit -ne 0 ]]; then
-  echo "zsh: $zsh_exit"
-  echo "nvim: $nvim_exit"
-  echo "ci: $ci_exit"
-  echo "test: $test_exit"
-  echo "nix-closure-size: $closure_size_exit"
+if ! audit_measurements nvim; then
+  echo "nvim audit failed"
+  audit_failed=true
+fi
+
+if ! audit_measurements zsh; then
+  echo "zsh audit failed"
+  audit_failed=true
+fi
+
+if ! audit_measurements ci; then
+  echo "ci audit failed"
+  audit_failed=true
+fi
+
+if ! audit_measurements test; then
+  echo "test audit failed"
+  audit_failed=true
+fi
+
+if ! audit_measurements nix-closure-size; then
+  echo "nix audit failed"
+  audit_failed=true
+fi
+
+if [[ $audit_failed = true ]]; then
+  echo "at least one perf audit failed"
   exit 1
 fi
 
