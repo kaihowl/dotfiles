@@ -116,10 +116,6 @@ Plug 'kaihowl/vim-indent-sentence'
 Plug 'kaiuri/nvim-juliana'
 Plug '1612492/github.vim'
 
-" Fugitive browse handlers
-Plug 'tommcdo/vim-fubitive' " Bitbucket
-Plug 'tpope/vim-rhubarb' " Github
-
 Plug 'tomtom/tcomment_vim'
 
 Plug 'skywind3000/asynctasks.vim'
