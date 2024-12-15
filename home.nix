@@ -100,6 +100,7 @@ in
         kotlin-vim
         markdown-preview-nvim
         vim-fugitive
+        vim-rhubarb # github fugitive completion handler
         vim-unimpaired
         vim-repeat
         vim-surround
