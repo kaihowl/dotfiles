@@ -148,6 +148,19 @@ in
           };
          })
 
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "linediff-vim"; # Color scheme for github
+          version = "0.2.0";
+          src = pkgs.fetchFromGitHub {
+            owner = "vim-scripts";
+            repo = "linediff.vim";
+            rev = "b1ad2f1faecc09daf8defcc2e4481335092ec0dc";
+            # Determine with
+            # nix-prefetch-url --unpack https://github.com/vim-scripts/linediff.vim/archive/b1ad2f1faecc09daf8defcc2e4481335092ec0dc.tar.gz
+            sha256 = "0d6hj2kdp39zcrva0gxavjb2a1w7x5sf03majks47rypsgj358i0";
+          };
+         })
+
         # Color schemes
         edge
         gruvbox
