@@ -60,26 +60,31 @@ publish_measurements
 
 audit_failed=false
 
+echo auditing nvim
 if ! audit_measurements nvim; then
   echo "nvim audit failed"
   audit_failed=true
 fi
 
+echo auditing zsh
 if ! audit_measurements zsh; then
   echo "zsh audit failed"
   audit_failed=true
 fi
 
+echo auditing ci
 if ! audit_measurements ci; then
   echo "ci audit failed"
   audit_failed=true
 fi
 
+echo auditing test
 if ! audit_measurements test; then
   echo "test audit failed"
   audit_failed=true
 fi
 
+echo auditing nix
 if ! audit_measurements nix-closure-size; then
   echo "nix audit failed"
   audit_failed=true
