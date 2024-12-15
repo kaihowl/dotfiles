@@ -124,6 +124,19 @@ in
         tokyonight-nvim
         onehalf
         papercolor-theme
+        # TODO(kaihowl) archived repo
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "nvim-juliana";
+          version = "2024-01-25";
+          src = pkgs.fetchFromGitHub {
+            owner = "kaiuri";
+            repo = "nvim-juliana";
+            rev = "881d1a85d33f744b6b851a210becb3194da8e2a6";
+            # Determine with
+            # nix-prefetch-url --unpack https://github.com/kaiuri/nvim-juliana/archive/881d1a85d33f744b6b851a210becb3194da8e2a6.tar.gz;
+            sha256 = "0hw18bxwjkv3s2d814v3avmakvvm4a1f22n5xc87iayw8zsyn0kk"; # Replace with the actual SHA-256
+          };
+         })
 
         # Completion plugins
         nvim-cmp
