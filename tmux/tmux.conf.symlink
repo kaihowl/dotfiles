@@ -43,7 +43,7 @@ set-option -sg escape-time 10
 set-option -g focus-events on
 
 # Enable true colors
-set -g default-terminal 'tmux-256color'
+set -g default-terminal 'screen-256color'
 set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m,alacritty:RGB'
 
 # Smart pane switching with awareness of Vim splits.
