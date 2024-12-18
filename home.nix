@@ -117,7 +117,19 @@ in
         vim-addon-local-vimrc
         asyncrun-vim
         asynctasks-vim
-        fzf-lua
+
+        (pkgs.neovimUtils.buildNeovimPlugin {
+          pname = "fzf-lua";
+          version = "2024-12-09";
+          src = pkgs.fetchFromGitHub {
+            owner = "ibhagwan";
+            repo = "fzf-lua";
+            rev = "0063769312e913b5de9f2db21285d806dcf4efcb";
+            sha256 = "14awics36c15g7gzv0059xwppn7isxk2fsn9bma519pl80zqpzn8";
+          };
+          meta.homepage = "https://github.com/ibhagwan/fzf-lua/";
+        })
+
         tcomment_vim
 
         # Carbon offers:
@@ -222,16 +234,84 @@ in
          })
 
         # Completion plugins
-        nvim-cmp
-        cmp-nvim-lsp
-        cmp-buffer
-        cmp-vsnip
-        vim-vsnip
-        vim-vsnip-integ
-      ];
-      withNodeJs = false;
-      withPython3 = true;
-      withRuby = false;
+        
+        (pkgs.neovimUtils.buildNeovimPlugin {
+          pname = "nvim-cmp";
+          version = "2024-11-30";
+          src = pkgs.fetchFromGitHub {
+            owner = "hrsh7th";
+            repo = "nvim-cmp";
+            rev = "ca4d3330d386e76967e53b85953c170658255ecb";
+            sha256 = "0x810i5yzwz9cy5g95qqsr4c1dc51chvw54qp17sq28npnadyjgv";
+          };
+          meta.homepage = "https://github.com/hrsh7th/nvim-cmp/";
+        })
+
+        # cmp-nvim-lsp
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "cmp-nvim-lsp";
+          version = "2024-05-17";
+          src = pkgs.fetchFromGitHub {
+            owner = "hrsh7th";
+            repo = "cmp-nvim-lsp";
+            rev = "39e2eda76828d88b773cc27a3f61d2ad782c922d";
+            sha256 = "13zcw6c7zppvbsjlr8yj3vml6ayalvhjbbqszljmn1f9hmkpwg89";
+          };
+          meta.homepage = "https://github.com/hrsh7th/cmp-nvim-lsp/";
+        })
+
+        # cmp-buffer
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "cmp-buffer";
+          version = "2022-08-10";
+          src = pkgs.fetchFromGitHub {
+            owner = "hrsh7th";
+            repo = "cmp-buffer";
+            rev = "3022dbc9166796b644a841a02de8dd1cc1d311fa";
+            sha256 = "1cwx8ky74633y0bmqmvq1lqzmphadnhzmhzkddl3hpb7rgn18vkl";
+          };
+          meta.homepage = "https://github.com/hrsh7th/cmp-buffer/";
+        })
+# cmp-vsnip
+        (pkgs.vimUtils.buildVimPlugin {
+          pname = "cmp-vsnip";
+          version = "2022-11-22";
+          src = pkgs.fetchFromGitHub {
+            owner = "hrsh7th";
+            repo = "cmp-vsnip";
+            rev = "989a8a73c44e926199bfd05fa7a516d51f2d2752";
+            sha256 = "1hs1gv7q0vfn82pwdwpy46nsi4n5z6yljnzl0rpvwfp8g79hssfs";
+          };
+          meta.homepage = "https://github.com/hrsh7th/cmp-vsnip/";
+        })
+# vim-vsnip
+        (pkgs.vimUtils.buildVimPlugin {
+            pname = "vim-vsnip";
+            version = "2024-01-11";
+            src = pkgs.fetchFromGitHub {
+              owner = "hrsh7th";
+              repo = "vim-vsnip";
+              rev = "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9";
+              sha256 = "06j0fph91x3gdhbf9bb0yv95j34gf827p97vak0l4jb0ib7vmyc2";
+            };
+            meta.homepage = "https://github.com/hrsh7th/vim-vsnip/";
+        })
+# vim-vsnip-integ
+        (pkgs.vimUtils.buildVimPlugin {
+            pname = "vim-vsnip-integ";
+            version = "2024-10-18";
+            src = pkgs.fetchFromGitHub {
+              owner = "hrsh7th";
+              repo = "vim-vsnip-integ";
+              rev = "90ae474e8b05ed41e36d6f58382a9fbfb4b672c4";
+              sha256 = "1n8g9knii0y5c7gnwmndbw2c2ii5xji0i90cfdcdvrkdhfacpyha";
+            };
+            meta.homepage = "https://github.com/hrsh7th/vim-vsnip-integ/";
+          })
+        ];
+        withNodeJs = false;
+        withPython3 = true;
+        withRuby = false;
     };
 
     # TODO(kaihowl) cannot use:;
