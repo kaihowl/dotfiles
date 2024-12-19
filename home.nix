@@ -63,11 +63,11 @@ minimal-packages = with pkgs; [
       tree jq htop
       pkgs-unstable.ncdu
       flock
-      # need up to date ssh-keygen for newer git version and signing of commits
-      openssh
     ]
     # TODO(kaihowl) Double check if reattach-to-user-namespace is still needed
     ++ (lib.optionals pkgs.stdenv.isDarwin [reattach-to-user-namespace coreutils])
+    # need up to date ssh-keygen for newer git version and signing of commits
+    ++ (lib.optional pkg.stdenv.isLinux openssh)
     ;
 full-packages = with pkgs; [
       alacritty
