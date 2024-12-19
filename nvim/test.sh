@@ -74,8 +74,7 @@ if [[ $DOTFILES_PROFILE != minimal ]]; then
   run_vim_test lsp-completion-rust.test.vim
 fi
 run_vim_test lsp-completion-python.test.vim
-# TODO(kaihowl)
-# run_vim_test lsp-efm.test.vim
+run_vim_test lsp-efm.test.vim
 run_vim_test nvim-cmp-select-enter.test.vim
 run_vim_test restorecurpos.test.vim
 run_vim_test sanitizer-errorformat.test.vim

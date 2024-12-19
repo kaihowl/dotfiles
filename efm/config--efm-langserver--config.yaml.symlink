@@ -6,12 +6,14 @@ tools:
   sh-shellcheck: &sh-shellcheck
     lint-command: 'shellcheck -f gcc -x'
     lint-source: 'shellcheck'
+    lint-after-open: true
     lint-formats:
       - '%f:%l:%c: %trror: %m'
       - '%f:%l:%c: %tarning: %m'
       - '%f:%l:%c: %tote: %m'
   vim-vint: &vim-vint
       lint-command: 'vint'
+      lint-after-open: true
       lint-formats:
         - '%f:%l:%c: %m'
 languages:
