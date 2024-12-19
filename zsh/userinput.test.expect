@@ -21,8 +21,8 @@ expect {
   expect "❯";
 }
 
-# Clear up input with ctrl-w
-send "\x17";
+# Clear up input with ctrl-c
+send "\x003";
 
 # End the program with ctrl-d
 send "\x04";
