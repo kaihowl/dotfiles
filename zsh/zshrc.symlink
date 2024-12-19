@@ -27,12 +27,6 @@ fi
 autoload -U start-ssh-and-add-identity
 start-ssh-and-add-identity
 
-# TODO(kaihowl) investigate failure / blocker on CI
-if [[ -z ${CI} ]]; then
-  autoload -U start-gcm-helper
-  start-gcm-helper
-fi
-
 # Periodically (typically once a day), update from github
 source "$DOTS/script/check_for_upgrade.sh"
 
