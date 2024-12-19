@@ -2,7 +2,7 @@
 set timeout 10
 
 spawn zsh "-i";
-expect "❯";
+expect ">"
 
 # Clear up input with ctrl-w
 send "\x17";
@@ -14,9 +14,19 @@ expect "*"
 send "source ~/.zshrc\r";
 
 expect {
-  ":*:*\r" {puts "Found possible errors in output"; exit 1}
-  "compinit: initialization aborted";
-  expect "❯";
+    # Wants to catch:
+    # sh:1: url-quote-magic: function definition file not found
+    # Handle a shell error about missing function definition files
+    "sh:*:*\r" {
+        puts "Found possible errors in output"
+        exit 1
+    }
+    # Handle Zsh's compinit error
+    "compinit: initialization aborted" {
+        puts "Compinit initialization failed"
+        exit 1
+    }
+    ">"
 }
 
 # Clear up input with ctrl-w
@@ -35,7 +45,3 @@ if {$os_error_flag == 0} {
     puts "errno: $value"
     exit $value
 }
-EOF
-echo "spawned process status" $?
-rm -f $tmp_script_file
-echo "done"
