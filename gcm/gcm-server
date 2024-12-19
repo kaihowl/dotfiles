@@ -8,6 +8,7 @@ from daemon.pidfile import PIDLockFile
 import sys
 import os.path
 import logging
+import logging.handlers
 import argparse
 
 
@@ -85,11 +86,17 @@ def remove_socket_file(socket_file):
 
 
 def git_credential_server():
-    logging.basicConfig(
-        format="%(asctime)s %(levelname)-8s %(message)s",
-        level=logging.INFO,
-        datefmt="%Y-%m-%d %H:%M:%S",
+    log_file = os.path.expanduser("~/.gcm-server.log")
+    log_handler = logging.handlers.TimedRotatingFileHandler(
+        log_file, when="H", interval=1, backupCount=5
     )
+    formatter = logging.Formatter(
+        "%(asctime)s %(levelname)-8s %(message)s", "%Y-%m-%d %H:%M:%S"
+    )
+    log_handler.setFormatter(formatter)
+    logger = logging.getLogger()
+    logger.addHandler(log_handler)
+    logger.setLevel(logging.INFO)
     socket_file = os.path.expanduser("~/.gcm.socket")
     bind_failure = False
 
@@ -125,8 +132,6 @@ if __name__ == "__main__":
 
         pidfile = PIDLockFile(pidfile_path)
 
-        # TODO(kaihowl) rolling log file?
-        with open(os.path.expanduser("~/.gcm-server.log"), "w+") as logfile:
-            if not pidfile.is_locked():
-                with daemon.DaemonContext(pidfile=pidfile, stderr=logfile):
-                    git_credential_server()
+        if not pidfile.is_locked():
+            with daemon.DaemonContext(pidfile=pidfile):
+                git_credential_server()
