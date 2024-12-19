@@ -64,8 +64,7 @@ function run_vim_test {
 
 echo "Check that plugins are installed"
 run_vim_test editorconfig.test.vim
-# TODO(kaihowl) flaky (various tests)
-# run_vim_test fzf-git.test.vim
+run_vim_test fzf-git.test.vim
 if [[ $DOTFILES_PROFILE != minimal ]]; then
   run_vim_test completion.test.vim
   run_vim_test lsp-completion-cpp.test.vim
