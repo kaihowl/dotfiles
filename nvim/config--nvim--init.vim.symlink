@@ -1,5 +1,6 @@
 " init.vim
 "{{{ misc options, sane defaults
+lua vim.loader.enable()
 set modelines=1
 
 " Rely on 'native' Lua plugins.
