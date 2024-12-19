@@ -12,8 +12,7 @@ fi
 echo "Test that start up and basic user input to shell work without errors"
 # This was added after a faulty linter change led to printing the following on all key presses
 # sh:1: url-quote-magic: function definition file not found
-# TODO(kaihowl) reenable, times out on CI
-# expect -c "strace 4" "$DOTS/zsh/userinput.test.expect"
+expect -c "strace 4" "$DOTS/zsh/userinput.test.expect"
 
 # shellcheck disable=SC1090
 source ~/.zshrc
