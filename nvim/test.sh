@@ -67,10 +67,8 @@ run_vim_test editorconfig.test.vim
 # TODO(kaihowl) flaky (various tests)
 # run_vim_test fzf-git.test.vim
 if [[ $DOTFILES_PROFILE != minimal ]]; then
-  # TODO(kaihowl) disabled failure
-  # run_vim_test completion.test.vim
-  # TODO(kaihowl) disabled
-  # run_vim_test lsp-completion-cpp.test.vim
+  run_vim_test completion.test.vim
+  run_vim_test lsp-completion-cpp.test.vim
   run_vim_test lsp-completion-rust.test.vim
 fi
 run_vim_test lsp-completion-python.test.vim
