@@ -1,4 +1,4 @@
-{ lib, pkgs, pkgs-unstable, profile, ... }:
+{ lib, pkgs, pkgs-unstable, pkgs-prev, profile, ... }:
 let
   # Use the existing python-lsp-server and extend its runtime environment
   python-lsp-server-with-plugins = pkgs.stdenvNoCC.mkDerivation rec {
@@ -47,7 +47,8 @@ minimal-packages = with pkgs; [
       tmux
       zsh
       zsh-powerlevel10k
-      zsh-autocomplete
+      # Downgraded due to https://github.com/marlonrichert/zsh-autocomplete/issues/767
+      pkgs-prev.zsh-autocomplete
       zsh-autosuggestions
       zsh-z
       expect # Needed for testing
@@ -57,11 +58,10 @@ minimal-packages = with pkgs; [
       python-lsp-server-with-plugins
       netcat
       vim-vint
-      # Needs to be at least 0.3.0 to support token by git-credentials
-      pkgs-unstable.revup
+      revup
       # support tooling
       tree jq htop
-      pkgs-unstable.ncdu
+      ncdu
       flock
     ]
     ++ (lib.optional pkgs.stdenv.isDarwin coreutils)
