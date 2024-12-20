@@ -19,5 +19,8 @@ else
   bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#full'
 fi
 
+# Run garbage collection
+nix-collect-garbage --delete-older-than 30d
+
 closure_size=$(nix path-info -S ~/.nix-profile/ | awk '{print $2}')
 add_measurement 'nix-closure-size' "$closure_size"
