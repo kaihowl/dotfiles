@@ -23,6 +23,3 @@ trap 'rm -rf $tmp_file' EXIT
 nvim --headless "+PlugSnapshot! $tmp_file" +qall
 
 { echo "nvim plugins installed:"; cat "$tmp_file"; } >> "$output_file"
-
-# TODO(kaihowl) not needed on generic python, maybe for the virtualenvs created?
-# { echo "pip packages installed:"; python3 -m pip list; } >> "$output_file"
