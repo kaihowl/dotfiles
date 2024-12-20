@@ -195,7 +195,7 @@ in
         tokyonight-nvim
         onehalf
         papercolor-theme
-        # TODO(kaihowl) archived repo
+        # NOTE archived repo
         (pkgs.vimUtils.buildVimPlugin {
           pname = "nvim-juliana";
           version = "2024-01-25";
