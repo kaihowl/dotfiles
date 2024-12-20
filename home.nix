@@ -64,8 +64,7 @@ minimal-packages = with pkgs; [
       pkgs-unstable.ncdu
       flock
     ]
-    # TODO(kaihowl) Double check if reattach-to-user-namespace is still needed
-    ++ (lib.optionals pkgs.stdenv.isDarwin [reattach-to-user-namespace coreutils])
+    ++ (lib.optional pkgs.stdenv.isDarwin coreutils)
     # need up to date ssh-keygen for newer git version and signing of commits
     ++ (lib.optional pkg.stdenv.isLinux openssh)
     ;
