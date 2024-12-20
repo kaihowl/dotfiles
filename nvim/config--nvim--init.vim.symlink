@@ -213,7 +213,7 @@ function! OmniTopicSlug(findstart, base)
     let l:topics = split(system('revup toolkit list-topics'), '\n')
     return l:topics
   else
-    return call('rhubarb#complete', [a:findstart, a:base])
+    return call('rhubarb#Complete', [a:findstart, a:base])
   endif
 endfunction
 " Set the omnifunc for gitcommit files
