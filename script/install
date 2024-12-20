@@ -30,7 +30,6 @@ trap restore_selinux EXIT
 
 source common/perf_stubs.sh
 
-# TODO(kaihowl) hack
 # Already make all nix-installed binaries available
 # Used by zsh installer and by colors installer.
 export PATH=~/.nix-profile/bin:$PATH
