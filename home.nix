@@ -86,7 +86,7 @@ in
   home = {
     packages = minimal-packages ++ (lib.optionals (profile == "full") full-packages);
     # This actually needs to be your username
-    # TODO(kaihowl) remove impurity again?
+    # NOTE this is the reason for the impurity
     username = builtins.getEnv "USER";
     homeDirectory = /. + (builtins.getEnv "HOME");
     stateVersion = "24.05";
