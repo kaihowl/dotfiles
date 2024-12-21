@@ -57,11 +57,10 @@ minimal-packages = with pkgs; [
       python-lsp-server-with-plugins
       netcat
       vim-vint
-      # Needs to be at least 0.3.0 to support token by git-credentials
-      pkgs-unstable.revup
+      revup
       # support tooling
       tree jq htop
-      pkgs-unstable.ncdu
+      ncdu
       flock
     ]
     ++ (lib.optional pkgs.stdenv.isDarwin coreutils)
