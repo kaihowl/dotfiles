@@ -92,6 +92,9 @@ in
   };
 
   programs = {
+    # zsh-autocomplete requires this
+    zsh.enableCompletion = false;
+
     neovim = {
       enable = true;
       plugins= with pkgs.vimPlugins; [
