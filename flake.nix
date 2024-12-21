@@ -15,8 +15,9 @@
   };
 
   outputs = { nixpkgs, home-manager, nixpkg-unstable, nixpkgs-prev, ... }:
-    let
+    let results = let
       lib = nixpkgs.lib;
+      lic = import ./lic.nix;
       # https://github.com/NixOS/nix/issues/3978#issuecomment-1676001388
       # Do not want multiple lock files, therefore not as part of "inputs"
       gcm-flake = import ./gcm/flake.nix;
@@ -28,7 +29,7 @@
       pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; };
       pkgs-unstable = import nixpkg-unstable { inherit system; };
       pkgs-prev = import nixpkgs-prev { inherit system; };
-    in {
+    in rec {
       homeConfigurations = {
         full = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -41,5 +42,9 @@
           modules = [ ./home.nix ];
         };
       };
-    };
+
+      licenses = rec {
+        badDeps = (lic.keepBadDeps homeConfigurations.full.config.home.packages);
+      };
+    }; in assert results.licenses.badDeps == []; results;
 }
