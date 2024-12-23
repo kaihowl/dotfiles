@@ -1194,7 +1194,7 @@ vim.api.nvim_create_user_command('RevupUpload',
 
 EOF
 
-nnoremap <leader>gr :RevupAmend<cr>
+nnoremap <leader>gra :RevupAmend<cr>
 nnoremap <leader>gR :RevupUpload<cr>
 "}}}
 
