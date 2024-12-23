@@ -1,10 +1,10 @@
 .PHONY: full minimal clean closuresize-all closuresize-single print-dependencies
  
 full:
-	nix run home-manager/release-24.05 -- --impure switch --flake .#full --show-trace
+	nix run home-manager/release-24.11 -- --impure switch --flake .#full --show-trace
 
 minimal:
-	nix run home-manager/release-24.05 -- --impure switch --flake .#minimal
+	nix run home-manager/release-24.11 -- --impure switch --flake .#minimal
 
 clean:
 	nix-collect-garbage -d

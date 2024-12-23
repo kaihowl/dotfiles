@@ -88,7 +88,7 @@ in
     # NOTE this is the reason for the impurity
     username = builtins.getEnv "USER";
     homeDirectory = /. + (builtins.getEnv "HOME");
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 
   programs = {

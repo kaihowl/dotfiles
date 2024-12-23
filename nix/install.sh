@@ -14,9 +14,9 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#minimal'
+  bash -c 'nix run home-manager/release-24.11 -- --impure switch --flake .#minimal'
 else
-  bash -c 'nix run home-manager/release-24.05 -- --impure switch --flake .#full'
+  bash -c 'nix run home-manager/release-24.11 -- --impure switch --flake .#full'
 fi
 
 # Run garbage collection
