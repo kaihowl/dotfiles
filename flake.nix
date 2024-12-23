@@ -8,6 +8,7 @@
 
     nixpkgs-prev.url = "nixpkgs/nixos-24.05";
 
+    # Also update versions in nix/install.sh and Makefile
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
