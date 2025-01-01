@@ -918,6 +918,10 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+  if vim.lsp.inlay_hint then
+    vim.lsp.inlay_hint.enable(true, { 0 })
+  end
+
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -987,18 +991,9 @@ configs.efm.setup {
 }
 
 if (os.getenv('DOTFILES_PROFILE') or 'full') == 'full' then
-  require('rust-tools').setup {
-    server = {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      settings = {
-        ["rust-analyzer"] = {
-          checkOnSave = {
-            command = "clippy"
-          }
-        }
-      }
-    }
+  configs.rust_analyzer.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 
