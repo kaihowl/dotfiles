@@ -99,7 +99,6 @@ in
       enable = true;
       plugins= with pkgs.vimPlugins; [
         nvim-lspconfig
-        rust-tools-nvim
         plenary-nvim
         kotlin-vim
         markdown-preview-nvim
