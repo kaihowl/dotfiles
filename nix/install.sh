@@ -14,13 +14,14 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  bash -c 'nix run home-manager/release-24.11 -- --impure switch --flake .#minimal'
+  bash -c 'nix run --verbose home-manager/release-24.11 -- --impure switch --flake .#minimal -v | tee /tmp/nix.log'
 else
-  bash -c 'nix run home-manager/release-24.11 -- --impure switch --flake .#full'
+  # TODO(kaihowl) remove the verbose in both invocations again
+  bash -c 'nix run --verbose home-manager/release-24.11 -- --impure switch --flake .#full -v | tee /tmp/nix.log'
 fi
 
 # Run garbage collection
-nix-collect-garbage --delete-older-than 30d
+# nix-collect-garbage --delete-older-than 30d
 
 closure_size=$(nix path-info -S ~/.nix-profile/ | awk '{print $2}')
 add_measurement 'nix-closure-size' "$closure_size"
