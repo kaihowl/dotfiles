@@ -1,4 +1,4 @@
-{ lib, pkgs, pkgs-unstable, pkgs-prev, profile, ... }:
+{ lib, pkgs, pkgs-unstable, pkgs-prev, home-manager-pkg, profile, ... }:
 let
   # Use the existing python-lsp-server and extend its runtime environment
   python-lsp-server-with-plugins = pkgs.stdenvNoCC.mkDerivation rec {
@@ -36,6 +36,9 @@ let
     '';
 };
 minimal-packages = with pkgs; [
+      # Yes, we want home-manager to be installing itself such that it does not get garbage collected
+      home-manager-pkg
+
       universal-ctags
       efm-langserver
       fzf

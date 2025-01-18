@@ -30,20 +30,33 @@
       pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; };
       pkgs-unstable = import nixpkg-unstable { inherit system; };
       pkgs-prev = import nixpkgs-prev { inherit system; };
+      home-manager-pkg = home-manager.defaultPackage.${system};
     in rec {
       apps.${system}.home-manager = {
         type = "app";
-        program = "${home-manager.packages.${system}.home-manager}/bin/home-manager";
+        program = "${home-manager-pkg}/bin/home-manager";
       };
       homeConfigurations = {
         full = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {inherit pkgs-unstable; inherit pkgs-prev; profile="full";};
+          extraSpecialArgs = {
+            inherit pkgs-unstable;
+            inherit pkgs-prev;
+            inherit home-manager-pkg;
+            profile="full";
+          };
+
           modules = [ ./home.nix ];
         };
         minimal = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {inherit pkgs-unstable; inherit pkgs-prev; profile="minimal";};
+          extraSpecialArgs = {
+            inherit pkgs-unstable;
+            inherit pkgs-prev;
+            inherit home-manager-pkg;
+            profile="minimal";
+          };
+
           modules = [ ./home.nix ];
         };
       };
