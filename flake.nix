@@ -31,6 +31,10 @@
       pkgs-unstable = import nixpkg-unstable { inherit system; };
       pkgs-prev = import nixpkgs-prev { inherit system; };
     in rec {
+      apps.${system}.home-manager = {
+        type = "app";
+        program = "${home-manager.packages.${system}.home-manager}/bin/home-manager";
+      };
       homeConfigurations = {
         full = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
