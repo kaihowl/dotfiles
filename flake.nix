@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
 
-    nixpkg-unstable.url = "nixpkgs/nixos-unstable";
-
     nixpkgs-prev.url = "nixpkgs/nixos-24.05";
 
     # Also update versions in nix/install.sh and Makefile
@@ -15,7 +13,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixpkg-unstable, nixpkgs-prev, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-prev, ... }:
     let
       lib = nixpkgs.lib;
       lic = import ./lic.nix;
@@ -28,7 +26,6 @@
       };
       system = builtins.currentSystem;
       pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; };
-      pkgs-unstable = import nixpkg-unstable { inherit system; };
       pkgs-prev = import nixpkgs-prev { inherit system; };
       home-manager-pkg = home-manager.defaultPackage.${system};
     in rec {
@@ -40,7 +37,6 @@
         full = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit pkgs-unstable;
             inherit pkgs-prev;
             inherit home-manager-pkg;
             profile="full";
@@ -51,7 +47,6 @@
         minimal = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit pkgs-unstable;
             inherit pkgs-prev;
             inherit home-manager-pkg;
             profile="minimal";
