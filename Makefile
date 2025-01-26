@@ -1,10 +1,11 @@
 .PHONY: full minimal clean closuresize-all closuresize-single print-dependencies
  
 full:
-	nix run home-manager/release-24.11 -- --impure switch --flake .#full --show-trace
+	# TODO(kaihowl) twice impure
+	nix run --impure .#home-manager -- --impure switch --flake .#full
 
 minimal:
-	nix run home-manager/release-24.11 -- --impure switch --flake .#minimal
+	nix run --impure .#home-manager -- --impure switch --flake .#minimal
 
 clean:
 	nix-collect-garbage -d

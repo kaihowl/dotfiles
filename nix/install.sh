@@ -14,10 +14,10 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  bash -c 'nix run --verbose home-manager/release-24.11 -- --impure switch --flake .#minimal -v | tee /tmp/nix.log'
+  # TODO(kaihowl) twice impure
+  bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#minimal'
 else
-  # TODO(kaihowl) remove the verbose in both invocations again
-  bash -c 'nix run --verbose home-manager/release-24.11 -- --impure switch --flake .#full -v | tee /tmp/nix.log'
+  bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#full'
 fi
 
 # Run garbage collection
