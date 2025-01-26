@@ -20,8 +20,11 @@ else
   bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#full'
 fi
 
+# Create / update GC root
+nix develop --impure --profile ~/.nix-dotfiles-gc-root --command bash -c 'exit'
+
 # Run garbage collection
-# nix-collect-garbage --delete-older-than 30d
+nix-collect-garbage --delete-older-than 30d
 
 closure_size=$(nix path-info -S ~/.nix-profile/ | awk '{print $2}')
 add_measurement 'nix-closure-size' "$closure_size"
