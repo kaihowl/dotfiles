@@ -7,6 +7,9 @@ full:
 minimal:
 	nix run --impure .#home-manager -- --impure switch --flake .#minimal
 
+checklicenses:
+	nix flake check --impure 
+
 clean:
 	nix-collect-garbage -d
 

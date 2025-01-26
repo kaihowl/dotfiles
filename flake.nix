@@ -16,7 +16,7 @@
   };
 
   outputs = { nixpkgs, home-manager, nixpkg-unstable, nixpkgs-prev, ... }:
-    let results = let
+    let
       lib = nixpkgs.lib;
       lic = import ./lic.nix;
       # https://github.com/NixOS/nix/issues/3978#issuecomment-1676001388
@@ -51,5 +51,7 @@
       licenses = rec {
         badDeps = (lic.keepBadDeps homeConfigurations.full.config.home.packages);
       };
-    }; in assert results.licenses.badDeps == []; results;
+
+      checks.${system}.licenses =  assert licenses.badDeps == []; pkgs.runCommand "nop" {} "mkdir $out/";
+    };
 }

@@ -35,3 +35,6 @@ if [[ $failed_tests -ne 0 ]]; then
     echo "FOUND ${failed_tests} FAILED TESTS"
     exit 1
 fi
+
+# check nix licenses
+nix flake check --impure 
