@@ -1,4 +1,4 @@
-{ lib, pkgs, pkgs-unstable, pkgs-prev, home-manager-pkg, profile, ... }:
+{ lib, pkgs, pkgs-prev, home-manager-pkg, profile, ... }:
 let
   # Use the existing python-lsp-server and extend its runtime environment
   python-lsp-server-with-plugins = pkgs.stdenvNoCC.mkDerivation rec {
