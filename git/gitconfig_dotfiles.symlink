@@ -44,6 +44,7 @@
   allowSubmit = master
 [fetch]
   prune = true
+  pruneTags = true
 [gpg]
 	format = ssh
 [gpg.ssh]
