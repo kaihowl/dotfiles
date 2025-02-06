@@ -4,7 +4,7 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias ga='git add'
 alias gcp='git cherry-pick'
-alias gf='git fetch'
+alias gf='git fetch -ftp'
 alias gp='git push'
 alias gpr='git pull --rebase'
 alias gd='git diff'
