@@ -40,6 +40,7 @@ ssh -O exit "$target_spec"
 ssh -tA "$target_spec" "/bin/true"
 rsync ~/./.gitconfig_credentials "$target_spec:~/.gitconfig_credentials"
 rsync ~/./.color/current "$target_spec:~/.color/current" --rsync-path "mkdir -p ~/.color && rsync"
-ssh -tA "$target_spec" "git clone '$original_url' ~/.dotfiles; cd ~/.dotfiles && DOTFILES_PROFILE=minimal ./script/bootstrap"
+# Ensure that /nix store is on persistent volume
+ssh -tA "$target_spec" "git clone '$original_url' ~/.dotfiles; cd ~/.dotfiles && bin/nix-bindmount && DOTFILES_PROFILE=minimal ./script/bootstrap"
 ssh -tA "$target_spec" "mkdir -p /etc/ssh/sshd_config.d/ && echo 'StreamLocalBindUnlink yes' > /etc/ssh/sshd_config.d/localbindunlink.conf && sudo systemctl reload sshd"
 echo "Done. Final cleanup."
