@@ -13,7 +13,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-prev, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixpkgs-prev, ... }:
     let
       lib = nixpkgs.lib;
       lic = import ./lic.nix;
@@ -25,10 +25,17 @@
         inherit nixpkgs;
       };
       system = builtins.currentSystem;
-      pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; };
-      pkgs-prev = import nixpkgs-prev { inherit system; };
+      # Disable testing to prevent having nmt as part of neovim dynamically fetched but not gc-pinned
+      pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; config = {doCheck=false;};};
+      pkgs-prev = import nixpkgs-prev { inherit system; config = {doCheck=false;};};
       home-manager-pkg = home-manager.defaultPackage.${system};
+      collectFlakeInputs = input:
+        [ input ] ++ builtins.concatMap collectFlakeInputs (builtins.attrValues (input.inputs or {}));
     in rec {
+      packages.${system}.default = pkgs.buildEnv {
+        name = "gc-root";
+        paths = builtins.attrValues self.inputs;
+      };
       apps.${system}.home-manager = {
         type = "app";
         program = "${home-manager-pkg}/bin/home-manager";
@@ -61,5 +68,6 @@
       };
 
       checks.${system}.licenses =  assert licenses.badDeps == []; pkgs.runCommand "nop" {} "mkdir $out/";
+
     };
 }
