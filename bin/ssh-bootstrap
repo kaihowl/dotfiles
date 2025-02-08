@@ -18,7 +18,8 @@ SCRIPT_DIR=$(unset CDPATH; cd "$(dirname "$0")" > /dev/null; pwd -P)
 
 export GIT_DIR=${SCRIPT_DIR}/../.git
 
-if [ -z "$(git status --porcelain)" ]; then
+output=$(cd "$GIT_DIR/.." && git status --porcelain)
+if [[ -z $output ]]; then
   echo "Git directory is clean."
 else
   echo "Git directory is dirty."
