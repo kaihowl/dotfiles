@@ -1,0 +1,12 @@
+# For bash, when interactive shell, then replace by nix-zsh
+# Optionally, if there is a user-local ~/.nix folder, restore the bind mount
+
+if [[ $- == *i* ]]; then
+  if [[ -d ~/.nix ]]; then
+    if ! [[ -d /nix ]]; then
+      $bindmount
+    fi
+  fi
+
+  ${nixzsh} --version >/dev/null && SHELL=${nixzsh} exec ${nixzsh};
+fi

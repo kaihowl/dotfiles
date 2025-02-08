@@ -32,7 +32,8 @@ source "$SCRIPT_DIR/../common/utilities.sh"
 nixzsh=$(which zsh)
 
 touch ~/.bash_profile
-sed_replace_in_file ~/.bash_profile "# fail-safe exec" "${nixzsh} --version >/dev/null && SHELL=${nixzsh} exec ${nixzsh} # fail-safe exec"
+# Only run if interactive shell
+sed_replace_in_file ~/.bash_profile "# fail-safe exec" "nixzsh=$nixzsh bindmount=$SCRIPT_DIR/../bin/nix-bindmount source $SCRIPT_DIR/start-zsh # fail-safe exec"
 
 touch ~/.zprofile
 sed_replace_in_file ~/.zprofile "# fail-safe exec" "[[ \$SHELL != $nixzsh ]] && ${nixzsh} --version >/dev/null && SHELL=${nixzsh} exec ${nixzsh} # fail-safe exec"
