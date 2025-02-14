@@ -266,8 +266,8 @@ function Test_MultipleSelection()
   call assert_notequal(first_bufnr, second_bufnr, 'Expected two distinct buffers in quickfix list')
 
   let first_text = qf_list[0].text
-  call assert_true(qf_list[0].text =~# 'second commit', 'first item should represent second commit')
-  call assert_true(qf_list[1].text =~# 'first commit', 'second item should represent first commit')
+  call assert_true(qf_list[0].text =~# '.*second commit.*', 'first item should represent second commit')
+  call assert_true(qf_list[1].text =~# '.*first commit.*', 'second item should represent first commit')
 endfunction
 
 function CheckSingleCommitPreview(id)
