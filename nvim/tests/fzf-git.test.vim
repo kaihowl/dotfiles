@@ -668,7 +668,9 @@ endfunction
 function Check_NoSortStep2(id)
   call WaitForScreenContent('commit.*/')  " 'commit' entered on prompt
 
-  let correct_order = search('.*commit title.*\n.*commit title with a longer word', 'w')
+  " Cannot assert full word as screen size is limited to less than 60 chars in
+  " headless test
+  let correct_order = search('.*commit title.*\n.*commit title w.*', 'w')
   call assert_notequal(0, correct_order, 'order of commits incorrect')
 
   call nvim_input('<esc>')
