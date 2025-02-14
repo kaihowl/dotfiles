@@ -434,7 +434,7 @@ function CheckTestFileNameWithLeadingDash(id)
   call nvim_input('<esc>')
 endfunction
 
-function NoTest_FileNameWithLeadingDash()
+function Test_FileNameWithLeadingDash()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
