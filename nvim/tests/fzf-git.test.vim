@@ -724,7 +724,7 @@ function Test()
     endtry
   endfor
 
-  " call CleanUpDirs()
+  call CleanUpDirs()
 
   if len(v:errors) != 0
     for error in v:errors
