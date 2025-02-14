@@ -587,7 +587,7 @@ endfunction
 " the commit hash with "y ctrl-g" leaves the special hashes unresolved.
 " Moreover, "0" references the staging area, which by design has no hash
 " associated.
-function NoTest_SpecialCommit()
+function Test_SpecialCommit()
   call CdTestDir()
 
   call RunSystemCommand(['git', 'init'])
