@@ -229,6 +229,7 @@ let g:fzf_history_dir = expand('~/.local/share/fzf-history')
 
 lua <<EOF
 
+-- TODO(kaihowl) where does the second separator come from?
 local separator = ' '
 function commit_and_path()
   local fugitive_path = vim.fn.FugitiveFind()
@@ -259,7 +260,7 @@ function make_git_log_command(commit, path, line_range)
   local opts = {
     'log',
     '--color',
-    '--pretty=tformat:%C(yellow)%h%Creset' .. separator .. '%C(green)(%cr)%Creset %s %C(blue)<%an>%Creset',
+    '--pretty=tformat:%C(yellow)%h%Creset' .. separator .. '%C(green)(%cr)%C(yellow)%-d%Creset %s %C(blue)<%an>%Creset',
     commit
   }
 
@@ -287,13 +288,14 @@ end
 local sel_to_qf = function(selected, _opts)
   local qf_list = {}
   for _, selection in ipairs(selected) do
-    local file, commit, text_offset = string.match(selection, "^([^" .. separator .. "]*)" .. separator .. "(%x+)" .. separator .. "()%(")
+    local everything_but_the_separator = '([^' .. separator .. ']+)'
+    local file, commit, text = string.match(selection, '^' .. everything_but_the_separator .. separator .. everything_but_the_separator .. separator .. '(.+)$')
     local fugitive_path = vim.fn.FugitiveFind(commit .. ':' .. file)
     table.insert(qf_list, {
       filename = fugitive_path,
       lnum = 1,
       col = 1,
-      text = string.sub(selection, text_offset)
+      text = text,
     })
   end
   return qf_list
