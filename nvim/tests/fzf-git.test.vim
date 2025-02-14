@@ -668,7 +668,7 @@ endfunction
 function Check_NoSortStep2(id)
   call WaitForScreenContent('commit.*/')  " 'commit' entered on prompt
 
-  let correct_order = search('commit title.*\n.*commit title with a longer word', 'w')
+  let correct_order = search('.*commit title.*\n.*commit title with a longer word', 'w')
   call assert_notequal(0, correct_order, 'order of commits incorrect')
 
   call nvim_input('<esc>')
