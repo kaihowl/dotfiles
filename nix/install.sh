@@ -4,7 +4,9 @@ set -e
 cd "$(dirname "$0")"/..
 source common/perf_stubs.sh
 
-if ! [ -f /nix/var/nix/profiles/default/bin/nix ]; then
+set -x
+
+if ! [ -S /nix/var/nix/daemon-socket/socket ] || ! (echo "" | nc -U /nix/var/nix/daemon-socket/socket); then
   curl -L https://nixos.org/nix/install | sh -s -- --daemon
 fi
 
