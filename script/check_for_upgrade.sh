@@ -30,8 +30,10 @@ fi
 
 #[ -f ~/.profile ] && source ~/.profile
 
-if [ -f ~/.dots-update ]
-then
+if [[ $DOTFILES_PROFILE == minimal ]]; then
+  # do nothing
+  echo pass > /dev/null
+elif [ -f ~/.dots-update ]; then
   # shellcheck disable=SC1090
   . ~/.dots-update
 
