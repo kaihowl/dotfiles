@@ -973,7 +973,21 @@ if (os.getenv('DOTFILES_PROFILE') or 'full') == 'full' then
   }
 end
 
-configs.pylsp.setup{on_attach=on_attach, capabilities=capabilities}
+configs.pylsp.setup{
+  on_attach=on_attach,
+  capabilities=capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = { maxLineLength = 120 },  -- For pycodestyle (used by Flake8)
+        flake8 = { maxLineLength = 120 },      -- If using Flake8
+        yapf = { args = { "--style", "{based_on_style: pep8, column_limit: 120}" } },  -- For YAPF formatter
+        black = { line_length = 120 },         -- If using Black
+        ruff = { lineLength = 120 },           -- If using Ruff
+      }
+    }
+  }
+}
 
 configs.efm.setup {
     -- Fallback to cwd in case of hitting a fugitive buffer
