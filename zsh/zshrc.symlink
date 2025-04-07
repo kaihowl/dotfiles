@@ -96,6 +96,7 @@ do
 done
 
 unset config_files
+echo "TODO(kaihowl) PATH FROM ZSHRC: $PATH"
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
