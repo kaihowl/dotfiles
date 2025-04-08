@@ -3,6 +3,9 @@
 # Get the canonical (A) parent directory (:h:h) of this source file (%)
 export DOTS=${${(%):-%x}:A:h:h}
 
+old_path="$PATH"
+trap 'if [[ "$PATH" != "$old_path" ]]; then echo "PATH changed: $PATH, was $old_path"; old_path="$PATH"; fi' DEBUG
+
 # Ensure running in tmux
 if [ ! -v TMUX ]; then
   if tmux new-session -s "$(hostname -f)_dev.$$"; then
