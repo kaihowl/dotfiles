@@ -4,7 +4,7 @@
 export DOTS=${${(%):-%x}:A:h:h}
 
 old_path="$PATH"
-trap 'if [[ "$PATH" != "$old_path" ]]; then echo "PATH changed: $PATH, was $old_path"; old_path="$PATH"; fi' DEBUG
+trap 'if [[ "$PATH" != "$old_path" ]]; then echo "TODO(kaihowl) PATH changed: $PATH, was $old_path"; old_path="$PATH"; fi' DEBUG
 
 # Ensure running in tmux
 if [ ! -v TMUX ]; then
@@ -100,6 +100,11 @@ done
 
 unset config_files
 echo "TODO(kaihowl) PATH FROM ZSHRC: $PATH"
+
+# hard fix
+export PATH=/Users/runner/.nix-profile/bin:$PATH
+
+echo "TODO(kaihowl) path after hard fix: $PATH"
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
