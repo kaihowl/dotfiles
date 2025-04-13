@@ -101,10 +101,7 @@ done
 unset config_files
 echo "TODO(kaihowl) PATH FROM ZSHRC: $PATH"
 
-# hard fix
-export PATH=/Users/runner/.nix-profile/bin:$PATH
-
-echo "TODO(kaihowl) path after hard fix: $PATH"
+echo "TODO(kaihowl) path after hard fix disabled: $PATH"
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
