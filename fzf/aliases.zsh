@@ -118,3 +118,8 @@ fzf-xo-widget() {
 
 zle -N fzf-xo-widget
 bindkey '^x^o' fzf-xo-widget
+
+# Bind ctrl-p same as ctrl-r
+bindkey -M emacs '^P' fzf-history-widget
+bindkey -M vicmd '^P' fzf-history-widget
+bindkey -M viins '^P' fzf-history-widget
