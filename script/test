@@ -25,7 +25,7 @@ fi
 failed_tests=0
 for t in "${tests[@]}"; do
   printf "Running \e[32m%s\e[0m\n" "${t}"
-  if ! timeout 60s zsh -i -l "${t}"; then
+  if ! timeout 60s zsh -i "${t}"; then
       echo "ERROR: TEST ${t} FAILED"
       ((failed_tests+=1))
   fi
