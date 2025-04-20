@@ -3,3 +3,5 @@
 0./nix/install.sh1745149601.66190281.0os=ubuntu-22.04-minimal
 
 0./git/install.sh1745149601.68271660.0os=ubuntu-22.04-minimal
+
+0./colors/install.sh1745149601.7068650.0os=ubuntu-22.04-minimal
