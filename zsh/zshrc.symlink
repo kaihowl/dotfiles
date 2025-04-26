@@ -60,6 +60,8 @@ fi
 
 # Emacs keybindings
 bindkey -e
+# But keep a working delete nonetheless
+bindkey "\e[3~" delete-char
 
 # all of our zsh files
 typeset -U config_files
