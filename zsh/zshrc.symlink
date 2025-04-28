@@ -3,6 +3,10 @@
 # Get the canonical (A) parent directory (:h:h) of this source file (%)
 export DOTS=${${(%):-%x}:A:h:h}
 
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # Ensure running in tmux
 if [ ! -v TMUX ]; then
   if tmux new-session -s "$(hostname -f)_dev.$$"; then
@@ -19,10 +23,6 @@ if [ ! -v TMUX ]; then
 fi
 
 fpath=($DOTS/zsh $fpath)
-
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
 
 autoload -U start-ssh-and-add-identity
 start-ssh-and-add-identity
