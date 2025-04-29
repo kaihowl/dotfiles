@@ -8,18 +8,8 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 # Ensure running in tmux
-if [ ! -v TMUX ]; then
-  if tmux new-session -s "$(hostname -f)_dev.$$"; then
-    # This returns on exit from the spawned session only
-      case $(ps -o comm= -p "$PPID") in
-          sshd|*/sshd)
-            if [[ -n $GCM_SOCKET ]]; then
-              rm -f "$GCM_SOCKET"
-            fi
-            ;;
-      esac
-    exit
-  fi
+if [[ ! -v TMUX ]] && [[ -z $CI ]]; then
+  tmux new-session -s "$(hostname -f)_dev.$$"
 fi
 
 fpath=($DOTS/zsh $fpath)

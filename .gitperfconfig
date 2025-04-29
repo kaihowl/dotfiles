@@ -1,1 +1,1 @@
-measurement = { ci = { epoch = "37c4b755" } , zsh = { epoch = "5b40ee17" } , nix-closure-size = { epoch = "43a71669" } , nvim = { epoch = "8eb29feb" } }
+measurement = { ci = { epoch = "37c4b755" } , zsh = { epoch = "ff915a91" } , nix-closure-size = { epoch = "564a6ddc" } , nvim = { epoch = "8eb29feb" } }

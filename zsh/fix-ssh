@@ -1,6 +1,0 @@
-# Loaned from https://stackoverflow.com/a/34683596
-# Needed to restore a resumed tmux session
-function fix-ssh() {
-  # shellcheck disable=SC2046
-  eval $(tmux show-env -g -s |grep -E '^SSH_|^GCM_SOCKET')
-}
