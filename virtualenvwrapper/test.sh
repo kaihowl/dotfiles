@@ -21,7 +21,7 @@ if ! mkvirtualenv --help; then
 fi
 
 echo "Check if 'workon' is available"
-if ! which workon; then
+if ! which workon > /dev/null; then
   echo "Failed to find workon";
   exit 1
 fi
