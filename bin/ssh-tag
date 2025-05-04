@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Usage: ssh-tag username@host
+
+set -euo pipefail
+
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 [ username@host | host ]"
+  exit 1
+fi
+
+INPUT=$1
+if [[ "$INPUT" == *"@"* ]]; then
+  USERNAME="${INPUT%@*}"
+  HOST="${INPUT#*@}"
+else
+  USERNAME=""
+  HOST="$INPUT"
+fi
+
+SSH_CONFIG="$HOME/.ssh/config"
+TAG="# safe-credentials-fwd ${INPUT}"
+ANCHOR_LINE="# dotfiles customization"
+
+# Ensure config file exists
+mkdir -p "$HOME/.ssh"
+touch "$SSH_CONFIG"
+
+# Check if entry already exists
+if grep -q "$TAG" "$SSH_CONFIG" && grep -q "Host ${HOST}" "$SSH_CONFIG"; then
+  echo "Entry for ${USERNAME}@${HOST} with tag already exists."
+  exit 0
+fi
+
+if [[ -n $USER ]]; then
+  USER_LINE="User ${USERNAME}"
+else
+  USER_LINE=""
+fi
+
+# Create the SSH config block
+TMP_ENTRY=$(mktemp)
+cat > "$TMP_ENTRY" <<EOF
+
+Host ${HOST}
+    HostName ${HOST}
+    ForwardAgent yes
+    IdentitiesOnly yes
+    Tag safe-credentials-fwd
+    ${USER_LINE}
+    ${TAG}
+EOF
+
+# Insert before anchor or append at end
+if grep -qF "$ANCHOR_LINE" "$SSH_CONFIG"; then
+  awk -v insert_file="$TMP_ENTRY" -v anchor="$ANCHOR_LINE" '
+    {
+      if ($0 ~ anchor && !inserted) {
+        while ((getline line < insert_file) > 0) print line
+        close(insert_file)
+        inserted = 1
+      }
+      print
+    }
+  ' "$SSH_CONFIG" > "${SSH_CONFIG}.new" && mv "${SSH_CONFIG}.new" "$SSH_CONFIG"
+else
+  cat "$TMP_ENTRY" >> "$SSH_CONFIG"
+fi
+
+rm -f "$TMP_ENTRY"
+echo "✅ Entry for ${USERNAME}@${HOST} inserted before '$ANCHOR_LINE'."
+

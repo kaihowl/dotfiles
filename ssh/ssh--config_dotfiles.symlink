@@ -1,10 +1,10 @@
-Match user root
+Match user root tagged safe-credentials-fwd
   RemoteForward /root/.gcm.socket %d/.gcm.socket
   ControlPath ~/.ssh/controlmasters/%r@%h:%p
   ControlMaster auto
   ControlPersist 10m
 
-Match !user root
+Match !user root tagged safe-credentials-fwd
   RemoteForward /home/%r/.gcm.socket %d/.gcm.socket 
   ControlPath ~/.ssh/controlmasters/%r@%h:%p
   ControlMaster auto
