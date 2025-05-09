@@ -118,3 +118,4 @@ CMakeLists.txt.user
 .nvimrc
 .root
 /build/
+/.vscode/
