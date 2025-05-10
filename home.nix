@@ -59,6 +59,7 @@ minimal-packages = with pkgs; [
       python3Packages.virtualenv
       python3Packages.virtualenvwrapper
       python-lsp-server-with-plugins
+      uv
       netcat
       vim-vint
       revup
