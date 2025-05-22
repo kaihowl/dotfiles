@@ -1,4 +1,5 @@
 .VimMakefile
+.revupconfig
 .svn
 .gitconfig
 .DS_Store
