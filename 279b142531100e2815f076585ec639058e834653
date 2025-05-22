@@ -11,3 +11,5 @@
 0./colors/install.sh1747909864.4658140.0os=ubuntu-22.04
 
 0./gdb/install.sh1747909887.565561323.0os=ubuntu-22.04
+
+0./alacritty/install.sh1747909887.57642170.0os=ubuntu-22.04
