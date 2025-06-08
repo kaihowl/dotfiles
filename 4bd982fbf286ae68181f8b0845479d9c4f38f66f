@@ -9,3 +9,5 @@
 0./osx/install.sh1749386433.5339580.0os=macos-latest
 
 0./rust/install.sh1749386434.825691.0os=macos-latest
+
+0./ssh/install.sh1749386434.8645670.0os=macos-latest
