@@ -9,3 +9,5 @@
 0./ssh/install.sh1749386317.61981680.0os=ubuntu-22.04
 
 0./colors/install.sh1749386317.64234450.0os=ubuntu-22.04
+
+0./gdb/install.sh1749386343.949905226.0os=ubuntu-22.04
