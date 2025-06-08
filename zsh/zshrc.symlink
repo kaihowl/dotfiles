@@ -7,8 +7,8 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
-# Ensure running in tmux
-if [[ ! -v TMUX ]] && [[ -z $CI ]]; then
+# Ensure running in tmux, but skip if running in Cursor, VS Code, or IntelliJ
+if [[ ! -v TMUX ]] && [[ -z $CI ]] && [[ -z $CURSOR ]] && [[ -z $VSCODE_PID ]] && [[ -z $INTELLIJ_TERMINAL ]] && [[ -z $TERM_PROGRAM ]]; then
   tmux new-session -s "$(hostname -f)_dev.$$"
 fi
 
