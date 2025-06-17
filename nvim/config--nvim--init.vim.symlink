@@ -201,6 +201,14 @@ function! OmniTopicSlug(findstart, base)
     let l:slug = substitute(l:slug, '[^a-zA-Z0-9-]', '', 'g')
     let l:slug = tolower(l:slug)
 
+    " Get the current branch name
+    let l:branch = FugitiveHead()
+
+    " If branch name is not empty, prepend it with a dash to the slug
+    if !empty(l:branch)
+      let l:slug = l:branch . '-' . l:slug
+    endif
+
     " Return the slug for completion output
     return [l:slug]
   elseif l:current_line =~# '^relative:'
