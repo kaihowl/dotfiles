@@ -11,3 +11,5 @@
 0./alacritty/install.sh1750228356.40975930.0os=ubuntu-22.04
 
 0./gdb/install.sh1750228374.10715118.0os=ubuntu-22.04
+
+0./ssh/install.sh1750228374.12698980.0os=ubuntu-22.04
