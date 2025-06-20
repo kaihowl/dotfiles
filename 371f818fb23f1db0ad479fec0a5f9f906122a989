@@ -15,3 +15,5 @@
 0./ssh/install.sh1750425212.82260180.0os=ubuntu-22.04
 
 0./rust/install.sh1750425214.8701642.0os=ubuntu-22.04
+
+0./osx/install.sh1750425214.88152740.0os=ubuntu-22.04
