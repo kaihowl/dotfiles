@@ -204,6 +204,7 @@ function! OmniTopicSlug(findstart, base)
 
     " Get the current branch name
     let l:branch = FugitiveHead()
+    
 
     " If branch name is not empty, prepend it with a dash to the slug
     if !empty(l:branch)
