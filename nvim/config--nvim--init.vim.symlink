@@ -184,6 +184,15 @@ nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 "}}}
 
 "{{{ omnifunc for revup topic
+function! s:make_slug(value_to_slug)
+  " Generate a slug from the first line
+  let l:slug = substitute(a:value_to_slug, '\s\+', '-', 'g')
+  let l:slug = substitute(l:slug, '[^a-zA-Z0-9-]', '', 'g')
+  let l:slug = tolower(l:slug)
+
+  return l:slug
+endfunction
+
 function! OmniTopicSlug(findstart, base)
   " Always handle findstart at the start of the function
   if a:findstart
@@ -193,21 +202,18 @@ function! OmniTopicSlug(findstart, base)
   " Get the current line and determine behavior based on its prefix
   let l:current_line = getline('.')
   if l:current_line =~# '^topic:'
-
     " Get the first line of the file
     let l:first_line = getline(1)
 
-    " Generate a slug from the first line
-    let l:slug = substitute(l:first_line, '\s\+', '-', 'g')
-    let l:slug = substitute(l:slug, '[^a-zA-Z0-9-]', '', 'g')
-    let l:slug = tolower(l:slug)
+    " Generate the slug using the helper function
+    let l:slug = s:make_slug(l:first_line)
 
     " Get the current branch name
     let l:branch = FugitiveHead()
 
     " If branch name is not empty, prepend it with a dash to the slug
     if !empty(l:branch)
-      let l:slug = l:branch . '-' . l:slug
+      let l:slug = s:make_slug(l:branch) . '-' . l:slug
     endif
 
     " Return the slug for completion output
