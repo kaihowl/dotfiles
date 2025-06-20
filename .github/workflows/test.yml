@@ -78,19 +78,19 @@ jobs:
           export NIX_CONFIG="access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}"
           cd .dotfiles/
           ./script/ci.sh
-      - name: Rename versions report
-        if: always()
-        run: |
-          cd .dotfiles/
-          mv versions.txt versions-${{matrix.os}}-${{matrix.profile}}.txt
-      - name: Archive version report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          include-hidden-files: true
-          name: versions-report-${{matrix.os}}-${{matrix.profile}}
-          path: .dotfiles/versions-*.txt
-          if-no-files-found: error
+      # - name: Rename versions report
+      #   if: always()
+      #   run: |
+      #     cd .dotfiles/
+      #     mv versions.txt versions-${{matrix.os}}-${{matrix.profile}}.txt
+      # - name: Archive version report
+      #   uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     include-hidden-files: true
+      #     name: versions-report-${{matrix.os}}-${{matrix.profile}}
+      #     path: .dotfiles/versions-*.txt
+      #     if-no-files-found: error
   report:
     name: git-perf
     needs: build
