@@ -7,3 +7,5 @@
 0./colors/install.sh1750426897.76472230.0os=ubuntu-22.04-minimal
 
 0./zsh/install.sh1750426897.77649380.0os=ubuntu-22.04-minimal
+
+0./ssh/install.sh1750426897.79748750.0os=ubuntu-22.04-minimal
