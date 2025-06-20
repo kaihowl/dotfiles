@@ -748,6 +748,38 @@ fun! s:commit_type()
 endfun
 "}}}
 
+"{{{ pull request template insert
+function! InsertPRTemplate()
+  let l:repo_root = exists('*FugitiveGitDir') ? FugitiveGitDir() : getcwd()
+  if !empty(l:repo_root)
+    let l:repo_root = fnamemodify(l:repo_root, ':h')
+    let l:template_path = l:repo_root . '/.github/pull_request_template.md'
+  else
+    let l:template_path = '.github/pull_request_template.md'
+  endif
+  if filereadable(l:template_path)
+    let l:template_lines = readfile(l:template_path)
+    while !empty(l:template_lines) && l:template_lines[0] =~# '^\s*$'
+      call remove(l:template_lines, 0)
+    endwhile
+    while !empty(l:template_lines) && l:template_lines[-1] =~# '^\s*$'
+      call remove(l:template_lines, -1)
+    endwhile
+    if !empty(l:template_lines)
+      call append(line('.') - 1, l:template_lines)
+      echo "PR template inserted."
+      return
+    endif
+  endif
+  echo "No PR template found."
+endfunction
+
+augroup pr_template
+  autocmd!
+  autocmd FileType gitcommit nnoremap <buffer> <leader>pt :call InsertPRTemplate()<CR>
+augroup END
+"}}}
+
 "{{{ diffopt
 " Generally enable the second stage diff added in nvim 0.9
 set diffopt+=linematch:60
