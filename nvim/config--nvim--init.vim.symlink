@@ -213,7 +213,7 @@ function! OmniTopicSlug(findstart, base)
 
     " If branch name is not empty, prepend it with a dash to the slug
     if !empty(l:branch)
-      let l:slug = s:make_slug(l:branch) . '-' . l:slug
+      let l:slug = s:make_slug(l:branch) . '_' . l:slug
     endif
 
     " Return the slug for completion output
