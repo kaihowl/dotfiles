@@ -29,6 +29,7 @@ set -g set-titles on
 set -g set-titles-string "#h/#S"
 set -g allow-rename on
 
+set -g mouse on
 
 set-option -g history-limit 10000
 
