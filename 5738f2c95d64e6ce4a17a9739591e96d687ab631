@@ -5,3 +5,5 @@
 0./git/install.sh1753012029.05137090.0os=ubuntu-22.04-minimal
 
 0./colors/install.sh1753012029.07624650.0os=ubuntu-22.04-minimal
+
+0./zsh/install.sh1753012029.08983660.0os=ubuntu-22.04-minimal
