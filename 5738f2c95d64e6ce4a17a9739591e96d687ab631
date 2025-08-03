@@ -13,3 +13,5 @@
 0./zsh/install.sh1754221678.9674330.0os=ubuntu-22.04
 
 0./colors/install.sh1754221678.98966740.0os=ubuntu-22.04
+
+0./gdb/install.sh1754221711.415181433.0os=ubuntu-22.04
