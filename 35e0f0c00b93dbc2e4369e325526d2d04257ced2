@@ -3,3 +3,5 @@
 0./nix/install.sh1754293256.1493783109.0os=ubuntu-22.04
 
 0./rust/install.sh1754293258.09918212.0os=ubuntu-22.04
+
+0./osx/install.sh1754293258.11180930.0os=ubuntu-22.04
