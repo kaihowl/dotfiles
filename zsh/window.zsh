@@ -28,6 +28,7 @@ function title() {
   # shellcheck disable=SC2317
   case $TERM in
   screen|screen-256color|tmux|tmux-256color)
+    # shellcheck disable=SC2329
     precmd () {
       local prefix
       prefix=""
@@ -36,6 +37,7 @@ function title() {
       fi
       print -Pn "\ek$prefix%21<...<%~\e\\" # screen title (in ^A")
     }
+    # shellcheck disable=SC2329
     preexec () {
       local command
       local formatted_title
