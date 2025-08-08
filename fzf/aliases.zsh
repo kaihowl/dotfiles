@@ -1,3 +1,6 @@
+# Source fzf bootstrap to ensure key-bindings are available
+source "$DOTS/fzf/bootstrap.zsh"
+
 # Source: https://github.com/junegunn/fzf/wiki/examples#git
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
 fbr() {
@@ -123,3 +126,8 @@ bindkey '^x^o' fzf-xo-widget
 bindkey -M emacs '^P' fzf-history-widget
 bindkey -M vicmd '^P' fzf-history-widget
 bindkey -M viins '^P' fzf-history-widget
+
+# Bind arrow up key to use fzf history widget
+bindkey -M emacs '^[[A' fzf-history-widget
+bindkey -M vicmd '^[[A' fzf-history-widget
+bindkey -M viins '^[[A' fzf-history-widget
