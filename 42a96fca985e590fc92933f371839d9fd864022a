@@ -15,3 +15,5 @@
 0./ssh/install.sh1755477328.25094030.0os=ubuntu-22.04
 
 0./gdb/install.sh1755477345.092875717.0os=ubuntu-22.04
+
+0./osx/install.sh1755477345.1038180.0os=ubuntu-22.04
