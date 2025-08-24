@@ -99,4 +99,4 @@ jobs:
     with:
       additional-args: '-s os'
       concurrency-token: gh-pages-${{ github.ref }}
-      audit-args: '-m report -m report-size -s os="ubuntu-22.04" -s profile="full" --min-measurements 10'
+      audit-args: '-m nvim -m zsh -m ci -m test -m nix-closure-size -s os="ubuntu-22.04" -s profile="full" --min-measurements 10'
