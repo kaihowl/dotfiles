@@ -93,8 +93,10 @@ jobs:
       #     if-no-files-found: error
   report:
     name: git-perf
-    needs: build
     if: always()
+    needs: build
     uses: kaihowl/git-perf/.github/workflows/report.yml@latest
     with:
       additional-args: '-s os'
+      concurrency-token: gh-pages-${{ github.ref }}
+      audit-args: '-m report -m report-size -s os="ubuntu-22.04" -s profile="full" --min-measurements 10'
