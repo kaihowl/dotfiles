@@ -7,3 +7,5 @@
 0./gdb/install.sh1756057740.1043740.0os=macos-latest
 
 0./osx/install.sh1756057740.2497930.0os=macos-latest
+
+0./rust/install.sh1756057742.0579922.0os=macos-latest
