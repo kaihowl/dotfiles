@@ -59,7 +59,6 @@ add_measurement ci $CI_DURATION
 publish_measurements
 
 echo auditing measurements
-local os
 if [[ $DOTFILES_PROFILE == minimal ]]; then
   os=${VERSION_RUNNER_OS}-${DOTFILES_PROFILE}
 else
