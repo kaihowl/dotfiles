@@ -58,40 +58,15 @@ add_measurement ci $CI_DURATION
 
 publish_measurements
 
-audit_failed=false
-
-echo auditing nvim
-if ! audit_measurements nvim; then
-  echo "nvim audit failed"
-  audit_failed=true
+echo auditing measurements
+if [[ $DOTFILES_PROFILE == minimal ]]; then
+  os=${VERSION_RUNNER_OS}-${DOTFILES_PROFILE}
+else
+  os=${VERSION_RUNNER_OS}
 fi
 
-echo auditing zsh
-if ! audit_measurements zsh; then
-  echo "zsh audit failed"
-  audit_failed=true
-fi
-
-echo auditing ci
-if ! audit_measurements ci; then
-  echo "ci audit failed"
-  audit_failed=true
-fi
-
-echo auditing test
-if ! audit_measurements test; then
-  echo "test audit failed"
-  audit_failed=true
-fi
-
-echo auditing nix
-if ! audit_measurements nix-closure-size; then
-  echo "nix audit failed"
-  audit_failed=true
-fi
-
-if [[ $audit_failed = true ]]; then
-  echo "at least one perf audit failed"
+if ! git perf audit -n 40 -m nvim -m zsh -m ci -m test -m nix-closure-size -s "os=$os" --min-measurements 10; then
+  echo "perf audit failed"
   exit 1
 fi
 
