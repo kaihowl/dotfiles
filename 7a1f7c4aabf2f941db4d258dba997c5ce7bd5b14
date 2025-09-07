@@ -5,3 +5,5 @@
 0./alacritty/install.sh1757245850.5505140.0os=macos-latest
 
 0./gdb/install.sh1757245850.7145270.0os=macos-latest
+
+0./osx/install.sh1757245850.8776570.0os=macos-latest
