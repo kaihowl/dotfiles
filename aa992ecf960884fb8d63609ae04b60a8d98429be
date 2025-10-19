@@ -13,3 +13,5 @@
 0./colors/install.sh1760889698.97277140.0os=ubuntu-22.04
 
 0./ssh/install.sh1760889698.9979160.0os=ubuntu-22.04
+
+0./rust/install.sh1760889700.39232951.0os=ubuntu-22.04
