@@ -120,3 +120,4 @@ CMakeLists.txt.user
 .root
 /build/
 /.vscode/
+/.claude/
