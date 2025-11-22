@@ -28,7 +28,7 @@
       # Disable testing to prevent having nmt as part of neovim dynamically fetched but not gc-pinned
       pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; config = {doCheck=false;};};
       pkgs-prev = import nixpkgs-prev { inherit system; config = {doCheck=false;};};
-      home-manager-pkg = home-manager.defaultPackage.${system};
+      home-manager-pkg = home-manager.packages.${system}.default;
       collectFlakeInputs = input:
         [ input ] ++ builtins.concatMap collectFlakeInputs (builtins.attrValues (input.inputs or {}));
     in rec {
