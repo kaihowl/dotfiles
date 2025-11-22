@@ -2,13 +2,13 @@
   description = "My home manager configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
 
-    nixpkgs-prev.url = "nixpkgs/nixos-24.05";
+    nixpkgs-prev.url = "nixpkgs/nixos-24.11";
 
     # Also update versions in nix/install.sh and Makefile
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
