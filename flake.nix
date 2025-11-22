@@ -2,13 +2,13 @@
   description = "My home manager configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
 
-    nixpkgs-prev.url = "nixpkgs/nixos-24.05";
+    nixpkgs-prev.url = "nixpkgs/nixos-24.11";
 
     # Also update versions in nix/install.sh and Makefile
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -28,7 +28,7 @@
       # Disable testing to prevent having nmt as part of neovim dynamically fetched but not gc-pinned
       pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; config = {doCheck=false;};};
       pkgs-prev = import nixpkgs-prev { inherit system; config = {doCheck=false;};};
-      home-manager-pkg = home-manager.defaultPackage.${system};
+      home-manager-pkg = home-manager.packages.${system}.default;
       collectFlakeInputs = input:
         [ input ] ++ builtins.concatMap collectFlakeInputs (builtins.attrValues (input.inputs or {}));
     in rec {

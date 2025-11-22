@@ -49,6 +49,7 @@ let
     "mit,bsd1,bsd3,gpl3Only,asl20"
     "mit,isc,bsd2,bsd3,cc-by-40"
     "ncsa"
+    "ncsa,asl20,llvm-exception"
     "openssl"
     "psfl"
     "publicDomain"
