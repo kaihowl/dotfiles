@@ -1,66 +1,64 @@
 # adapted from https://nixos.wiki/wiki/Nix_Cookbook
 
 let
+  # Individual licenses that are allowed
+  # Licenses are checked individually, so multi-licensed packages are allowed
+  # if ALL their licenses are in this list
   allowedLicenses = [
     "MIT-like"
+    "apple-psl10"
     "apple-psl20"
     "asl20"
-    "asl20,cc0"
-    "asl20,mit"
-    "asl20,vim"
     "boost"
     "bsd0"
+    "bsd1"
     "bsd2"
-    "bsd2,bsd3,apple-psl10"
-    "bsd2,bsd3,cc0,lgpl21Plus,lgpl2Plus,mit,mit0,ofl,publicDomain"
-    "bsd2,gpl2"
-    "bsd2,gpl2Plus"
-    "bsd2,gpls2"
     "bsd2Patent"
     "bsd3"
-    "bsd3,gpl2Plus"
-    "bsd3,publicDomain"
     "bsdOriginal"
+    "bsdOriginalUC"
+    "cc-by-40"
+    "cc0"
     "curl"
     "gpl2"
     "gpl2Only"
-    "gpl2Only,bsd2,lgpl21"
-    "gpl2Only,gpl2Plus,gpl3Plus,lgpl21Plus,bsd3,bsdOriginalUC,publicDomain"
-    "gpl2Only,lgpl21Only"
-    "gpl2Only,lgpl3Plus,gpl3Plus"
     "gpl2Plus"
-    "gpl2Plus,lgpl21Plus"
-    "gpl2Plus,lgpl2Plus,bsd3,mit"
     "gpl3"
     "gpl3Only"
     "gpl3Plus"
+    "gpls2"  # Possibly a typo, but kept for compatibility
     "isc"
     "lgpl21"
-    "lgpl21,bsd2"
     "lgpl21Only"
     "lgpl21Plus"
-    "lgpl21Plus,gpl2Plus"
     "lgpl2Plus"
-    "lgpl3Only,gpl2Only"
+    "lgpl3Only"
     "lgpl3Plus"
-    "lgpl3Plus,gpl2Plus,gpl3Plus"
     "libpng2"
+    "llvm-exception"
     "mit"
-    "mit,bsd1,bsd3,gpl3Only,asl20"
-    "mit,isc,bsd2,bsd3,cc-by-40"
+    "mit0"
     "ncsa"
-    "ncsa,asl20,llvm-exception"
+    "ofl"
     "openssl"
     "psfl"
     "publicDomain"
-    "publicDomain,bsdOriginal,bsd0,bsd3,gpl3,isc,openssl"
     "sleepycat"
-    "unlicense,mit"
+    "unlicense"
+    "vim"
     "zlib"
   ];
 in rec {
+  # Check if a license string (either single or comma-separated list) is allowed
+  # All individual licenses in a multi-license package must be in allowedLicenses
+  licenseAllowed = licenseStr:
+    let
+      licenses = builtins.filter builtins.isString (builtins.split "," licenseStr);
+    in
+      builtins.all (lic: builtins.elem lic allowedLicenses) licenses;
+
   # Incomplete list, customize to your policies.
-  permissiveLicense = v: let isAllowed = builtins.elem v.license allowedLicenses; in
+  permissiveLicense = v: let isAllowed = licenseAllowed v.license; in
     if !isAllowed
     then builtins.trace ("non-allowed license found: " + v.name + ", " + v.license) isAllowed
     else isAllowed;
@@ -74,14 +72,14 @@ in rec {
   keepBadDeps = ds: builtins.filter (n: !(permissiveLicense n) || n.baddeps != []) (map derivToNode (builtins.filter saneDep ds));
 
   mapLicense = d:
-    if builtins.typeOf d.meta.license == "string" 
+    if builtins.typeOf d.meta.license == "string"
     then d.meta.license
     else if builtins.typeOf d.meta.license == "list"
           # Concat licenses instead of printing MULTI
           then builtins.concatStringsSep "," (map (d: d.shortName) d.meta.license)
           else d.meta.license.shortName;
 
-  derivToNode = d: 
+  derivToNode = d:
     { license = mapLicense d;
       name = d.name;
       baddeps = keepBadDeps (builtins.filter saneDep d.buildInputs);
