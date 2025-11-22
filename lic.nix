@@ -53,7 +53,7 @@ in rec {
   # All individual licenses in a multi-license package must be in allowedLicenses
   licenseAllowed = licenseStr:
     let
-      licenses = builtins.filter (s: s != "") (builtins.split "," licenseStr);
+      licenses = builtins.filter builtins.isString (builtins.split "," licenseStr);
     in
       builtins.all (lic: builtins.elem lic allowedLicenses) licenses;
 
