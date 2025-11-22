@@ -41,6 +41,7 @@ minimal-packages = with pkgs; [
 
       universal-ctags
       efm-langserver
+      fd
       fzf
       git
       git-credential-manager
