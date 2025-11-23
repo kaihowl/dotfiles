@@ -57,11 +57,16 @@
             inherit pkgs-prev;
             inherit home-manager-pkg;
             inherit profile;
-            username = builtins.getEnv "USER";
-            homeDirectory = builtins.getEnv "HOME";
           };
 
-          modules = [ ./home.nix ];
+          modules = [
+            ./home.nix
+            # Pass username and homeDirectory from environment at runtime
+            { config, ... }: {
+              home.username = builtins.getEnv "USER";
+              home.homeDirectory = /. + (builtins.getEnv "HOME");
+            }
+          ];
         };
     in rec {
       packages = forAllSystems (system: {

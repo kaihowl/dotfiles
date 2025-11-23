@@ -1,4 +1,4 @@
-{ lib, pkgs, pkgs-prev, home-manager-pkg, profile, username, homeDirectory, ... }:
+{ lib, pkgs, pkgs-prev, home-manager-pkg, profile, ... }:
 let
   # Use the existing python-lsp-server and extend its runtime environment
   python-lsp-server-with-plugins = pkgs.stdenvNoCC.mkDerivation rec {
@@ -89,10 +89,8 @@ in
 {
   home = {
     packages = minimal-packages ++ (lib.optionals (profile == "full") full-packages);
-    # This actually needs to be your username
-    # Username and homeDirectory are now passed as parameters from flake.nix
-    inherit username;
-    homeDirectory = /. + homeDirectory;
+    # Username and homeDirectory are set via module in flake.nix
+    # They use builtins.getEnv at home-manager activation time (not flake evaluation time)
     stateVersion = "24.11";
   };
 

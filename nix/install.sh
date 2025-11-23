@@ -17,9 +17,9 @@ fi
 SYSTEM=$(nix eval --impure --expr 'builtins.currentSystem' --raw)
 
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  bash -c "nix run --impure .#home-manager -- switch --flake .#minimal-${SYSTEM}"
+  bash -c "nix run --impure .#home-manager -- --impure switch --flake .#minimal-${SYSTEM}"
 else
-  bash -c "nix run --impure .#home-manager -- switch --flake .#full-${SYSTEM}"
+  bash -c "nix run --impure .#home-manager -- --impure switch --flake .#full-${SYSTEM}"
 fi
 
 # Create / update GC root

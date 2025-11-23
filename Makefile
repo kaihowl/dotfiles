@@ -2,11 +2,11 @@
 
 full:
 	@SYSTEM=$$(nix eval --impure --expr 'builtins.currentSystem' --raw); \
-	nix run -L --log-format raw --verbose --impure .#home-manager -- switch --flake .#full-$$SYSTEM
+	nix run -L --log-format raw --verbose --impure .#home-manager -- --impure switch --flake .#full-$$SYSTEM
 
 minimal:
 	@SYSTEM=$$(nix eval --impure --expr 'builtins.currentSystem' --raw); \
-	nix run --impure .#home-manager -- switch --flake .#minimal-$$SYSTEM
+	nix run --impure .#home-manager -- --impure switch --flake .#minimal-$$SYSTEM
 
 checklicenses:
 	nix flake check --impure 
