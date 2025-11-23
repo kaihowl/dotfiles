@@ -17,61 +17,91 @@
     let
       lib = nixpkgs.lib;
       lic = import ./lic.nix;
-      # https://github.com/NixOS/nix/issues/3978#issuecomment-1676001388
-      # Do not want multiple lock files, therefore not as part of "inputs"
-      gcm-flake = import ./gcm/flake.nix;
-      gcm-helper = gcm-flake.outputs {
-        self = gcm-flake.outputs;
-        inherit nixpkgs;
-      };
-      system = builtins.currentSystem;
-      # Disable testing to prevent having nmt as part of neovim dynamically fetched but not gc-pinned
-      pkgs = import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; config = {doCheck=false;};};
-      pkgs-prev = import nixpkgs-prev { inherit system; config = {doCheck=false;};};
-      home-manager-pkg = home-manager.packages.${system}.default;
+
+      # Support multiple systems
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = f: lib.genAttrs supportedSystems (system: f system);
+
+      # Per-system package sets
+      pkgsFor = forAllSystems (system:
+        let
+          # https://github.com/NixOS/nix/issues/3978#issuecomment-1676001388
+          # Do not want multiple lock files, therefore not as part of "inputs"
+          gcm-flake = import ./gcm/flake.nix;
+          gcm-helper = gcm-flake.outputs {
+            self = gcm-flake.outputs;
+            inherit nixpkgs;
+          };
+        in
+        # Disable testing to prevent having nmt as part of neovim dynamically fetched but not gc-pinned
+        import nixpkgs { inherit system; overlays = [ gcm-helper.overlay ]; config = {doCheck=false;};}
+      );
+
+      pkgsPrevFor = forAllSystems (system:
+        import nixpkgs-prev { inherit system; config = {doCheck=false;};}
+      );
+
       collectFlakeInputs = input:
         [ input ] ++ builtins.concatMap collectFlakeInputs (builtins.attrValues (input.inputs or {}));
+
+      # Helper to create homeConfiguration for a given system
+      mkHomeConfiguration = system: profile:
+        let
+          pkgs = pkgsFor.${system};
+          pkgs-prev = pkgsPrevFor.${system};
+          home-manager-pkg = home-manager.packages.${system}.default;
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit pkgs-prev;
+            inherit home-manager-pkg;
+            inherit profile;
+            username = builtins.getEnv "USER";
+            homeDirectory = builtins.getEnv "HOME";
+          };
+
+          modules = [ ./home.nix ];
+        };
     in rec {
-      packages.${system}.default = pkgs.buildEnv {
-        name = "gc-root";
-        paths = builtins.attrValues self.inputs;
-      };
-      apps.${system}.home-manager = {
-        type = "app";
-        program = "${home-manager-pkg}/bin/home-manager";
-      };
-      homeConfigurations = {
-        full = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit pkgs-prev;
-            inherit home-manager-pkg;
-            profile="full";
-            username = builtins.getEnv "USER";
-            homeDirectory = builtins.getEnv "HOME";
-          };
-
-          modules = [ ./home.nix ];
+      packages = forAllSystems (system: {
+        default = pkgsFor.${system}.buildEnv {
+          name = "gc-root";
+          paths = builtins.attrValues self.inputs;
         };
-        minimal = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit pkgs-prev;
-            inherit home-manager-pkg;
-            profile="minimal";
-            username = builtins.getEnv "USER";
-            homeDirectory = builtins.getEnv "HOME";
-          };
+      });
 
-          modules = [ ./home.nix ];
+      apps = forAllSystems (system: {
+        home-manager = {
+          type = "app";
+          program = "${home-manager.packages.${system}.default}/bin/home-manager";
         };
+      });
+
+      homeConfigurations = builtins.listToAttrs (
+        builtins.concatMap (system: [
+          {
+            name = "full-${system}";
+            value = mkHomeConfiguration system "full";
+          }
+          {
+            name = "minimal-${system}";
+            value = mkHomeConfiguration system "minimal";
+          }
+        ]) supportedSystems
+      ) // {
+        # Backward compatibility: keep the old names using currentSystem (requires --impure)
+        full = mkHomeConfiguration builtins.currentSystem "full";
+        minimal = mkHomeConfiguration builtins.currentSystem "minimal";
       };
 
-      licenses = rec {
-        badDeps = (lic.keepBadDeps homeConfigurations.full.config.home.packages);
-      };
+      licenses = forAllSystems (system: rec {
+        badDeps = (lic.keepBadDeps homeConfigurations."full-${system}".config.home.packages);
+      });
 
-      checks.${system}.licenses =  assert licenses.badDeps == []; pkgs.runCommand "nop" {} "mkdir $out/";
+      checks = forAllSystems (system: {
+        licenses = assert licenses.${system}.badDeps == []; pkgsFor.${system}.runCommand "nop" {} "mkdir $out/";
+      });
 
     };
 }
