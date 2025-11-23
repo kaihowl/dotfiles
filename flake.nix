@@ -89,11 +89,7 @@
             value = mkHomeConfiguration system "minimal";
           }
         ]) supportedSystems
-      ) // {
-        # Backward compatibility: keep the old names using currentSystem (requires --impure)
-        full = mkHomeConfiguration builtins.currentSystem "full";
-        minimal = mkHomeConfiguration builtins.currentSystem "minimal";
-      };
+      );
 
       licenses = forAllSystems (system: rec {
         badDeps = (lic.keepBadDeps homeConfigurations."full-${system}".config.home.packages);

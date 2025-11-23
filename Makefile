@@ -1,10 +1,12 @@
 .PHONY: full minimal clean closuresize-all closuresize-single print-dependencies create-gc-root
- 
+
 full:
-	nix run -L --log-format raw --verbose --impure .#home-manager -- switch --flake .#full
+	@SYSTEM=$$(nix eval --impure --expr 'builtins.currentSystem' --raw); \
+	nix run -L --log-format raw --verbose --impure .#home-manager -- switch --flake .#full-$$SYSTEM
 
 minimal:
-	nix run --impure .#home-manager -- switch --flake .#minimal
+	@SYSTEM=$$(nix eval --impure --expr 'builtins.currentSystem' --raw); \
+	nix run --impure .#home-manager -- switch --flake .#minimal-$$SYSTEM
 
 checklicenses:
 	nix flake check --impure 

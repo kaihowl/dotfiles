@@ -13,10 +13,13 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
+# Detect system for flake configuration
+SYSTEM=$(nix eval --impure --expr 'builtins.currentSystem' --raw)
+
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  bash -c 'nix run --impure .#home-manager -- switch --flake .#minimal'
+  bash -c "nix run --impure .#home-manager -- switch --flake .#minimal-${SYSTEM}"
 else
-  bash -c 'nix run --impure .#home-manager -- switch --flake .#full'
+  bash -c "nix run --impure .#home-manager -- switch --flake .#full-${SYSTEM}"
 fi
 
 # Create / update GC root
