@@ -1,11 +1,10 @@
 .PHONY: full minimal clean closuresize-all closuresize-single print-dependencies create-gc-root
  
 full:
-	# TODO(kaihowl) twice impure
-	nix run -L --log-format raw --verbose --impure .#home-manager -- --impure switch --flake .#full
+	nix run -L --log-format raw --verbose --impure .#home-manager -- switch --flake .#full
 
 minimal:
-	nix run --impure .#home-manager -- --impure switch --flake .#minimal
+	nix run --impure .#home-manager -- switch --flake .#minimal
 
 checklicenses:
 	nix flake check --impure 

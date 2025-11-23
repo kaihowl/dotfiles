@@ -1,4 +1,4 @@
-{ lib, pkgs, pkgs-prev, home-manager-pkg, profile, ... }:
+{ lib, pkgs, pkgs-prev, home-manager-pkg, profile, username, homeDirectory, ... }:
 let
   # Use the existing python-lsp-server and extend its runtime environment
   python-lsp-server-with-plugins = pkgs.stdenvNoCC.mkDerivation rec {
@@ -90,9 +90,9 @@ in
   home = {
     packages = minimal-packages ++ (lib.optionals (profile == "full") full-packages);
     # This actually needs to be your username
-    # NOTE this is the reason for the impurity
-    username = builtins.getEnv "USER";
-    homeDirectory = /. + (builtins.getEnv "HOME");
+    # Username and homeDirectory are now passed as parameters from flake.nix
+    inherit username;
+    homeDirectory = /. + homeDirectory;
     stateVersion = "24.11";
   };
 

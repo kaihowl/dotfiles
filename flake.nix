@@ -47,6 +47,8 @@
             inherit pkgs-prev;
             inherit home-manager-pkg;
             profile="full";
+            username = builtins.getEnv "USER";
+            homeDirectory = builtins.getEnv "HOME";
           };
 
           modules = [ ./home.nix ];
@@ -57,6 +59,8 @@
             inherit pkgs-prev;
             inherit home-manager-pkg;
             profile="minimal";
+            username = builtins.getEnv "USER";
+            homeDirectory = builtins.getEnv "HOME";
           };
 
           modules = [ ./home.nix ];

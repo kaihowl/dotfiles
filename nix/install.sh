@@ -14,10 +14,9 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  # TODO(kaihowl) twice impure
-  bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#minimal'
+  bash -c 'nix run --impure .#home-manager -- switch --flake .#minimal'
 else
-  bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#full'
+  bash -c 'nix run --impure .#home-manager -- switch --flake .#full'
 fi
 
 # Create / update GC root
