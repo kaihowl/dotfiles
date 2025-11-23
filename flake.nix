@@ -45,7 +45,8 @@
         [ input ] ++ builtins.concatMap collectFlakeInputs (builtins.attrValues (input.inputs or {}));
 
       # Helper to create homeConfiguration for a given system
-      mkHomeConfiguration = system: profile:
+      # username and homeDirectory are required parameters
+      mkHomeConfiguration = system: profile: username: homeDirectory:
         let
           pkgs = pkgsFor.${system};
           pkgs-prev = pkgsPrevFor.${system};
@@ -61,10 +62,9 @@
 
           modules = [
             ./home.nix
-            # Pass username and homeDirectory from environment at runtime
-            { config, ... }: {
-              home.username = builtins.getEnv "USER";
-              home.homeDirectory = /. + (builtins.getEnv "HOME");
+            {
+              home.username = username;
+              home.homeDirectory = homeDirectory;
             }
           ];
         };
@@ -87,11 +87,13 @@
         builtins.concatMap (system: [
           {
             name = "full-${system}";
-            value = mkHomeConfiguration system "full";
+            # builtins.getEnv is evaluated lazily when this config is accessed
+            # This requires home-manager switch --impure
+            value = mkHomeConfiguration system "full" (builtins.getEnv "USER") (builtins.getEnv "HOME");
           }
           {
             name = "minimal-${system}";
-            value = mkHomeConfiguration system "minimal";
+            value = mkHomeConfiguration system "minimal" (builtins.getEnv "USER") (builtins.getEnv "HOME");
           }
         ]) supportedSystems
       );
