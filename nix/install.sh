@@ -13,8 +13,8 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
+# NOTE twice impure flag needed as I don't want to hardcode system and user name combinations
 if [[ $DOTFILES_PROFILE == minimal ]]; then
-  # TODO(kaihowl) twice impure
   bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#minimal'
 else
   bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#full'
