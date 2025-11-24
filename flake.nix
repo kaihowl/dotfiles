@@ -35,6 +35,7 @@
       packages.${system}.default = pkgs.buildEnv {
         name = "gc-root";
         paths = builtins.attrValues self.inputs;
+        ignoreCollisions = true;
       };
       apps.${system}.home-manager = {
         type = "app";
