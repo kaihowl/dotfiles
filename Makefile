@@ -1,14 +1,14 @@
 .PHONY: full minimal clean closuresize-all closuresize-single print-dependencies create-gc-root
- 
+
 full:
-	# TODO(kaihowl) twice impure
+	# NOTE twice impure flag needed as I don't want to hardcode system and user name combinations
 	nix run -L --log-format raw --verbose --impure .#home-manager -- --impure switch --flake .#full
 
 minimal:
 	nix run --impure .#home-manager -- --impure switch --flake .#minimal
 
 checklicenses:
-	nix flake check --impure 
+	nix flake check --impure
 
 clean:
 	nix-collect-garbage -d
