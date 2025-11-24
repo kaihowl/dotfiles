@@ -20,8 +20,8 @@ else
   bash -c 'nix run --impure .#home-manager -- --impure switch --flake .#full'
 fi
 
-# Create / update GC root
-nix develop --impure --profile ~/.nix-dotfiles-gc-root --command bash -c 'exit'
+# Create / update GC root to protect flake inputs from garbage collection
+nix build --impure --profile ~/.nix-dotfiles-gc-root .#default
 
 # Run garbage collection
 nix-collect-garbage --delete-older-than 30d
