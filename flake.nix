@@ -32,10 +32,9 @@
       collectFlakeInputs = input:
         [ input ] ++ builtins.concatMap collectFlakeInputs (builtins.attrValues (input.inputs or {}));
     in rec {
-      packages.${system}.default = pkgs.buildEnv {
-        name = "gc-root";
-        paths = builtins.attrValues self.inputs;
-      };
+      packages.${system}.default = pkgs.linkFarm "gc-root" (
+        lib.mapAttrsToList (name: value: { inherit name; path = value; }) self.inputs
+      );
       apps.${system}.home-manager = {
         type = "app";
         program = "${home-manager-pkg}/bin/home-manager";

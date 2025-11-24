@@ -23,4 +23,4 @@ print-dependencies:
 	nix-store --query ~/.nix-profile --graph | dot -Tpdf -o out.pdf && open out.pdf
 
 create-gc-root:
-	nix develop --impure --profile ~/.nix-dotfiles-gc-root --command bash -c 'exit'
+	nix build --impure --profile ~/.nix-dotfiles-gc-root .#default
