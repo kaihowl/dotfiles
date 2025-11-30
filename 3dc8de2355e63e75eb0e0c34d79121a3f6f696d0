@@ -3,3 +3,5 @@
 0./nix/install.sh1764503536.096246241.0os=macos-latest
 
 0./alacritty/install.sh1764503536.226790.0os=macos-latest
+
+0./gdb/install.sh1764503536.3273590.0os=macos-latest
