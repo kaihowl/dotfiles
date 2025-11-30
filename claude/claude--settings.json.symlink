@@ -2,15 +2,17 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "WebFetch(domain:github.com)",
+      "WebFetch(domain:*)",
       "Bash(cargo nextest:*)",
-      "Bash(cargo fmt)",
-      "Bash(cargo clippy)",
+      "Bash(cargo fmt:*)",
+      "Bash(cargo clippy:*)",
       "Bash(cargo build)",
+      "Bash(cargo clean:*)",
       "Bash(nix flake update:*)",
       "Bash(gh pr checks:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr create:*)",
+      "Bash(gh pr edit:*)",
       "Bash(gh run view:*)",
       "Bash(gh issue view:*)",
       "Bash(gh api:*)",
@@ -21,7 +23,10 @@
       "Bash(git rev-parse:*)",
       "Bash(git log:*)",
       "Bash(git perf:*)",
-      "Bash(make checklicenses:*)"
+      "Bash(git notes:*)",
+      "Bash(make checklicenses:*)",
+      "Bash(./scripts/generate-manpages.sh:*)",
+      "Bash(echo:*)"
     ],
     "deny": [],
     "ask": []
