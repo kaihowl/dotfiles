@@ -7,6 +7,9 @@ unbind-key C-b
 set-option -g prefix C-Space
 bind-key C-Space send-prefix
 
+# Unbind the default C-t toggle split (introduced in tmux 3.5)
+unbind-key -n C-t
+
 unbind-key j
 bind-key j select-pane -D
 
