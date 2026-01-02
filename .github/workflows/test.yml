@@ -101,8 +101,11 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 40
       - uses: kaihowl/git-perf/.github/actions/report@latest
         with:
           additional-args: '-s os'
+          depth: 40
           concurrency-token: gh-pages-${{ github.ref }}
           audit-args: '-m nvim -m zsh -m ci -m test -m nix-closure-size -s os="ubuntu-22.04" --min-measurements 10'
