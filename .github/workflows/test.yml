@@ -93,6 +93,7 @@ jobs:
       #     if-no-files-found: error
   report:
     name: git-perf
+    runs-on: ubuntu-latest
     concurrency:
       group: gh-pages-${{ github.ref }}      # One deployment per branch at a time
       cancel-in-progress: false              # Queue jobs instead of canceling
