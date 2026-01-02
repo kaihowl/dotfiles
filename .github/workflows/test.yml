@@ -57,7 +57,7 @@ jobs:
           path: '.dotfiles'
           fetch-depth: 40
       - name: Install git-perf
-        uses: kaihowl/git-perf/.github/actions/install@latest
+        uses: kaihowl/git-perf/.github/actions/install@5227948d8319288d995458ab02e5b8cd8949927a
       - run: |
           cd .dotfiles/
           git config --global user.email "git-perf@example.com"
@@ -95,7 +95,7 @@ jobs:
     name: git-perf
     if: always()
     needs: build
-    uses: kaihowl/git-perf/.github/workflows/report.yml@latest
+    uses: kaihowl/git-perf/.github/workflows/report.yml@5227948d8319288d995458ab02e5b8cd8949927a
     with:
       additional-args: '-s os'
       concurrency-token: gh-pages-${{ github.ref }}
