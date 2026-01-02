@@ -3,3 +3,5 @@
 0./nix/install.sh1767354112.660752396.0os=ubuntu-22.04
 
 0./rust/install.sh1767354114.8871652.0os=ubuntu-22.04
+
+0./gdb/install.sh1767354137.676525423.0os=ubuntu-22.04
