@@ -98,8 +98,9 @@ jobs:
       cancel-in-progress: false              # Queue jobs instead of canceling
     if: always()
     needs: build
-    uses: kaihowl/git-perf/.github/actions/report@latest
-    with:
-      additional-args: '-s os'
-      concurrency-token: gh-pages-${{ github.ref }}
-      audit-args: '-m nvim -m zsh -m ci -m test -m nix-closure-size -s os="ubuntu-22.04" --min-measurements 10'
+    steps:
+      - uses: kaihowl/git-perf/.github/actions/report@latest
+        with:
+          additional-args: '-s os'
+          concurrency-token: gh-pages-${{ github.ref }}
+          audit-args: '-m nvim -m zsh -m ci -m test -m nix-closure-size -s os="ubuntu-22.04" --min-measurements 10'
