@@ -93,9 +93,12 @@ jobs:
       #     if-no-files-found: error
   report:
     name: git-perf
+    concurrency:
+      group: gh-pages-${{ github.ref }}      # One deployment per branch at a time
+      cancel-in-progress: false              # Queue jobs instead of canceling
     if: always()
     needs: build
-    uses: kaihowl/git-perf/.github/workflows/report.yml@latest
+    uses: kaihowl/git-perf/.github/actions/report@latest
     with:
       additional-args: '-s os'
       concurrency-token: gh-pages-${{ github.ref }}
