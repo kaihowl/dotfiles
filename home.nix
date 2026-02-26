@@ -51,8 +51,7 @@ minimal-packages = with pkgs; [
       tmux
       zsh
       zsh-powerlevel10k
-      # Downgraded due to https://github.com/marlonrichert/zsh-autocomplete/issues/767
-      pkgs-prev.zsh-autocomplete
+      zsh-autocomplete
       zsh-autosuggestions
       zsh-z
       expect # Needed for testing
