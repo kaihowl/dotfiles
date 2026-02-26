@@ -13,3 +13,5 @@
 0./zsh/install.sh1772139472.96465090.0os=ubuntu-22.04
 
 0./gdb/install.sh1772139505.01917933.0os=ubuntu-22.04
+
+0./rust/install.sh1772139509.61166644.0os=ubuntu-22.04
