@@ -395,10 +395,13 @@ function buffer_commits(opts)
   local comm_path = commit_and_path()
   local commit, abs_path = unpack(comm_path)
   local workspace_root = vim.fn.FugitiveWorkTree()
-  local rel_path = require'fzf-lua'.path.relative_to(abs_path or '', workspace_root)
+
+  local rel_path = vim.fs.relpath(workspace_root, abs_path or '') or '.'
   local parsing_state = {filename = rel_path}
   local command = make_git_log_command(commit, abs_path, line_range)
   require'fzf-lua'.fzf_exec(command, {
+    -- needed to share rename parsing state between invocations
+    multiprocess = false,
     prompt = shortened_path(workspace_root, 32) .. '/',
     fn_transform = function(line)
       -- Possible lines, see https://github.com/git/git/blob/07330a41d66a2c9589b585a3a24ecdcf19994f19/diff.c#L6091-L6119
@@ -478,7 +481,7 @@ require('fzf-lua').setup{
     }
   },
   lsp = {
-    jump_to_single_result = true,
+    jump1 = true,
   },
   previewers = {
     builtin = {
@@ -951,11 +954,6 @@ let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
 
 "{{{ lsp + vsnip config
 lua <<EOF
-local configs = require('lspconfig')
--- This is grabbing into internals of lspconfig. If this breaks, this is on me.
-local util = require 'lspconfig/util'
-local root_pattern = util.root_pattern('compile_commands.json')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -1002,22 +1000,24 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Supply an invalid dir to clangd in case that no compile_commands.json can be found in the current working dir. This restores the original behavior.
 
 if (os.getenv('DOTFILES_PROFILE') or 'full') == 'full' then
-  configs.clangd.setup{root_dir=function(fname)
-      return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
+  vim.lsp.config('clangd', {
+    root_dir = function(bufnr, on_dir)
+      on_dir(vim.fs.root(vim.uv.cwd(), 'compile_commands.json') or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
     end,
-    cmd={'clangd','--completion-style=detailed', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
-    capabilities=capabilities,
-    on_attach=function(client, bufnr)
+    cmd = {'clangd', '--completion-style=detailed', '--background-index', '--compile-commands-dir=' .. (vim.fs.root(vim.uv.cwd(), 'compile_commands.json') or '')},
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
       local opts = { noremap=true, silent=true }
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gh', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
       on_attach(client, bufnr)
-    end
-  }
+    end,
+  })
+  vim.lsp.enable('clangd')
 end
 
-configs.pylsp.setup{
-  on_attach=on_attach,
-  capabilities=capabilities,
+vim.lsp.config('pylsp', {
+  on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     pylsp = {
       plugins = {
@@ -1029,30 +1029,33 @@ configs.pylsp.setup{
       }
     }
   }
-}
+})
+vim.lsp.enable('pylsp')
 
-configs.efm.setup {
-    -- Fallback to cwd in case of hitting a fugitive buffer
-    root_dir=function(fname)
-      return util.find_git_ancestor(fname) or vim.loop.cwd()
-    end,
-    settings = {
-      rootMarkers = {".git"},
-    },
-    on_attach=on_attach,
-    capabilities=capabilities,
-    init_options = {documentFormatting = true},
-    -- In order for neovim's built-in language server client to send the appropriate languageId to EFM, you must
-    -- specify filetypes in your call to setup{}. Otherwise lspconfig will launch EFM on the BufEnter instead
-    -- of the FileType autocommand, and the filetype variable used to populate the languageId will not yet be set.
-    filetypes = {'sh', 'zsh', 'vim'},
-}
+vim.lsp.config('efm', {
+  -- Fallback to cwd in case of hitting a fugitive buffer
+  root_dir = function(bufnr, on_dir)
+    on_dir(vim.fs.root(bufnr, '.git') or vim.uv.cwd())
+  end,
+  settings = {
+    rootMarkers = {".git"},
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {documentFormatting = true},
+  -- In order for neovim's built-in language server client to send the appropriate languageId to EFM, you must
+  -- specify filetypes in your call to setup{}. Otherwise lspconfig will launch EFM on the BufEnter instead
+  -- of the FileType autocommand, and the filetype variable used to populate the languageId will not yet be set.
+  filetypes = {'sh', 'zsh', 'vim'},
+})
+vim.lsp.enable('efm')
 
 if (os.getenv('DOTFILES_PROFILE') or 'full') == 'full' then
-  configs.rust_analyzer.setup{
+  vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  })
+  vim.lsp.enable('rust_analyzer')
 end
 
 -- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings

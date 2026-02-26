@@ -19,6 +19,7 @@ let
     "bsdOriginalUC"
     "cc-by-40"
     "cc0"
+    "cronyx"            # Cronyx License: BSD-like permissive from Cronyx Engineering, no copyleft
     "curl"
     "gpl2"
     "gpl2Only"
@@ -27,6 +28,13 @@ let
     "gpl3Only"
     "gpl3Plus"
     "gpls2"  # Possibly a typo, but kept for compatibility
+    "hpnd"              # Historical Permission Notice and Disclaimer (SPDX: HPND): BSD-like permissive, no copyleft
+    "hpndDifferentDisclaimer" # HPND with alternate disclaimer wording: permissive, no copyleft
+    "hpndDoc"           # HPND documentation variant (SPDX: HPND-doc): permissive, no copyleft
+    "hpndDocSell"       # HPND documentation+sell variant (SPDX: HPND-doc-sell): permissive, no copyleft
+    "hpndSellVariant"   # HPND sell variant (SPDX: HPND-sell-variant): permissive, no copyleft
+    "hyphenBulgarian"   # hyphen-bulgarian License: permissive license for Bulgarian hyphenation data
+    "icu"               # ICU License (SPDX: ICU): MIT/X11-based permissive license, no copyleft
     "isc"
     "lgpl21"
     "lgpl21Only"
@@ -37,15 +45,20 @@ let
     "libpng2"
     "llvm-exception"
     "mit"
+    "mit-modern"        # MIT-Modern-Variant (SPDX: MIT-Modern-Variant): permissive MIT variant, also known as Zsh license
     "mit0"
+    "mitOpenGroup"      # MIT Open Group variant (SPDX: MIT-open-group): permissive MIT variant, no copyleft
     "ncsa"
     "ofl"
     "openssl"
     "psfl"
     "publicDomain"
+    "sgi-b-20"          # SGI Free Software License B v2.0 (SPDX: SGI-B-2.0): permissive, attribution-only, no copyleft beyond licensed files
     "sleepycat"
+    "tekHvcLicense"     # TekHVC License: Tektronix permissive license for HVC color code in libx11, no copyleft
     "unlicense"
     "vim"
+    "x11"               # X11 License (SPDX: X11): functionally equivalent to MIT, no copyleft
     "zlib"
   ];
 in rec {
