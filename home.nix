@@ -52,7 +52,6 @@ minimal-packages = with pkgs; [
       zsh
       zsh-powerlevel10k
       zsh-autocomplete
-      zsh-autosuggestions
       zsh-z
       expect # Needed for testing
       python3
