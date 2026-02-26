@@ -15,3 +15,5 @@
 0./gdb/install.sh1772125663.780915319.0os=ubuntu-22.04
 
 0./rust/install.sh1772125665.05957372.0os=ubuntu-22.04
+
+0./alacritty/install.sh1772125665.10537080.0os=ubuntu-22.04
