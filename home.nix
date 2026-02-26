@@ -69,7 +69,7 @@ minimal-packages = with pkgs; [
       ncdu
       flock
     ]
-    ++ (lib.optionals pkgs.stdenv.isDarwin [coreutils rectangle])
+    ++ (lib.optionals pkgs.stdenv.isDarwin [coreutils rectangle maccy])
     # need up to date ssh-keygen for newer git version and signing of commits
     ++ (lib.optional pkg.stdenv.isLinux openssh)
     ;
