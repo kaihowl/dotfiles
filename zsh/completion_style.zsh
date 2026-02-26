@@ -10,9 +10,6 @@ zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character 
 zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
 zstyle ':completion:*' max-errors 3
 
-# Autocomplete settings
-zstyle ':autocomplete:*' max-delay 0.5
-
 # shift-tab reverse menu completion
 # shellcheck disable=SC2154
 if [[ -n "${terminfo[kcbt]}" ]]; then

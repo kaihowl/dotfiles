@@ -51,7 +51,6 @@ minimal-packages = with pkgs; [
       tmux
       zsh
       zsh-powerlevel10k
-      zsh-autocomplete
       zsh-autosuggestions
       zsh-z
       expect # Needed for testing
@@ -96,9 +95,6 @@ in
   };
 
   programs = {
-    # zsh-autocomplete requires this
-    zsh.enableCompletion = false;
-
     neovim = {
       enable = true;
       plugins= with pkgs.vimPlugins; [

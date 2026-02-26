@@ -82,8 +82,6 @@ if [[ "$ZSH_DISABLE_COMPFIX" == true ]]; then
   # zstyle '*:compinit' arguments -u
   autoload -U compinit
   compinit -u
-else
-  source ~/.nix-profile/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
 
 # load everything but the path and completion files
