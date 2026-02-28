@@ -177,6 +177,10 @@ augroup nolist_filtypes
   autocmd! FileType qf,git set nolist
 augroup END
 
+augroup fugitive_refresh
+  autocmd!
+  autocmd FocusGained * call FugitiveDidChange()
+augroup END
 
 " Git mapping for finding conflict markers
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
