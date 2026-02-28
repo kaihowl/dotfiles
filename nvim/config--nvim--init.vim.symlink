@@ -105,7 +105,7 @@ exe 'source ' . expand('~/.color/') . 'color.vim'
 
 augroup color
   autocmd!
-  autocmd FocusGained * exe 'source ' . expand('~/.color/') .  'color.vim'
+  autocmd FocusGained,VimResume * exe 'source ' . expand('~/.color/') .  'color.vim'
 augroup END
 "}}}
 
@@ -179,7 +179,7 @@ augroup END
 
 augroup fugitive_refresh
   autocmd!
-  autocmd FocusGained * call FugitiveDidChange()
+  autocmd FocusGained,VimResume * call FugitiveDidChange()
 augroup END
 
 " Git mapping for finding conflict markers
