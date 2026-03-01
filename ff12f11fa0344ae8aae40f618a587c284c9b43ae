@@ -11,3 +11,5 @@
 0./git/install.sh1772365754.63120130.0os=ubuntu-22.04
 
 0./zsh/install.sh1772365754.67688180.0os=ubuntu-22.04
+
+0./gdb/install.sh1772365779.226154625.0os=ubuntu-22.04
