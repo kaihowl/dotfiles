@@ -9,3 +9,5 @@
 0./rust/install.sh1782044677.86994081.0os=ubuntu-22.04
 
 0./gdb/install.sh1782044708.76074731.0os=ubuntu-22.04
+
+0./osx/install.sh1782044708.8084490.0os=ubuntu-22.04
