@@ -7,3 +7,5 @@
 0./ssh/install.sh1783253387.62653730.0os=ubuntu-22.04
 
 0./rust/install.sh1783253399.840096712.0os=ubuntu-22.04
+
+0./gdb/install.sh1783253430.429525931.0os=ubuntu-22.04
