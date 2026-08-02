@@ -3,3 +3,5 @@
 0./nix/install.sh1785674618.745404134.0os=ubuntu-22.04
 
 0./gdb/install.sh1785674633.886005215.0os=ubuntu-22.04
+
+0./zsh/install.sh1785674633.92948650.0os=ubuntu-22.04
